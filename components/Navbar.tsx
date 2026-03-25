@@ -65,7 +65,7 @@ const Navbar: React.FC = () => {
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0 flex items-center">
               <img 
-                src={theme === 'dark' ? "/logo-dark.svg?v=2" : "/logo-light.svg?v=2"} 
+                src={theme === 'dark' ? `${import.meta.env.BASE_URL}logo-dark.svg?v=2` : `${import.meta.env.BASE_URL}logo-light.svg?v=2`} 
                 alt="Dentech Digital" 
                 className="h-14 sm:h-16 w-auto transition-all duration-300"
               />

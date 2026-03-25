@@ -31,7 +31,7 @@ const DentalMarketingGraphic: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative w-full max-w-[460px] mx-auto h-full flex flex-col justify-between perspective-[1000px] z-10">
+    <div className="relative w-full max-w-[460px] mx-auto flex flex-col justify-between perspective-[1000px] z-10">
       <style>{`
         @keyframes drawPath {
           to { stroke-dashoffset: 0; }
@@ -84,9 +84,9 @@ const DentalMarketingGraphic: React.FC = () => {
           2. Change the src below to "/dentist-cutout.png"
         */}
         <img 
-          src="/dentist-cutout.png" 
+          src={`${import.meta.env.BASE_URL}dentist-cutout.png`} 
           alt="Professional Dentist" 
-          className="w-full h-full object-contain object-top scale-[1.1] origin-top drop-shadow-2xl"
+          className="w-full h-auto object-contain object-top scale-[1.1] origin-top drop-shadow-2xl"
           referrerPolicy="no-referrer"
         />
       </div>

@@ -9,7 +9,7 @@ const reasons = [
     icon: Users,
     color: 'text-blue-500',
     bg: 'bg-blue-50 dark:bg-blue-500/10',
-    cardBg: 'bg-blue-50/70 border-blue-100 dark:bg-blue-500/12 dark:border-blue-500/30 hover:bg-blue-50 dark:hover:bg-blue-500/18'
+    cardBg: 'bg-blue-50/70 border-blue-100 dark:bg-slate-900/85 dark:border-slate-700/70 hover:bg-blue-50 dark:hover:bg-slate-900'
   },
   {
     title: 'Data-Driven Results',
@@ -17,7 +17,7 @@ const reasons = [
     icon: TrendingUp,
     color: 'text-emerald-500',
     bg: 'bg-emerald-50 dark:bg-emerald-500/10',
-    cardBg: 'bg-emerald-50/70 border-emerald-100 dark:bg-emerald-500/12 dark:border-emerald-500/30 hover:bg-emerald-50 dark:hover:bg-emerald-500/18'
+    cardBg: 'bg-emerald-50/70 border-emerald-100 dark:bg-slate-900/85 dark:border-slate-700/70 hover:bg-emerald-50 dark:hover:bg-slate-900'
   },
   {
     title: 'Transparent Reporting',
@@ -25,7 +25,7 @@ const reasons = [
     icon: ShieldCheck,
     color: 'text-indigo-500',
     bg: 'bg-indigo-50 dark:bg-indigo-500/10',
-    cardBg: 'bg-indigo-50/70 border-indigo-100 dark:bg-indigo-500/12 dark:border-indigo-500/30 hover:bg-indigo-50 dark:hover:bg-indigo-500/18'
+    cardBg: 'bg-indigo-50/70 border-indigo-100 dark:bg-slate-900/85 dark:border-slate-700/70 hover:bg-indigo-50 dark:hover:bg-slate-900'
   },
   {
     title: 'Proven Framework',
@@ -33,7 +33,7 @@ const reasons = [
     icon: CheckCircle2,
     color: 'text-rose-500',
     bg: 'bg-rose-50/70 dark:bg-rose-500/10',
-    cardBg: 'bg-rose-50/70 border-rose-100 dark:bg-rose-500/12 dark:border-rose-500/30 hover:bg-rose-50 dark:hover:bg-rose-500/18'
+    cardBg: 'bg-rose-50/70 border-rose-100 dark:bg-slate-900/85 dark:border-slate-700/70 hover:bg-rose-50 dark:hover:bg-slate-900'
   },
   {
     title: 'Award-Winning Design',
@@ -41,7 +41,7 @@ const reasons = [
     icon: Award,
     color: 'text-amber-500',
     bg: 'bg-amber-50 dark:bg-amber-500/10',
-    cardBg: 'bg-amber-50/70 border-amber-100 dark:bg-amber-500/12 dark:border-amber-500/30 hover:bg-amber-50 dark:hover:bg-amber-500/18'
+    cardBg: 'bg-amber-50/70 border-amber-100 dark:bg-slate-900/85 dark:border-slate-700/70 hover:bg-amber-50 dark:hover:bg-slate-900'
   },
   {
     title: 'Rapid Execution',
@@ -49,7 +49,7 @@ const reasons = [
     icon: Clock,
     color: 'text-cyan-500',
     bg: 'bg-cyan-50 dark:bg-cyan-500/10',
-    cardBg: 'bg-cyan-50/70 border-cyan-100 dark:bg-cyan-500/12 dark:border-cyan-500/30 hover:bg-cyan-50 dark:hover:bg-cyan-500/18'
+    cardBg: 'bg-cyan-50/70 border-cyan-100 dark:bg-slate-900/85 dark:border-slate-700/70 hover:bg-cyan-50 dark:hover:bg-slate-900'
   }
 ];
 
@@ -117,7 +117,7 @@ export default function WhyChooseUs() {
                     <div className={`w-14 h-14 rounded-2xl ${reason.bg} flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500`}>
                       <reason.icon className={`w-7 h-7 ${reason.color}`} strokeWidth={1.5} />
                     </div>
-                    <span className="text-4xl font-black text-gray-100 dark:text-slate-700/50 group-hover:text-blue-50 dark:group-hover:text-blue-900/30 transition-colors duration-500">
+                    <span className="text-4xl font-black text-gray-100 dark:text-slate-700/50 group-hover:text-blue-50 dark:group-hover:text-blue-400/20 transition-colors duration-500">
                       0{index + 1}
                     </span>
                   </div>
@@ -125,7 +125,7 @@ export default function WhyChooseUs() {
                   <h3 className="text-xl font-bold text-blue-950 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
                     {reason.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm sm:text-base">
+                  <p className="text-gray-600 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
                     {reason.description}
                   </p>
                 </div>

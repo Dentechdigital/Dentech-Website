@@ -46,16 +46,12 @@ export default function SpecialOfferCTA() {
               </div>
             </div>
 
-            <div className="w-full flex items-stretch">
-              <div className="group relative w-full rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 p-3 shadow-2xl hover:shadow-[0_24px_54px_rgba(15,23,42,0.2)] transition-all duration-500">
-                <div className="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 h-full min-h-[360px]">
-                  <img
-                    src={`${import.meta.env.BASE_URL}free-offer-mockup.png`}
-                    alt="Premium dental clinic website mockup on desktop and smartphone"
-                    className="w-full h-full min-h-[360px] object-cover object-center group-hover:scale-[1.01] transition-transform duration-500"
-                  />
-                </div>
-              </div>
+            <div className="w-full flex items-center justify-center">
+              <img
+                src={`${import.meta.env.BASE_URL}free-offer-mockup.png`}
+                alt="Premium dental clinic website mockup on desktop and smartphone"
+                className="w-full max-w-[560px] h-auto object-contain drop-shadow-[0_28px_60px_rgba(15,23,42,0.26)]"
+              />
             </div>
           </div>
         </div>

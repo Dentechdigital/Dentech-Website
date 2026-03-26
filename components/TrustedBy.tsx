@@ -1,6 +1,14 @@
 import React from 'react';
 import { Smile, Waves, Sparkles, Heart, Triangle } from 'lucide-react';
 
+const cardStyles = [
+  'bg-sky-100/90 text-sky-800 border-sky-200 hover:bg-sky-200/90 dark:bg-sky-500/20 dark:text-sky-100 dark:border-sky-400/30 dark:hover:bg-sky-500/30',
+  'bg-emerald-100/90 text-emerald-800 border-emerald-200 hover:bg-emerald-200/90 dark:bg-emerald-500/20 dark:text-emerald-100 dark:border-emerald-400/30 dark:hover:bg-emerald-500/30',
+  'bg-violet-100/90 text-violet-800 border-violet-200 hover:bg-violet-200/90 dark:bg-violet-500/20 dark:text-violet-100 dark:border-violet-400/30 dark:hover:bg-violet-500/30',
+  'bg-amber-100/90 text-amber-800 border-amber-200 hover:bg-amber-200/90 dark:bg-amber-500/20 dark:text-amber-100 dark:border-amber-400/30 dark:hover:bg-amber-500/30',
+  'bg-rose-100/90 text-rose-800 border-rose-200 hover:bg-rose-200/90 dark:bg-rose-500/20 dark:text-rose-100 dark:border-rose-400/30 dark:hover:bg-rose-500/30'
+];
+
 const clients = [
   {
     name: 'The Smile Doctors',
@@ -77,7 +85,7 @@ export default function TrustedBy() {
               href={client.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/50 hover:text-white hover:scale-105 transition-all duration-300 cursor-pointer"
+              className={`px-5 py-3 rounded-2xl border backdrop-blur-sm shadow-sm hover:shadow-md hover:scale-105 transition-all duration-300 cursor-pointer ${cardStyles[index % cardStyles.length]}`}
               title={client.name}
             >
               {client.logo}

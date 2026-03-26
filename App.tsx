@@ -17,7 +17,7 @@ const App: React.FC = () => {
     <ThemeProvider defaultTheme="light" storageKey="dentech-theme">
       <HelmetProvider>
         <Router>
-          <div className="min-h-screen flex flex-col bg-[#FAFAF9] dark:bg-slate-900 transition-colors duration-300">
+          <div className="min-h-screen flex flex-col bg-[#FAFAF9] dark:bg-slate-900 transition-colors duration-300 overflow-x-hidden">
             <Navbar />
             <main className="flex-grow">
               <Routes>

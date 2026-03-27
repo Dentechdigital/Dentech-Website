@@ -19,7 +19,7 @@ const testimonials = [
   {
     name: 'Dr. Issam Abualreesh',
     clinic: 'Riverside Orthodontics',
-    image: '/testimonials/dr-issam-abulreesh.png',
+    image: '/testimonials/youssef-abuzribeh.png',
     text: 'Dentech helped us strengthen our local authority with high-quality SEO and content strategy. Their process is clear, accountable, and focused on long-term results.',
     rating: 5,
   },
@@ -33,7 +33,7 @@ const testimonials = [
   {
     name: 'Youssef Abuzribeh',
     clinic: 'DWINC / RED3 (CEO)',
-    image: '/testimonials/youssef-abuzribeh.png',
+    image: '/testimonials/dr-issam-abulreesh.png',
     text: 'In two years, Dentech helped us grow revenue by 4.5x and dominate core dental construction keywords in Ottawa without spending on ads. They redesigned our website and support content, print, and VR materials.',
     rating: 5,
   },

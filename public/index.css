@@ -1,6 +1,8 @@
 @font-face {
   font-family: "Recoleta";
-  src: url("/fonts/fonnts.com-recoleta-thin.otf") format("opentype");
+  src:
+    url("/fonts/Recoleta-Thin.woff2") format("woff2"),
+    url("/fonts/Recoleta-Thin.woff") format("woff");
   font-style: normal;
   font-weight: 100;
   font-display: swap;
@@ -8,7 +10,9 @@
 
 @font-face {
   font-family: "Recoleta";
-  src: url("/fonts/fonnts.com-recoleta-light.otf") format("opentype");
+  src:
+    url("/fonts/Recoleta-Light.woff2") format("woff2"),
+    url("/fonts/Recoleta-Light.woff") format("woff");
   font-style: normal;
   font-weight: 300;
   font-display: swap;
@@ -16,7 +20,9 @@
 
 @font-face {
   font-family: "Recoleta";
-  src: url("/fonts/fonnts.com-recoleta-regular.otf") format("opentype");
+  src:
+    url("/fonts/Recoleta-Regular.woff2") format("woff2"),
+    url("/fonts/Recoleta-Regular.woff") format("woff");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -24,7 +30,9 @@
 
 @font-face {
   font-family: "Recoleta";
-  src: url("/fonts/fonnts.com-recoleta-medium.otf") format("opentype");
+  src:
+    url("/fonts/Recoleta-Medium.woff2") format("woff2"),
+    url("/fonts/Recoleta-Medium.woff") format("woff");
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -32,7 +40,9 @@
 
 @font-face {
   font-family: "Recoleta";
-  src: url("/fonts/fonnts.com-recoleta-semibold.otf") format("opentype");
+  src:
+    url("/fonts/Recoleta-SemiBold.woff2") format("woff2"),
+    url("/fonts/Recoleta-SemiBold.woff") format("woff");
   font-style: normal;
   font-weight: 600;
   font-display: swap;
@@ -40,7 +50,9 @@
 
 @font-face {
   font-family: "Recoleta";
-  src: url("/fonts/fonnts.com-recoleta-bold.otf") format("opentype");
+  src:
+    url("/fonts/Recoleta-Bold.woff2") format("woff2"),
+    url("/fonts/Recoleta-Bold.woff") format("woff");
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -48,7 +60,9 @@
 
 @font-face {
   font-family: "Recoleta";
-  src: url("/fonts/fonnts.com-recoleta-black.otf") format("opentype");
+  src:
+    url("/fonts/Recoleta-Black.woff2") format("woff2"),
+    url("/fonts/Recoleta-Black.woff") format("woff");
   font-style: normal;
   font-weight: 900;
   font-display: swap;
@@ -56,7 +70,9 @@
 
 @font-face {
   font-family: "Recoleta Alt";
-  src: url("/fonts/fonnts.com-recoletaalt-regular.otf") format("opentype");
+  src:
+    url("/fonts/RecoletaAlt-Regular.woff2") format("woff2"),
+    url("/fonts/RecoletaAlt-Regular.woff") format("woff");
   font-style: normal;
   font-weight: 400;
   font-display: swap;

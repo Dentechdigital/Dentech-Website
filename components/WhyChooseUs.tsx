@@ -8,48 +8,42 @@ const reasons = [
     description: 'We only work with dental practices. We know the terminology, the procedures, and exactly what high-value patients are searching for.',
     icon: Users,
     color: 'text-blue-500',
-    bg: 'bg-blue-50 dark:bg-blue-500/10',
-    cardBg: 'bg-blue-50/70 border-blue-100 dark:bg-blue-500/12 dark:border-blue-500/30 hover:bg-blue-50 dark:hover:bg-blue-500/18'
+    bg: 'bg-blue-50 dark:bg-blue-500/10'
   },
   {
     title: 'Data-Driven Results',
     description: 'No guesswork. Every campaign is backed by data and optimized continuously for the lowest cost-per-acquisition and highest ROI.',
     icon: TrendingUp,
     color: 'text-emerald-500',
-    bg: 'bg-emerald-50 dark:bg-emerald-500/10',
-    cardBg: 'bg-emerald-50/70 border-emerald-100 dark:bg-emerald-500/12 dark:border-emerald-500/30 hover:bg-emerald-50 dark:hover:bg-emerald-500/18'
+    bg: 'bg-emerald-50 dark:bg-emerald-500/10'
   },
   {
     title: 'Transparent Reporting',
     description: 'Access your custom dashboard 24/7. See exactly where your budget is going, how many leads were generated, and the revenue won.',
     icon: ShieldCheck,
     color: 'text-indigo-500',
-    bg: 'bg-indigo-50 dark:bg-indigo-500/10',
-    cardBg: 'bg-indigo-50/70 border-indigo-100 dark:bg-indigo-500/12 dark:border-indigo-500/30 hover:bg-indigo-50 dark:hover:bg-indigo-500/18'
+    bg: 'bg-indigo-50 dark:bg-indigo-500/10'
   },
   {
     title: 'Proven Framework',
     description: 'We use a battle-tested marketing framework that has consistently generated thousands of new patients for our partner clinics.',
     icon: CheckCircle2,
     color: 'text-rose-500',
-    bg: 'bg-rose-50/70 dark:bg-rose-500/10',
-    cardBg: 'bg-rose-50/70 border-rose-100 dark:bg-rose-500/12 dark:border-rose-500/30 hover:bg-rose-50 dark:hover:bg-rose-500/18'
+    bg: 'bg-rose-50 dark:bg-rose-500/10'
   },
   {
     title: 'Award-Winning Design',
     description: 'Your practice deserves a premium brand. Our websites and ad creatives are designed to build immediate trust and authority.',
     icon: Award,
     color: 'text-amber-500',
-    bg: 'bg-amber-50 dark:bg-amber-500/10',
-    cardBg: 'bg-amber-50/70 border-amber-100 dark:bg-amber-500/12 dark:border-amber-500/30 hover:bg-amber-50 dark:hover:bg-amber-500/18'
+    bg: 'bg-amber-50 dark:bg-amber-500/10'
   },
   {
     title: 'Rapid Execution',
     description: 'Time is money. We launch your foundational campaigns within 14 days, getting new patient inquiries flowing faster.',
     icon: Clock,
     color: 'text-cyan-500',
-    bg: 'bg-cyan-50 dark:bg-cyan-500/10',
-    cardBg: 'bg-cyan-50/70 border-cyan-100 dark:bg-cyan-500/12 dark:border-cyan-500/30 hover:bg-cyan-50 dark:hover:bg-cyan-500/18'
+    bg: 'bg-cyan-50 dark:bg-cyan-500/10'
   }
 ];
 
@@ -110,7 +104,7 @@ export default function WhyChooseUs() {
               {reasons.map((reason, index) => (
                 <div 
                   key={index}
-                  className={`group p-8 rounded-3xl border hover:shadow-xl hover:-translate-y-1 transition-all duration-500 transform ${reason.cardBg} ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+                  className={`group p-8 rounded-3xl border border-gray-100 dark:border-slate-800 bg-[#FAFAF9] dark:bg-slate-800/50 hover:bg-white dark:hover:bg-slate-800 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
                   style={{ transitionDelay: `${index * 100}ms` }}
                 >
                   <div className="flex justify-between items-start mb-6">

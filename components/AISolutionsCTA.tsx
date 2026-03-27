@@ -14,13 +14,13 @@ export default function AISolutionsCTA() {
             <div className="max-w-3xl">
               <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-white/95">
                 <Bot className="h-3.5 w-3.5" />
-                <span>Enterprise AI Solutions</span>
+                <span>Enterprise AI Systems</span>
               </div>
               <h3 className="text-2xl md:text-3xl font-bold text-white leading-tight">
-                We also build enterprise-grade AI and automation systems for clinics.
+                Enterprise-grade AI & automation for modern clinics.
               </h3>
               <p className="mt-2 text-white/90 text-sm md:text-base leading-relaxed">
-                From AI receptionist workflows and automated review generation to smart chatbots integrated with your clinic management tools, we deliver practical business automation that scales.
+                Convert more leads, protect your reputation, and reduce admin load with AI systems that integrate with your day-to-day clinic tools—built for reliability, privacy, and performance.
               </p>
               <div className="mt-4 flex flex-wrap gap-2.5">
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1.5 text-xs font-medium text-white">
@@ -29,11 +29,11 @@ export default function AISolutionsCTA() {
                 </span>
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1.5 text-xs font-medium text-white">
                   <Star className="h-3.5 w-3.5" />
-                  Review Generator
+                  Review Engine
                 </span>
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1.5 text-xs font-medium text-white">
                   <MessageSquareText className="h-3.5 w-3.5" />
-                  Management-Tool Chatbots
+                  Integrated Chatbots
                 </span>
               </div>
             </div>
@@ -43,7 +43,7 @@ export default function AISolutionsCTA() {
                 to="/contact"
                 className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-blue-700 hover:bg-blue-50 transition-colors shadow-md"
               >
-                <span>Book an AI Strategy Call</span>
+                <span>Book a Quick AI Demo</span>
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>

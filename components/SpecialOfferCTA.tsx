@@ -56,11 +56,14 @@ export default function SpecialOfferCTA() {
           </div>
 
           <div className="relative flex min-h-[350px] items-end justify-center bg-gradient-to-b from-blue-50/70 via-blue-50/30 to-transparent px-4 pt-7 sm:px-8 sm:pt-9 lg:min-h-[430px] lg:px-10 lg:pt-12 dark:from-blue-950/30 dark:via-blue-950/10">
+            <div className="pointer-events-none absolute left-6 top-7 h-24 w-24 rounded-full border border-blue-200/70 bg-gradient-to-br from-white/80 to-blue-100/40 dark:border-blue-400/20 dark:from-slate-800/40 dark:to-blue-500/10" />
+            <div className="pointer-events-none absolute right-8 top-10 h-14 w-14 rounded-full border border-indigo-200/70 bg-indigo-100/60 dark:border-indigo-400/30 dark:bg-indigo-500/10" />
+            <div className="pointer-events-none absolute left-16 top-20 h-20 w-40 rounded-2xl border border-blue-200/70 bg-white/70 backdrop-blur-sm dark:border-blue-400/20 dark:bg-slate-800/40" />
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-blue-100/40 to-transparent dark:from-blue-950/30" />
             <img
               src="/free-offer-mockup.png"
               alt="Dental clinic website mockup on desktop and mobile"
-              className="m-0 -mb-6 block w-full max-w-[50rem] object-contain object-bottom p-0 drop-shadow-[0_24px_40px_rgba(15,23,42,0.16)] lg:-mb-8 lg:max-w-[56rem]"
+              className="relative z-10 m-0 -mb-6 block w-full max-w-[50rem] object-contain object-bottom p-0 drop-shadow-[0_24px_40px_rgba(15,23,42,0.16)] lg:-mb-8 lg:max-w-[56rem]"
             />
           </div>
         </div>

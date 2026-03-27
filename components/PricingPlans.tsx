@@ -85,6 +85,8 @@ type PackageItem = {
 };
 
 function PricingCard({ item }: { item: PackageItem }) {
+  const isMostPopular = item.badge === 'Most Popular';
+
   return (
     <div
       className={`relative overflow-hidden rounded-3xl border p-6 md:p-7 transition-all duration-300 ${
@@ -100,6 +102,11 @@ function PricingCard({ item }: { item: PackageItem }) {
             : 'bg-gradient-to-r from-slate-200 via-slate-100 to-slate-200 dark:from-slate-700 dark:via-slate-600 dark:to-slate-700'
         }`}
       />
+      {isMostPopular && (
+        <div className="absolute top-0 left-1/2 z-20 -translate-x-1/2 rounded-b-xl border border-blue-300/80 bg-gradient-to-r from-blue-600 to-indigo-600 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-white shadow-md">
+          Most Popular
+        </div>
+      )}
       <div className="pointer-events-none absolute top-0 left-0 h-24 w-24 bg-gradient-to-br from-white/35 to-transparent dark:from-white/10" />
       <div className="pointer-events-none absolute top-0 right-0 h-24 w-24 bg-gradient-to-bl from-white/30 to-transparent dark:from-white/10" />
 
@@ -108,7 +115,7 @@ function PricingCard({ item }: { item: PackageItem }) {
           <div className="mb-2 inline-flex items-center rounded-full border border-blue-200/80 bg-blue-50 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-blue-700 dark:border-blue-400/30 dark:bg-blue-500/10 dark:text-blue-200">
             {item.category}
           </div>
-          {item.badge && (
+          {item.badge && !isMostPopular && (
             <div className="mb-2 inline-flex items-center gap-1.5 rounded-full border border-blue-200/80 bg-white/80 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-blue-700 dark:border-blue-400/30 dark:bg-blue-500/10 dark:text-blue-200">
               {item.badge.includes('AI') ? <Bot className="h-3.5 w-3.5" /> : <BadgeCheck className="h-3.5 w-3.5" />}
               <span>{item.badge}</span>

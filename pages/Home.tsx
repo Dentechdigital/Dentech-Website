@@ -6,6 +6,7 @@ import WhyChooseUs from '../components/WhyChooseUs';
 import SpecialOfferCTA from '../components/SpecialOfferCTA';
 import CaseStudiesPreview from '../components/CaseStudiesPreview';
 import Testimonials from '../components/Testimonials';
+import PricingPlans from '../components/PricingPlans';
 import ContactSection from '../components/ContactSection';
 import SEO from '../components/SEO';
 
@@ -23,6 +24,7 @@ const Home: React.FC = () => {
       <SpecialOfferCTA />
       <CaseStudiesPreview />
       <Testimonials />
+      <PricingPlans />
       <ContactSection />
     </main>
   );

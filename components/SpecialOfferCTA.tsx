@@ -18,7 +18,8 @@ export default function SpecialOfferCTA() {
             </div>
 
             <h2 className="mb-5 text-3xl font-bold leading-tight text-slate-900 sm:text-4xl lg:text-5xl dark:text-white">
-              Get a Premium Practice <span className="text-blue-600 dark:text-blue-300">Website for FREE</span>
+              Get a Premium Practice Website 
+              <span className="text-blue-600 dark:text-blue-300">for FREE</span>
             </h2>
 
             <p className="mb-7 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg dark:text-slate-300">

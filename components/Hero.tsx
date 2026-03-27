@@ -67,10 +67,10 @@ const Hero: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.08fr_0.92fr] gap-16 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8 items-center">
           
           {/* LEFT COLUMN: Content */}
-          <div className="flex flex-col items-start text-left max-w-2xl mx-auto lg:mx-0 space-y-8 lg:pr-12">
+          <div className="flex flex-col items-start text-left max-w-2xl lg:max-w-none mx-auto lg:mx-0 space-y-8">
             
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 shadow-sm transition-colors duration-300">
@@ -159,8 +159,8 @@ const Hero: React.FC = () => {
           </div>
 
           {/* RIGHT COLUMN: Dashboard Visual */}
-          <div className="relative flex flex-col items-center justify-center mt-12 lg:mt-0 pt-12 pb-8 lg:py-0 w-full sm:overflow-visible">
-            <div className="scale-[0.85] sm:scale-100 origin-center w-full max-w-md mx-auto">
+          <div className="relative flex flex-col items-center lg:items-end justify-center mt-12 lg:mt-0 pt-12 pb-8 lg:py-0 w-full sm:overflow-visible">
+            <div className="scale-[0.85] sm:scale-100 origin-center w-full max-w-md lg:max-w-[500px] mx-auto lg:mx-0">
               <DentalMarketingGraphic />
             </div>
           </div>

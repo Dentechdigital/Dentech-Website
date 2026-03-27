@@ -197,7 +197,7 @@ const DentalMarketingGraphic: React.FC = () => {
       {/* Floating Elements (Independent from main card) */}
       
       {/* 1. New Patient Booked */}
-      <div className="absolute -top-16 sm:top-8 right-0 sm:-right-2 md:-right-2 lg:-right-4 scale-[0.7] sm:scale-100 origin-right bg-white/40 dark:bg-slate-800/40 backdrop-blur-[30px] p-3 pr-5 rounded-2xl shadow-[0_8px_32px_0_rgba(31,38,135,0.15)] border border-white/60 dark:border-slate-700/60 flex items-center gap-3 z-30 animate-bounce-slow">
+      <div className="absolute -top-16 sm:top-8 -right-4 sm:-right-8 md:-right-4 lg:-right-8 scale-[0.7] sm:scale-100 origin-right bg-white/40 dark:bg-slate-800/40 backdrop-blur-[30px] p-3 pr-5 rounded-2xl shadow-[0_8px_32px_0_rgba(31,38,135,0.15)] border border-white/60 dark:border-slate-700/60 flex items-center gap-3 z-30 animate-bounce-slow">
         <div className="w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-900/50 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)]">
           <Calendar className="w-5 h-5" />
         </div>
@@ -208,7 +208,7 @@ const DentalMarketingGraphic: React.FC = () => {
       </div>
 
       {/* 2. Cost Per Lead */}
-      <div className="absolute top-[35%] sm:top-[40%] right-0 sm:-right-3 md:-right-2 lg:-right-4 transform -translate-y-1/2 scale-[0.75] sm:scale-100 origin-right bg-white/40 dark:bg-slate-800/40 backdrop-blur-[30px] p-3 pr-4 rounded-2xl shadow-[0_8px_32px_0_rgba(31,38,135,0.15)] border border-white/60 dark:border-slate-700/60 flex items-center gap-3 z-30 animate-float" style={{ animationDelay: '0.5s' }}>
+      <div className="absolute top-[35%] sm:top-[40%] -right-2 sm:-right-8 md:-right-2 lg:-right-4 transform -translate-y-1/2 scale-[0.75] sm:scale-100 origin-right bg-white/40 dark:bg-slate-800/40 backdrop-blur-[30px] p-3 pr-4 rounded-2xl shadow-[0_8px_32px_0_rgba(31,38,135,0.15)] border border-white/60 dark:border-slate-700/60 flex items-center gap-3 z-30 animate-float" style={{ animationDelay: '0.5s' }}>
         <div className="w-10 h-10 rounded-full bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center text-indigo-600 dark:text-indigo-400 shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)]">
           <MessageSquare className="w-5 h-5" />
         </div>
@@ -219,7 +219,7 @@ const DentalMarketingGraphic: React.FC = () => {
       </div>
 
       {/* 3. New Patients Count */}
-      <div className="hidden sm:block absolute top-[25%] sm:top-28 left-0 sm:-left-8 md:-left-10 lg:-left-12 scale-[0.75] sm:scale-100 origin-left bg-white/40 dark:bg-slate-800/40 backdrop-blur-[30px] p-4 rounded-2xl shadow-[0_8px_32px_0_rgba(31,38,135,0.15)] border border-white/60 dark:border-slate-700/60 w-48 z-0 animate-float" style={{ animationDelay: '1s' }}>
+      <div className="hidden sm:block absolute top-[25%] sm:top-28 -left-4 sm:-left-12 md:-left-20 lg:-left-24 scale-[0.75] sm:scale-100 origin-left bg-white/40 dark:bg-slate-800/40 backdrop-blur-[30px] p-4 rounded-2xl shadow-[0_8px_32px_0_rgba(31,38,135,0.15)] border border-white/60 dark:border-slate-700/60 w-48 z-0 animate-float" style={{ animationDelay: '1s' }}>
         <div className="flex items-center gap-1.5 text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2">
           <Users className="w-3.5 h-3.5" /> New Patients
         </div>

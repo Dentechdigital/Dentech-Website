@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle2, Sparkles, Globe, Megaphone, ArrowRight } from 'lucide-react';
+import { CheckCircle2, Sparkles, Globe, Megaphone, ArrowRight, Bot, BadgeCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const websitePackages = [
@@ -23,8 +23,10 @@ const websitePackages = [
       'Advanced conversion sections',
       'Custom copy + messaging structure',
       'Performance and SEO-ready architecture',
+      'AI chatbot setup included',
     ],
     highlighted: true,
+    badge: 'Includes AI Chatbot',
   },
 ];
 
@@ -51,6 +53,7 @@ const marketingPackages = [
       'Ongoing strategic optimization',
     ],
     highlighted: true,
+    badge: 'Most Popular',
   },
   {
     name: 'Elite Marketing',
@@ -71,6 +74,7 @@ type PackageItem = {
   description: string;
   features: string[];
   highlighted?: boolean;
+  badge?: string;
 };
 
 function PricingCard({ item }: { item: PackageItem }) {
@@ -81,9 +85,15 @@ function PricingCard({ item }: { item: PackageItem }) {
           ? 'border-blue-300 bg-blue-50/70 dark:border-blue-500/40 dark:bg-blue-900/20 shadow-lg shadow-blue-900/10'
           : 'border-gray-200 bg-white/90 dark:border-slate-700 dark:bg-slate-800/70'
       }`}
-    >
+    >      
       <div className="flex items-start justify-between gap-4 mb-4">
         <div>
+          {item.badge && (
+            <div className="mb-2 inline-flex items-center gap-1.5 rounded-full border border-blue-200/80 bg-white/80 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-blue-700 dark:border-blue-400/30 dark:bg-blue-500/10 dark:text-blue-200">
+              {item.badge.includes('AI') ? <Bot className="h-3.5 w-3.5" /> : <BadgeCheck className="h-3.5 w-3.5" />}
+              <span>{item.badge}</span>
+            </div>
+          )}
           <h3 className="text-2xl font-bold text-blue-950 dark:text-white">{item.name}</h3>
           <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">{item.description}</p>
         </div>
@@ -106,7 +116,9 @@ function PricingCard({ item }: { item: PackageItem }) {
 
 export default function PricingPlans() {
   return (
-    <section className="py-24 bg-[#F5F7FB] dark:bg-slate-900 transition-colors duration-300">
+    <section className="py-24 bg-[#F5F7FB] dark:bg-slate-900 transition-colors duration-300 relative overflow-hidden">
+      <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-blue-200/40 blur-3xl dark:bg-blue-500/20" />
+      <div className="pointer-events-none absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-cyan-200/40 blur-3xl dark:bg-cyan-500/20" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-4xl mx-auto mb-10">
           <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-blue-700 dark:border-blue-500/30 dark:bg-blue-500/10 dark:text-blue-300 mb-5">
@@ -128,25 +140,29 @@ export default function PricingPlans() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
-          <div className="space-y-5">
-            <div className="flex items-center gap-2 text-blue-900 dark:text-blue-200">
+        <div className="space-y-10">
+          <div className="rounded-3xl border border-blue-100/80 bg-white/70 dark:border-slate-700 dark:bg-slate-800/50 p-5 sm:p-6">
+            <div className="flex items-center gap-2 text-blue-900 dark:text-blue-200 mb-5">
               <Globe className="w-5 h-5" />
-              <h3 className="text-2xl font-bold">Website Design</h3>
+              <h3 className="text-2xl font-bold">Website Design Packages</h3>
             </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {websitePackages.map((item) => (
               <PricingCard key={item.name} item={item} />
             ))}
+            </div>
           </div>
 
-          <div className="space-y-5">
-            <div className="flex items-center gap-2 text-blue-900 dark:text-blue-200">
+          <div className="rounded-3xl border border-blue-100/80 bg-white/70 dark:border-slate-700 dark:bg-slate-800/50 p-5 sm:p-6">
+            <div className="flex items-center gap-2 text-blue-900 dark:text-blue-200 mb-5">
               <Megaphone className="w-5 h-5" />
-              <h3 className="text-2xl font-bold">Marketing</h3>
+              <h3 className="text-2xl font-bold">Marketing Packages</h3>
             </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             {marketingPackages.map((item) => (
               <PricingCard key={item.name} item={item} />
             ))}
+            </div>
           </div>
         </div>
 

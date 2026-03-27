@@ -2,7 +2,7 @@ import React from 'react';
 import { CheckCircle2, Sparkles, ArrowRight, Bot, BadgeCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const packages = [
+const websitePackages = [
   {
     category: 'Website',
     name: 'Starter Website',
@@ -30,6 +30,9 @@ const packages = [
     highlighted: true,
     badge: 'Includes AI Chatbot',
   },
+];
+
+const marketingPackages = [
   {
     category: 'Marketing',
     name: 'Starter Marketing',
@@ -146,23 +149,33 @@ export default function PricingPlans() {
           </p>
         </div>
 
-        <div className="rounded-3xl border border-blue-100/80 bg-white/70 dark:border-slate-700 dark:bg-slate-800/50 p-5 sm:p-6">
-          <div className="mb-6 flex flex-wrap items-center justify-center gap-2">
-            <span className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-blue-700 dark:border-blue-400/30 dark:bg-blue-500/10 dark:text-blue-300">
-              Website
-            </span>
-            <span className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-blue-700 dark:border-blue-400/30 dark:bg-blue-500/10 dark:text-blue-300">
-              Marketing
-            </span>
-            <span className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-blue-700 dark:border-blue-400/30 dark:bg-blue-500/10 dark:text-blue-300">
-              Structured Plans
-            </span>
+        <div className="space-y-8">
+          <div className="rounded-3xl border border-blue-100/80 bg-white/70 dark:border-slate-700 dark:bg-slate-800/50 p-5 sm:p-6">
+            <div className="mb-5 flex items-center justify-between gap-3 flex-wrap">
+              <h3 className="text-2xl font-bold text-blue-950 dark:text-white">Website Design Packages</h3>
+              <span className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-blue-700 dark:border-blue-400/30 dark:bg-blue-500/10 dark:text-blue-300">
+                One-Time Investment
+              </span>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {websitePackages.map((item) => (
+                <PricingCard key={`${item.category}-${item.name}`} item={item} />
+              ))}
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-            {packages.map((item) => (
-              <PricingCard key={`${item.category}-${item.name}`} item={item} />
-            ))}
+          <div className="rounded-3xl border border-indigo-100/80 bg-white/70 dark:border-slate-700 dark:bg-slate-800/50 p-5 sm:p-6">
+            <div className="mb-5 flex items-center justify-between gap-3 flex-wrap">
+              <h3 className="text-2xl font-bold text-blue-950 dark:text-white">Ongoing Marketing Packages</h3>
+              <span className="inline-flex items-center rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-indigo-700 dark:border-indigo-400/30 dark:bg-indigo-500/10 dark:text-indigo-300">
+                Monthly Retainer
+              </span>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+              {marketingPackages.map((item) => (
+                <PricingCard key={`${item.category}-${item.name}`} item={item} />
+              ))}
+            </div>
           </div>
         </div>
 

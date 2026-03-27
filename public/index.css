@@ -1,3 +1,23 @@
+@font-face {
+  font-family: "Recoleta";
+  src:
+    url("/fonts/Recoleta-SemiBold.woff2") format("woff2"),
+    url("/fonts/Recoleta-SemiBold.woff") format("woff");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Recoleta";
+  src:
+    url("/fonts/Recoleta-Bold.woff2") format("woff2"),
+    url("/fonts/Recoleta-Bold.woff") format("woff");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
 /* Global base styles.
    This file is referenced by `index.html` (/index.css). It was missing after the migration. */
 

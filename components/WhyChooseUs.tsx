@@ -84,7 +84,9 @@ export default function WhyChooseUs() {
               
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-blue-950 dark:text-white mb-6 tracking-tight leading-tight">
                 Why partner <br className="hidden lg:block" />
-                with <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Dentech?</span>
+                <span className="whitespace-nowrap">
+                  with <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Dentech?</span>
+                </span>
               </h2>
               
               <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-8">

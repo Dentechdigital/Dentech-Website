@@ -28,9 +28,13 @@ export default function SpecialOfferCTA() {
               Sign a 6-month growth marketing contract and our team will design and launch a custom, high-converting website for your clinic at zero build cost.
             </p>
 
+            <div className="mb-6 inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700 dark:border-blue-400/30 dark:bg-blue-500/10 dark:text-blue-300">
+              Full Website Design Value: $3,000+
+            </div>
+
             <ul className="mb-8 grid gap-3 sm:grid-cols-2">
               {[
-                'Custom UI/UX Design (Value $5,000+)',
+                'Custom UI/UX Design',
                 'SEO-Optimized Architecture',
                 'Mobile-First & Lightning Fast',
                 'Integrated Appointment Booking',

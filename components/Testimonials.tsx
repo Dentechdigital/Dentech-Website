@@ -3,26 +3,47 @@ import { Star, Quote } from 'lucide-react';
 
 const testimonials = [
   {
-    name: 'Dr. Sarah Jenkins',
-    clinic: 'Luminara Dental',
-    image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=150',
-    text: "Dentech completely transformed our digital presence. Within 3 months of launching our new site and SEO campaign, we saw a 40% increase in high-value patient bookings. Their team actually understands dentistry.",
-    rating: 5
-  },
-  {
-    name: 'Dr. Michael Chen',
-    clinic: 'Riverside Orthodontics',
-    image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=150',
-    text: "We were burning money on Google Ads before Dentech took over. They restructured our campaigns, built dedicated landing pages, and cut our cost-per-lead in half while doubling our Invisalign starts.",
-    rating: 5
-  },
-  {
-    name: 'Dr. Emily Rodriguez',
+    name: 'Dr. Nazneen Sadikot',
     clinic: 'The Smile Doctors',
-    image: 'https://images.unsplash.com/photo-1594824436998-058b231b611c?auto=format&fit=crop&q=80&w=150',
-    text: "The transparency is what sets them apart. I log into my dashboard and see exactly how many calls and appointments came from their efforts. It's the best marketing investment we've ever made.",
-    rating: 5
-  }
+    image: '/testimonials/dr-nazneen-sadikot.png',
+    text: 'Dentech built a custom Webflow website for us and now handles our website management, SEO, AI visibility, Meta ads, social media, and content. In less than a year we generated 1300+ new bookings.',
+    rating: 5,
+  },
+  {
+    name: 'Dr. Suela Murataj',
+    clinic: 'The Smile Doctors',
+    image: '/testimonials/dr-suela-murataj.png',
+    text: 'The team execution is complete and reliable. From strategy to content and optimization, Dentech keeps our growth engine running every month and the clinic results keep improving.',
+    rating: 5,
+  },
+  {
+    name: 'Dr. Issam Abualreesh',
+    clinic: 'Riverside Orthodontics',
+    image: '/testimonials/dr-issam-abulreesh.png',
+    text: 'Dentech helped us strengthen our local authority with high-quality SEO and content strategy. Their process is clear, accountable, and focused on long-term results.',
+    rating: 5,
+  },
+  {
+    name: 'Dr. Walid Issawy',
+    clinic: 'Delta Clinique',
+    image: '/testimonials/youssef-abuzribeh.png',
+    text: 'Working with Dentech has elevated our brand presence and positioning. Their consulting and execution support made our marketing sharper and more consistent across channels.',
+    rating: 5,
+  },
+  {
+    name: 'Youssef Abuzribeh',
+    clinic: 'DWINC / RED3 (CEO)',
+    image: '/testimonials/youssef-abuzribeh.png',
+    text: 'In two years, Dentech helped us grow revenue by 4.5x and dominate core dental construction keywords in Ottawa without spending on ads. They redesigned our website and support content, print, and VR materials.',
+    rating: 5,
+  },
+  {
+    name: 'Dr. Rasha Al-Taweel',
+    clinic: 'Luminara Dental',
+    image: '/testimonials/dr-suela-murataj.png',
+    text: 'Dentech brings both creative quality and performance thinking. Their strategic guidance and follow-through helped us improve visibility, trust, and patient demand.',
+    rating: 5,
+  },
 ];
 
 export default function Testimonials() {
@@ -31,12 +52,12 @@ export default function Testimonials() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-blue-950 dark:text-white mb-6 tracking-tight">
-            Loved by dentists <br className="hidden sm:block" />
-            <span className="text-blue-600 dark:text-blue-400">across the country.</span>
+            Trusted by clinics <br className="hidden sm:block" />
+            <span className="text-blue-600 dark:text-blue-400">and growth-focused businesses.</span>
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <div 
               key={index}

@@ -43,11 +43,11 @@ export default function TrustedBy() {
         <p className="text-center text-sm font-semibold text-blue-100/80 uppercase tracking-wider mb-8 transition-colors duration-300">
           Trusted by top dental practices
         </p>
-        <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-5 md:gap-x-8">
+        <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-6 md:gap-x-10">
           {clients.map((client, index) => (
             <div
               key={index}
-              className="group flex min-w-[170px] items-center justify-center rounded-2xl border border-white/20 bg-white/90 px-4 py-3 shadow-lg shadow-blue-900/10 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl dark:border-slate-700 dark:bg-slate-900/80"
+              className="group flex min-w-[170px] items-center justify-center px-2 py-1 transition-transform duration-300 hover:-translate-y-0.5"
               title={client.name}
             >
               <img

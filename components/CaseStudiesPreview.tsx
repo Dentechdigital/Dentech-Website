@@ -64,7 +64,7 @@ export default function CaseStudiesPreview() {
                 <img 
                   src={study.image} 
                   alt={study.clinic} 
-                  className="w-full h-full object-cover object-bottom transform group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover object-bottom translate-y-5 transform group-hover:translate-y-4 group-hover:scale-105 transition-transform duration-700"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute top-4 left-4 z-20">

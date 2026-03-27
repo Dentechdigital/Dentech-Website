@@ -159,7 +159,7 @@ const Hero: React.FC = () => {
           </div>
 
           {/* RIGHT COLUMN: Dashboard Visual */}
-          <div className="relative flex flex-col items-center justify-center mt-12 lg:mt-0 pt-12 pb-8 lg:py-0 w-full max-w-[100vw] sm:overflow-visible">
+          <div className="relative flex flex-col items-center justify-center mt-12 lg:mt-0 pt-12 pb-8 lg:py-0 w-full sm:overflow-visible">
             <div className="scale-[0.85] sm:scale-100 origin-center w-full max-w-md mx-auto">
               <DentalMarketingGraphic />
             </div>

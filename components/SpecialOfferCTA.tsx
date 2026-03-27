@@ -55,12 +55,12 @@ export default function SpecialOfferCTA() {
             </div>
           </div>
 
-          <div className="relative flex min-h-[350px] items-start justify-center bg-gradient-to-b from-blue-50/70 via-blue-50/30 to-transparent px-4 pt-7 sm:px-8 sm:pt-9 lg:min-h-[430px] lg:px-10 lg:pt-12 dark:from-blue-950/30 dark:via-blue-950/10">
+          <div className="relative flex min-h-[350px] items-end justify-center bg-gradient-to-b from-blue-50/70 via-blue-50/30 to-transparent px-4 pt-7 sm:px-8 sm:pt-9 lg:min-h-[430px] lg:px-10 lg:pt-12 dark:from-blue-950/30 dark:via-blue-950/10">
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-blue-100/40 to-transparent dark:from-blue-950/30" />
             <img
               src="/free-offer-mockup.png"
               alt="Dental clinic website mockup on desktop and mobile"
-              className="m-0 block w-full max-w-[50rem] object-contain object-top p-0 drop-shadow-[0_24px_40px_rgba(15,23,42,0.16)] lg:max-w-[56rem]"
+              className="m-0 -mb-6 block w-full max-w-[50rem] object-contain object-bottom p-0 drop-shadow-[0_24px_40px_rgba(15,23,42,0.16)] lg:-mb-8 lg:max-w-[56rem]"
             />
           </div>
         </div>

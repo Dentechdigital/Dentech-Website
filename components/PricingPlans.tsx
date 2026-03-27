@@ -28,7 +28,7 @@ const websitePackages = [
       'AI chatbot setup included',
     ],
     highlighted: true,
-    badge: 'Includes AI Chatbot',
+    aiNote: 'Includes AI Chatbot',
   },
 ];
 
@@ -81,6 +81,7 @@ type PackageItem = {
   features: string[];
   highlighted?: boolean;
   badge?: string;
+  aiNote?: string;
 };
 
 function PricingCard({ item }: { item: PackageItem }) {
@@ -91,7 +92,8 @@ function PricingCard({ item }: { item: PackageItem }) {
           ? 'border-blue-300 bg-blue-50/70 dark:border-blue-500/40 dark:bg-blue-900/20 shadow-lg shadow-blue-900/10'
           : 'border-gray-200 bg-white/90 dark:border-slate-700 dark:bg-slate-800/70'
       }`}
-    >
+    >  
+      <div className={`-mx-6 -mt-6 mb-5 h-1.5 rounded-t-3xl md:-mx-7 md:-mt-7 ${item.highlighted ? 'bg-gradient-to-r from-blue-500 via-indigo-500 to-cyan-500' : 'bg-gradient-to-r from-slate-200 via-slate-100 to-slate-200 dark:from-slate-700 dark:via-slate-600 dark:to-slate-700'}`} />
       <div className="flex items-start justify-between gap-4 mb-4">
         <div>
           <div className="mb-2 inline-flex items-center rounded-full border border-blue-200/80 bg-blue-50 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-blue-700 dark:border-blue-400/30 dark:bg-blue-500/10 dark:text-blue-200">
@@ -111,6 +113,13 @@ function PricingCard({ item }: { item: PackageItem }) {
         </span>
       </div>
 
+      {item.aiNote && (
+        <div className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-cyan-200 bg-cyan-50 px-3 py-1.5 text-xs font-semibold text-cyan-800 dark:border-cyan-500/30 dark:bg-cyan-500/10 dark:text-cyan-300">
+          <Bot className="h-3.5 w-3.5" />
+          <span>{item.aiNote}</span>
+        </div>
+      )}
+
       <ul className="space-y-2.5">
         {item.features.map((feature) => (
           <li key={feature} className="flex items-start gap-2.5 text-sm text-gray-700 dark:text-gray-200">
@@ -128,6 +137,8 @@ export default function PricingPlans() {
     <section className="py-24 bg-[#F5F7FB] dark:bg-slate-900 transition-colors duration-300 relative overflow-hidden">
       <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-blue-200/40 blur-3xl dark:bg-blue-500/20" />
       <div className="pointer-events-none absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-cyan-200/40 blur-3xl dark:bg-cyan-500/20" />
+      <div className="pointer-events-none absolute inset-y-0 left-1/2 w-px bg-gradient-to-b from-transparent via-blue-200/50 to-transparent dark:via-blue-500/30" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/70 to-transparent dark:from-slate-800/40" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-4xl mx-auto mb-10">
           <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-blue-700 dark:border-blue-500/30 dark:bg-blue-500/10 dark:text-blue-300 mb-5">
@@ -150,7 +161,8 @@ export default function PricingPlans() {
         </div>
 
         <div className="space-y-8">
-          <div className="rounded-3xl border border-blue-100/80 bg-white/70 dark:border-slate-700 dark:bg-slate-800/50 p-5 sm:p-6">
+          <div className="relative rounded-3xl border border-blue-100/80 bg-white/70 dark:border-slate-700 dark:bg-slate-800/50 p-5 sm:p-6 overflow-hidden">
+            <div className="pointer-events-none absolute -top-16 -right-16 h-40 w-40 rounded-full bg-blue-200/30 blur-2xl dark:bg-blue-500/20" />
             <div className="mb-5 flex items-center justify-between gap-3 flex-wrap">
               <h3 className="text-2xl font-bold text-blue-950 dark:text-white">Website Design Packages</h3>
               <span className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-blue-700 dark:border-blue-400/30 dark:bg-blue-500/10 dark:text-blue-300">
@@ -164,7 +176,8 @@ export default function PricingPlans() {
             </div>
           </div>
 
-          <div className="rounded-3xl border border-indigo-100/80 bg-white/70 dark:border-slate-700 dark:bg-slate-800/50 p-5 sm:p-6">
+          <div className="relative rounded-3xl border border-indigo-100/80 bg-white/70 dark:border-slate-700 dark:bg-slate-800/50 p-5 sm:p-6 overflow-hidden">
+            <div className="pointer-events-none absolute -bottom-20 -left-16 h-44 w-44 rounded-full bg-indigo-200/30 blur-2xl dark:bg-indigo-500/20" />
             <div className="mb-5 flex items-center justify-between gap-3 flex-wrap">
               <h3 className="text-2xl font-bold text-blue-950 dark:text-white">Ongoing Marketing Packages</h3>
               <span className="inline-flex items-center rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-indigo-700 dark:border-indigo-400/30 dark:bg-indigo-500/10 dark:text-indigo-300">

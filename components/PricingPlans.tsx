@@ -7,7 +7,7 @@ const websitePackages = [
     category: 'Website',
     name: 'Starter Website',
     price: '$3,000',
-    description: 'A solid launch package for clinics that need a professional web presence fast.',
+    description: 'A strong launch package for clinics that need a professional, conversion-focused website with clean structure and fast performance.',
     features: [
       'WordPress SEO-ready website',
       'Up to 5 key pages (Home, About, Services, Blog, Contact)',
@@ -21,7 +21,7 @@ const websitePackages = [
     category: 'Website',
     name: 'Premium Custom Website',
     price: '$5,000',
-    description: 'Built for clinics that want a fully custom digital brand and higher conversion potential.',
+    description: 'Built for clinics that want a fully custom digital experience with stronger branding, smarter conversion flow, and advanced growth readiness.',
     features: [
       'Everything in Starter Website +',
       'Fully custom pages and UX structure',
@@ -40,7 +40,7 @@ const marketingPackages = [
     category: 'Marketing',
     name: 'Starter Marketing',
     price: '$1,500/mo',
-    description: 'A reliable monthly engine for consistent visibility and lead flow.',
+    description: 'A reliable monthly growth foundation focused on visibility, consistency, and steady lead generation across your key local channels.',
     features: [
       'SEO optimization + local visibility support',
       'Consistent social posting and channel management',
@@ -52,7 +52,7 @@ const marketingPackages = [
     category: 'Marketing',
     name: 'Signature Marketing',
     price: '$2,500/mo',
-    description: 'Best for clinics targeting aggressive growth and stronger market share.',
+    description: 'Best for clinics targeting faster growth, stronger market share, and higher lead quality through multi-channel execution.',
     features: [
       'Everything in Starter Marketing +',
       'PPC campaign creation and management',
@@ -67,7 +67,7 @@ const marketingPackages = [
     category: 'Marketing',
     name: 'Elite Marketing',
     price: '$5,000/mo',
-    description: 'Enterprise growth support with high-touch execution and leadership-level strategy.',
+    description: 'Enterprise-level growth support with high-touch execution, advanced strategy, and ongoing optimization for scale.',
     features: [
       'Everything in Signature Marketing +',
       'Advanced paid acquisition across key channels',
@@ -107,11 +107,6 @@ function PricingCard({ item }: { item: PackageItem }) {
             : 'bg-gradient-to-r from-slate-200 via-slate-100 to-slate-200 dark:from-slate-700 dark:via-slate-600 dark:to-slate-700'
         }`}
       />
-      {isMostPopular && (
-        <div className="absolute top-4 right-4 z-20 inline-flex items-center rounded-full border border-blue-300/70 bg-gradient-to-r from-blue-600 to-indigo-600 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-white shadow-md">
-          Most Popular
-        </div>
-      )}
       <div className="pointer-events-none absolute -top-10 -right-10 h-24 w-24 rounded-full bg-white/30 blur-xl dark:bg-blue-400/10" />
       <div className="pointer-events-none absolute -bottom-10 -left-10 h-24 w-24 rounded-full bg-cyan-100/40 blur-xl dark:bg-cyan-400/10" />
 
@@ -127,6 +122,11 @@ function PricingCard({ item }: { item: PackageItem }) {
             </div>
           )}
           <h3 className="text-2xl font-bold text-blue-950 dark:text-white">{item.name}</h3>
+          {isMostPopular && (
+            <div className="mt-2 inline-flex items-center rounded-full border border-blue-300/70 bg-gradient-to-r from-blue-600 to-indigo-600 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-white shadow-md">
+              Most Popular
+            </div>
+          )}
           <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">{item.description}</p>
         </div>
         <span className="text-2xl md:text-3xl font-bold text-blue-600 dark:text-blue-300 whitespace-nowrap">
@@ -204,6 +204,9 @@ export default function PricingPlans() {
                 Monthly Retainer
               </span>
             </div>
+            <p className="mb-4 text-xs md:text-sm text-gray-600 dark:text-gray-300">
+              Note: Google Ads and Meta Ads media budget is billed directly to your ad accounts and is not included in the monthly management fee.
+            </p>
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
               {marketingPackages.map((item) => (
                 <PricingCard key={`${item.category}-${item.name}`} item={item} />

@@ -87,14 +87,23 @@ type PackageItem = {
 function PricingCard({ item }: { item: PackageItem }) {
   return (
     <div
-      className={`rounded-3xl border p-6 md:p-7 transition-all duration-300 ${
+      className={`relative overflow-hidden rounded-3xl border p-6 md:p-7 transition-all duration-300 ${
         item.highlighted
           ? 'border-blue-300 bg-blue-50/70 dark:border-blue-500/40 dark:bg-blue-900/20 shadow-lg shadow-blue-900/10'
           : 'border-gray-200 bg-white/90 dark:border-slate-700 dark:bg-slate-800/70'
       }`}
-    >  
-      <div className={`-mx-6 -mt-6 mb-5 h-1.5 rounded-t-3xl md:-mx-7 md:-mt-7 ${item.highlighted ? 'bg-gradient-to-r from-blue-500 via-indigo-500 to-cyan-500' : 'bg-gradient-to-r from-slate-200 via-slate-100 to-slate-200 dark:from-slate-700 dark:via-slate-600 dark:to-slate-700'}`} />
-      <div className="flex items-start justify-between gap-4 mb-4">
+    >
+      <div
+        className={`pointer-events-none absolute inset-x-0 top-0 h-1.5 ${
+          item.highlighted
+            ? 'bg-gradient-to-r from-blue-500 via-indigo-500 to-cyan-500'
+            : 'bg-gradient-to-r from-slate-200 via-slate-100 to-slate-200 dark:from-slate-700 dark:via-slate-600 dark:to-slate-700'
+        }`}
+      />
+      <div className="pointer-events-none absolute top-0 left-0 h-24 w-24 bg-gradient-to-br from-white/35 to-transparent dark:from-white/10" />
+      <div className="pointer-events-none absolute top-0 right-0 h-24 w-24 bg-gradient-to-bl from-white/30 to-transparent dark:from-white/10" />
+
+      <div className="relative z-10 flex items-start justify-between gap-4 mb-4">
         <div>
           <div className="mb-2 inline-flex items-center rounded-full border border-blue-200/80 bg-blue-50 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-blue-700 dark:border-blue-400/30 dark:bg-blue-500/10 dark:text-blue-200">
             {item.category}

@@ -56,9 +56,16 @@ export default function SpecialOfferCTA() {
           </div>
 
           <div className="relative flex min-h-[350px] items-end justify-center bg-gradient-to-b from-blue-50/70 via-blue-50/30 to-transparent px-4 pt-7 sm:px-8 sm:pt-9 lg:min-h-[430px] lg:px-10 lg:pt-12 dark:from-blue-950/30 dark:via-blue-950/10">
-            <div className="pointer-events-none absolute left-6 top-7 h-24 w-24 rounded-full border border-blue-200/70 bg-gradient-to-br from-white/80 to-blue-100/40 dark:border-blue-400/20 dark:from-slate-800/40 dark:to-blue-500/10" />
-            <div className="pointer-events-none absolute right-8 top-10 h-14 w-14 rounded-full border border-indigo-200/70 bg-indigo-100/60 dark:border-indigo-400/30 dark:bg-indigo-500/10" />
-            <div className="pointer-events-none absolute left-16 top-20 h-20 w-40 rounded-2xl border border-blue-200/70 bg-white/70 backdrop-blur-sm dark:border-blue-400/20 dark:bg-slate-800/40" />
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-blue-100/70 via-blue-50/40 to-transparent dark:from-blue-900/35 dark:via-blue-900/10" />
+            <div
+              className="pointer-events-none absolute inset-x-0 top-0 h-36 opacity-60 dark:opacity-35"
+              style={{
+                backgroundImage: 'radial-gradient(circle, rgba(37,99,235,0.28) 1.2px, transparent 1.2px)',
+                backgroundSize: '18px 18px',
+                maskImage: 'linear-gradient(to bottom, black 0%, black 55%, transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 55%, transparent 100%)',
+              }}
+            />
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-blue-100/40 to-transparent dark:from-blue-950/30" />
             <img
               src="/free-offer-mockup.png"

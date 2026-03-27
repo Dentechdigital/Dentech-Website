@@ -1,78 +1,71 @@
 import React from 'react';
-import { ArrowRight, Gift, CheckCircle2, TrendingUp } from 'lucide-react';
+import { ArrowRight, Gift, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function SpecialOfferCTA() {
   return (
-    <section className="py-20 relative overflow-hidden">
-      {/* Background with gradient and pattern */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-indigo-900 to-slate-900 dark:from-slate-900 dark:via-blue-950 dark:to-slate-950">
-        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
-      </div>
-      
-      {/* Glow effects */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/30 rounded-full blur-[100px] pointer-events-none"></div>
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/30 rounded-full blur-[100px] pointer-events-none"></div>
-
+    <section className="relative overflow-hidden pt-20 pb-0">
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/80 dark:from-slate-950 dark:via-slate-950 dark:to-blue-950/60" />
+      <div className="absolute -top-24 left-1/4 h-64 w-64 rounded-full bg-blue-200/40 blur-3xl dark:bg-blue-500/20" />
+      <div className="absolute -right-20 bottom-0 h-72 w-72 rounded-full bg-indigo-200/40 blur-3xl dark:bg-indigo-500/20" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="bg-white/10 dark:bg-black/20 backdrop-blur-lg border border-white/20 dark:border-white/10 rounded-3xl p-8 md:p-12 lg:p-16 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-12">
-          
-          <div className="flex-1 text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-amber-500/20 to-orange-500/20 border border-amber-500/30 text-amber-300 font-semibold text-sm uppercase tracking-wider mb-6">
+        <div className="grid overflow-hidden rounded-[2rem] border border-blue-100/80 bg-white/90 shadow-[0_25px_80px_rgba(30,64,175,0.16)] backdrop-blur-sm dark:border-slate-800 dark:bg-slate-900/85 lg:grid-cols-[1.08fr_0.92fr]">
+          <div className="p-8 md:p-10 lg:p-12">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.08em] text-blue-700 dark:border-blue-400/30 dark:bg-blue-500/10 dark:text-blue-200">
               <Gift className="w-4 h-4" />
               <span>Limited Time Offer</span>
             </div>
-            
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
-              Get a Premium Practice Website for <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-orange-400">FREE</span>
+
+            <h2 className="mb-5 text-3xl font-bold leading-tight text-slate-900 md:text-5xl dark:text-white">
+              Get a Premium Practice Website
+              <span className="block text-blue-600 dark:text-blue-300">for FREE</span>
             </h2>
-            
-            <p className="text-lg md:text-xl text-blue-100 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              Sign a 6-month growth marketing contract and our award-winning design team will build, optimize, and launch a high-converting custom website for your clinic at zero cost. No obligation to inquire.
+
+            <p className="mb-7 max-w-xl text-base leading-relaxed text-slate-600 md:text-lg dark:text-slate-300">
+              Sign a 6-month growth marketing contract and our team will design and launch a high-converting custom website for your clinic at zero build cost.
             </p>
-            
-            <ul className="space-y-3 mb-10 text-left max-w-md mx-auto lg:mx-0">
-              {['Custom UI/UX Design (Value $5,000+)', 'SEO-Optimized Architecture', 'Mobile-First & Lightning Fast', 'Integrated Appointment Booking'].map((item, i) => (
-                <li key={i} className="flex items-center gap-3 text-blue-50">
-                  <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0" />
+
+            <ul className="mb-8 grid gap-3 sm:grid-cols-2">
+              {[
+                'Custom UI/UX Design (Value $5,000+)',
+                'SEO-Optimized Architecture',
+                'Mobile-First & Lightning Fast',
+                'Integrated Appointment Booking',
+              ].map((item) => (
+                <li
+                  key={item}
+                  className="flex items-start gap-3 rounded-xl border border-slate-200/70 bg-slate-50/70 px-3 py-3 text-sm text-slate-700 dark:border-slate-700 dark:bg-slate-800/70 dark:text-slate-200"
+                >
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-600 dark:text-blue-300" />
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
 
-            <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
-              <Link to="/contact" className="group relative px-8 py-4 bg-white text-blue-900 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3 w-full sm:w-auto overflow-hidden">
-                <span className="relative z-10">Claim Your Free Website</span>
-                <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
-                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-blue-100/50 to-transparent skew-x-12" />
+            <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+              <Link
+                to="/contact"
+                className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-blue-600 px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-blue-600/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-700 sm:w-auto dark:bg-blue-500 dark:hover:bg-blue-400"
+              >
+                <span>Claim Your Free Website</span>
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
-              <span className="text-blue-200 text-sm font-medium">No commitment required to chat.</span>
+              <span className="text-sm font-medium text-slate-500 dark:text-slate-400">
+                No commitment required to chat.
+              </span>
             </div>
           </div>
 
-          {/* Visual Representation */}
-          <div className="flex-1 w-full max-w-lg relative perspective-1000">
-            <div className="relative transform rotate-y-[-10deg] rotate-x-[5deg] hover:rotate-y-0 hover:rotate-x-0 transition-transform duration-700 ease-out">
-              <div className="absolute inset-0 bg-gradient-to-tr from-amber-400 to-orange-500 rounded-2xl blur-2xl opacity-40 animate-pulse"></div>
-              <img 
-                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800" 
-                alt="Website Mockup" 
-                className="relative rounded-2xl shadow-2xl border border-white/20 object-cover"
-                referrerPolicy="no-referrer"
+          <div className="relative min-h-[360px] bg-gradient-to-b from-blue-50/70 via-transparent to-transparent px-4 pt-6 sm:px-8 sm:pt-8 lg:min-h-[390px] lg:px-10 dark:from-blue-950/30">
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-blue-100/40 to-transparent dark:from-blue-950/30" />
+            <div className="relative flex h-full items-end justify-center">
+              <img
+                src={`${import.meta.env.BASE_URL}free-offer-mockup.png`}
+                alt="Dental clinic website mockup on desktop and mobile"
+                className="block w-full max-w-2xl object-contain object-bottom drop-shadow-[0_-2px_1px_rgba(148,163,184,0.1)] lg:max-w-[42rem] lg:translate-y-1"
               />
-              {/* Floating element */}
-              <div className="absolute -bottom-6 -left-6 bg-white dark:bg-slate-800 p-4 rounded-xl shadow-xl border border-gray-100 dark:border-slate-700 flex items-center gap-4 animate-bounce" style={{ animationDuration: '4s' }}>
-                <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/50 rounded-full flex items-center justify-center">
-                  <TrendingUp className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
-                </div>
-                <div>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 font-medium uppercase">Conversion Rate</p>
-                  <p className="text-xl font-bold text-gray-900 dark:text-white">+314%</p>
-                </div>
-              </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>

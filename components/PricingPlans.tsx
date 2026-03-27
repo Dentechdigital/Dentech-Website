@@ -7,24 +7,27 @@ const websitePackages = [
     category: 'Website',
     name: 'Starter Website',
     price: '$3,000',
-    description: 'Best for clinics that need a clean and fast launch.',
+    description: 'A solid launch package for clinics that need a professional web presence fast.',
     features: [
-      'Up to 5 core pages',
+      'WordPress SEO-ready website',
+      'Up to 5 key pages (Home, About, Services, Blog, Contact)',
       'Mobile-first responsive design',
       'On-page SEO setup',
       'Basic booking/contact integration',
+      '1 extra month of revisions',
     ],
   },
   {
     category: 'Website',
     name: 'Premium Custom Website',
     price: '$5,000',
-    description: 'Best for growth-focused brands that need full customization.',
+    description: 'Built for clinics that want a fully custom digital brand and higher conversion potential.',
     features: [
-      'Custom page structure and UI',
-      'Advanced conversion sections',
-      'Custom copy + messaging structure',
-      'Performance and SEO-ready architecture',
+      'Everything in Starter Website +',
+      'Fully custom pages and UX structure',
+      'Expanded pages (testimonials, case studies, FAQs, gallery)',
+      'Professional conversion-focused copywriting',
+      'Advanced SEO architecture + speed optimization',
       'AI chatbot setup included',
     ],
     highlighted: true,
@@ -37,24 +40,25 @@ const marketingPackages = [
     category: 'Marketing',
     name: 'Starter Marketing',
     price: '$1,500/mo',
-    description: 'Strong baseline for steady monthly growth.',
+    description: 'A reliable monthly engine for consistent visibility and lead flow.',
     features: [
-      'SEO and local visibility foundation',
-      'Core content cadence',
-      'Monthly reporting',
-      'Performance optimization cycles',
+      'SEO optimization + local visibility support',
+      'Consistent social posting and channel management',
+      'Monthly performance reporting',
+      'Creative assets for web + social',
     ],
   },
   {
     category: 'Marketing',
     name: 'Signature Marketing',
     price: '$2,500/mo',
-    description: 'Our most popular package for aggressive growth.',
+    description: 'Best for clinics targeting aggressive growth and stronger market share.',
     features: [
-      'Expanded SEO + authority growth',
-      'Cross-channel campaign management',
-      'Conversion-focused landing improvements',
-      'Ongoing strategic optimization',
+      'Everything in Starter Marketing +',
+      'PPC campaign creation and management',
+      'Expanded SEO with deeper keyword strategy',
+      'Authority-building placements and content',
+      'Monthly strategy and optimization sessions',
     ],
     highlighted: true,
     badge: 'Most Popular',
@@ -63,12 +67,13 @@ const marketingPackages = [
     category: 'Marketing',
     name: 'Elite Marketing',
     price: '$5,000/mo',
-    description: 'Complete marketing engine with senior strategic support.',
+    description: 'Enterprise growth support with high-touch execution and leadership-level strategy.',
     features: [
-      'Advanced growth strategy leadership',
-      'High-frequency optimization and scaling',
-      'Premium creative and campaign support',
-      'Priority execution and consulting access',
+      'Everything in Signature Marketing +',
+      'Advanced paid acquisition across key channels',
+      'Dedicated content + campaign support',
+      'Email and funnel automation layers',
+      'Priority consulting and execution cycles',
     ],
   },
 ];
@@ -91,9 +96,9 @@ function PricingCard({ item }: { item: PackageItem }) {
     <div
       className={`relative overflow-hidden rounded-3xl border p-6 md:p-7 transition-all duration-300 ${
         item.highlighted
-          ? 'border-blue-300 bg-blue-50/70 dark:border-blue-500/40 dark:bg-blue-900/20 shadow-lg shadow-blue-900/10'
+          ? 'border-blue-300 bg-blue-50/70 dark:border-blue-500/40 dark:bg-slate-800/90 shadow-lg shadow-blue-900/10'
           : 'border-gray-200 bg-white/90 dark:border-slate-700 dark:bg-slate-800/70'
-      }`}
+      } ${isMostPopular ? 'pt-10' : ''}`}
     >
       <div
         className={`pointer-events-none absolute inset-x-0 top-0 h-1.5 ${
@@ -103,12 +108,12 @@ function PricingCard({ item }: { item: PackageItem }) {
         }`}
       />
       {isMostPopular && (
-        <div className="absolute top-0 left-1/2 z-20 -translate-x-1/2 rounded-b-xl border border-blue-300/80 bg-gradient-to-r from-blue-600 to-indigo-600 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-white shadow-md">
+        <div className="absolute top-0 left-1/2 z-20 -translate-x-1/2 -translate-y-1/2 rounded-full border border-blue-300/80 bg-gradient-to-r from-blue-600 to-indigo-600 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wide text-white shadow-md whitespace-nowrap">
           Most Popular
         </div>
       )}
-      <div className="pointer-events-none absolute top-0 left-0 h-24 w-24 bg-gradient-to-br from-white/35 to-transparent dark:from-white/10" />
-      <div className="pointer-events-none absolute top-0 right-0 h-24 w-24 bg-gradient-to-bl from-white/30 to-transparent dark:from-white/10" />
+      <div className="pointer-events-none absolute -top-10 -right-10 h-24 w-24 rounded-full bg-white/30 blur-xl dark:bg-blue-400/10" />
+      <div className="pointer-events-none absolute -bottom-10 -left-10 h-24 w-24 rounded-full bg-cyan-100/40 blur-xl dark:bg-cyan-400/10" />
 
       <div className="relative z-10 flex items-start justify-between gap-4 mb-4">
         <div>
@@ -153,8 +158,7 @@ export default function PricingPlans() {
     <section className="py-24 bg-[#F5F7FB] dark:bg-slate-900 transition-colors duration-300 relative overflow-hidden">
       <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-blue-200/40 blur-3xl dark:bg-blue-500/20" />
       <div className="pointer-events-none absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-cyan-200/40 blur-3xl dark:bg-cyan-500/20" />
-      <div className="pointer-events-none absolute inset-y-0 left-1/2 w-px bg-gradient-to-b from-transparent via-blue-200/50 to-transparent dark:via-blue-500/30" />
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/70 to-transparent dark:from-slate-800/40" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/70 to-transparent dark:from-slate-900/20" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-4xl mx-auto mb-10">
           <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-blue-700 dark:border-blue-500/30 dark:bg-blue-500/10 dark:text-blue-300 mb-5">
@@ -177,7 +181,7 @@ export default function PricingPlans() {
         </div>
 
         <div className="space-y-8">
-          <div className="relative rounded-3xl border border-blue-100/80 bg-white/70 dark:border-slate-700 dark:bg-slate-800/50 p-5 sm:p-6 overflow-hidden">
+          <div className="relative rounded-3xl border border-blue-100/80 bg-white/70 dark:border-slate-700 dark:bg-slate-800/60 p-5 sm:p-6 overflow-hidden">
             <div className="pointer-events-none absolute -top-16 -right-16 h-40 w-40 rounded-full bg-blue-200/30 blur-2xl dark:bg-blue-500/20" />
             <div className="mb-5 flex items-center justify-between gap-3 flex-wrap">
               <h3 className="text-2xl font-bold text-blue-950 dark:text-white">Website Design Packages</h3>
@@ -192,7 +196,7 @@ export default function PricingPlans() {
             </div>
           </div>
 
-          <div className="relative rounded-3xl border border-indigo-100/80 bg-white/70 dark:border-slate-700 dark:bg-slate-800/50 p-5 sm:p-6 overflow-hidden">
+          <div className="relative rounded-3xl border border-indigo-100/80 bg-white/70 dark:border-slate-700 dark:bg-slate-800/60 p-5 sm:p-6 overflow-hidden">
             <div className="pointer-events-none absolute -bottom-20 -left-16 h-44 w-44 rounded-full bg-indigo-200/30 blur-2xl dark:bg-indigo-500/20" />
             <div className="mb-5 flex items-center justify-between gap-3 flex-wrap">
               <h3 className="text-2xl font-bold text-blue-950 dark:text-white">Ongoing Marketing Packages</h3>

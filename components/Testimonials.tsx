@@ -77,8 +77,13 @@ export default function Testimonials() {
     }
   }, [currentIndex, maxIndex]);
 
-  const handlePrev = () => setCurrentIndex((prev) => Math.max(0, prev - 1));
-  const handleNext = () => setCurrentIndex((prev) => Math.min(maxIndex, prev + 1));
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev === 0 ? maxIndex : prev - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+  };
 
   return (
     <section className="py-24 bg-white dark:bg-slate-800/50 transition-colors duration-300">
@@ -133,8 +138,7 @@ export default function Testimonials() {
             <button
               type="button"
               onClick={handlePrev}
-              disabled={currentIndex === 0}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-blue-700 shadow-sm transition disabled:cursor-not-allowed disabled:opacity-40 dark:border-slate-700 dark:bg-slate-800 dark:text-blue-300"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-blue-700 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-slate-700 dark:bg-slate-800 dark:text-blue-300"
               aria-label="Previous reviews"
             >
               <ChevronLeft className="h-5 w-5" />
@@ -142,8 +146,7 @@ export default function Testimonials() {
             <button
               type="button"
               onClick={handleNext}
-              disabled={currentIndex >= maxIndex}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-blue-700 shadow-sm transition disabled:cursor-not-allowed disabled:opacity-40 dark:border-slate-700 dark:bg-slate-800 dark:text-blue-300"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-blue-700 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-slate-700 dark:bg-slate-800 dark:text-blue-300"
               aria-label="Next reviews"
             >
               <ChevronRight className="h-5 w-5" />

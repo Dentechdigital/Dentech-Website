@@ -55,7 +55,7 @@ export default function SpecialOfferCTA() {
             </div>
           </div>
 
-          <div className="relative flex min-h-[350px] items-end justify-center bg-gradient-to-b from-blue-50/70 via-blue-50/30 to-transparent px-2 pt-7 sm:px-4 sm:pt-9 lg:min-h-[430px] lg:px-5 lg:pt-12 dark:from-blue-950/30 dark:via-blue-950/10">
+          <div className="relative flex min-h-[350px] items-end justify-center bg-gradient-to-b from-blue-50/70 via-blue-50/30 to-transparent px-1 pt-7 sm:px-2 sm:pt-9 lg:min-h-[430px] lg:px-2 lg:pt-12 dark:from-blue-950/30 dark:via-blue-950/10">
             <div className="pointer-events-none absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-blue-100/70 via-blue-50/40 to-transparent dark:from-blue-900/35 dark:via-blue-900/10" />
             <div
               className="pointer-events-none absolute inset-x-0 top-0 h-36 opacity-60 dark:opacity-35"

@@ -98,7 +98,7 @@ function PricingCard({ item }: { item: PackageItem }) {
         item.highlighted
           ? 'border-blue-300 bg-blue-50/70 dark:border-blue-500/40 dark:bg-slate-800/90 shadow-lg shadow-blue-900/10'
           : 'border-gray-200 bg-white/90 dark:border-slate-700 dark:bg-slate-800/70'
-      } ${isMostPopular ? 'pt-10' : ''}`}
+      }`}
     >
       <div
         className={`pointer-events-none absolute inset-x-0 top-0 h-1.5 ${
@@ -108,7 +108,7 @@ function PricingCard({ item }: { item: PackageItem }) {
         }`}
       />
       {isMostPopular && (
-        <div className="absolute top-0 left-1/2 z-20 -translate-x-1/2 -translate-y-1/2 rounded-full border border-blue-300/80 bg-gradient-to-r from-blue-600 to-indigo-600 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wide text-white shadow-md whitespace-nowrap">
+        <div className="absolute top-4 right-4 z-20 inline-flex items-center rounded-full border border-blue-300/70 bg-gradient-to-r from-blue-600 to-indigo-600 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-white shadow-md">
           Most Popular
         </div>
       )}

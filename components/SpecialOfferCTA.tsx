@@ -7,7 +7,7 @@ export default function SpecialOfferCTA() {
     <section className="relative overflow-hidden pt-20 pb-0">
       <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/80 dark:from-slate-950 dark:via-slate-950 dark:to-blue-950/60" />
       <div className="absolute -top-24 left-1/4 h-64 w-64 rounded-full bg-blue-200/40 blur-3xl dark:bg-blue-500/20" />
-      <div className="absolute -right-20 bottom-50 h-72 w-72 rounded-full bg-indigo-200/40 blur-3xl dark:bg-indigo-500/20" />
+      <div className="absolute -right-20 bottom-0 h-72 w-72 rounded-full bg-indigo-200/40 blur-3xl dark:bg-indigo-500/20" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid overflow-hidden rounded-[2rem] border border-blue-100/80 bg-white/90 shadow-[0_25px_80px_rgba(30,64,175,0.16)] backdrop-blur-sm dark:border-slate-800 dark:bg-slate-900/85 lg:grid-cols-[1.08fr_0.92fr]">
           <div className="p-8 md:p-10 lg:p-12">
@@ -17,8 +17,7 @@ export default function SpecialOfferCTA() {
             </div>
 
             <h2 className="mb-5 text-3xl font-bold leading-tight text-slate-900 md:text-5xl dark:text-white">
-              Get a Premium Practice Website
-              <span className="block text-blue-600 dark:text-blue-300">for FREE</span>
+              Get a Premium Practice Website <span className="block text-blue-600 dark:text-blue-300">for FREE</span>
             </h2>
 
             <p className="mb-7 max-w-xl text-base leading-relaxed text-slate-600 md:text-lg dark:text-slate-300">
@@ -60,7 +59,7 @@ export default function SpecialOfferCTA() {
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-blue-100/40 to-transparent dark:from-blue-950/30" />
             <div className="relative flex h-full items-end justify-center">
               <img
-                src={`${import.meta.env.BASE_URL}free-offer-mockup.png`}
+                src="/free-offer-mockup.png"
                 alt="Dental clinic website mockup on desktop and mobile"
                 className="m-0 -mb-2 block w-full max-w-2xl object-contain object-bottom p-0 drop-shadow-[0_-2px_1px_rgba(148,163,184,0.1)] lg:-mb-3 lg:max-w-[42rem]"
               />

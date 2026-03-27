@@ -9,9 +9,9 @@ export default function SpecialOfferCTA() {
       <div className="pointer-events-none absolute -top-28 left-1/4 h-72 w-72 rounded-full bg-blue-200/40 blur-3xl dark:bg-blue-500/20" />
       <div className="pointer-events-none absolute -right-24 bottom-10 h-80 w-80 rounded-full bg-indigo-200/30 blur-3xl dark:bg-indigo-500/20" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-2 sm:px-3 lg:px-4">
         <div className="grid overflow-hidden rounded-[2rem] border border-slate-200/70 bg-white/95 shadow-[0_30px_90px_rgba(30,64,175,0.14)] dark:border-slate-800 dark:bg-slate-900/90 lg:grid-cols-[1.02fr_0.98fr]">
-          <div className="p-7 sm:p-9 lg:p-12">
+          <div className="px-3.5 py-7 sm:px-5 sm:py-9 lg:px-6 lg:py-12">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.08em] text-blue-700 dark:border-blue-400/30 dark:bg-blue-500/10 dark:text-blue-200">
               <Gift className="h-4 w-4" />
               <span>Limited Time Offer</span>
@@ -55,7 +55,7 @@ export default function SpecialOfferCTA() {
             </div>
           </div>
 
-          <div className="relative flex min-h-[350px] items-end justify-center bg-gradient-to-b from-blue-50/70 via-blue-50/30 to-transparent px-4 pt-7 sm:px-8 sm:pt-9 lg:min-h-[430px] lg:px-10 lg:pt-12 dark:from-blue-950/30 dark:via-blue-950/10">
+          <div className="relative flex min-h-[350px] items-end justify-center bg-gradient-to-b from-blue-50/70 via-blue-50/30 to-transparent px-2 pt-7 sm:px-4 sm:pt-9 lg:min-h-[430px] lg:px-5 lg:pt-12 dark:from-blue-950/30 dark:via-blue-950/10">
             <div className="pointer-events-none absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-blue-100/70 via-blue-50/40 to-transparent dark:from-blue-900/35 dark:via-blue-900/10" />
             <div
               className="pointer-events-none absolute inset-x-0 top-0 h-36 opacity-60 dark:opacity-35"

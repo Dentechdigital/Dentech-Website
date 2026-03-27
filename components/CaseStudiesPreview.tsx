@@ -4,25 +4,29 @@ import { Link } from 'react-router-dom';
 
 const caseStudies = [
   {
-    clinic: 'Luminara Dental',
-    image: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=600',
-    title: 'Scaling from 20 to 85 New Patients Monthly',
+    clinic: 'The Smile Doctors',
+    image: '/case-studies/smile-doctors-proof.png',
+    title: '1300+ New Bookings in Under 12 Months',
+    summary:
+      'We built a custom Webflow website and now run full website management, SEO, AI ranking optimization, Meta PPC, social media management, and content creation. They are crushing it and everyone in town is talking about them.',
     metrics: [
-      { label: 'New Patients', value: '+325%', icon: Users },
-      { label: 'Cost Per Lead', value: '-42%', icon: DollarSign },
+      { label: 'New Bookings', value: '1300+', icon: Users, valueClass: 'text-emerald-600 dark:text-emerald-400' },
+      { label: 'Growth Window', value: '< 12 mo', icon: TrendingUp, valueClass: 'text-emerald-600 dark:text-emerald-400' },
     ],
-    tags: ['Google Ads', 'SEO', 'Web Design']
+    tags: ['Webflow Website', 'SEO', 'AI Ranking', 'Meta Ads', 'Social Media', 'Content Creation'],
   },
   {
-    clinic: 'Riverside Orthodontics',
-    image: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=600',
-    title: 'Dominating the Local Invisalign Market',
+    clinic: 'DWINC (and RED3)',
+    image: '/case-studies/dwinc-red3-laptop.png',
+    title: '4.5x Revenue Growth in 2 Years',
+    summary:
+      'We helped position DWINC as Ottawa’s leader in dental construction with dominant SEO and AI responses while spending $0 on ads. We redesigned the old website, support symposium print material and VR booths, and serve as their ongoing marketing consulting partner.',
     metrics: [
-      { label: 'Invisalign Starts', value: '+150%', icon: TrendingUp },
-      { label: 'Organic Traffic', value: '+210%', icon: Users },
+      { label: 'Revenue Growth', value: '4.5x', icon: TrendingUp, valueClass: 'text-emerald-600 dark:text-emerald-400' },
+      { label: 'Ads Spend', value: '$0', icon: DollarSign, valueClass: 'text-blue-600 dark:text-blue-400' },
     ],
-    tags: ['SEO', 'Content', 'Social Media']
-  }
+    tags: ['SEO', 'AI Search', 'Website Redesign', 'Print Support', 'VR Booth Content', 'Consulting'],
+  },
 ];
 
 export default function CaseStudiesPreview() {
@@ -36,7 +40,7 @@ export default function CaseStudiesPreview() {
               <span className="text-blue-600 dark:text-blue-400">real practices.</span>
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300">
-              Don't just take our word for it. See how we've helped dental practices across the country scale their revenue and patient base.
+              Verified wins from real clients: patient growth, category leadership, and measurable revenue impact.
             </p>
           </div>
           <Link 
@@ -82,6 +86,10 @@ export default function CaseStudiesPreview() {
                 <h3 className="text-2xl font-bold text-blue-950 dark:text-white mb-6 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   {study.title}
                 </h3>
+
+                <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-300 mb-6">
+                  {study.summary}
+                </p>
                 
                 <div className="grid grid-cols-2 gap-4 mt-auto pt-6 border-t border-gray-100 dark:border-slate-700">
                   {study.metrics.map((metric, i) => (
@@ -90,7 +98,9 @@ export default function CaseStudiesPreview() {
                         <metric.icon className="w-4 h-4" />
                         <span className="text-xs font-medium uppercase tracking-wider">{metric.label}</span>
                       </div>
-                      <span className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">{metric.value}</span>
+                      <span className={`text-2xl font-bold ${metric.valueClass}`}>
+                        {metric.value}
+                      </span>
                     </div>
                   ))}
                 </div>

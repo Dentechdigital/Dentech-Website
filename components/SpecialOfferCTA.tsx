@@ -61,7 +61,7 @@ export default function SpecialOfferCTA() {
               <img
                 src="/free-offer-mockup.png"
                 alt="Dental clinic website mockup on desktop and mobile"
-                className="m-0 -mb-2 block w-full max-w-2xl object-contain object-bottom p-0 drop-shadow-[0_-2px_1px_rgba(148,163,184,0.1)] lg:-mb-3 lg:max-w-[42rem]"
+                className="m-0 -mb-6 block w-full max-w-2xl object-contain object-bottom p-0 drop-shadow-[0_-2px_1px_rgba(148,163,184,0.1)] lg:-mb-8 lg:max-w-[42rem]"
               />
             </div>
           </div>

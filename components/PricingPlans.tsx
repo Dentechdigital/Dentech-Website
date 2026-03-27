@@ -1,9 +1,10 @@
 import React from 'react';
-import { CheckCircle2, Sparkles, Globe, Megaphone, ArrowRight, Bot, BadgeCheck } from 'lucide-react';
+import { CheckCircle2, Sparkles, ArrowRight, Bot, BadgeCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const websitePackages = [
+const packages = [
   {
+    category: 'Website',
     name: 'Starter Website',
     price: '$3,000',
     description: 'Best for clinics that need a clean and fast launch.',
@@ -15,6 +16,7 @@ const websitePackages = [
     ],
   },
   {
+    category: 'Website',
     name: 'Premium Custom Website',
     price: '$5,000',
     description: 'Best for growth-focused brands that need full customization.',
@@ -28,10 +30,8 @@ const websitePackages = [
     highlighted: true,
     badge: 'Includes AI Chatbot',
   },
-];
-
-const marketingPackages = [
   {
+    category: 'Marketing',
     name: 'Starter Marketing',
     price: '$1,500/mo',
     description: 'Strong baseline for steady monthly growth.',
@@ -43,6 +43,7 @@ const marketingPackages = [
     ],
   },
   {
+    category: 'Marketing',
     name: 'Signature Marketing',
     price: '$2,500/mo',
     description: 'Our most popular package for aggressive growth.',
@@ -56,6 +57,7 @@ const marketingPackages = [
     badge: 'Most Popular',
   },
   {
+    category: 'Marketing',
     name: 'Elite Marketing',
     price: '$5,000/mo',
     description: 'Complete marketing engine with senior strategic support.',
@@ -69,6 +71,7 @@ const marketingPackages = [
 ];
 
 type PackageItem = {
+  category: string;
   name: string;
   price: string;
   description: string;
@@ -85,9 +88,12 @@ function PricingCard({ item }: { item: PackageItem }) {
           ? 'border-blue-300 bg-blue-50/70 dark:border-blue-500/40 dark:bg-blue-900/20 shadow-lg shadow-blue-900/10'
           : 'border-gray-200 bg-white/90 dark:border-slate-700 dark:bg-slate-800/70'
       }`}
-    >      
+    >
       <div className="flex items-start justify-between gap-4 mb-4">
         <div>
+          <div className="mb-2 inline-flex items-center rounded-full border border-blue-200/80 bg-blue-50 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-blue-700 dark:border-blue-400/30 dark:bg-blue-500/10 dark:text-blue-200">
+            {item.category}
+          </div>
           {item.badge && (
             <div className="mb-2 inline-flex items-center gap-1.5 rounded-full border border-blue-200/80 bg-white/80 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-blue-700 dark:border-blue-400/30 dark:bg-blue-500/10 dark:text-blue-200">
               {item.badge.includes('AI') ? <Bot className="h-3.5 w-3.5" /> : <BadgeCheck className="h-3.5 w-3.5" />}
@@ -126,7 +132,7 @@ export default function PricingPlans() {
             <span>Clear Pricing</span>
           </div>
           <h2 className="text-3xl md:text-5xl font-bold text-blue-950 dark:text-white tracking-tight mb-5">
-            Website & Marketing Packages
+            Website & Marketing Pricing
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300">
             Simple, transparent packages built to help clinics and healthcare brands scale with confidence.
@@ -140,29 +146,23 @@ export default function PricingPlans() {
           </p>
         </div>
 
-        <div className="space-y-10">
-          <div className="rounded-3xl border border-blue-100/80 bg-white/70 dark:border-slate-700 dark:bg-slate-800/50 p-5 sm:p-6">
-            <div className="flex items-center gap-2 text-blue-900 dark:text-blue-200 mb-5">
-              <Globe className="w-5 h-5" />
-              <h3 className="text-2xl font-bold">Website Design Packages</h3>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {websitePackages.map((item) => (
-              <PricingCard key={item.name} item={item} />
-            ))}
-            </div>
+        <div className="rounded-3xl border border-blue-100/80 bg-white/70 dark:border-slate-700 dark:bg-slate-800/50 p-5 sm:p-6">
+          <div className="mb-6 flex flex-wrap items-center justify-center gap-2">
+            <span className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-blue-700 dark:border-blue-400/30 dark:bg-blue-500/10 dark:text-blue-300">
+              Website
+            </span>
+            <span className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-blue-700 dark:border-blue-400/30 dark:bg-blue-500/10 dark:text-blue-300">
+              Marketing
+            </span>
+            <span className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-blue-700 dark:border-blue-400/30 dark:bg-blue-500/10 dark:text-blue-300">
+              Structured Plans
+            </span>
           </div>
 
-          <div className="rounded-3xl border border-blue-100/80 bg-white/70 dark:border-slate-700 dark:bg-slate-800/50 p-5 sm:p-6">
-            <div className="flex items-center gap-2 text-blue-900 dark:text-blue-200 mb-5">
-              <Megaphone className="w-5 h-5" />
-              <h3 className="text-2xl font-bold">Marketing Packages</h3>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-            {marketingPackages.map((item) => (
-              <PricingCard key={item.name} item={item} />
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            {packages.map((item) => (
+              <PricingCard key={`${item.category}-${item.name}`} item={item} />
             ))}
-            </div>
           </div>
         </div>
 

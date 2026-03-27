@@ -40,7 +40,7 @@ const testimonials = [
   {
     name: 'Dr. Rasha Al-Taweel',
     clinic: 'Luminara Dental',
-    image: '/testimonials/dr-suela-murataj.png',
+    image: '/testimonials/dr-rasha-al-taweel.png',
     text: 'Dentech brings both creative quality and performance thinking. Their strategic guidance and follow-through helped us improve visibility, trust, and patient demand.',
     rating: 5,
   },

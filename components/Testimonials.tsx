@@ -26,7 +26,7 @@ const testimonials = [
   {
     name: 'Dr. Walid Issawy',
     clinic: 'Delta Clinique',
-    image: '/testimonials/youssef-abuzribeh.png',
+    image: '/testimonials/dr-walid-issawy.png',
     text: 'Working with Dentech has elevated our brand presence and positioning. Their consulting and execution support made our marketing sharper and more consistent across channels.',
     rating: 5,
   },

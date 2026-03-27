@@ -197,7 +197,7 @@ const DentalMarketingGraphic: React.FC = () => {
       {/* Floating Elements (Independent from main card) */}
       
       {/* 1. New Patient Booked */}
-      <div className="absolute -top-20 sm:-top-4 right-0 scale-[0.7] sm:scale-100 origin-right bg-white/40 dark:bg-slate-800/40 backdrop-blur-[30px] p-3 pr-5 rounded-2xl shadow-[0_8px_32px_0_rgba(31,38,135,0.15)] border border-white/60 dark:border-slate-700/60 flex items-center gap-3 z-30 animate-bounce-slow">
+      <div className="absolute -top-20 sm:-top-8 right-2 sm:right-1 scale-[0.7] sm:scale-100 origin-right bg-white/40 dark:bg-slate-800/40 backdrop-blur-[30px] p-3 pr-5 rounded-2xl shadow-[0_8px_32px_0_rgba(31,38,135,0.15)] border border-white/60 dark:border-slate-700/60 flex items-center gap-3 z-30 animate-bounce-slow">
         <div className="w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-900/50 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)]">
           <Calendar className="w-5 h-5" />
         </div>
@@ -219,7 +219,7 @@ const DentalMarketingGraphic: React.FC = () => {
       </div>
 
       {/* 3. New Patients Count */}
-      <div className="hidden sm:block absolute top-[24%] sm:top-24 right-8 sm:right-10 lg:right-12 scale-[0.75] sm:scale-100 origin-right bg-white/40 dark:bg-slate-800/40 backdrop-blur-[30px] p-4 rounded-2xl shadow-[0_8px_32px_0_rgba(31,38,135,0.15)] border border-white/60 dark:border-slate-700/60 w-48 z-0 animate-float" style={{ animationDelay: '1s' }}>
+      <div className="hidden sm:block absolute top-[24%] sm:top-24 right-3 sm:right-4 lg:right-6 scale-[0.75] sm:scale-100 origin-right bg-white/40 dark:bg-slate-800/40 backdrop-blur-[30px] p-4 rounded-2xl shadow-[0_8px_32px_0_rgba(31,38,135,0.15)] border border-white/60 dark:border-slate-700/60 w-48 z-0 animate-float" style={{ animationDelay: '1s' }}>
         <div className="flex items-center gap-1.5 text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2">
           <Users className="w-3.5 h-3.5" /> New Patients
         </div>

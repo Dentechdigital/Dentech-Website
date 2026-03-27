@@ -161,10 +161,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h4 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-1">Office Location</h4>
-                  <p className="text-lg font-medium text-blue-950 dark:text-white">
-                    Ottawa, ON<br />
-                    Canada
-                  </p>
+                  <p className="text-lg font-medium text-blue-950 dark:text-white">499 Preston St Ottawa, ON, Canada</p>
                 </div>
               </div>
             </div>

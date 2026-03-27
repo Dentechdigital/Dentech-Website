@@ -2,14 +2,25 @@ import React from 'react';
 import { CheckCircle2, Sparkles, ArrowRight, Bot, BadgeCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const websitePackages = [
+type PackageItem = {
+  category: string;
+  name: string;
+  price: string;
+  description: React.ReactNode;
+  features: string[];
+  highlighted?: boolean;
+  badge?: string;
+  aiNote?: string;
+};
+
+const websitePackages: PackageItem[] = [
   {
     category: 'Website',
     name: 'Starter Website',
     price: '$3,000',
     description: 'A strong launch package for clinics that need a professional, conversion-focused website with clean structure and fast performance.',
     features: [
-      'WordPress SEO-ready website',
+      'SEO-ready website',
       'Up to 5 key pages (Home, About, Services, Blog, Contact)',
       'Mobile-first responsive design',
       'On-page SEO setup',
@@ -35,12 +46,16 @@ const websitePackages = [
   },
 ];
 
-const marketingPackages = [
+const marketingPackages: PackageItem[] = [
   {
     category: 'Marketing',
     name: 'Starter Marketing',
     price: '$1,500/mo',
-    description: 'A reliable monthly growth foundation focused on visibility, consistency, and steady lead generation across your key local channels.',
+    description: (
+      <>
+        <span className="whitespace-nowrap">A reliable monthly growth foundation</span> focused on visibility, consistency, and steady lead generation across your key local channels.
+      </>
+    ),
     features: [
       'SEO optimization + local visibility support',
       'Consistent social posting and channel management',
@@ -52,7 +67,11 @@ const marketingPackages = [
     category: 'Marketing',
     name: 'Signature Marketing',
     price: '$2,500/mo',
-    description: 'Best for clinics targeting faster growth, stronger market share, and higher lead quality through multi-channel execution.',
+    description: (
+      <>
+        <span className="whitespace-nowrap">Best for clinics targeting faster growth</span>, stronger market share, and higher lead quality through multi-channel execution.
+      </>
+    ),
     features: [
       'Everything in Starter Marketing +',
       'PPC campaign creation and management',
@@ -67,7 +86,11 @@ const marketingPackages = [
     category: 'Marketing',
     name: 'Elite Marketing',
     price: '$5,000/mo',
-    description: 'Enterprise-level growth support with high-touch execution, advanced strategy, and ongoing optimization for scale.',
+    description: (
+      <>
+        <span className="whitespace-nowrap">Enterprise-level growth support</span> with high-touch execution, advanced strategy, and ongoing optimization for scale.
+      </>
+    ),
     features: [
       'Everything in Signature Marketing +',
       'Advanced paid acquisition across key channels',
@@ -77,17 +100,6 @@ const marketingPackages = [
     ],
   },
 ];
-
-type PackageItem = {
-  category: string;
-  name: string;
-  price: string;
-  description: string;
-  features: string[];
-  highlighted?: boolean;
-  badge?: string;
-  aiNote?: string;
-};
 
 function PricingCard({ item }: { item: PackageItem }) {
   const isMostPopular = item.badge === 'Most Popular';
@@ -110,8 +122,9 @@ function PricingCard({ item }: { item: PackageItem }) {
       <div className="pointer-events-none absolute -top-10 -right-10 h-24 w-24 rounded-full bg-white/30 blur-xl dark:bg-blue-400/10" />
       <div className="pointer-events-none absolute -bottom-10 -left-10 h-24 w-24 rounded-full bg-cyan-100/40 blur-xl dark:bg-cyan-400/10" />
 
-      <div className="relative z-10 flex items-start justify-between gap-4 mb-4">
-        <div>
+      <div className="relative z-10 mb-5">
+        <div className="flex items-start justify-between gap-4">
+          <div>
           <div className="mb-2 inline-flex items-center rounded-full border border-blue-200/80 bg-blue-50 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-blue-700 dark:border-blue-400/30 dark:bg-blue-500/10 dark:text-blue-200">
             {item.category}
           </div>
@@ -127,11 +140,14 @@ function PricingCard({ item }: { item: PackageItem }) {
               Most Popular
             </div>
           )}
-          <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">{item.description}</p>
+          </div>
+          <span className="flex-shrink-0 text-2xl md:text-3xl font-bold text-blue-600 dark:text-blue-300 whitespace-nowrap">
+            {item.price}
+          </span>
         </div>
-        <span className="text-2xl md:text-3xl font-bold text-blue-600 dark:text-blue-300 whitespace-nowrap">
-          {item.price}
-        </span>
+        <p className="mt-3 w-full max-w-none text-sm md:text-[15px] font-medium leading-6 text-gray-700 dark:text-gray-200">
+          {item.description}
+        </p>
       </div>
 
       {item.aiNote && (
@@ -141,9 +157,9 @@ function PricingCard({ item }: { item: PackageItem }) {
         </div>
       )}
 
-      <ul className="space-y-2.5">
+      <ul className="space-y-3">
         {item.features.map((feature) => (
-          <li key={feature} className="flex items-start gap-2.5 text-sm text-gray-700 dark:text-gray-200">
+          <li key={feature} className="flex items-start gap-2.5 text-[15px] leading-6 text-gray-700 dark:text-gray-200">
             <CheckCircle2 className="w-4 h-4 mt-0.5 text-blue-600 dark:text-blue-300 flex-shrink-0" />
             <span>{feature}</span>
           </li>
@@ -183,24 +199,26 @@ export default function PricingPlans() {
         <div className="space-y-8">
           <div className="relative rounded-3xl border border-blue-100/80 bg-white/70 dark:border-slate-700 dark:bg-slate-800/60 p-5 sm:p-6 overflow-hidden">
             <div className="pointer-events-none absolute -top-16 -right-16 h-40 w-40 rounded-full bg-blue-200/30 blur-2xl dark:bg-blue-500/20" />
-            <div className="mb-5 flex items-center justify-between gap-3 flex-wrap">
-              <h3 className="text-2xl font-bold text-blue-950 dark:text-white">Website Design Packages</h3>
-              <span className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-blue-700 dark:border-blue-400/30 dark:bg-blue-500/10 dark:text-blue-300">
+            <div className="mb-5 flex items-center justify-between gap-3">
+              <h3 className="text-xl sm:text-2xl font-bold text-blue-950 dark:text-white whitespace-nowrap">Website Design Packages</h3>
+              <span className="inline-flex shrink-0 items-center rounded-full border border-blue-200 bg-blue-50 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-blue-700 dark:border-blue-400/30 dark:bg-blue-500/10 dark:text-blue-300">
                 One-Time Investment
               </span>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {websitePackages.map((item) => (
-                <PricingCard key={`${item.category}-${item.name}`} item={item} />
+                <React.Fragment key={`${item.category}-${item.name}`}>
+                  <PricingCard item={item} />
+                </React.Fragment>
               ))}
             </div>
           </div>
 
           <div className="relative rounded-3xl border border-indigo-100/80 bg-white/70 dark:border-slate-700 dark:bg-slate-800/60 p-5 sm:p-6 overflow-hidden">
             <div className="pointer-events-none absolute -bottom-20 -left-16 h-44 w-44 rounded-full bg-indigo-200/30 blur-2xl dark:bg-indigo-500/20" />
-            <div className="mb-5 flex items-center justify-between gap-3 flex-wrap">
-              <h3 className="text-2xl font-bold text-blue-950 dark:text-white">Ongoing Marketing Packages</h3>
-              <span className="inline-flex items-center rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-indigo-700 dark:border-indigo-400/30 dark:bg-indigo-500/10 dark:text-indigo-300">
+            <div className="mb-5 flex items-center justify-between gap-3">
+              <h3 className="text-xl sm:text-2xl font-bold text-blue-950 dark:text-white whitespace-nowrap">Ongoing Marketing Packages</h3>
+              <span className="inline-flex shrink-0 items-center rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-indigo-700 dark:border-indigo-400/30 dark:bg-indigo-500/10 dark:text-indigo-300">
                 Monthly Retainer
               </span>
             </div>
@@ -209,7 +227,9 @@ export default function PricingPlans() {
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
               {marketingPackages.map((item) => (
-                <PricingCard key={`${item.category}-${item.name}`} item={item} />
+                <React.Fragment key={`${item.category}-${item.name}`}>
+                  <PricingCard item={item} />
+                </React.Fragment>
               ))}
             </div>
           </div>

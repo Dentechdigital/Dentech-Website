@@ -1,96 +1,131 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import { ArrowRight, CalendarClock, Mail, MapPin, Phone, Sparkles } from 'lucide-react';
+import { useTheme } from './ThemeProvider';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const { theme } = useTheme();
+
+  const quickLinks = [
+    { label: 'Home', to: '/' },
+    { label: 'About', to: '/about' },
+    { label: 'Services', to: '/services' },
+    { label: 'Case Studies', to: '/case-studies' },
+    { label: 'Contact', to: '/contact' },
+  ];
+
+  const coreServices = [
+    'Local SEO & Maps',
+    'Google + Meta Ads',
+    'Custom Dental Websites',
+    'Social Content Systems',
+    'AI Reception & Automation',
+  ];
 
   return (
-    <footer className="bg-slate-950 text-slate-300 pt-20 pb-10 border-t border-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          
-          {/* Brand Column */}
-          <div className="space-y-6">
-            <Link to="/" className="inline-block">
-              <svg width="150" height="40" viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <text x="0" y="40" fontFamily="Georgia, serif" fontSize="46" fontWeight="bold" fill="#ffffff">Den</text>
-                <text x="90" y="40" fontFamily="Georgia, serif" fontSize="46" fontWeight="bold" fill="#3b82f6">tech</text>
-                <line x1="0" y1="52" x2="110" y2="52" stroke="#3b82f6" strokeWidth="2" />
-                <text x="115" y="52" fontFamily="Inter, sans-serif" fontSize="14" fontWeight="600" letterSpacing="0.25em" fill="#94a3b8">. DIGITAL</text>
-              </svg>
-            </Link>
-            <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
-              The premier digital marketing agency exclusively for ambitious dental practices looking to scale their patient base and revenue.
-            </p>
-            <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition-colors">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition-colors">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition-colors">
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition-colors">
-                <Linkedin className="w-5 h-5" />
-              </a>
+    <footer className="relative overflow-hidden border-t border-slate-200/80 bg-gradient-to-b from-white via-slate-50 to-slate-100 dark:border-slate-800 dark:from-slate-950 dark:via-slate-950 dark:to-slate-900">
+      <div className="pointer-events-none absolute -top-32 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-blue-300/20 blur-3xl dark:bg-blue-500/15" />
+      <div className="pointer-events-none absolute -bottom-24 right-0 h-72 w-72 rounded-full bg-cyan-300/20 blur-3xl dark:bg-cyan-500/10" />
+
+      <div className="relative mx-auto max-w-7xl px-4 pb-8 pt-16 sm:px-6 lg:px-8">
+        <div className="rounded-3xl border border-white/70 bg-white/85 p-6 shadow-xl shadow-blue-100/40 backdrop-blur md:p-10 dark:border-slate-700/70 dark:bg-slate-900/70 dark:shadow-blue-900/20">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
+            <div className="lg:col-span-5">
+              <Link to="/" className="inline-flex items-center">
+                <img
+                  src={theme === 'dark' ? `${import.meta.env.BASE_URL}logo-dark.svg?v=2` : `${import.meta.env.BASE_URL}logo-light.svg?v=2`}
+                  alt="Dentech Digital"
+                  className="h-16 w-auto"
+                />
+              </Link>
+              <p className="mt-4 max-w-md text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                We help dental businesses build stronger brands, capture more qualified patients, and scale predictable revenue with modern marketing and AI systems.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-2.5">
+                <span className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 dark:border-blue-400/30 dark:bg-blue-500/10 dark:text-blue-200">
+                  <Sparkles className="mr-1.5 h-3.5 w-3.5" />
+                  Growth Partner for Clinics
+                </span>
+                <span className="inline-flex items-center rounded-full border border-cyan-200 bg-cyan-50 px-3 py-1 text-xs font-semibold text-cyan-700 dark:border-cyan-400/30 dark:bg-cyan-500/10 dark:text-cyan-200">
+                  SEO, Paid Ads, AI Automation
+                </span>
+              </div>
+            </div>
+
+            <div className="lg:col-span-3">
+              <h4 className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">Explore</h4>
+              <ul className="mt-4 space-y-2.5">
+                {quickLinks.map((link) => (
+                  <li key={link.label}>
+                    <Link to={link.to} className="text-sm font-medium text-slate-700 transition-colors hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-300">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="lg:col-span-2">
+              <h4 className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">Core Services</h4>
+              <ul className="mt-4 space-y-2.5">
+                {coreServices.map((service) => (
+                  <li key={service} className="text-sm text-slate-700 dark:text-slate-300">
+                    {service}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="lg:col-span-2">
+              <h4 className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">Contact</h4>
+              <ul className="mt-4 space-y-3">
+                <li className="flex items-start gap-2.5 text-sm text-slate-700 dark:text-slate-300">
+                  <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-600 dark:text-blue-300" />
+                  <span>499 Preston St Ottawa, ON, Canada</span>
+                </li>
+                <li className="flex items-center gap-2.5 text-sm text-slate-700 dark:text-slate-300">
+                  <Phone className="h-4 w-4 flex-shrink-0 text-blue-600 dark:text-blue-300" />
+                  <a href="tel:6138693121" className="transition-colors hover:text-blue-600 dark:hover:text-blue-300">
+                    (613) 869-3121
+                  </a>
+                </li>
+                <li className="flex items-center gap-2.5 text-sm text-slate-700 dark:text-slate-300">
+                  <Mail className="h-4 w-4 flex-shrink-0 text-blue-600 dark:text-blue-300" />
+                  <a href="mailto:hello@dentech.digital" className="transition-colors hover:text-blue-600 dark:hover:text-blue-300">
+                    hello@dentech.digital
+                  </a>
+                </li>
+                <li className="flex items-center gap-2.5 text-sm text-slate-700 dark:text-slate-300">
+                  <CalendarClock className="h-4 w-4 flex-shrink-0 text-blue-600 dark:text-blue-300" />
+                  <span>Mon - Fri, 9:00 AM - 6:00 PM</span>
+                </li>
+              </ul>
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-white font-semibold text-lg mb-6">Quick Links</h4>
-            <ul className="space-y-4">
-              <li><Link to="/" className="hover:text-blue-400 transition-colors">Home</Link></li>
-              <li><Link to="/about" className="hover:text-blue-400 transition-colors">About Us</Link></li>
-              <li><Link to="/case-studies" className="hover:text-blue-400 transition-colors">Case Studies</Link></li>
-              <li><Link to="/blog" className="hover:text-blue-400 transition-colors">Blog</Link></li>
-              <li><Link to="/contact" className="hover:text-blue-400 transition-colors">Contact</Link></li>
-            </ul>
+          <div className="mt-10 flex flex-col gap-4 rounded-2xl border border-slate-200/80 bg-white/80 p-4 md:flex-row md:items-center md:justify-between dark:border-slate-700 dark:bg-slate-900/70">
+            <div>
+              <p className="text-base font-semibold text-slate-900 dark:text-white">Ready to scale your clinic with a predictable growth system?</p>
+              <p className="text-sm text-slate-600 dark:text-slate-300">Book a strategy call and get a tailored growth roadmap for your market.</p>
+            </div>
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-blue-700"
+            >
+              Book a Strategy Call
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
           </div>
-
-          {/* Services */}
-          <div>
-            <h4 className="text-white font-semibold text-lg mb-6">Our Services</h4>
-            <ul className="space-y-4">
-              <li><Link to="/services#seo" className="hover:text-blue-400 transition-colors">Local SEO & Maps</Link></li>
-              <li><Link to="/services#ppc" className="hover:text-blue-400 transition-colors">Paid Advertising</Link></li>
-              <li><Link to="/services#web" className="hover:text-blue-400 transition-colors">Custom Websites</Link></li>
-              <li><Link to="/services#social" className="hover:text-blue-400 transition-colors">Content & Social</Link></li>
-              <li><Link to="/services#ai" className="hover:text-blue-400 transition-colors">AI & Automation</Link></li>
-            </ul>
-          </div>
-
-          {/* Contact Info */}
-          <div>
-            <h4 className="text-white font-semibold text-lg mb-6">Contact Us</h4>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
-                <span>Ottawa, ON<br />Canada</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-blue-500 flex-shrink-0" />
-                <a href="tel:6138693121" className="hover:text-blue-400 transition-colors">(613) 869-3121</a>
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-blue-500 flex-shrink-0" />
-                <a href="mailto:hello@dentech.digital" className="hover:text-blue-400 transition-colors">hello@dentech.digital</a>
-              </li>
-            </ul>
-          </div>
-
         </div>
 
-        <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-slate-500">
+        <div className="mt-6 flex flex-col items-center justify-between gap-3 text-center md:flex-row md:text-left">
+          <p className="text-xs text-slate-500 dark:text-slate-400">
             &copy; {currentYear} Dentech Digital. All rights reserved.
           </p>
-          <div className="flex gap-6 text-sm text-slate-500">
-            <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+          <div className="flex items-center gap-5 text-xs text-slate-500 dark:text-slate-400">
+            <Link to="/privacy" className="transition-colors hover:text-slate-700 dark:hover:text-slate-200">Privacy Policy</Link>
+            <Link to="/terms" className="transition-colors hover:text-slate-700 dark:hover:text-slate-200">Terms of Service</Link>
           </div>
         </div>
       </div>

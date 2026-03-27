@@ -103,7 +103,10 @@ export default function Testimonials() {
             >
               {testimonials.map((testimonial, index) => (
                 <div key={index} className="w-full md:w-1/2 xl:w-1/3 shrink-0 px-3">
-                  <div className="bg-[#FAFAF9] dark:bg-slate-800 rounded-3xl p-8 border border-gray-100 dark:border-slate-700 shadow-sm hover:shadow-lg transition-shadow duration-300 relative h-full">
+                  <div className="bg-[#FAFAF9] dark:bg-slate-800 rounded-3xl p-8 border border-gray-100 dark:border-slate-700 shadow-sm hover:shadow-lg transition-all duration-300 relative h-full flex flex-col overflow-hidden">
+                    <div className="pointer-events-none absolute -top-10 -right-8 h-24 w-24 rounded-full bg-blue-200/40 blur-2xl dark:bg-blue-500/20" />
+                    <div className="pointer-events-none absolute -bottom-12 -left-8 h-28 w-28 rounded-full bg-indigo-200/30 blur-2xl dark:bg-indigo-500/20" />
+                    <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blue-500 via-indigo-500 to-cyan-500" />
                     <Quote className="absolute top-6 right-6 w-10 h-10 text-blue-100 dark:text-slate-700" />
                     
                     <div className="flex gap-1 mb-6 relative z-10">
@@ -112,20 +115,20 @@ export default function Testimonials() {
                       ))}
                     </div>
                     
-                    <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-8 relative z-10 italic">
+                    <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6 relative z-10 italic flex-grow">
                       "{testimonial.text}"
                     </p>
                     
-                    <div className="flex items-center gap-4 mt-auto relative z-10">
+                    <div className="flex items-center gap-4 pt-5 mt-auto border-t border-gray-200/70 dark:border-slate-700/80 relative z-10 min-h-[78px]">
                       <img 
                         src={testimonial.image} 
                         alt={testimonial.name} 
-                        className="w-14 h-14 rounded-full object-cover border-2 border-white dark:border-slate-700 shadow-sm"
+                        className="w-14 h-14 rounded-full object-cover border-2 border-white dark:border-slate-700 shadow-sm flex-shrink-0"
                         referrerPolicy="no-referrer"
                       />
-                      <div>
+                      <div className="leading-tight">
                         <h4 className="font-bold text-blue-950 dark:text-white">{testimonial.name}</h4>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">{testimonial.clinic}</p>
+                        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{testimonial.clinic}</p>
                       </div>
                     </div>
                   </div>

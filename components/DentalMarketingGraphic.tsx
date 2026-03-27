@@ -92,7 +92,7 @@ const DentalMarketingGraphic: React.FC = () => {
       </div>
 
       {/* 3D Bento Dashboard (Overlapping bottom) */}
-      <div className="relative z-20 transform-gpu rotate-x-[4deg] hover:rotate-x-0 transition-transform duration-700 mt-4 sm:-mt-16 w-full">
+      <div className="relative z-20 transform-gpu rotate-x-[4deg] hover:rotate-x-0 transition-transform duration-700 mt-4 sm:-mt-16 -ml-4 sm:-ml-10 w-[calc(100%+1rem)] sm:w-[calc(100%+2.5rem)]">
         <div className="grid grid-cols-2 gap-2 sm:gap-3 p-2 sm:p-3 bg-white/20 dark:bg-slate-800/20 backdrop-blur-[40px] border border-white/40 dark:border-slate-700/40 shadow-[0_8px_32px_0_rgba(31,38,135,0.1)] rounded-3xl relative overflow-hidden">
           {/* Subtle shine on main container */}
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/40 to-transparent opacity-50 pointer-events-none"></div>

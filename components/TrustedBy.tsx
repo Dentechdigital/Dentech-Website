@@ -5,31 +5,26 @@ const clients = [
     name: 'The Smile Doctors',
     logoSrc: '/partners/smile-doctors.png',
     logoClass: 'h-10 sm:h-12',
-    filter: 'brightness(1.1) saturate(1.1)',
   },
   {
     name: 'Riverside Orthodontics',
     logoSrc: '/partners/riverside-orthodontics.png',
     logoClass: 'h-10 sm:h-12',
-    filter: 'brightness(1.08) saturate(1.12)',
   },
   {
     name: 'Luminara Dental',
     logoSrc: '/partners/luminara-dental.png',
     logoClass: 'h-10 sm:h-12',
-    filter: 'brightness(1.06) saturate(1.1)',
   },
   {
     name: 'Kanata Family Dentistry',
     logoSrc: '/partners/kanata-family-dentistry.png',
     logoClass: 'h-12 sm:h-14',
-    filter: 'brightness(1.08) saturate(1.1)',
   },
   {
     name: 'Delta Médico-Esthétique',
     logoSrc: '/partners/delta-medico-esthetique.png',
     logoClass: 'h-16 sm:h-20',
-    filter: 'brightness(1.08) saturate(1.06)',
   },
 ];
 
@@ -54,7 +49,7 @@ export default function TrustedBy() {
                 src={client.logoSrc}
                 alt={client.name}
                 className={`${client.logoClass} w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]`}
-                style={{ filter: client.filter }}
+                style={{ filter: 'brightness(0) invert(1) saturate(0) contrast(1.08)' }}
               />
             </div>
           ))}

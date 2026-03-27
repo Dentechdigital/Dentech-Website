@@ -2,6 +2,7 @@ import React from 'react';
 import Hero from '../components/Hero';
 import TrustedBy from '../components/TrustedBy';
 import Services from '../components/Services';
+import AISolutionsCTA from '../components/AISolutionsCTA';
 import WhyChooseUs from '../components/WhyChooseUs';
 import SpecialOfferCTA from '../components/SpecialOfferCTA';
 import CaseStudiesPreview from '../components/CaseStudiesPreview';
@@ -20,6 +21,7 @@ const Home: React.FC = () => {
       <Hero />
       <TrustedBy />
       <Services />
+      <AISolutionsCTA />
       <WhyChooseUs />
       <SpecialOfferCTA />
       <CaseStudiesPreview />

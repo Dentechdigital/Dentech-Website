@@ -37,7 +37,7 @@ export default function CaseStudiesPreview() {
           <div className="max-w-2xl">
             <h2 className="text-3xl md:text-5xl font-bold text-blue-950 dark:text-white mb-6 tracking-tight">
               Real results for <br className="hidden md:block" />
-              <span className="text-blue-600 dark:text-blue-400">real practices.</span>
+              <span className="text-blue-600 dark:text-blue-400">real businesses.</span>
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300">
               Verified wins from real clients: patient growth, category leadership, and measurable revenue impact.

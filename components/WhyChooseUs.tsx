@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const reasons = [
   {
     title: 'Dental Exclusive',
-    description: 'We only work with dental practices. We know the terminology, the procedures, and exactly what high-value patients are searching for.',
+    description: 'We work exclusively with dental practices and DSOs. We know the terminology, workflows, and exactly what high-value patients are searching for.',
     icon: Users,
     color: 'text-blue-500',
     bg: 'bg-blue-50 dark:bg-blue-500/10'
@@ -26,7 +26,7 @@ const reasons = [
   },
   {
     title: 'Proven Framework',
-    description: 'We use a battle-tested marketing framework that has consistently generated thousands of new patients for our partner clinics.',
+    description: 'We use a battle-tested framework that has consistently generated thousands of new patients for partner practices and multi-location dental groups.',
     icon: CheckCircle2,
     color: 'text-rose-500',
     bg: 'bg-rose-50 dark:bg-rose-500/10'
@@ -90,7 +90,7 @@ export default function WhyChooseUs() {
               </h2>
               
               <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
-                We don't just run ads. We build comprehensive growth engines tailored specifically for ambitious dental practices.
+                We do not just run ads. We build comprehensive growth systems tailored for ambitious dental practices and DSOs.
               </p>
               
               <Link to="/contact" className="hidden lg:inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 group">

@@ -81,18 +81,18 @@ const Hero: React.FC = () => {
             {/* Headlines */}
             <div className="space-y-6">
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tighter text-blue-950 dark:text-white leading-[1.1] transition-colors duration-300">
-                Grow your practice,<br />
+                Scale your practice<br />
                 <span className="relative inline-block mt-2">
                   {/* Subtle animated glow behind the text */}
                   <span className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-teal-400 to-indigo-600 blur-xl opacity-30 dark:opacity-40 animate-text-shine rounded-full"></span>
                   {/* The actual text with animated gradient */}
                   <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-teal-400 to-indigo-600 animate-text-shine pr-2">
-                    effortlessly.
+                    or your DSO.
                   </span>
                 </span>
               </h1>
               <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 font-light leading-relaxed max-w-lg mx-auto lg:mx-0 transition-colors duration-300">
-                Dentech helps Ottawa dental practices attract more patients, dominate local search, and build a 5-star reputation.
+                Dentech helps dental practices and multi-location groups (DSOs) attract more patients, dominate local search, and build stronger brand authority.
               </p>
             </div>
 

@@ -36,7 +36,7 @@ export default function TrustedBy() {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <p className="text-center text-sm font-semibold text-blue-100/80 uppercase tracking-wider mb-8 transition-colors duration-300">
-          Trusted by top dental practices
+          Trusted by top practices and DSOs
         </p>
         <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-6 md:gap-x-10">
           {clients.map((client, index) => (

@@ -121,7 +121,7 @@ const Hero: React.FC = () => {
                 </a>
                 
                 {/* Hand-drawn Arrow pointing to Let's talk */}
-                <div className="absolute -right-8 sm:-right-12 -top-4 sm:-top-6 w-12 h-12 sm:w-16 sm:h-16 text-blue-400 dark:text-blue-400 pointer-events-none hidden sm:block animate-bounce" style={{ animationDuration: '3s' }}>
+                <div className="absolute -right-8 sm:-right-12 top-1 sm:top-0 w-12 h-12 sm:w-16 sm:h-16 text-blue-400 dark:text-blue-400 pointer-events-none hidden sm:block animate-bounce" style={{ animationDuration: '3s' }}>
                   <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-sm">
                     <path d="M80,10 Q80,60 20,80" stroke="currentColor" strokeWidth="6" strokeLinecap="round" fill="none" />
                     <path d="M40,60 L20,80 L45,95" stroke="currentColor" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" fill="none" />

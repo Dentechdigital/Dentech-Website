@@ -54,7 +54,7 @@ export default function AISolutionsCTA() {
                   </div>
                   <div className="flex items-center gap-2 text-xs font-medium">
                     <BadgeCheck className="h-3.5 w-3.5 text-cyan-100" />
-                    <span>Trusted by growth-focused dental teams</span>
+                    <span>Works with your existing PMS and workflows</span>
                   </div>
                   <div className="flex items-center gap-2 text-xs font-medium">
                     <Clock3 className="h-3.5 w-3.5 text-cyan-100" />

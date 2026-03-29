@@ -10,6 +10,13 @@ const testimonials = [
     rating: 5,
   },
   {
+    name: 'Dr. Suela Murataj',
+    clinic: 'The Smile Doctors',
+    image: '/testimonials/dr-suela-murataj.png',
+    text: 'The communication is excellent and the execution is always on point. We feel supported, confident, and in control of our brand direction.',
+    rating: 5,
+  },
+  {
     name: 'Dr. Issam Abualreesh',
     clinic: 'Riverside Orthodontics',
     image: '/testimonials/youssef-abuzribeh.png',
@@ -21,13 +28,6 @@ const testimonials = [
     clinic: 'Delta Clinique',
     image: '/testimonials/dr-walid-issawy.png',
     text: 'They understand positioning, quality, and how to build trust in the market. We saw meaningful momentum quickly and sustained improvement over time.',
-    rating: 5,
-  },
-  {
-    name: 'Dr. Suela Murataj',
-    clinic: 'The Smile Doctors',
-    image: '/testimonials/dr-suela-murataj.png',
-    text: 'The communication is excellent and the execution is always on point. We feel supported, confident, and in control of our brand direction.',
     rating: 5,
   },
   {

@@ -18,7 +18,7 @@ const websitePackages: PackageItem[] = [
     category: 'Website',
     name: 'Starter Website',
     price: '$3,000',
-    description: 'A strong launch package for practices that need a professional, conversion-focused website with clean structure and fast performance.',
+    description: 'A strong launch package for clinics that need a professional, conversion-focused website with clean structure and fast performance.',
     features: [
       'SEO-ready website',
       'Up to 5 key pages (Home, About, Services, Blog, Contact)',
@@ -32,7 +32,7 @@ const websitePackages: PackageItem[] = [
     category: 'Website',
     name: 'Premium Custom Website',
     price: '$5,000',
-    description: 'Built for practices and DSOs that want a fully custom digital experience with stronger branding, smarter conversion flow, and advanced growth readiness.',
+    description: 'Built for clinics that want a fully custom digital experience with stronger branding, smarter conversion flow, and advanced growth readiness.',
     features: [
       'Everything in Starter Website +',
       'Fully custom pages and UX structure',
@@ -69,7 +69,7 @@ const marketingPackages: PackageItem[] = [
     price: '$2,500/mo',
     description: (
       <>
-        <span className="whitespace-nowrap">Best for practices and DSOs targeting faster growth</span>, stronger market share, and higher lead quality through multi-channel execution.
+        <span className="whitespace-nowrap">Best for clinics targeting faster growth</span>, stronger market share, and higher lead quality through multi-channel execution.
       </>
     ),
     features: [
@@ -185,7 +185,7 @@ export default function PricingPlans() {
             Website & Marketing Pricing
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300">
-            Simple, transparent packages built to help practices and DSOs scale with confidence.
+            Simple, transparent packages built to help clinics and healthcare brands scale with confidence.
           </p>
         </div>
 

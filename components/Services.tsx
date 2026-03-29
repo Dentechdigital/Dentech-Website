@@ -14,7 +14,7 @@ const services = [
   },
   {
     title: 'Paid Advertising',
-    description: 'Bring high-value patients to your chairs. We run targeted Google and Meta ad campaigns designed for dental practices and DSOs.',
+    description: 'Bring high-value patients to your chairs. We run targeted Google and Facebook ad campaigns designed for dental practices.',
     icon: Target,
     bgImage: 'https://images.unsplash.com/photo-1557682250-33bd709cbe85?auto=format&fit=crop&q=80&w=400',
     iconGradient: 'from-emerald-500 to-teal-400',
@@ -23,7 +23,7 @@ const services = [
   },
   {
     title: 'Custom Websites',
-    description: 'Turn visitors into booked appointments. We build beautiful, fast, and mobile-responsive websites for practices and multi-location groups.',
+    description: 'Turn visitors into booked appointments. We build beautiful, fast, and mobile-responsive websites for your practice.',
     icon: MonitorSmartphone,
     bgImage: 'https://images.unsplash.com/photo-1557682224-5b8590cd9ec5?auto=format&fit=crop&q=80&w=400',
     iconGradient: 'from-indigo-500 to-purple-400',
@@ -50,7 +50,7 @@ const services = [
   },
   {
     title: 'AI & Automation',
-    description: 'Save time and reduce no-shows. We implement smart AI chatbots and automated follow-ups to streamline front-desk operations across single and multi-location teams.',
+    description: 'Save time and reduce no-shows. We implement smart AI chatbots and automated follow-ups to streamline your front desk.',
     icon: Cpu,
     bgImage: 'https://images.unsplash.com/photo-1557672172-298e090bd0f1?auto=format&fit=crop&q=80&w=400',
     iconGradient: 'from-violet-500 to-fuchsia-400',
@@ -74,10 +74,10 @@ export default function Services() {
             <span className="text-xs font-semibold tracking-wide text-gray-600 dark:text-gray-400 uppercase">Our Services</span>
           </div>
           <h2 className="text-3xl md:text-5xl font-bold text-blue-950 dark:text-white mb-6 tracking-tight transition-colors duration-300">
-            Everything you need to <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-teal-400 to-emerald-500">grow practices and DSOs</span>
+            Everything you need to <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-teal-400 to-emerald-500">grow your practice</span>
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed transition-colors duration-300">
-            We specialize exclusively in dental marketing for practices and multi-location groups. Our proven systems are designed to attract new patients, increase case acceptance, and scale revenue predictably.
+            We specialize exclusively in dental marketing. Our proven systems are designed to attract new patients, increase case acceptance, and grow your revenue predictably.
           </p>
         </div>
 

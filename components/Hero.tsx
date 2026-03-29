@@ -92,7 +92,7 @@ const Hero: React.FC = () => {
                 </span>
               </h1>
               <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 font-light leading-relaxed max-w-lg mx-auto lg:mx-0 transition-colors duration-300">
-                Dentech helps Ottawa dental practices attract more patients, dominate local search, and build a 5-star reputation.
+                Dentech helps Ottawa dental practices and DSOs attract more patients, dominate local search, and build a 5-star reputation.
               </p>
             </div>
 

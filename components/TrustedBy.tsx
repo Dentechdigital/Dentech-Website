@@ -22,7 +22,7 @@ const clients = [
     logoClass: 'h-12 sm:h-14',
   },
   {
-    name: 'Delta Médico-Esthétique',
+    name: 'Dentistry @ Kanata',
     logoSrc: '/partners/delta-medico-esthetique.png',
     logoClass: 'h-16 sm:h-20',
   },
@@ -43,7 +43,6 @@ export default function TrustedBy() {
             <div
               key={index}
               className="group flex min-w-[170px] items-center justify-center px-2 py-1 transition-transform duration-300 hover:-translate-y-0.5"
-              title={client.name}
             >
               <img
                 src={client.logoSrc}

@@ -8,13 +8,13 @@ export default function AboutHero() {
     <section className="relative overflow-hidden bg-[#FAFAF9] pb-16 pt-28 dark:bg-slate-900 md:pb-20 md:pt-32 lg:pb-24 lg:pt-36">
       <style>{`
         .about-hero-deco-mask {
-          -webkit-mask-image: radial-gradient(ellipse 88% 78% at 68% 44%, black 20%, transparent 70%);
-          mask-image: radial-gradient(ellipse 88% 78% at 68% 44%, black 20%, transparent 70%);
+          -webkit-mask-image: radial-gradient(ellipse 95% 85% at 72% 48%, black 35%, transparent 78%);
+          mask-image: radial-gradient(ellipse 95% 85% at 72% 48%, black 35%, transparent 78%);
         }
         @media (min-width: 1024px) {
           .about-hero-deco-mask {
-            -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.12) 14%, rgba(0,0,0,0.55) 32%, rgba(0,0,0,0.92) 48%, black 68%);
-            mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.12) 14%, rgba(0,0,0,0.55) 32%, rgba(0,0,0,0.92) 48%, black 68%);
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.25) 22%, rgba(0,0,0,0.75) 42%, black 100%);
+            mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.25) 22%, rgba(0,0,0,0.75) 42%, black 100%);
           }
         }
       `}</style>
@@ -57,11 +57,12 @@ export default function AboutHero() {
             </div>
           </div>
 
-          <div className="about-hero-deco-mask relative mx-auto w-full max-w-[420px] sm:max-w-[480px] lg:mx-0 lg:max-w-none lg:justify-self-end">
-            <div className="relative mx-auto aspect-[5/4] w-full max-h-[320px] sm:max-h-[360px] sm:aspect-[4/3] lg:aspect-square lg:max-h-[min(420px,52vh)] lg:min-h-[340px] xl:min-h-[400px]">
-              <div className="pointer-events-none absolute inset-[4%] rounded-[48%] bg-gradient-to-br from-blue-200/40 via-blue-100/15 to-cyan-200/30 blur-3xl dark:from-blue-600/14 dark:via-transparent dark:to-cyan-500/10" />
-              <div className="pointer-events-none absolute inset-[14%] rounded-[50%] bg-gradient-to-tl from-white/50 via-sky-100/15 to-transparent dark:from-slate-600/10 dark:via-blue-900/8 dark:to-transparent" />
-              <div className="relative h-full w-full overflow-hidden rounded-[2rem] lg:rounded-[2.5rem]">
+          <div className="about-hero-deco-mask relative mx-auto w-full max-w-[420px] sm:max-w-[500px] lg:mx-0 lg:max-w-none lg:justify-self-end">
+            {/* Explicit height fixes canvas parent 0×0 (h-full + aspect-ratio was unreliable) */}
+            <div className="relative isolate h-[280px] w-full sm:h-[320px] lg:h-[400px] xl:h-[440px]">
+              <div className="pointer-events-none absolute inset-0 rounded-[2.5rem] bg-gradient-to-br from-slate-200/50 via-blue-100/25 to-cyan-100/35 blur-2xl dark:from-slate-700/20 dark:via-blue-900/15 dark:to-cyan-900/10" />
+              <div className="pointer-events-none absolute inset-[10%] rounded-[45%] bg-gradient-to-tl from-white/60 via-sky-50/20 to-transparent dark:from-slate-600/8 dark:via-blue-950/10 dark:to-transparent" />
+              <div className="absolute inset-0 overflow-hidden rounded-[2rem] border border-slate-200/40 bg-gradient-to-b from-white/40 to-slate-50/30 dark:border-slate-600/30 dark:from-slate-800/30 dark:to-slate-900/40 lg:rounded-[2.5rem]">
                 <AboutHeroSphere />
               </div>
             </div>

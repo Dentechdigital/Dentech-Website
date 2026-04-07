@@ -4,9 +4,13 @@ import { ArrowRight, Sparkles } from 'lucide-react';
 
 export default function AboutHero() {
   return (
-    <section className="relative overflow-hidden bg-[#FAFAF9] pb-16 pt-28 dark:bg-slate-900 md:pb-20 md:pt-32">
-      <div className="pointer-events-none absolute -right-24 top-0 h-80 w-80 rounded-full bg-blue-200/40 blur-3xl dark:bg-blue-500/15" />
-      <div className="pointer-events-none absolute -left-32 bottom-0 h-96 w-96 rounded-full bg-cyan-200/35 blur-3xl dark:bg-cyan-500/10" />
+    <section className="relative min-h-[min(520px,78vh)] overflow-hidden bg-gradient-to-br from-[#FAFAF9] via-sky-50/50 to-blue-50/70 pb-16 pt-28 dark:from-slate-900 dark:via-slate-900 dark:to-blue-950/35 md:min-h-[min(560px,72vh)] md:pb-20 md:pt-32">
+      {/* Base wash — fills width so right side is not flat white */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-blue-100/25 to-sky-100/45 dark:via-blue-950/20 dark:to-slate-800/40" />
+
+      <div className="pointer-events-none absolute -right-16 top-[-10%] h-[min(100vw,520px)] w-[min(100vw,520px)] rounded-full bg-blue-300/45 blur-[100px] dark:bg-blue-500/25 dark:blur-[120px] md:-right-8 md:top-[-5%]" />
+      <div className="pointer-events-none absolute -left-24 bottom-[-15%] h-[min(90vw,480px)] w-[min(90vw,480px)] rounded-full bg-cyan-200/50 blur-[100px] dark:bg-cyan-500/18 dark:blur-[120px]" />
+      <div className="pointer-events-none absolute right-[15%] top-[35%] h-72 w-72 rounded-full bg-indigo-200/30 blur-[90px] dark:bg-indigo-500/12 md:h-96 md:w-96" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-blue-700 dark:border-blue-500/30 dark:bg-blue-500/10 dark:text-blue-300">

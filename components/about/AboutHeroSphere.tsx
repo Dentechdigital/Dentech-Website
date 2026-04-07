@@ -48,7 +48,12 @@ function rotateY(p: Point3, cos: number, sin: number): Point3 {
   };
 }
 
-export default function AboutHeroSphere() {
+type AboutHeroSphereProps = {
+  /** Shift orb toward the right so the halo reads behind left-aligned hero copy */
+  flowRight?: boolean;
+};
+
+export default function AboutHeroSphere({ flowRight = false }: AboutHeroSphereProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rafRef = useRef<number>(0);
 
@@ -108,9 +113,9 @@ export default function AboutHeroSphere() {
       }
 
       const dark = isDark();
-      const cx = w * 0.5;
+      const cx = w * (flowRight ? 0.7 : 0.5);
       const cy = h * 0.5;
-      const scale = Math.min(w, h) * 0.38;
+      const scale = Math.min(w, h) * (flowRight ? 0.48 : 0.38);
 
       const cosA = Math.cos(angle);
       const sinA = Math.sin(angle);
@@ -226,7 +231,7 @@ export default function AboutHeroSphere() {
       document.removeEventListener('visibilitychange', onVis);
       ro.disconnect();
     };
-  }, []);
+  }, [flowRight]);
 
   return <canvas ref={canvasRef} className="block h-full w-full" aria-hidden />;
 }

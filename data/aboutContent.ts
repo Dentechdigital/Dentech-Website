@@ -1,8 +1,7 @@
 /** Public site origin for JSON-LD (update if your canonical domain differs). */
 export const SITE_ORIGIN = 'https://dentech.digital';
 
-/** Update with your real LinkedIn profile URL. */
-export const FOUNDER_LINKEDIN_URL = 'https://www.linkedin.com/in/mohammed-dahman';
+export const FOUNDER_LINKEDIN_URL = 'https://www.linkedin.com/in/mohammed-dahman-2aab49128/';
 
 export const aboutStats = [
   { label: 'Serving practices since', value: '2017' },

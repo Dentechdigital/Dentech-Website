@@ -8,15 +8,17 @@ import SpecialOfferCTA from '../components/SpecialOfferCTA';
 import CaseStudiesPreview from '../components/CaseStudiesPreview';
 import Testimonials from '../components/Testimonials';
 import PricingPlans from '../components/PricingPlans';
+import HomeFAQ, { homeFaqItems } from '../components/HomeFAQ';
 import ContactSection from '../components/ContactSection';
 import SEO from '../components/SEO';
 
 const Home: React.FC = () => {
   return (
     <main className="w-full min-h-screen bg-[#FAFAF9] dark:bg-slate-900 transition-colors duration-300">
-      <SEO 
-        title="Home" 
-        description="Welcome to our agency. We help you grow your business." 
+      <SEO
+        title="Home"
+        description="Dental marketing, custom websites & local SEO for Ottawa and Canadian clinics. Transparent pricing for websites and monthly growth retainers."
+        faqStructuredData={homeFaqItems}
       />
       <Hero />
       <TrustedBy />
@@ -27,6 +29,7 @@ const Home: React.FC = () => {
       <CaseStudiesPreview />
       <Testimonials />
       <PricingPlans />
+      <HomeFAQ />
       <ContactSection />
     </main>
   );

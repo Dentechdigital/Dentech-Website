@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ChevronDown, HelpCircle } from 'lucide-react';
 
 export type HomeFaqItem = {
@@ -59,22 +59,74 @@ export const homeFaqItems: HomeFaqItem[] = [
   },
 ];
 
-function FaqCard({ item, defaultOpen = false }: { item: HomeFaqItem; defaultOpen?: boolean }) {
+function useLgBreakpoint() {
+  const [matches, setMatches] = useState(() =>
+    typeof window !== 'undefined' ? window.matchMedia('(min-width: 1024px)').matches : false
+  );
+
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 1024px)');
+    setMatches(mq.matches);
+    const handler = () => setMatches(mq.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+
+  return matches;
+}
+
+function FaqCard({
+  item,
+  index,
+  isOpen,
+  onToggle,
+}: {
+  item: HomeFaqItem;
+  index: number;
+  isOpen: boolean;
+  onToggle: (index: number) => void;
+}) {
+  const panelId = `home-faq-panel-${index}`;
+  const triggerId = `home-faq-trigger-${index}`;
+
+  const handleSummaryActivate = (e: React.MouseEvent | React.KeyboardEvent) => {
+    e.preventDefault();
+    onToggle(index);
+  };
+
   return (
     <details
+      open={isOpen}
       className="group rounded-2xl border border-slate-200/90 bg-[#FAFAF9]/90 dark:border-slate-700 dark:bg-slate-800/50 overflow-hidden transition-shadow open:shadow-md dark:open:shadow-slate-900/50 hover:shadow-md dark:hover:shadow-slate-900/50"
-      {...(defaultOpen ? { open: true } : {})}
     >
-      <summary className="flex w-full cursor-pointer list-none items-start justify-between gap-4 px-5 py-4 text-left md:px-6 md:py-5 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900 [&::-webkit-details-marker]:hidden">
+      <summary
+        id={triggerId}
+        className="flex w-full cursor-pointer list-none items-start justify-between gap-4 px-5 py-4 text-left md:px-6 md:py-5 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900 [&::-webkit-details-marker]:hidden"
+        aria-expanded={isOpen}
+        aria-controls={panelId}
+        onClick={handleSummaryActivate}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            handleSummaryActivate(e);
+          }
+        }}
+      >
         <h3 className="text-base md:text-lg font-semibold text-blue-950 dark:text-white m-0 pr-2">
           {item.question}
         </h3>
         <ChevronDown
-          className="w-5 h-5 flex-shrink-0 text-blue-600 transition-transform duration-200 group-open:rotate-180 dark:text-blue-400 mt-0.5"
+          className={`w-5 h-5 flex-shrink-0 text-blue-600 transition-transform duration-200 dark:text-blue-400 mt-0.5 ${
+            isOpen ? 'rotate-180' : ''
+          }`}
           aria-hidden
         />
       </summary>
-      <div className="border-t border-slate-100 px-5 pb-4 pt-0 dark:border-slate-700/80 md:px-6 md:pb-5">
+      <div
+        id={panelId}
+        role="region"
+        aria-labelledby={triggerId}
+        className="border-t border-slate-100 px-5 pb-4 pt-0 dark:border-slate-700/80 md:px-6 md:pb-5"
+      >
         <p className="text-[15px] md:text-base leading-relaxed text-gray-700 dark:text-gray-300 pt-4">
           {item.answer}
         </p>
@@ -84,6 +136,13 @@ function FaqCard({ item, defaultOpen = false }: { item: HomeFaqItem; defaultOpen
 }
 
 export default function HomeFAQ() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const isLg = useLgBreakpoint();
+
+  const handleAccordionToggle = (index: number) => {
+    setOpenIndex((prev) => (prev === index ? null : index));
+  };
+
   const leftColumnItems = homeFaqItems.map((item, index) => ({ item, index })).filter(({ index }) => index % 2 === 0);
   const rightColumnItems = homeFaqItems.map((item, index) => ({ item, index })).filter(({ index }) => index % 2 === 1);
 
@@ -113,26 +172,45 @@ export default function HomeFAQ() {
           </p>
         </div>
 
-        {/* Mobile: single column, original order */}
-        <div className="flex flex-col gap-3 lg:hidden">
-          {homeFaqItems.map((item, index) => (
-            <FaqCard key={item.question} item={item} defaultOpen={index === 0} />
-          ))}
-        </div>
-
-        {/* Desktop: two independent vertical stacks (Pinterest-style flow—no grid row gaps) */}
-        <div className="hidden lg:flex lg:flex-row lg:items-start lg:gap-4">
-          <div className="flex min-w-0 flex-1 flex-col gap-3">
-            {leftColumnItems.map(({ item, index }) => (
-              <FaqCard key={item.question} item={item} defaultOpen={index === 0} />
+        {/* One layout in the DOM at a time so ids stay unique and accordion state stays in sync */}
+        {isLg ? (
+          <div className="flex flex-row items-start gap-4">
+            <div className="flex min-w-0 flex-1 flex-col gap-3">
+              {leftColumnItems.map(({ item, index }) => (
+                <FaqCard
+                  key={item.question}
+                  item={item}
+                  index={index}
+                  isOpen={openIndex === index}
+                  onToggle={handleAccordionToggle}
+                />
+              ))}
+            </div>
+            <div className="flex min-w-0 flex-1 flex-col gap-3">
+              {rightColumnItems.map(({ item, index }) => (
+                <FaqCard
+                  key={item.question}
+                  item={item}
+                  index={index}
+                  isOpen={openIndex === index}
+                  onToggle={handleAccordionToggle}
+                />
+              ))}
+            </div>
+          </div>
+        ) : (
+          <div className="flex flex-col gap-3">
+            {homeFaqItems.map((item, index) => (
+              <FaqCard
+                key={item.question}
+                item={item}
+                index={index}
+                isOpen={openIndex === index}
+                onToggle={handleAccordionToggle}
+              />
             ))}
           </div>
-          <div className="flex min-w-0 flex-1 flex-col gap-3">
-            {rightColumnItems.map(({ item }) => (
-              <FaqCard key={item.question} item={item} />
-            ))}
-          </div>
-        </div>
+        )}
       </div>
     </section>
   );

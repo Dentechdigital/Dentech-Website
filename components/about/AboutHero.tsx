@@ -1,44 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Sparkles } from 'lucide-react';
-import AboutHeroSphere from './AboutHeroSphere';
 
 export default function AboutHero() {
   return (
-    <section className="relative min-h-[min(520px,85vh)] overflow-hidden bg-[#FAFAF9] pb-16 pt-28 dark:bg-slate-900 md:min-h-[540px] md:pb-20 md:pt-32 lg:min-h-[580px]">
-      {/* Original soft blurs (behind sphere) */}
-      <div className="pointer-events-none absolute -right-24 top-0 z-0 h-80 w-80 rounded-full bg-blue-200/40 blur-3xl dark:bg-blue-500/15" />
-      <div className="pointer-events-none absolute -left-32 bottom-0 z-0 h-96 w-96 rounded-full bg-cyan-200/35 blur-3xl dark:bg-cyan-500/10" />
+    <section className="relative overflow-hidden bg-[#FAFAF9] pb-16 pt-28 dark:bg-slate-900 md:pb-20 md:pt-32">
+      <div className="pointer-events-none absolute -right-24 top-0 h-80 w-80 rounded-full bg-blue-200/40 blur-3xl dark:bg-blue-500/15" />
+      <div className="pointer-events-none absolute -left-32 bottom-0 h-96 w-96 rounded-full bg-cyan-200/35 blur-3xl dark:bg-cyan-500/10" />
 
-      {/* Sphere: full-bleed layer, anchored right, fades left so it flows behind copy */}
-      <div className="pointer-events-none absolute inset-0 z-[1] overflow-hidden">
-        <div
-          className="absolute -right-[8%] top-[42%] h-[380px] w-[min(125vw,920px)] max-w-none -translate-y-1/2 sm:top-[45%] sm:h-[420px] md:-right-[4%] md:h-[480px] lg:top-1/2 lg:h-[540px] lg:w-[900px]"
-          style={{
-            WebkitMaskImage:
-              'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.12) 12%, rgba(0,0,0,0.45) 32%, rgba(0,0,0,0.82) 55%, black 100%)',
-            maskImage:
-              'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.12) 12%, rgba(0,0,0,0.45) 32%, rgba(0,0,0,0.82) 55%, black 100%)',
-          }}
-        >
-          <div className="relative h-full w-full">
-            <AboutHeroSphere flowRight />
-          </div>
-        </div>
-      </div>
-
-      {/* First-iteration hero copy — above sphere */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-blue-700 dark:border-blue-500/30 dark:bg-blue-500/10 dark:text-blue-300">
           <Sparkles className="h-4 w-4" />
           <span>Since 2017 · Ottawa, Canada</span>
         </div>
 
-        <h1 className="about-display mt-6 max-w-4xl text-4xl font-semibold leading-[1.1] tracking-tight text-blue-950 drop-shadow-[0_2px_12px_rgba(250,250,249,0.92)] dark:text-white dark:drop-shadow-[0_2px_16px_rgba(15,23,42,0.9)] md:text-5xl lg:text-6xl">
+        <h1 className="about-display mt-6 max-w-4xl text-4xl font-semibold leading-[1.1] tracking-tight text-blue-950 dark:text-white md:text-5xl lg:text-6xl">
           The dental growth partner behind your website, ads, and patient experience.
         </h1>
 
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600 drop-shadow-[0_1px_10px_rgba(250,250,249,0.88)] dark:text-slate-300 dark:drop-shadow-[0_1px_12px_rgba(15,23,42,0.75)]">
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600 dark:text-slate-300">
           If your team is stretched thin between the front desk and Facebook, you need a senior crew that treats
           marketing like a system — not a checklist. Dentech Digital is a small, experienced team based in Ottawa,
           helping dental and medical practices across Canada launch, scale, and prove ROI since 2017.

@@ -10,9 +10,11 @@ interface SEOProps {
   title: string;
   description: string;
   faqStructuredData?: FaqStructuredItem[];
+  /** Additional JSON-LD object (e.g. @graph for Organization + WebPage on About). */
+  structuredData?: Record<string, unknown> | null;
 }
 
-const SEO: React.FC<SEOProps> = ({ title, description, faqStructuredData }) => {
+const SEO: React.FC<SEOProps> = ({ title, description, faqStructuredData, structuredData }) => {
   const faqJsonLd = useMemo(() => {
     if (!faqStructuredData?.length) return null;
     return {
@@ -40,6 +42,12 @@ const SEO: React.FC<SEOProps> = ({ title, description, faqStructuredData }) => {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      ) : null}
+      {structuredData ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       ) : null}
     </Helmet>

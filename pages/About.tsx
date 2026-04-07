@@ -1,16 +1,62 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import SEO from '../components/SEO';
+import { buildAboutStructuredData } from '../data/aboutContent';
+import AboutHero from '../components/about/AboutHero';
+import AboutStatsStrip from '../components/about/AboutStatsStrip';
+import AboutWhoWeServe from '../components/about/AboutWhoWeServe';
+import AboutStoryTimeline from '../components/about/AboutStoryTimeline';
+import AboutFounder from '../components/about/AboutFounder';
+import AboutPhilosophy from '../components/about/AboutPhilosophy';
+import AboutCapabilitiesBento from '../components/about/AboutCapabilitiesBento';
+import AboutStackTools from '../components/about/AboutStackTools';
+import AboutTeamScrum from '../components/about/AboutTeamScrum';
+import AboutAIPartners from '../components/about/AboutAIPartners';
+import AboutProof from '../components/about/AboutProof';
+import AboutOfficeCTA from '../components/about/AboutOfficeCTA';
+import AboutMobileCtaBar from '../components/about/AboutMobileCtaBar';
+
+const aboutStructuredData = buildAboutStructuredData();
 
 const About: React.FC = () => {
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-900 pt-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto transition-colors duration-300">
-      <SEO title="About Us" description="Learn more about our agency and our mission." />
-      <h1 className="text-4xl font-bold text-blue-950 dark:text-white mb-6">About Us</h1>
-      <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl">
-        We are a dedicated team of professionals committed to delivering the best results for our clients.
-        Our mission is to help businesses grow and succeed in the digital world.
-      </p>
-    </div>
+    <>
+      <Helmet>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&display=swap"
+          rel="stylesheet"
+        />
+      </Helmet>
+      <style>{`
+        .about-display { font-family: 'Fraunces', Georgia, 'Times New Roman', serif; }
+      `}</style>
+
+      <SEO
+        title="About Dentech Digital"
+        description="Ottawa dental marketing agency since 2017. Meet founder Mohammed Dahman, our hybrid team, full-funnel services for Canadian dental practices, and how we work."
+        structuredData={aboutStructuredData}
+      />
+
+      <div className="min-h-screen bg-[#FAFAF9] transition-colors duration-300 dark:bg-slate-900">
+        <AboutHero />
+        <AboutStatsStrip />
+        <AboutWhoWeServe />
+        <AboutStoryTimeline />
+        <AboutFounder />
+        <AboutPhilosophy />
+        <AboutCapabilitiesBento />
+        <AboutStackTools />
+        <AboutTeamScrum />
+        <AboutAIPartners />
+        <AboutProof />
+        <AboutOfficeCTA />
+        <AboutMobileCtaBar />
+        {/* Padding so fixed mobile CTA does not cover footer content */}
+        <div className="h-16 lg:hidden" aria-hidden />
+      </div>
+    </>
   );
 };
 

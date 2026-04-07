@@ -59,7 +59,34 @@ export const homeFaqItems: HomeFaqItem[] = [
   },
 ];
 
+function FaqCard({ item, defaultOpen = false }: { item: HomeFaqItem; defaultOpen?: boolean }) {
+  return (
+    <details
+      className="group rounded-2xl border border-slate-200/90 bg-[#FAFAF9]/90 dark:border-slate-700 dark:bg-slate-800/50 overflow-hidden transition-shadow open:shadow-md dark:open:shadow-slate-900/50 hover:shadow-md dark:hover:shadow-slate-900/50"
+      {...(defaultOpen ? { open: true } : {})}
+    >
+      <summary className="flex w-full cursor-pointer list-none items-start justify-between gap-4 px-5 py-4 text-left md:px-6 md:py-5 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900 [&::-webkit-details-marker]:hidden">
+        <h3 className="text-base md:text-lg font-semibold text-blue-950 dark:text-white m-0 pr-2">
+          {item.question}
+        </h3>
+        <ChevronDown
+          className="w-5 h-5 flex-shrink-0 text-blue-600 transition-transform duration-200 group-open:rotate-180 dark:text-blue-400 mt-0.5"
+          aria-hidden
+        />
+      </summary>
+      <div className="border-t border-slate-100 px-5 pb-4 pt-0 dark:border-slate-700/80 md:px-6 md:pb-5">
+        <p className="text-[15px] md:text-base leading-relaxed text-gray-700 dark:text-gray-300 pt-4">
+          {item.answer}
+        </p>
+      </div>
+    </details>
+  );
+}
+
 export default function HomeFAQ() {
+  const leftColumnItems = homeFaqItems.map((item, index) => ({ item, index })).filter(({ index }) => index % 2 === 0);
+  const rightColumnItems = homeFaqItems.map((item, index) => ({ item, index })).filter(({ index }) => index % 2 === 1);
+
   return (
     <section
       className="py-24 bg-white dark:bg-slate-900 transition-colors duration-300 relative overflow-hidden"
@@ -86,29 +113,25 @@ export default function HomeFAQ() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-3 lg:grid-cols-2 lg:gap-4 lg:items-start">
+        {/* Mobile: single column, original order */}
+        <div className="flex flex-col gap-3 lg:hidden">
           {homeFaqItems.map((item, index) => (
-            <details
-              key={item.question}
-              className="group h-fit rounded-2xl border border-slate-200/90 bg-[#FAFAF9]/90 dark:border-slate-700 dark:bg-slate-800/50 overflow-hidden transition-shadow open:shadow-md dark:open:shadow-slate-900/50 hover:shadow-md dark:hover:shadow-slate-900/50"
-              {...(index === 0 ? { open: true } : {})}
-            >
-              <summary className="flex w-full cursor-pointer list-none items-start justify-between gap-4 px-5 py-4 text-left md:px-6 md:py-5 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900 [&::-webkit-details-marker]:hidden">
-                <h3 className="text-base md:text-lg font-semibold text-blue-950 dark:text-white m-0 pr-2">
-                  {item.question}
-                </h3>
-                <ChevronDown
-                  className="w-5 h-5 flex-shrink-0 text-blue-600 transition-transform duration-200 group-open:rotate-180 dark:text-blue-400 mt-0.5"
-                  aria-hidden
-                />
-              </summary>
-              <div className="border-t border-slate-100 px-5 pb-4 pt-0 dark:border-slate-700/80 md:px-6 md:pb-5">
-                <p className="text-[15px] md:text-base leading-relaxed text-gray-700 dark:text-gray-300 pt-4">
-                  {item.answer}
-                </p>
-              </div>
-            </details>
+            <FaqCard key={item.question} item={item} defaultOpen={index === 0} />
           ))}
+        </div>
+
+        {/* Desktop: two independent vertical stacks (Pinterest-style flow—no grid row gaps) */}
+        <div className="hidden lg:flex lg:flex-row lg:items-start lg:gap-4">
+          <div className="flex min-w-0 flex-1 flex-col gap-3">
+            {leftColumnItems.map(({ item, index }) => (
+              <FaqCard key={item.question} item={item} defaultOpen={index === 0} />
+            ))}
+          </div>
+          <div className="flex min-w-0 flex-1 flex-col gap-3">
+            {rightColumnItems.map(({ item }) => (
+              <FaqCard key={item.question} item={item} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

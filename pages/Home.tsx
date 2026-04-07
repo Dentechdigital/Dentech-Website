@@ -17,7 +17,7 @@ const Home: React.FC = () => {
     <main className="w-full min-h-screen bg-[#FAFAF9] dark:bg-slate-900 transition-colors duration-300">
       <SEO
         title="Home"
-        description="Dental marketing, custom websites & local SEO for Ottawa and Canadian clinics. Transparent pricing for websites and monthly growth retainers."
+        description="Ottawa-based dental marketing for Canadian clinics: local SEO, websites, paid media, reviews, and growth strategy. Serving Eastern Ontario and practices nationwide."
         faqStructuredData={homeFaqItems}
       />
       <Hero />

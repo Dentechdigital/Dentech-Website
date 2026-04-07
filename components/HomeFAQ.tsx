@@ -8,44 +8,54 @@ export type HomeFaqItem = {
 
 export const homeFaqItems: HomeFaqItem[] = [
   {
-    question: 'Do Ottawa dental clinics need local SEO and a Google Business Profile?',
+    question: 'Why does local SEO matter for dental practices in Ottawa and across Canada?',
     answer:
-      'Yes. Most new patient discovery in Ottawa, Ontario, and across Canada still starts with Google Search and Maps. A complete Google Business Profile, accurate NAP (name, address, phone), and local dental SEO help you show up for high-intent queries like "dentist near me" and specialty services. Dentech Digital builds local SEO into websites and retainers so Ottawa-area practices and multi-location groups strengthen visibility where it matters.',
+      'Local SEO matters because most new patients still discover clinics through Google Search and Maps—in Ottawa, Toronto, Calgary, or smaller markets. A complete Google Business Profile, consistent name/address/phone (NAP), service-area clarity, and localized content help you rank for high-intent searches like "dentist near me," emergency dental, implants, or Invisalign. Dentech Digital treats local SEO as a core layer of growth for Canadian clinics and multi-location groups, not an optional add-on.',
   },
   {
-    question: 'How much does dental website design cost in 2026?',
+    question: 'What types of dental practices do you work with?',
     answer:
-      'Professional dental website design with Dentech Digital typically starts at $3,000 for our Starter Website (up to five key pages, mobile-first design, on-page SEO setup, and basic booking or contact integration) and $5,000 for a Premium Custom Website with expanded pages, conversion copy, advanced SEO architecture, speed optimization, and AI chatbot setup. Custom quotes apply for unique scopes or larger builds.',
+      'We partner with general and family dentistry, cosmetic and implant-focused practices, orthodontics, pediatric dentistry, periodontics, oral surgery, and multi-location groups—any team that wants clearer positioning, better leads, and measurable marketing. Strategy changes by specialty: emergency and family keywords differ from aligner or full-arch campaigns, and your funnels should reflect that.',
   },
   {
-    question: 'Should I hire a dental marketing agency instead of a general marketing agency?',
+    question: 'How long does it take to see results from dental marketing?',
     answer:
-      'For most dental practices, yes—if growth and compliance matter. A dental marketing agency understands procedure naming, patient intent, competitive claims, and how orthodontic, cosmetic, and general practices market differently. Dentech Digital focuses exclusively on dental and healthcare-adjacent clinics, so strategy, creative, and landing pages align with how real patients search and book.',
+      'Paid search and social can show traction in weeks when tracking, landing pages, and call handling are tight. SEO and local authority usually compound over months—many practices see meaningful movement in roughly three to six months depending on competition, review volume, and site quality. We set expectations up front with Ottawa and nationwide clients so channels are sequenced for both quick tests and long-term compounding.',
   },
   {
-    question: 'Are Google Ads and Meta Ads worth it for dentists?',
+    question: 'What marketing channels work best for dentists today?',
     answer:
-      'They can be—when campaigns are structured, tracked, and optimized for cost per qualified lead. Paid search and paid social work best paired with a fast, trustworthy website and clear call-tracking. Dentech Digital\'s retainers cover campaign creation and management; ad media spend is billed directly to your Google and Meta accounts and is separate from the monthly management fee, so budgets stay transparent.',
+      'There is no single channel that replaces the rest. Strong growth typically combines a fast, trustworthy website; local SEO and Maps visibility; disciplined paid search where margins make sense; consistent social proof; and content that answers real patient questions. The right mix depends on your market, services, and capacity—our job is to align channels so they reinforce each other instead of competing.',
   },
   {
-    question: 'How long does a dental website project take from kickoff to launch?',
+    question: 'Should I hire a dental marketing agency instead of a general agency?',
     answer:
-      'Most projects launch in roughly 8 to 12 weeks depending on content readiness, number of pages, and revision rounds. Starter packages move faster when branding and photography are ready; Premium Custom Website timelines reflect custom UX, expanded pages (testimonials, case studies, FAQs, gallery), and deeper SEO. Your timeline and milestones are confirmed in writing after discovery.',
+      'For most clinics, a dental-focused partner is easier to scale with. Procedure naming, treatment positioning, regulatory tone, and how patients compare providers online are different in dentistry than in retail or B2B. Dentech Digital works only with dental and adjacent healthcare brands, so campaigns, copy, and reporting map to how practices actually acquire patients in Canada and beyond.',
   },
   {
-    question: 'What is included in dental website packages at Dentech Digital?',
+    question: 'How important are Google reviews and online reputation?',
     answer:
-      'Starter Website includes an SEO-ready site, up to five core pages (e.g., Home, About, Services, Blog, Contact), responsive mobile-first design, on-page SEO setup, basic booking or contact integration, and an extra month of revisions. Premium Custom Website adds fully custom pages and UX structure, expanded marketing pages, professional conversion copywriting, advanced SEO plus speed work, and AI chatbot setup—aligned with the published Website & Marketing Pricing on this site.',
+      'Very important. Reviews influence both click-through on Maps and whether someone trusts your site enough to call. A steady flow of recent, descriptive reviews—paired with fast responses and clear policies—supports local rankings and conversion. We help clients bake review requests, follow-up, and reporting into their marketing rhythm so reputation becomes a growth system, not a last-minute scramble.',
   },
   {
-    question: 'Can an AI chatbot help a dental front desk capture more leads?',
+    question: 'What metrics should a dental practice track from marketing?',
     answer:
-      'Yes. A well-trained AI chatbot answers common questions after hours, routes emergencies appropriately, and captures name, phone, and intent so your team can follow up quickly. That reduces missed calls and form abandonments from patients comparing clinics online. Our Premium Custom Website package includes AI chatbot setup so lead capture matches your brand tone and practice policies.',
+      'Start with lead volume and quality: phone calls, form fills, chats, and booked consultations attributed to each channel. Layer in cost per lead, show-up rate, and production from new patients where data is available. Vanity metrics alone do not pay the bills—we report on what ties spend to chairs and revenue so Ottawa-area and remote teams can make clear decisions.',
   },
   {
-    question: 'Does Dentech Digital only work with Ottawa dental practices?',
+    question: 'Do I need a long-term contract to work with Dentech Digital?',
     answer:
-      'No. We are headquartered in Ottawa, ON, Canada (499 Preston St), and serve many Eastern Ontario clinics—we also work with dental practices across Canada and internationally when the engagement fits. Strategy sessions and delivery are built for remote collaboration; on-site needs are scoped per project.',
+      'Engagements are scoped in writing with clear deliverables and timelines; many clients choose monthly or project-based work that fits their growth stage. Heavy upfront discounts sometimes pair with longer commitments—if that applies, it is spelled out explicitly. The goal is alignment on outcomes and transparency, not locking clinics into partnerships that do not fit.',
+  },
+  {
+    question: 'How do you handle patient privacy and marketing compliance in Canada?',
+    answer:
+      'Marketing must respect Canadian privacy expectations (including PIPEDA and provincial health privacy rules where they apply), platform policies, and professional advertising norms. We avoid sensitive health storytelling in ads, use consent-based lead capture, and coordinate with your team on what can and cannot be said publicly. Your office should always have final say on clinical claims and required disclaimers.',
+  },
+  {
+    question: 'Where is Dentech Digital based, and do you work outside Ottawa?',
+    answer:
+      'We are headquartered in Ottawa, Ontario, Canada (499 Preston St), and work with many practices in Eastern Ontario and across Canada; remote strategy and delivery are standard, and international clients are considered when there is a good fit. Local SEO execution is tailored to your real service areas—whether that is a few neighbourhoods or multiple provinces.',
   },
 ];
 
@@ -68,11 +78,11 @@ export default function HomeFAQ() {
             id="home-faq-heading"
             className="text-3xl md:text-4xl font-bold text-blue-950 dark:text-white tracking-tight mb-4"
           >
-            Dental marketing & website questions
+            Dental marketing questions
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300">
-            Clear answers on local SEO, dental website pricing, paid ads, and how we work with Ottawa and Canadian
-            clinics—written for patients, owners, and search.
+            Straight answers on local SEO, channels, timelines, reputation, and how we support Canadian dental
+            practices—useful for owners, office managers, and AI-assisted search.
           </p>
         </div>
 

@@ -134,9 +134,9 @@ export const aboutTeamMembers: {
 
 export const testimonialPlaceholder = {
   quote:
-    'Dentech helped us turn scattered marketing into a system — clearer messaging, better leads, and a team that actually understands dentistry.',
-  attribution: 'Practice leader',
-  location: 'Ontario, Canada',
+    'Working with Dentech has been one of the best business decisions we made. Their team is proactive, clear, and consistently focused on real growth.',
+  attribution: 'Nazneen Sadikot',
+  location: 'Co-founder, The Smile Doctors',
 };
 
 export function buildAboutStructuredData() {

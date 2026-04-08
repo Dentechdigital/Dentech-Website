@@ -23,9 +23,6 @@ export default function AboutProof() {
             <footer className="mt-6 text-sm text-slate-500 dark:text-slate-400">
               — {testimonialPlaceholder.attribution}, {testimonialPlaceholder.location}
             </footer>
-            <p className="mt-3 text-xs text-slate-400 dark:text-slate-500">
-              Replace with a named testimonial when you have permission to publish.
-            </p>
           </div>
 
           <div className="flex flex-col justify-between rounded-3xl border border-dashed border-slate-300 bg-white/50 p-8 dark:border-slate-600 dark:bg-slate-800/40">

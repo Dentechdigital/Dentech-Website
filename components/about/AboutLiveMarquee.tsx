@@ -23,10 +23,7 @@ export default function AboutLiveMarquee() {
         </div>
 
         {/* Image: full width; fade on bottom of image only (no extra block below) */}
-        <div
-          className="relative m-0 mb-0 left-1/2 right-1/2 -mx-[50vw] w-screen"
-          style={{ marginTop: '-10px' }}
-        >
+        <div className="relative m-0 mb-0 -mt-10 left-1/2 right-1/2 -mx-[50vw] w-screen sm:-mt-12">
           <div className="relative overflow-hidden leading-[0]">
             <img
               src={trelloImgLight}

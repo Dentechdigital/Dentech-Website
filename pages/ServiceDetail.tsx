@@ -49,6 +49,9 @@ const ServiceDetail: React.FC = () => {
     .map((slug) => servicesBySlug[slug])
     .filter(Boolean) as typeof service[];
 
+  const paidAdsHeroCollage =
+    service.slug === 'paid-ads' ? mediaUrl('/services/paid-ads/hero-collage.png') : undefined;
+
   return (
     <>
       <Helmet>
@@ -75,6 +78,12 @@ const ServiceDetail: React.FC = () => {
           badge="Dental marketing service"
           title={service.h1}
           description={service.heroTagline}
+          heroImageSrc={paidAdsHeroCollage}
+          heroImageClassName={
+            paidAdsHeroCollage
+              ? 'object-cover object-[28%_center] sm:object-[32%_center] lg:object-[36%_center]'
+              : undefined
+          }
           afterDescription={
             <ul className="flex max-w-3xl flex-col gap-3 sm:gap-2">
               {service.heroBullets.map((b) => (

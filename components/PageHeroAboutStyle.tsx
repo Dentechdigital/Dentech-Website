@@ -17,6 +17,16 @@ export type PageHeroAboutStyleProps = {
   secondaryCta?: { to: string; label: string };
   /** Optional row above badge (breadcrumbs) */
   breadcrumb?: React.ReactNode;
+  /**
+   * Optional full-bleed hero image (path under public or absolute URL).
+   * Defaults to site-wide hero-background.png when omitted.
+   */
+  heroImageSrc?: string;
+  /**
+   * Extra Tailwind classes for the hero `<img>` positioning (after base layout classes).
+   * Example: `object-left` when the artboard has a dark/empty left and artwork on the right.
+   */
+  heroImageClassName?: string;
 };
 
 /**
@@ -31,15 +41,23 @@ export default function PageHeroAboutStyle({
   primaryCta,
   secondaryCta,
   breadcrumb,
+  heroImageSrc,
+  heroImageClassName,
 }: PageHeroAboutStyleProps) {
+  const bgSrc = heroImageSrc ?? aboutHeroBgUrl;
+  const bgPosition =
+    heroImageClassName && heroImageClassName.trim()
+      ? heroImageClassName.trim()
+      : 'object-cover object-[72%_center] sm:object-right';
+
   return (
     <section className="relative overflow-hidden border-b border-slate-200/70 bg-[#FAFAF9] pb-20 pt-28 transition-colors duration-300 dark:border-slate-800 dark:bg-slate-950 md:pb-24 md:pt-32">
       <img
-        src={aboutHeroBgUrl}
+        src={bgSrc}
         alt=""
-        className="pointer-events-none absolute inset-0 z-0 h-full min-h-[420px] w-full object-cover object-[72%_center] sm:object-right"
+        className={`pointer-events-none absolute inset-0 z-0 h-full min-h-[420px] w-full ${bgPosition}`}
         decoding="async"
-        fetchPriority="low"
+        fetchPriority={heroImageSrc ? 'high' : 'low'}
       />
       <div
         aria-hidden

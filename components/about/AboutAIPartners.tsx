@@ -10,6 +10,7 @@ import {
   ShieldCheck,
   Sparkles,
   Star,
+  Workflow,
   Users,
 } from 'lucide-react';
 
@@ -55,6 +56,12 @@ const solutions = [
     title: 'Reminders & follow-up nudges',
     description:
       'Reduce no-shows and keep recalls moving with thoughtful automation that feels like your practice, not a blast.',
+  },
+  {
+    icon: Workflow,
+    title: 'Custom AI apps & ops automation',
+    description:
+      'Need a business-level platform, a lightweight internal app, or tailored software? Share your workflow and goals — we design and build custom AI-assisted solutions to automate repetitive processes and help your team run operations more efficiently.',
   },
 ];
 

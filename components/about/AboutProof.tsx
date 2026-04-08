@@ -59,8 +59,8 @@ export default function AboutProof() {
                 Use only marks you are entitled to display under each program&apos;s brand rules.
               </p>
               <div className="mt-6 flex flex-wrap gap-4">
-                <PartnerLogo src={`${import.meta.env.BASE_URL}partners/google-partner.svg`} alt="Google Partner" />
-                <PartnerLogo src={`${import.meta.env.BASE_URL}partners/meta-business-partner.svg`} alt="Meta Business Partner" />
+                <PartnerLogo src={`${import.meta.env.BASE_URL}partners/google-partner.png`} alt="Google Partner" />
+                <PartnerLogo src={`${import.meta.env.BASE_URL}partners/meta-business-partner.png`} alt="Meta Business Partner" />
               </div>
             </div>
             <Link

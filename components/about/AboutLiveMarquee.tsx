@@ -23,7 +23,7 @@ export default function AboutLiveMarquee() {
         </div>
 
         {/* Image preview: top-half crop + soft fade at bottom */}
-        <div className="relative mt-10">
+        <div className="mx-auto mt-10 max-w-3xl">
           <div className="relative h-44 overflow-hidden rounded-t-3xl sm:h-52 lg:h-56">
             <img
               src={trelloImgLight}

@@ -22,30 +22,30 @@ export default function AboutLiveMarquee() {
           </p>
         </div>
 
-        {/* Image preview: full width + bottom fade into next section */}
-        <div className="relative m-0 left-1/2 right-1/2 -mx-[50vw] w-screen" style={{ marginTop: '-10px' }}>
-          <div className="relative">
-            <div className="relative overflow-hidden">
-              <img
-                src={trelloImgLight}
-                alt="Work in progress board (light)"
-                className="w-full dark:hidden"
-                loading="lazy"
-                decoding="async"
-              />
-              <img
-                src={trelloImgDark}
-                alt="Work in progress board (dark)"
-                className="hidden w-full dark:block"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-
-            {/* Fade is BELOW the image (slight overlap), not over it */}
+        {/* Image: full width; fade on bottom of image only (no extra block below) */}
+        <div
+          className="relative m-0 mb-0 left-1/2 right-1/2 -mx-[50vw] w-screen"
+          style={{ marginTop: '-10px' }}
+        >
+          <div className="relative overflow-hidden">
+            <img
+              src={trelloImgLight}
+              alt="Work in progress board (light)"
+              className="w-full dark:hidden"
+              loading="lazy"
+              decoding="async"
+            />
+            <img
+              src={trelloImgDark}
+              alt="Work in progress board (dark)"
+              className="hidden w-full dark:block"
+              loading="lazy"
+              decoding="async"
+            />
+            {/* Fade on image edge: light → next section is white; dark → slate-950 */}
             <div
               aria-hidden
-              className="-mt-6 h-20 bg-gradient-to-b from-transparent via-[#FAFAF9]/25 to-[#FAFAF9] dark:via-slate-950/25 dark:to-slate-950 sm:-mt-12 sm:h-40 sm:via-[#FAFAF9]/60 dark:sm:via-slate-950/60 lg:-mt-24 lg:h-[22.5rem] lg:via-[#FAFAF9]/95 dark:lg:via-slate-950/95"
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent via-[#FAFAF9]/50 to-white dark:via-slate-950/55 dark:to-slate-950 sm:h-36 sm:via-[#FAFAF9]/70 dark:sm:via-slate-950/75 lg:h-48 lg:via-[#FAFAF9]/85 dark:lg:via-slate-950/90"
             />
           </div>
         </div>

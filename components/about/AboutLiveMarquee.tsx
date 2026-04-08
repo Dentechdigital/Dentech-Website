@@ -23,7 +23,7 @@ export default function AboutLiveMarquee() {
         </div>
 
         {/* Image preview: full width + bottom fade into next section */}
-        <div className="relative -mt-10 left-1/2 right-1/2 -mx-[50vw] w-screen">
+        <div className="relative m-0 left-1/2 right-1/2 -mx-[50vw] w-screen" style={{ marginTop: '-10px' }}>
           <div className="relative">
             <div className="relative overflow-hidden">
               <img

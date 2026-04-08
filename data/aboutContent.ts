@@ -113,22 +113,6 @@ export const capabilityCards: {
   },
 ];
 
-export const devStack = [
-  'HTML, CSS, JavaScript',
-  'React / MERN-style stacks',
-  'PHP',
-  'Shopify, WordPress, Webflow, Framer, Duda',
-];
-
-export const marketingStack = [
-  'Google Analytics 4 & Tag Manager',
-  'Google Ads & Meta Business Suite',
-  'TikTok Ads',
-  'Semrush / Ahrefs-class SEO tooling',
-  'HubSpot, Mailchimp, Klaviyo (email & CRM)',
-  'Looker Studio reporting',
-];
-
 export const teamRoles = [
   'Account managers',
   'Social media managers',

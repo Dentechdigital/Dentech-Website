@@ -8,6 +8,7 @@ import AboutWhoWeServe from '../components/about/AboutWhoWeServe';
 import AboutStoryTimeline from '../components/about/AboutStoryTimeline';
 import AboutFounder from '../components/about/AboutFounder';
 import AboutPhilosophy from '../components/about/AboutPhilosophy';
+import AboutLiveMarquee from '../components/about/AboutLiveMarquee';
 import AboutCapabilitiesBento from '../components/about/AboutCapabilitiesBento';
 import AboutTeamScrum from '../components/about/AboutTeamScrum';
 import AboutAIPartners from '../components/about/AboutAIPartners';
@@ -44,6 +45,7 @@ const About: React.FC = () => {
         <AboutWhoWeServe />
         <AboutStoryTimeline />
         <AboutFounder />
+        <AboutLiveMarquee />
         <AboutPhilosophy />
         <AboutCapabilitiesBento />
         <AboutTeamScrum />

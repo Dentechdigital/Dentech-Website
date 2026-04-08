@@ -25,7 +25,7 @@ export default function AboutTeamScrum() {
           </div>
           <div className="flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-slate-200">
             <Kanban className="h-4 w-4 text-blue-600 dark:text-blue-400" />
-            Scrum methodology for delivery
+            Roadmap-led phases & clear milestones
           </div>
         </div>
 
@@ -45,7 +45,7 @@ export default function AboutTeamScrum() {
 
         <div className="mt-14">
           <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-            Scrum in practice
+            From brief to growth
           </h3>
           <div className="mt-6 grid gap-6 md:grid-cols-3">
             {scrumSteps.map((step, i) => (

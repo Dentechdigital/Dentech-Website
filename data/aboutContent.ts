@@ -10,8 +10,8 @@ export const aboutStats = [
   { label: 'Delivery model', value: 'Hybrid team' },
   { label: 'Markets', value: 'Canada-wide' },
   { label: 'Campaign languages', value: 'English & French' },
-  { label: 'How we deliver', value: 'Scrum sprints' },
-  { label: 'Social content', value: 'Original-first' },
+  { label: 'How we work', value: 'Roadmap-led' },
+  { label: 'Creative & content', value: 'Strategy-first' },
 ];
 
 export const whoWeServe = [
@@ -23,8 +23,8 @@ export const whoWeServe = [
 export const differentiators = [
   'Dental-only focus — we speak patient intent, procedures, and compliance tone',
   'Full-funnel partner — from signage and print through web, email, social, and paid media',
-  'Scrum-based delivery — predictable sprints, clear priorities, transparent progress',
-  'Original-first social — we prioritize human-crafted content over generic AI filler',
+  'Performance clarity — reporting and optimization tied to consults, production, and ROI — not vanity metrics',
+  'Integrated partnership — strategy, creative, and media under one accountable team with senior oversight and a single point of contact',
 ];
 
 export const timelineMilestones = [
@@ -110,7 +110,7 @@ export const scrumSteps = [
   },
   {
     title: 'Build',
-    body: 'Creative, landing experiences, and campaigns shipped in focused sprints with visible milestones.',
+    body: 'Creative, landing experiences, and campaigns shipped in focused phases with visible milestones.',
   },
   {
     title: 'Grow',

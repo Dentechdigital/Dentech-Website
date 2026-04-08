@@ -43,19 +43,12 @@ export default function AboutStatsStrip() {
         }
         .about-trust-marquee-viewport {
           width: 100%;
-          overflow-x: hidden;
+          overflow: hidden;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
         }
-        @media (prefers-reduced-motion: reduce) {
-          .about-trust-marquee-track {
-            animation: none;
-          }
-          .about-trust-marquee-viewport {
-            overflow-x: auto;
-            overflow-y: hidden;
-            -webkit-overflow-scrolling: touch;
-            mask-image: none;
-            -webkit-mask-image: none;
-          }
+        .about-trust-marquee-viewport::-webkit-scrollbar {
+          display: none;
         }
       `}</style>
 

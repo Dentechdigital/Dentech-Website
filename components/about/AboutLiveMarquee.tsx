@@ -2,8 +2,8 @@ import React from 'react';
 import { Sparkles } from 'lucide-react';
 
 export default function AboutLiveMarquee() {
-  const trelloImgLight = `${import.meta.env.BASE_URL}about/trello-workboard-light.png`;
-  const trelloImgDark = `${import.meta.env.BASE_URL}about/trello-workboard.png`;
+  const trelloImgLight = `${import.meta.env.BASE_URL}about/trello-light.png`;
+  const trelloImgDark = `${import.meta.env.BASE_URL}about/trello-dark.png`;
 
   return (
     <section className="relative overflow-hidden bg-[#FAFAF9] pb-0 pt-14 dark:bg-slate-950">
@@ -22,24 +22,23 @@ export default function AboutLiveMarquee() {
           </p>
         </div>
 
-        {/* Image preview: top-half crop + soft fade at bottom */}
-        <div className="mx-auto mt-10 max-w-3xl">
-          <div className="relative h-64 overflow-hidden rounded-t-3xl sm:h-72 lg:h-80">
+        {/* Image preview: full container width (transparent PNGs) */}
+        <div className="mt-10">
+          <div className="relative overflow-hidden rounded-t-3xl">
             <img
               src={trelloImgLight}
               alt="Work in progress board (light)"
-              className="h-full w-full object-cover object-top dark:hidden"
+              className="w-full dark:hidden"
               loading="lazy"
               decoding="async"
             />
             <img
               src={trelloImgDark}
               alt="Work in progress board (dark)"
-              className="hidden h-full w-full object-cover object-top dark:block"
+              className="hidden w-full dark:block"
               loading="lazy"
               decoding="async"
             />
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-[#FAFAF9] dark:to-slate-950" />
           </div>
         </div>
       </div>

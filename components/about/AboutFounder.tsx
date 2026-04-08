@@ -54,14 +54,16 @@ export default function AboutFounder() {
 
             <div className="mt-8 space-y-4 text-base leading-relaxed text-slate-600 dark:text-slate-300">
               <p>
-                Mohammed founded Dentech Digital after years across computer science, interface design, and web
-                development — combined with operating and scaling paid media across businesses with substantial ad
-                spend. That hybrid background is why we move comfortably from a landing page bug to a bidding strategy
-                to a print deadline.
+                Mohammed founded Dentech Digital to unite technical depth with accountable media: a background in
+                computer science, interface design, and web engineering, paired with hands-on leadership of paid
+                campaigns at serious scale. Clients get one leadership lens across the work — from live-site fixes and
+                conversion paths to auction strategy, creative, and production timelines — without handoffs that slow
+                decisions or dilute results.
               </p>
               <p>
-                The agency began serving every industry, then deliberately specialized in dental practices and medical
-                clinics to go deeper where outcomes matter most.
+                Dentech proved its model across sectors before narrowing by choice to dental practices and medical
+                clinics — where patient trust, regulatory tone, and booked care matter as much as the metrics in the
+                dashboard.
               </p>
             </div>
 

@@ -22,9 +22,9 @@ export default function AboutLiveMarquee() {
           </p>
         </div>
 
-        {/* Image preview: full container width (transparent PNGs) */}
-        <div className="mt-10">
-          <div className="relative overflow-hidden rounded-t-3xl">
+        {/* Image preview: full width + bottom fade into next section */}
+        <div className="relative mt-10 left-1/2 right-1/2 -mx-[50vw] w-screen">
+          <div className="relative overflow-hidden">
             <img
               src={trelloImgLight}
               alt="Work in progress board (light)"
@@ -39,6 +39,7 @@ export default function AboutLiveMarquee() {
               loading="lazy"
               decoding="async"
             />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-b from-transparent to-[#FAFAF9] dark:to-slate-950" />
           </div>
         </div>
       </div>

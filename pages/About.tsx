@@ -44,9 +44,9 @@ const About: React.FC = () => {
         <AboutWhoWeServe />
         <AboutStoryTimeline />
         <AboutFounder />
-        <AboutLiveMarquee />
         <AboutCapabilitiesBento />
         <AboutTeamScrum />
+        <AboutLiveMarquee />
         <AboutAIPartners />
         <AboutProof />
         <AboutOfficeCTA />

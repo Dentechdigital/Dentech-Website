@@ -1,11 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-export type DynamicDotsProps = {
-  /** Denser, brighter dots for full-bleed page heroes */
-  prominent?: boolean;
-};
-
-const DynamicDots: React.FC<DynamicDotsProps> = ({ prominent = false }) => {
+const DynamicDots: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -42,18 +37,17 @@ const DynamicDots: React.FC<DynamicDotsProps> = ({ prominent = false }) => {
     resize();
 
     // Dot settings
-    const spacing = prominent ? 26 : 28;
-    const baseRadius = prominent ? 1.35 : 1.2;
-    const maxRadius = prominent ? 3.8 : 3.5;
+    const spacing = 28;
+    const baseRadius = 1.2;
+    const maxRadius = 3.5;
     const interactionRadius = 140;
-    const dotAlpha = prominent ? 0.62 : 0.5;
 
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       const cols = Math.floor(canvas.width / spacing);
       const rows = Math.floor(canvas.height / spacing);
-      
+
       const offsetX = (canvas.width - cols * spacing) / 2;
       const offsetY = (canvas.height - rows * spacing) / 2;
 
@@ -67,13 +61,13 @@ const DynamicDots: React.FC<DynamicDotsProps> = ({ prominent = false }) => {
           // Subtle gradient coloring based on position
           const ratioX = x / canvas.width;
           const ratioY = y / canvas.height;
-          
+
           // Mix between blue (147, 197, 253) and emerald (110, 231, 183)
           const r = Math.floor(147 + (110 - 147) * ratioX);
           const g = Math.floor(197 + (231 - 197) * ratioY);
           const b = Math.floor(253 + (183 - 253) * ((ratioX + ratioY) / 2));
-          
-          ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${dotAlpha})`;
+
+          ctx.fillStyle = `rgba(${r}, ${g}, ${b}, 0.5)`;
 
           // Calculate distance to mouse
           const dx = mouse.x - x;
@@ -89,7 +83,7 @@ const DynamicDots: React.FC<DynamicDotsProps> = ({ prominent = false }) => {
             // Ease out the force for a smoother interaction
             const easeForce = Math.pow(force, 1.5);
             radius = baseRadius + easeForce * (maxRadius - baseRadius);
-            
+
             // Repel effect
             const angle = Math.atan2(dy, dx);
             const repelStrength = easeForce * 15;
@@ -99,7 +93,7 @@ const DynamicDots: React.FC<DynamicDotsProps> = ({ prominent = false }) => {
 
           // Vertical wave animation based on time and position
           const wave = Math.sin(x * 0.015 + y * 0.005 + time) * 5;
-          
+
           ctx.beginPath();
           ctx.arc(x + xOffset, y + yOffset + wave, radius, 0, Math.PI * 2);
           ctx.fill();
@@ -117,12 +111,12 @@ const DynamicDots: React.FC<DynamicDotsProps> = ({ prominent = false }) => {
       window.removeEventListener('mouseleave', handleMouseLeave);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [prominent]);
+  }, []);
 
   return (
     <canvas
       ref={canvasRef}
-      className={`absolute inset-0 z-0 h-full w-full pointer-events-none ${prominent ? 'opacity-95' : 'opacity-70'}`}
+      className="pointer-events-none absolute inset-0 z-0 h-full w-full opacity-70"
     />
   );
 };

@@ -13,12 +13,12 @@ function PartnerLogo({
   const [ok, setOk] = useState(true);
 
   return (
-    <div className="flex h-16 w-40 items-center justify-center rounded-xl border border-slate-200 bg-white px-4 shadow-sm dark:border-slate-600 dark:bg-slate-900">
+    <div className="flex h-16 w-40 items-center justify-center">
       {ok ? (
         <img
           src={src}
           alt={alt}
-          className="max-h-10 w-auto max-w-full object-contain"
+          className="max-h-12 w-auto max-w-full rounded-lg object-contain"
           loading="lazy"
           onError={() => setOk(false)}
         />

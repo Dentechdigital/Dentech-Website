@@ -1,27 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { aboutStats } from '../../data/aboutContent';
 
-/**
- * Infinite one-line marquee on /about (under the hero).
- * If you see a static grid instead: your OS has “Reduce motion” on
- * (macOS: Accessibility → Display → Reduce motion). The animated strip is not commented out.
- */
+/** One Webflow-style marquee segment (duplicated for seamless loop). */
 function MarqueeSegment() {
   return (
-    <div className="flex shrink-0 flex-nowrap items-center">
+    <div className="flex shrink-0 flex-nowrap items-stretch">
       {aboutStats.map((s) => (
         <div
           key={s.label}
-          className="flex shrink-0 items-baseline gap-3 whitespace-nowrap px-8 sm:px-10 md:px-14"
+          className="flex shrink-0 flex-col items-center gap-1.5 whitespace-nowrap border-r border-slate-200/60 px-10 py-1 last:border-r-0 dark:border-slate-700/80 sm:px-12 md:px-14"
         >
-          <span className="whitespace-nowrap text-2xl font-bold tracking-tight text-blue-950 dark:text-white md:text-3xl">
+          <span className="text-2xl font-bold leading-tight tracking-tight text-blue-950 dark:text-white md:text-3xl">
             {s.value}
           </span>
-          <span className="whitespace-nowrap text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-slate-400">
+          <span className="whitespace-nowrap text-center text-[10px] font-semibold uppercase leading-snug tracking-wider text-slate-500 dark:text-slate-400 sm:text-xs">
             {s.label}
-          </span>
-          <span className="shrink-0 select-none text-slate-300 dark:text-slate-600" aria-hidden>
-            |
           </span>
         </div>
       ))}
@@ -29,43 +22,48 @@ function MarqueeSegment() {
   );
 }
 
-function prefersReducedMotion(): boolean {
-  if (typeof window === 'undefined') return false;
-  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-}
-
 export default function AboutStatsStrip() {
-  const [reduceMotion, setReduceMotion] = useState(prefersReducedMotion);
-
-  useEffect(() => {
-    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const update = () => setReduceMotion(mq.matches);
-    mq.addEventListener('change', update);
-    return () => mq.removeEventListener('change', update);
-  }, []);
-
-  if (reduceMotion) {
-    return (
-      <section className="border-y border-slate-200/80 bg-white py-10 dark:border-slate-700/70 dark:bg-slate-950">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-4 sm:px-6 md:grid-cols-4 lg:px-8">
-          {aboutStats.map((s) => (
-            <div key={s.label} className="text-center md:text-left">
-              <p className="text-2xl font-bold tracking-tight text-blue-950 dark:text-white md:text-3xl">{s.value}</p>
-              <p className="mt-1 text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-slate-400">{s.label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-    );
-  }
-
   return (
-    <section className="border-y border-slate-200/80 bg-white py-6 dark:border-slate-700/70 dark:bg-slate-950 md:py-7">
+    <section className="border-y border-slate-200/80 bg-white py-7 dark:border-slate-700/70 dark:bg-slate-950 md:py-8">
+      <style>{`
+        @keyframes about-trust-marquee {
+          from {
+            transform: translate3d(0, 0, 0);
+          }
+          to {
+            transform: translate3d(-50%, 0, 0);
+          }
+        }
+        .about-trust-marquee-track {
+          display: flex;
+          width: max-content;
+          flex-wrap: nowrap;
+          animation: about-trust-marquee 36s linear infinite;
+          will-change: transform;
+        }
+        .about-trust-marquee-viewport {
+          width: 100%;
+          overflow-x: hidden;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .about-trust-marquee-track {
+            animation: none;
+          }
+          .about-trust-marquee-viewport {
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+            mask-image: none;
+            -webkit-mask-image: none;
+          }
+        }
+      `}</style>
+
       <div
-        className="w-full overflow-x-hidden overflow-y-visible [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]"
+        className="about-trust-marquee-viewport [mask-image:linear-gradient(to_right,transparent,black_4%,black_96%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_4%,black_96%,transparent)]"
         aria-label="Company highlights"
       >
-        <div className="dentech-about-marquee-track">
+        <div className="about-trust-marquee-track">
           <MarqueeSegment />
           <MarqueeSegment />
         </div>

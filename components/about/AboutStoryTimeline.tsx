@@ -1,20 +1,18 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { timelineMilestones } from '../../data/aboutContent';
+
+/** Viewport Y (px) used to pick which milestone is "current" — below sticky header on mobile. */
+function getFocusY(stickyBottom: number) {
+  const vh = typeof window !== 'undefined' ? window.innerHeight : 800;
+  const belowSticky = stickyBottom + 24;
+  return belowSticky + (vh - belowSticky) * 0.35;
+}
 
 export default function AboutStoryTimeline() {
   const [visible, setVisible] = useState<Record<number, boolean>>({});
   const [activeIndex, setActiveIndex] = useState(0);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  const updateActiveFromEntries = useCallback((entries: IntersectionObserverEntry[]) => {
-    const intersecting = entries.filter((e) => e.isIntersecting);
-    if (intersecting.length === 0) return;
-    const best = intersecting.reduce((a, b) =>
-      a.intersectionRatio >= b.intersectionRatio ? a : b
-    );
-    const i = Number(best.target.getAttribute('data-i'));
-    if (!Number.isNaN(i)) setActiveIndex(i);
-  }, []);
+  const stickyRailRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const revealObs = new IntersectionObserver(
@@ -27,26 +25,51 @@ export default function AboutStoryTimeline() {
           }
         });
       },
-      { threshold: 0.15, rootMargin: '0px 0px -8% 0px' }
+      { threshold: 0.12, rootMargin: '0px 0px -6% 0px' }
     );
 
-    const activeObs = new IntersectionObserver(updateActiveFromEntries, {
-      threshold: [0, 0.1, 0.25, 0.45, 0.65, 0.85, 1],
-      rootMargin: '-18% 0px -35% 0px',
-    });
-
     itemRefs.current.forEach((el) => {
-      if (el) {
-        revealObs.observe(el);
-        activeObs.observe(el);
-      }
+      if (el) revealObs.observe(el);
     });
 
-    return () => {
-      revealObs.disconnect();
-      activeObs.disconnect();
+    return () => revealObs.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const pickActive = () => {
+      const stickyBottom = stickyRailRef.current?.getBoundingClientRect().bottom ?? 0;
+      const focusY = getFocusY(stickyBottom);
+
+      let bestI = 0;
+      let bestDist = Infinity;
+
+      itemRefs.current.forEach((el, i) => {
+        if (!el) return;
+        const r = el.getBoundingClientRect();
+        if (r.bottom < stickyBottom + 40 || r.top > window.innerHeight + 80) return;
+
+        const anchorY = r.top + Math.min(r.height * 0.35, 120);
+        const dist = Math.abs(anchorY - focusY);
+        if (dist < bestDist) {
+          bestDist = dist;
+          bestI = i;
+        }
+      });
+
+      setActiveIndex(bestI);
     };
-  }, [updateActiveFromEntries]);
+
+    const raf = requestAnimationFrame(() => {
+      requestAnimationFrame(pickActive);
+    });
+    window.addEventListener('scroll', pickActive, { passive: true });
+    window.addEventListener('resize', pickActive, { passive: true });
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener('scroll', pickActive);
+      window.removeEventListener('resize', pickActive);
+    };
+  }, []);
 
   const active = timelineMilestones[activeIndex] ?? timelineMilestones[0];
 
@@ -61,9 +84,9 @@ export default function AboutStoryTimeline() {
           building products, buying media, and earning trust in competitive markets.
         </p>
 
-        {/* Sticky year rail — mobile-first; static on large screens where sidebar shows years */}
-        <div className="relative z-20 mt-10 md:mt-16 md:hidden">
-          <div className="sticky top-0 border-b border-slate-200/90 bg-white/90 py-3 backdrop-blur-md dark:border-slate-800 dark:bg-slate-950/90">
+        {/* Sticky year — mobile only; ref used to position scroll focus below bar */}
+        <div ref={stickyRailRef} className="relative z-20 mt-10 md:mt-16 md:hidden">
+          <div className="sticky top-0 border-b border-slate-200/90 bg-white/95 py-3 backdrop-blur-md dark:border-slate-800 dark:bg-slate-950/95">
             <div key={active.year} className="about-timeline-sticky-swap">
               <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
                 Our story
@@ -76,9 +99,9 @@ export default function AboutStoryTimeline() {
         </div>
 
         <div className="relative mt-8 md:mt-16">
-          {/* Vertical spine — visible on all breakpoints; position matches marker column center */}
+          {/* Spine: always centered on marker column (w-14 = 56px → center 28px = left-7) */}
           <div
-            className="pointer-events-none absolute bottom-8 left-7 top-8 w-px -translate-x-1/2 bg-gradient-to-b from-blue-200 via-blue-400 to-cyan-300 md:bottom-12 md:left-[5.5rem] md:top-12 dark:from-blue-900 dark:via-blue-600 dark:to-cyan-800"
+            className="pointer-events-none absolute bottom-8 left-7 top-8 w-px -translate-x-1/2 bg-gradient-to-b from-blue-200 via-blue-400 to-cyan-300 md:bottom-12 md:top-12 dark:from-blue-900 dark:via-blue-600 dark:to-cyan-800"
             aria-hidden
           />
 
@@ -93,16 +116,15 @@ export default function AboutStoryTimeline() {
                     itemRefs.current[i] = el;
                   }}
                   data-i={i}
-                  className={`relative flex gap-5 md:gap-10 motion-reduce:transition-none ${
+                  className={`relative flex gap-5 motion-reduce:transition-none md:gap-8 ${
                     isVisible
                       ? 'translate-y-0 opacity-100'
                       : 'translate-y-8 opacity-0 motion-reduce:translate-y-0 motion-reduce:opacity-100'
                   } transition-all duration-700 ease-out`}
                 >
-                  {/* Marker column — line runs through center */}
-                  <div className="relative z-10 flex w-14 shrink-0 flex-col items-center md:w-44 md:pt-1">
+                  {/* Marker on line — fixed width; year on desktop is separate column (not on the line) */}
+                  <div className="relative z-10 flex w-14 shrink-0 flex-col items-center md:pt-1">
                     <div className="relative flex h-14 w-14 items-center justify-center md:h-16 md:w-16">
-                      {/* Outer soft halo */}
                       <span
                         className={`absolute inset-0 rounded-full blur-md motion-reduce:blur-0 dark:bg-blue-500/25 ${
                           isActive ? 'bg-blue-500/35 dark:bg-blue-400/35' : 'bg-blue-400/20'
@@ -113,7 +135,6 @@ export default function AboutStoryTimeline() {
                         className="absolute inset-[2px] rounded-full bg-blue-400/15 ring-2 ring-blue-300/40 dark:bg-blue-500/10 dark:ring-blue-400/30"
                         aria-hidden
                       />
-                      {/* Mid ring */}
                       <span
                         className="absolute inset-2 rounded-full border border-blue-300/50 bg-white/40 dark:border-blue-500/40 dark:bg-slate-900/40"
                         aria-hidden
@@ -126,8 +147,11 @@ export default function AboutStoryTimeline() {
                         {i + 1}
                       </div>
                     </div>
-                    {/* Year beside line on desktop only */}
-                    <span className="mt-3 hidden text-sm font-bold uppercase tracking-wider text-blue-700 dark:text-blue-300 md:block md:text-center">
+                  </div>
+
+                  {/* Desktop: year beside marker column, left-aligned — clear of vertical spine */}
+                  <div className="hidden min-w-0 shrink-0 pt-2 md:block md:w-[7.5rem] md:pt-3 lg:w-32">
+                    <span className="block text-sm font-bold uppercase leading-snug tracking-wider text-blue-700 dark:text-blue-300">
                       {m.year}
                     </span>
                   </div>

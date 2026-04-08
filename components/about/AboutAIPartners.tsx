@@ -27,7 +27,7 @@ const highlights = [
   {
     icon: MapPin,
     title: 'Ottawa × remote',
-    body: 'We collaborate with local AI builders where it helps, and ship with the same hybrid team you already know.',
+    body: 'We collaborate with local AI partners who are deep in the industry — and ship with the same hybrid team you already know.',
   },
 ];
 
@@ -76,8 +76,8 @@ export default function AboutAIPartners() {
             aria-hidden
           />
 
-          <div className="relative grid gap-12 p-8 md:grid-cols-2 md:gap-14 md:p-12 lg:items-start">
-            <div>
+          <div className="relative grid items-stretch gap-12 p-8 md:grid-cols-2 md:gap-14 md:p-12">
+            <div className="flex h-full flex-col">
               <div className="inline-flex items-center gap-2 rounded-full border border-cyan-200/90 bg-white/90 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-cyan-800 shadow-sm backdrop-blur-sm dark:border-cyan-500/35 dark:bg-slate-800/90 dark:text-cyan-300">
                 <Bot className="h-3.5 w-3.5" />
                 AI & local partners
@@ -89,15 +89,17 @@ export default function AboutAIPartners() {
 
               <p className="mt-5 leading-relaxed text-slate-600 dark:text-slate-300">
                 We invest in <strong className="font-semibold text-slate-800 dark:text-slate-100">practical AI</strong>{' '}
-                — workflows patients actually use, not slide-deck hype. Alongside Ottawa-area specialists, we design,
-                integrate, and tune tools for dental and medical clinics: routing, reviews, chat, and light automation
-                that respects Canadian privacy expectations and your clinical tone.
+                — workflows patients actually use, not slide-deck hype. With local partners who are experts in the AI
+                industry, we design, integrate, and tune tools for dental and medical clinics: routing, reviews, chat,
+                and light automation that respects Canadian privacy expectations and your clinical tone.
               </p>
 
               <p className="mt-4 leading-relaxed text-slate-600 dark:text-slate-300">
-                Every build is measured against clear outcomes — fewer missed calls, faster replies, cleaner handoffs — and
-                always complemented by your human team. Maya and our ops crew help keep prompts, data touchpoints, and
-                playbooks consistent as platforms evolve.
+                We also build <strong className="font-semibold text-slate-800 dark:text-slate-100">business-level apps</strong>{' '}
+                for Ontario institutions — the same engineering discipline we apply to performance marketing and patient
+                experience. Every build is measured against clear outcomes: fewer missed calls, faster replies, cleaner
+                handoffs — and always complemented by your human team. Maya and our ops crew keep prompts, touchpoints,
+                and playbooks consistent as platforms evolve.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
@@ -117,7 +119,7 @@ export default function AboutAIPartners() {
                 ))}
               </div>
 
-              <div className="mt-10 inline-flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-cyan-200/60 pt-8 dark:border-cyan-500/20">
+              <div className="mt-auto inline-flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-cyan-200/60 pt-8 dark:border-cyan-500/20">
                 <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-cyan-800 dark:text-cyan-300">
                   <Sparkles className="h-3.5 w-3.5" />
                   Explore the stack
@@ -132,8 +134,8 @@ export default function AboutAIPartners() {
               </div>
             </div>
 
-            <div className="flex flex-col gap-4">
-              <div className="rounded-2xl border border-white/80 bg-white/85 p-6 shadow-lg shadow-cyan-900/5 backdrop-blur-sm dark:border-slate-600/90 dark:bg-slate-800/70 dark:shadow-black/25 md:p-8">
+            <div className="flex h-full flex-col gap-4">
+              <div className="flex-1 rounded-2xl border border-white/80 bg-white/85 p-6 shadow-lg shadow-cyan-900/5 backdrop-blur-sm dark:border-slate-600/90 dark:bg-slate-800/70 dark:shadow-black/25 md:p-8">
                 <p className="text-xs font-bold uppercase tracking-[0.16em] text-cyan-700 dark:text-cyan-300">
                   What we ship
                 </p>

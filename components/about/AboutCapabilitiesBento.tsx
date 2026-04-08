@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layers, MonitorSmartphone, UsersRound, Target, TrendingUp } from 'lucide-react';
+import { Layers, MonitorSmartphone, UsersRound, Target } from 'lucide-react';
 import { capabilityCards, type CapabilityVisualKey } from '../../data/aboutContent';
 
 const capabilityIcons: Record<CapabilityVisualKey, typeof Layers> = {
@@ -11,68 +11,87 @@ const capabilityIcons: Record<CapabilityVisualKey, typeof Layers> = {
 
 export default function AboutCapabilitiesBento() {
   return (
-    <section className="relative overflow-hidden bg-[#FAFAF9] py-20 dark:bg-slate-950">
-      <div className="pointer-events-none absolute -left-32 top-20 h-72 w-72 rounded-full bg-blue-200/40 blur-3xl dark:bg-blue-600/15" />
-      <div className="pointer-events-none absolute -right-24 bottom-10 h-80 w-80 rounded-full bg-teal-200/35 blur-3xl dark:bg-teal-600/12" />
+    <section className="relative overflow-hidden bg-[#F4F5F7] py-20 dark:bg-slate-950">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(59,130,246,0.12),transparent)] dark:bg-[radial-gradient(ellipse_80%_40%_at_50%_-10%,rgba(59,130,246,0.08),transparent)]" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-12 max-w-3xl">
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/80 bg-white px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-blue-700 shadow-sm dark:border-blue-500/30 dark:bg-slate-800/90 dark:text-blue-300">
-            <TrendingUp className="h-3.5 w-3.5" />
-            Full-funnel
-          </div>
-          <h2 className="about-display mt-4 text-3xl font-semibold tracking-tight text-blue-950 dark:text-white md:text-4xl">
-            Capabilities across{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-teal-500 to-emerald-600 dark:from-blue-400 dark:via-teal-400 dark:to-emerald-400">
-              every touchpoint
-            </span>
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <header className="mx-auto mb-14 max-w-3xl text-center">
+          <h2 className="about-display text-3xl font-semibold tracking-tight text-slate-900 dark:text-white md:text-4xl lg:text-[2.5rem] lg:leading-tight">
+            One partner for{' '}
+            <span className="text-blue-600 dark:text-blue-400">every stage</span> of your funnel
           </h2>
-          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-slate-600 dark:text-slate-300">
-            From the trade show booth to the paid social campaign — one partner who knows how each layer connects. We
-            work with dental leaders and industry specialists so strategy stays current.
+          <p className="mt-4 text-base leading-relaxed text-slate-600 dark:text-slate-400 md:text-lg">
+            From what patients see on the street to the ad they click — brand, digital, community, and media work
+            together. We stay aligned with dental operators and platform best practices.
           </p>
-        </div>
+        </header>
 
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+        <div className="grid auto-rows-fr grid-cols-1 gap-4 md:grid-cols-3 md:gap-5 lg:gap-6">
           {capabilityCards.map((c) => {
             const Icon = capabilityIcons[c.visual.key];
+            const wide = c.bentoSpan === 'wide';
+
             return (
-              <div
+              <article
                 key={c.title}
-                className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl dark:border-slate-700 dark:bg-slate-800/90 dark:hover:border-slate-600"
+                className={`group relative flex flex-col overflow-hidden rounded-[28px] border border-slate-200/90 bg-white shadow-[0_1px_3px_rgba(15,23,42,0.06)] transition-shadow duration-500 hover:shadow-[0_20px_50px_-24px_rgba(15,23,42,0.15)] dark:border-slate-700/80 dark:bg-slate-900 dark:shadow-none dark:hover:shadow-[0_24px_60px_-20px_rgba(0,0,0,0.45)] ${
+                  wide ? 'md:col-span-2' : 'md:col-span-1'
+                } ${wide ? 'min-h-[280px] md:min-h-[300px] lg:min-h-[320px]' : 'min-h-[240px] md:min-h-[300px]'}`}
               >
+                {/* Soft blue wash in corner — wide cards only, eSIM-style depth */}
                 <div
-                  className={`pointer-events-none absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r ${c.visual.topBar}`}
+                  className={`pointer-events-none absolute -bottom-8 -right-8 rounded-full bg-gradient-to-br from-blue-100/90 to-cyan-100/40 blur-2xl dark:from-blue-600/20 dark:to-cyan-600/10 ${wide ? 'h-56 w-56 lg:h-72 lg:w-72' : 'h-40 w-40 opacity-70'}`}
                   aria-hidden
                 />
 
-                <div
-                  className="pointer-events-none absolute right-0 top-0 h-56 w-56 opacity-[0.12] transition-opacity duration-700 group-hover:opacity-[0.22] dark:opacity-[0.18] dark:group-hover:opacity-30"
-                  style={{
-                    maskImage: 'radial-gradient(circle at top right, black, transparent 72%)',
-                    WebkitMaskImage: 'radial-gradient(circle at top right, black, transparent 72%)',
-                  }}
-                >
-                  <img
-                    src={c.visual.bgImage}
-                    alt=""
-                    className="h-full w-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-
-                <div className="relative z-10 flex flex-grow flex-col p-6 pt-8 md:p-7">
+                {wide ? (
                   <div
-                    className={`mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${c.visual.iconGradient} shadow-lg shadow-slate-900/10 transition-transform duration-500 group-hover:scale-105 group-hover:rotate-1 dark:shadow-black/30`}
+                    className="pointer-events-none absolute bottom-0 right-0 h-[min(55%,280px)] w-[min(65%,320px)] max-w-[320px] opacity-[0.88] transition-transform duration-700 ease-out group-hover:scale-[1.03] dark:opacity-[0.75]"
+                    style={{
+                      maskImage: 'radial-gradient(ellipse 90% 85% at 100% 100%, black 20%, transparent 72%)',
+                      WebkitMaskImage: 'radial-gradient(ellipse 90% 85% at 100% 100%, black 20%, transparent 72%)',
+                    }}
                   >
-                    <Icon className="h-7 w-7 text-white" strokeWidth={1.5} />
+                    <img
+                      src={c.visual.bgImage}
+                      alt=""
+                      className="h-full w-full object-cover object-right-bottom"
+                      referrerPolicy="no-referrer"
+                    />
                   </div>
-                  <h3 className="text-lg font-semibold text-blue-950 dark:text-white md:text-xl">{c.title}</h3>
-                  <p className="mt-3 flex-grow text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                ) : (
+                  <div
+                    className="pointer-events-none absolute bottom-2 right-2 h-28 w-28 opacity-25 transition-opacity group-hover:opacity-35 dark:opacity-20 dark:group-hover:opacity-30 md:h-32 md:w-32"
+                    style={{
+                      maskImage: 'radial-gradient(circle at 100% 100%, black, transparent 68%)',
+                      WebkitMaskImage: 'radial-gradient(circle at 100% 100%, black, transparent 68%)',
+                    }}
+                  >
+                    <img
+                      src={c.visual.bgImage}
+                      alt=""
+                      className="h-full w-full object-cover"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
+                )}
+
+                <div className="relative z-10 flex h-full flex-col p-7 md:p-8 lg:p-9">
+                  <div className="flex items-start justify-between gap-4">
+                    <h3 className="max-w-[75%] text-xl font-bold tracking-tight text-slate-900 dark:text-white md:text-2xl">
+                      {c.title}
+                    </h3>
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-blue-600 shadow-lg shadow-blue-600/25 dark:bg-blue-500 dark:shadow-blue-900/40">
+                      <Icon className="h-5 w-5 text-white" strokeWidth={2} />
+                    </div>
+                  </div>
+                  <p
+                    className={`mt-4 text-sm leading-relaxed text-slate-500 dark:text-slate-400 md:text-[0.95rem] ${wide ? 'max-w-lg' : 'max-w-none'}`}
+                  >
                     {c.description}
                   </p>
                 </div>
-              </div>
+              </article>
             );
           })}
         </div>

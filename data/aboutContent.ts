@@ -54,6 +54,8 @@ export type CapabilityVisualKey = 'brand' | 'web' | 'social' | 'paid';
 export const capabilityCards: {
   title: string;
   description: string;
+  /** Bento layout: wide ≈ 2/3 cell, narrow ≈ 1/3 (md+ grid) */
+  bentoSpan: 'wide' | 'narrow';
   visual: {
     key: CapabilityVisualKey;
     bgImage: string;
@@ -65,9 +67,10 @@ export const capabilityCards: {
     title: 'Brand & print',
     description:
       'Signage, business cards, flyers, brochures, banners, apparel, trade show booths — everything patients see before they ever click an ad.',
+    bentoSpan: 'wide',
     visual: {
       key: 'brand',
-      bgImage: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=400',
+      bgImage: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=600',
       iconGradient: 'from-rose-500 to-pink-500',
       topBar: 'from-rose-500 via-pink-500 to-amber-400',
     },
@@ -76,9 +79,10 @@ export const capabilityCards: {
     title: 'Web & email',
     description:
       'Custom sites, landing pages, email setup, signatures, and integrations that turn traffic into booked consultations.',
+    bentoSpan: 'narrow',
     visual: {
       key: 'web',
-      bgImage: 'https://images.unsplash.com/photo-1557682224-5b8590cd9ec5?auto=format&fit=crop&q=80&w=400',
+      bgImage: 'https://images.unsplash.com/photo-1557682224-5b8590cd9ec5?auto=format&fit=crop&q=80&w=500',
       iconGradient: 'from-indigo-500 to-violet-500',
       topBar: 'from-indigo-500 via-violet-500 to-blue-400',
     },
@@ -87,9 +91,10 @@ export const capabilityCards: {
     title: 'Social & community',
     description:
       'Strategy, content creation, community building, and channel management — with emphasis on authentic storytelling.',
+    bentoSpan: 'narrow',
     visual: {
       key: 'social',
-      bgImage: 'https://images.unsplash.com/photo-1557682260-96773eb01377?auto=format&fit=crop&q=80&w=400',
+      bgImage: 'https://images.unsplash.com/photo-1557682260-96773eb01377?auto=format&fit=crop&q=80&w=500',
       iconGradient: 'from-amber-500 to-orange-500',
       topBar: 'from-amber-500 via-orange-500 to-rose-400',
     },
@@ -98,9 +103,10 @@ export const capabilityCards: {
     title: 'Paid media',
     description:
       'Google, Meta, TikTok, and beyond — structured campaigns, clear attribution, and disciplined testing as your local marketing team.',
+    bentoSpan: 'wide',
     visual: {
       key: 'paid',
-      bgImage: 'https://images.unsplash.com/photo-1557682250-33bd709cbe85?auto=format&fit=crop&q=80&w=400',
+      bgImage: 'https://images.unsplash.com/photo-1557682250-33bd709cbe85?auto=format&fit=crop&q=80&w=600',
       iconGradient: 'from-emerald-500 to-teal-500',
       topBar: 'from-emerald-500 via-teal-500 to-cyan-400',
     },

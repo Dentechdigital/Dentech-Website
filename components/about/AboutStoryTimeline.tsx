@@ -53,7 +53,7 @@ export default function AboutStoryTimeline() {
                   visible[i] ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
                 }`}
               >
-                <div className="flex shrink-0 items-start gap-4 md:w-44 md:flex-col md:items-center md:pt-1">
+                <div className="flex shrink-0 items-center gap-4 md:w-44 md:flex-col md:items-center md:pt-1">
                   <div className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border-4 border-white bg-blue-600 text-xs font-bold text-white shadow-md dark:border-slate-950 dark:bg-blue-500">
                     {i + 1}
                   </div>

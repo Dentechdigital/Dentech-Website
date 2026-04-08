@@ -3,15 +3,6 @@ import { Link, useLocation } from 'react-router-dom';
 import { ChevronDown, Menu, X, UserCircle, Sun, Moon } from 'lucide-react';
 import { useTheme } from './ThemeProvider';
 
-const DentechLogo = () => (
-  <svg width="180" height="48" viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="block transition-all duration-300">
-    <text x="0" y="40" fontFamily="Georgia, serif" fontSize="46" fontWeight="bold" fill="#001C6A" className="dark:fill-white">Den</text>
-    <text x="90" y="40" fontFamily="Georgia, serif" fontSize="46" fontWeight="bold" fill="#1E88E5">tech</text>
-    <line x1="0" y1="52" x2="110" y2="52" stroke="#1E88E5" strokeWidth="2" />
-    <text x="115" y="52" fontFamily="Inter, sans-serif" fontSize="14" fontWeight="600" letterSpacing="0.25em" fill="#001C6A" className="dark:fill-gray-300">. DIGITAL</text>
-  </svg>
-);
-
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
@@ -117,9 +108,6 @@ const Navbar: React.FC = () => {
             <Link to="/case-studies" className={`${getTextColor('/case-studies')} px-3 py-2 rounded-md text-sm font-semibold tracking-wide transition-colors`}>
               Case Studies
             </Link>
-            <Link to="/blog" className={`${getTextColor('/blog')} px-3 py-2 rounded-md text-sm font-semibold tracking-wide transition-colors`}>
-              Blog
-            </Link>
             <Link to="/contact" className={`${getTextColor('/contact')} px-3 py-2 rounded-md text-sm font-semibold tracking-wide transition-colors`}>
               Contact
             </Link>
@@ -185,7 +173,6 @@ const Navbar: React.FC = () => {
               ))}
             </div>
             <Link to="/case-studies" className="block px-3 py-3 rounded-lg text-base font-semibold text-blue-950 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors">Case Studies</Link>
-            <Link to="/blog" className="block px-3 py-3 rounded-lg text-base font-semibold text-blue-950 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors">Blog</Link>
             <Link to="/contact" className="block px-3 py-3 rounded-lg text-base font-semibold text-blue-950 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors">Contact</Link>
             <Link to="/portal" className="flex items-center justify-center space-x-2 w-full mt-6 px-4 py-3 rounded-xl text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 shadow-md transition-colors">
               <UserCircle className="w-5 h-5" />

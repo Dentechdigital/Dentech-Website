@@ -21,7 +21,7 @@ const websitePackages: PackageItem[] = [
     description: 'A strong launch package for clinics that need a professional, conversion-focused website with clean structure and fast performance.',
     features: [
       'SEO-ready website',
-      'Up to 5 key pages (Home, About, Services, Blog, Contact)',
+      'Up to 5 key pages (Home, About, Services, Case studies, Contact)',
       'Mobile-first responsive design',
       'On-page SEO setup',
       'Basic booking/contact integration',

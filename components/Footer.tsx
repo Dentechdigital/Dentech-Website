@@ -119,14 +119,10 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-6 flex flex-col items-center justify-between gap-3 text-center md:flex-row md:text-left">
+        <div className="mt-6 flex flex-col items-center justify-center gap-3 text-center md:flex-row md:text-left md:justify-between">
           <p className="text-xs text-slate-500 dark:text-slate-400">
             &copy; {currentYear} Dentech Digital. All rights reserved.
           </p>
-          <div className="flex items-center gap-5 text-xs text-slate-500 dark:text-slate-400">
-            <Link to="/privacy" className="transition-colors hover:text-slate-700 dark:hover:text-slate-200">Privacy Policy</Link>
-            <Link to="/terms" className="transition-colors hover:text-slate-700 dark:hover:text-slate-200">Terms of Service</Link>
-          </div>
         </div>
       </div>
     </footer>

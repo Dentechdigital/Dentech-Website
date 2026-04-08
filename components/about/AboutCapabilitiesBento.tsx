@@ -38,43 +38,51 @@ export default function AboutCapabilitiesBento() {
                   wide ? 'md:col-span-2' : 'md:col-span-1'
                 } ${wide ? 'min-h-[280px] md:min-h-[300px] lg:min-h-[320px]' : 'min-h-[240px] md:min-h-[300px]'}`}
               >
-                {/* Soft blue wash in corner — wide cards only, eSIM-style depth */}
+                {/* Hard clip to card radius so decorative layers never show rectangular edges */}
                 <div
-                  className={`pointer-events-none absolute -bottom-8 -right-8 rounded-full bg-gradient-to-br from-blue-100/90 to-cyan-100/40 blur-2xl dark:from-blue-600/20 dark:to-cyan-600/10 ${wide ? 'h-56 w-56 lg:h-72 lg:w-72' : 'h-40 w-40 opacity-70'}`}
+                  className="pointer-events-none absolute inset-0 overflow-hidden rounded-[28px]"
                   aria-hidden
-                />
+                >
+                  <div
+                    className={`absolute -bottom-8 -right-8 rounded-full bg-gradient-to-br from-blue-100/90 to-cyan-100/40 blur-2xl dark:from-blue-600/20 dark:to-cyan-600/10 ${wide ? 'h-56 w-56 lg:h-72 lg:w-72' : 'h-40 w-40 opacity-70'}`}
+                  />
 
-                {wide ? (
-                  <div
-                    className="pointer-events-none absolute bottom-0 right-0 h-[min(55%,280px)] w-[min(65%,320px)] max-w-[320px] opacity-[0.88] transition-transform duration-700 ease-out group-hover:scale-[1.03] dark:opacity-[0.75]"
-                    style={{
-                      maskImage: 'radial-gradient(ellipse 90% 85% at 100% 100%, black 20%, transparent 72%)',
-                      WebkitMaskImage: 'radial-gradient(ellipse 90% 85% at 100% 100%, black 20%, transparent 72%)',
-                    }}
-                  >
-                    <img
-                      src={c.visual.bgImage}
-                      alt=""
-                      className="h-full w-full object-cover object-right-bottom"
-                      referrerPolicy="no-referrer"
-                    />
-                  </div>
-                ) : (
-                  <div
-                    className="pointer-events-none absolute bottom-2 right-2 h-28 w-28 opacity-25 transition-opacity group-hover:opacity-35 dark:opacity-20 dark:group-hover:opacity-30 md:h-32 md:w-32"
-                    style={{
-                      maskImage: 'radial-gradient(circle at 100% 100%, black, transparent 68%)',
-                      WebkitMaskImage: 'radial-gradient(circle at 100% 100%, black, transparent 68%)',
-                    }}
-                  >
-                    <img
-                      src={c.visual.bgImage}
-                      alt=""
-                      className="h-full w-full object-cover"
-                      referrerPolicy="no-referrer"
-                    />
-                  </div>
-                )}
+                  {wide ? (
+                    <div
+                      className="absolute bottom-0 right-0 h-[min(55%,280px)] w-[min(65%,320px)] max-w-[320px] opacity-[0.88] transition-transform duration-700 ease-out group-hover:scale-[1.03] dark:opacity-[0.75]"
+                      style={{
+                        maskImage:
+                          'radial-gradient(ellipse 95% 90% at 100% 100%, black 18%, rgba(0,0,0,0.45) 52%, transparent 78%)',
+                        WebkitMaskImage:
+                          'radial-gradient(ellipse 95% 90% at 100% 100%, black 18%, rgba(0,0,0,0.45) 52%, transparent 78%)',
+                      }}
+                    >
+                      <img
+                        src={c.visual.bgImage}
+                        alt=""
+                        className="h-full w-full object-cover object-right-bottom"
+                        referrerPolicy="no-referrer"
+                      />
+                    </div>
+                  ) : (
+                    <div
+                      className="absolute -bottom-4 -right-4 h-[11rem] w-[11rem] opacity-[0.22] transition-opacity group-hover:opacity-[0.32] dark:opacity-[0.18] dark:group-hover:opacity-[0.28] md:h-[13rem] md:w-[13rem]"
+                      style={{
+                        maskImage:
+                          'radial-gradient(ellipse 75% 72% at 92% 94%, black 0%, rgba(0,0,0,0.5) 42%, transparent 72%)',
+                        WebkitMaskImage:
+                          'radial-gradient(ellipse 75% 72% at 92% 94%, black 0%, rgba(0,0,0,0.5) 42%, transparent 72%)',
+                      }}
+                    >
+                      <img
+                        src={c.visual.bgImage}
+                        alt=""
+                        className="h-full w-full object-cover object-right-bottom"
+                        referrerPolicy="no-referrer"
+                      />
+                    </div>
+                  )}
+                </div>
 
                 <div className="relative z-10 flex h-full flex-col p-7 md:p-8 lg:p-9">
                   <div className="flex items-start justify-between gap-4">

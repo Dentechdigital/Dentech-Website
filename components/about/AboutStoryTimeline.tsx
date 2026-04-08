@@ -122,36 +122,34 @@ export default function AboutStoryTimeline() {
                       : 'translate-y-8 opacity-0 motion-reduce:translate-y-0 motion-reduce:opacity-100'
                   } transition-all duration-700 ease-out`}
                 >
-                  {/* Marker on line — fixed width; year on desktop is separate column (not on the line) */}
-                  <div className="relative z-10 flex w-14 shrink-0 flex-col items-center md:pt-1">
-                    <div className="relative flex h-14 w-14 items-center justify-center md:h-16 md:w-16">
-                      <span
-                        className={`absolute inset-0 rounded-full blur-md motion-reduce:blur-0 dark:bg-blue-500/25 ${
-                          isActive ? 'bg-blue-500/35 dark:bg-blue-400/35' : 'bg-blue-400/20'
-                        } transition-colors duration-500`}
-                        aria-hidden
-                      />
-                      <span
-                        className="absolute inset-[2px] rounded-full bg-blue-400/15 ring-2 ring-blue-300/40 dark:bg-blue-500/10 dark:ring-blue-400/30"
-                        aria-hidden
-                      />
-                      <span
-                        className="absolute inset-2 rounded-full border border-blue-300/50 bg-white/40 dark:border-blue-500/40 dark:bg-slate-900/40"
-                        aria-hidden
-                      />
-                      <div
-                        className={`relative z-10 flex h-10 w-10 items-center justify-center rounded-full border-[3px] border-white bg-gradient-to-br from-blue-500 to-blue-700 text-xs font-bold text-white shadow-lg shadow-blue-600/25 ring-0 motion-reduce:scale-100 dark:border-slate-950 dark:from-blue-400 dark:to-blue-600 dark:shadow-blue-900/40 md:h-11 md:w-11 ${
-                          isVisible ? 'scale-100' : 'scale-95'
-                        } ${isActive ? 'ring-4 ring-blue-400/35 ring-offset-2 ring-offset-white dark:ring-blue-400/25 dark:ring-offset-slate-950' : ''} transition-all duration-500 ease-out motion-reduce:transition-none motion-reduce:ring-0 motion-reduce:ring-offset-0`}
-                      >
-                        {i + 1}
+                  {/* Icon on spine + year aligned to icon center (desktop); mobile: icon only, year in sticky rail */}
+                  <div className="relative z-10 flex shrink-0 items-center gap-3 md:gap-4">
+                    <div className="relative flex w-14 flex-col items-center md:pt-0.5">
+                      <div className="relative flex h-14 w-14 items-center justify-center md:h-16 md:w-16">
+                        <span
+                          className={`absolute inset-0 rounded-full blur-md motion-reduce:blur-0 dark:bg-blue-500/25 ${
+                            isActive ? 'bg-blue-500/35 dark:bg-blue-400/35' : 'bg-blue-400/20'
+                          } transition-colors duration-500`}
+                          aria-hidden
+                        />
+                        <span
+                          className="absolute inset-[2px] rounded-full bg-blue-400/15 ring-2 ring-blue-300/40 dark:bg-blue-500/10 dark:ring-blue-400/30"
+                          aria-hidden
+                        />
+                        <span
+                          className="absolute inset-2 rounded-full border border-blue-300/50 bg-white/40 dark:border-blue-500/40 dark:bg-slate-900/40"
+                          aria-hidden
+                        />
+                        <div
+                          className={`relative z-10 flex h-10 w-10 items-center justify-center rounded-full border-[3px] border-white bg-gradient-to-br from-blue-500 to-blue-700 text-xs font-bold text-white shadow-lg shadow-blue-600/25 ring-0 motion-reduce:scale-100 dark:border-slate-950 dark:from-blue-400 dark:to-blue-600 dark:shadow-blue-900/40 md:h-11 md:w-11 ${
+                            isVisible ? 'scale-100' : 'scale-95'
+                          } ${isActive ? 'ring-4 ring-blue-400/35 ring-offset-2 ring-offset-white dark:ring-blue-400/25 dark:ring-offset-slate-950' : ''} transition-all duration-500 ease-out motion-reduce:transition-none motion-reduce:ring-0 motion-reduce:ring-offset-0`}
+                        >
+                          {i + 1}
+                        </div>
                       </div>
                     </div>
-                  </div>
-
-                  {/* Desktop: year beside marker column, left-aligned — clear of vertical spine */}
-                  <div className="hidden min-w-0 shrink-0 pt-2 md:block md:w-[7.5rem] md:pt-3 lg:w-32">
-                    <span className="block text-sm font-bold uppercase leading-snug tracking-wider text-blue-700 dark:text-blue-300">
+                    <span className="hidden max-w-[9rem] text-sm font-bold uppercase leading-tight tracking-wider text-blue-700 dark:text-blue-300 md:block lg:max-w-[11rem]">
                       {m.year}
                     </span>
                   </div>

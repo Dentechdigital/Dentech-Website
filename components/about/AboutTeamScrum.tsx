@@ -86,18 +86,23 @@ export default function AboutTeamScrum() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-wrap gap-4 rounded-2xl border border-blue-100 bg-white/90 p-5 dark:border-blue-500/25 dark:bg-slate-800/85 dark:shadow-inner dark:shadow-black/20">
-          <div className="flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-slate-200">
-            <MapPin className="h-4 w-4 text-blue-600 dark:text-blue-400" />
-            Office: 499 Preston St, Ottawa, ON
+        <div className="mt-10 flex flex-col gap-3 rounded-2xl border border-blue-100 bg-white/90 p-5 dark:border-blue-500/25 dark:bg-slate-800/85 dark:shadow-inner dark:shadow-black/20 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
+            <div className="flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-slate-200">
+              <MapPin className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+              <span className="text-slate-500 dark:text-slate-400">Office:</span>
+              499 Preston St, Ottawa, ON
+            </div>
+            <div className="flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-slate-200">
+              <Users className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+              <span className="text-slate-500 dark:text-slate-400">Coverage:</span>
+              Ottawa + remote specialists
+            </div>
           </div>
-          <div className="flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-slate-200">
-            <Users className="h-4 w-4 text-blue-600 dark:text-blue-400" />
-            Hybrid: Ottawa + remote specialists
-          </div>
+
           <div className="flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-slate-200">
             <Kanban className="h-4 w-4 text-blue-600 dark:text-blue-400" />
-            Roadmap-led phases & clear milestones
+            Milestones, QA, and reporting cadence
           </div>
         </div>
 

@@ -27,11 +27,11 @@ export default function AboutLiveMarquee() {
           className="relative m-0 mb-0 left-1/2 right-1/2 -mx-[50vw] w-screen"
           style={{ marginTop: '-10px' }}
         >
-          <div className="relative overflow-hidden">
+          <div className="relative overflow-hidden leading-[0]">
             <img
               src={trelloImgLight}
               alt="Work in progress board (light)"
-              className="w-full dark:hidden"
+              className="block w-full dark:hidden"
               loading="lazy"
               decoding="async"
             />
@@ -42,10 +42,10 @@ export default function AboutLiveMarquee() {
               loading="lazy"
               decoding="async"
             />
-            {/* Fade on image edge: light → next section is white; dark → slate-950 */}
+            {/* Bottom-anchored fade: min(% , cap) scales with image height on large screens */}
             <div
               aria-hidden
-              className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent via-[#FAFAF9]/50 to-white dark:via-slate-950/55 dark:to-slate-950 sm:h-36 sm:via-[#FAFAF9]/70 dark:sm:via-slate-950/75 lg:h-48 lg:via-[#FAFAF9]/85 dark:lg:via-slate-950/90"
+              className="pointer-events-none absolute inset-x-0 bottom-0 w-full h-[min(30%,18rem)] bg-gradient-to-b from-transparent via-white/65 to-white dark:from-transparent dark:via-[#020617]/82 dark:to-[#020617] sm:h-[min(34%,22rem)] lg:h-[min(38%,28rem)]"
             />
           </div>
         </div>

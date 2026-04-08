@@ -122,8 +122,8 @@ export const aboutTeamMembers: {
   /** File under /public/ — use null for initials-only until a photo exists */
   photo: string | null;
 }[] = [
-  { nameDisplay: 'Balfoul', role: 'Account manager', photo: 'team/balfoul.png' },
-  { nameDisplay: 'Dahman. M', role: 'Founder', photo: 'team/dahman-m.png' },
+  { nameDisplay: 'Dahman M.', role: 'Founder', photo: 'team/dahman-m.png' },
+  { nameDisplay: 'Balfoul M.', role: 'Account manager', photo: 'team/balfoul.png' },
   { nameDisplay: 'Omayma R.', role: 'Social media manager', photo: 'team/omayma-r.png' },
   { nameDisplay: 'Youssef E.', role: 'Designer', photo: 'team/youssef-e.png' },
   { nameDisplay: 'Khadir M.', role: 'SEO / GEO specialist', photo: 'team/khadir-m.png' },

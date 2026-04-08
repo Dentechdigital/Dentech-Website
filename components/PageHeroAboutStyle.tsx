@@ -55,7 +55,7 @@ export default function PageHeroAboutStyle({
       <img
         src={bgSrc}
         alt=""
-        className={`pointer-events-none absolute inset-0 z-0 h-full min-h-[420px] w-full ${bgPosition}`}
+        className={`pointer-events-none absolute inset-0 z-0 h-full min-h-[420px] w-full opacity-90 transition-opacity duration-300 dark:opacity-[0.82] ${bgPosition}`}
         decoding="async"
         fetchPriority={heroImageSrc ? 'high' : 'low'}
       />

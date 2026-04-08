@@ -35,7 +35,7 @@ export default function SpecialOfferCTA() {
             <ul className="mb-8 grid gap-3 sm:grid-cols-2">
               {[
                 'Custom UI/UX Design',
-                'SEO-Optimized Architecture',
+                'SEO- & GEO-friendly site structure',
                 'Mobile-First & Lightning Fast',
                 'Integrated Appointment Booking',
               ].map((item) => (

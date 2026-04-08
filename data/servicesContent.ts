@@ -40,14 +40,14 @@ export type ServiceDefinition = {
 export const servicesHub = {
   metaTitle: 'Dental marketing services',
   metaDescription:
-    'Full-funnel dental marketing for Canadian practices: local SEO & Maps, paid ads, custom websites, social & content, print, and AI automation. Ottawa-based team, Canada-wide delivery.',
+    'Full-funnel dental marketing for Canadian practices: local SEO & GEO, Google Maps, paid ads, websites, social & content, print, and AI automation. Ottawa-based team, Canada-wide delivery.',
   h1: 'Dental marketing services built for Canadian practices',
   intro:
-    'From Maps visibility to booked appointments, we connect strategy, creative, media, and engineering in one accountable partnership—headquartered in Ottawa with hybrid delivery across Canada.',
+    'From classic search and Maps to generative answers (AI Overviews, assistants, and answer engines), we help patients find and trust you—then book. One team connects strategy, creative, media, and engineering, headquartered in Ottawa with hybrid delivery across Canada.',
   funnelPitch: [
     {
       title: 'One funnel, one team',
-      body: 'Local discovery, your website, paid media, social proof, and follow-up should reinforce each other—not compete. We align channels so spend and effort compound.',
+      body: 'Local discovery, AI-visible facts about your practice, your website, paid media, social proof, and follow-up should reinforce each other—not compete. We align channels so spend and effort compound.',
     },
     {
       title: 'Dental-only focus',
@@ -62,19 +62,24 @@ export const servicesHub = {
 
 export const servicesHubFaq: ServiceFaqItem[] = [
   {
+    question: 'What is GEO, and why does it matter alongside SEO?',
+    answer:
+      'GEO (generative engine optimization) is how clearly and accurately your practice shows up in AI-powered search and answer experiences—not only traditional rankings. Consistent facts (brand, address, hours, services, providers), strong service pages, and trustworthy copy help models summarize you correctly. We pair GEO with local SEO and Maps so you win in both classic and generative discovery.',
+  },
+  {
     question: 'Do you work with practices outside Ottawa?',
     answer:
-      'Yes. We are headquartered in Ottawa and partner with practices across Canada (and select international clients). Local SEO and creative are tailored to your real service areas and market.',
+      'Yes. We are headquartered in Ottawa and partner with practices across Canada (and select international clients). Local SEO, GEO, and creative are tailored to your real service areas and market.',
   },
   {
     question: 'Can I start with one service and add others later?',
     answer:
-      'Absolutely. Many clients begin where the need is clearest—often website + local SEO or paid search—then expand as tracking and capacity mature. We still design with the full funnel in mind.',
+      'Absolutely. Many clients begin where the need is clearest—often website plus local SEO/GEO or paid search—then expand as tracking and capacity mature. We still design with the full funnel in mind.',
   },
   {
     question: 'Are these pages the same as your ad landing pages?',
     answer:
-      'These URLs are built to be fast, focused, and SEO-friendly. For paid campaigns you can add UTM parameters to the same paths, or we can duplicate variants with permission—core messaging stays consistent.',
+      'These URLs are built to be fast, focused, and strong for both SEO and GEO. For paid campaigns you can add UTM parameters to the same paths, or we can duplicate variants with permission—core messaging stays consistent.',
   },
   {
     question: 'How do proposals and pricing work?',
@@ -89,7 +94,7 @@ export const servicesHubFaq: ServiceFaqItem[] = [
   {
     question: 'What makes Dentech different from a general marketing agency?',
     answer:
-      'Depth in dental: same team covers web, SEO, paid, social, print, and practical AI—so handoffs are minimal and accountability stays with one partner.',
+      'Depth in dental: same team covers web, SEO & GEO, paid, social, print, and practical AI—so handoffs are minimal and accountability stays with one partner.',
   },
 ];
 
@@ -99,42 +104,44 @@ const unsplash = (id: string, w = 800) =>
 export const servicesOrdered: ServiceDefinition[] = [
   {
     slug: 'local-seo',
-    title: 'Local SEO & Maps',
+    title: 'Local SEO, GEO & Maps',
     shortDescription:
-      'Rank where patients search. We optimize your Google Business Profile and site so high-intent local queries surface your practice.',
-    h1: 'Local SEO & Google Maps for dental practices',
-    metaTitle: 'Local SEO & Maps for dentists',
+      'Classic rankings plus generative visibility: we tune your Google Business Profile, site, and entity signals so patients find you in Search, Maps, and AI-powered answers.',
+    h1: 'Local SEO, GEO & Google Maps for dental practices',
+    metaTitle: 'Local SEO, GEO & Maps for dentists',
     metaDescription:
-      'Dental local SEO and Google Business Profile optimization for Canadian practices. Improve Maps visibility, local rankings, and calls from high-intent patients.',
+      'Dental local SEO, generative engine optimization (GEO), and Google Business Profile for Canadian practices. Maps visibility, traditional rankings, and accurate presence in AI search.',
     iconKey: 'map',
     iconGradient: 'from-blue-500 to-cyan-400',
     iconColor: 'text-white',
     cardBgImage: unsplash('photo-1557683316-973673baf926'),
-    heroTagline: 'Show up when neighbors search for a dentist they can trust.',
+    heroTagline: 'Show up in classic search, Maps, and the answers patients get from AI tools— with facts that match everywhere.',
     heroBullets: [
-      'GBP optimization, categories, services, and photo discipline',
-      'On-site local signals, internal linking, and landing pages for key procedures',
-      'Review velocity and NAP consistency aligned with your real service areas',
+      'GBP optimization, categories, services, and photo discipline for Maps & Search',
+      'On-site structure: clear service entities, internal linking, and pages AI systems can cite',
+      'GEO layer: consistent NAP, provider bios, FAQ-style answers, and schema where appropriate',
+      'Review velocity and reputation signals aligned with your real service areas',
     ],
     forWho:
       'Single-location and multi-site general, family, cosmetic, orthodontic, and specialty practices competing in Canadian markets—from tight urban corridors to wider service areas.',
     included: [
       'Google Business Profile audit and ongoing optimization roadmap',
+      'Local + GEO content audit: entities, service clarity, and question-based copy patients (and models) expect',
       'Local keyword and competitor snapshot for your market',
-      'On-page recommendations and content briefs for priority treatments',
-      'Citation and NAP consistency checks (where applicable)',
-      'Monthly performance readout: visibility, actions, and leads where tracked',
+      'On-page recommendations, FAQ-style sections, and content briefs for priority treatments',
+      'Structured data guidance (where it helps) and citation / NAP consistency checks',
+      'Monthly readout: rankings, GBP actions, and directional GEO signals where observable',
     ],
     processSteps: [
-      { title: 'Discover', body: 'We align on markets, services, and what “winning” means in your ZIP or city set.' },
-      { title: 'Build baseline', body: 'Technical and local footprint review; GBP and site updates sequenced for impact.' },
-      { title: 'Publish & iterate', body: 'Localized content, measurement, and monthly tuning based on real queries and leads.' },
+      { title: 'Discover', body: 'We align on markets, services, and what “winning” means in your ZIP or city set—including how you should appear in AI summaries.' },
+      { title: 'Build baseline', body: 'Technical and local footprint review; GBP, site, and entity consistency sequenced for impact in Search and generative surfaces.' },
+      { title: 'Publish & iterate', body: 'Localized, trustworthy content; measurement; and monthly tuning based on queries, leads, and evolving search/AI behavior.' },
     ],
     gallery: [
       {
         src: unsplash('photo-1460925895917-afdab827c52f', 1200),
-        alt: 'Analytics dashboard illustrating local search and traffic insights for a dental practice website',
-        caption: 'Local performance tracking example',
+        alt: 'Analytics dashboard illustrating local search, visibility, and traffic insights for a dental practice website',
+        caption: 'Local & generative visibility tracking',
       },
       {
         src: unsplash('photo-1577563908411-5077b6dc7624', 1200),
@@ -145,24 +152,29 @@ export const servicesOrdered: ServiceDefinition[] = [
     relatedSlugs: ['websites', 'paid-ads'],
     faq: [
       {
-        question: 'How long until we see local SEO movement?',
+        question: 'What is GEO vs SEO for my dental practice?',
         answer:
-          'Some GBP and on-page fixes can improve clarity within weeks; competitive rankings often compound over several months. We set expectations from your market data, not generic timelines.',
+          'SEO is about ranking and visibility in traditional search results and Maps. GEO (generative engine optimization) is about being represented accurately when users get answers from AI-powered search and assistants—clear facts, consistent entity information, and authoritative pages matter for both.',
       },
       {
-        question: 'Do you guarantee #1 on Google?',
+        question: 'How long until we see local SEO or GEO traction?',
         answer:
-          'No ethical agency can guarantee positions. We focus on sustainable visibility, accurate service representation, and more qualified actions from the searches that matter.',
+          'Some GBP and clarity fixes can improve how you appear within weeks; rankings and AI summaries often depend on competitive density and how complete your digital footprint is. We set expectations from your market data, not generic timelines.',
+      },
+      {
+        question: 'Do you guarantee #1 on Google or a specific AI answer?',
+        answer:
+          'No. We focus on accurate, trustworthy visibility and more qualified actions. Generative surfaces change often; we build durable fundamentals rather than chase guarantees no one can control.',
       },
       {
         question: 'What if we have multiple locations?',
         answer:
-          'We structure each location with correct GBP logic, landing pages, and internal linking so locations support—not cannibalize—each other.',
+          'We structure each location with correct GBP logic, landing pages, and internal linking so locations support—not cannibalize—each other—critical for both SEO and GEO consistency.',
       },
       {
-        question: 'Do you write blog posts for SEO?',
+        question: 'Do you write blog posts or FAQ content?',
         answer:
-          'When content serves patient questions and local intent, yes—briefs and publishing can be part of scope. We avoid filler that does not help patients or conversion.',
+          'When it serves patient questions, local intent, and clearer entity understanding for search and AI, yes. We avoid filler that does not help patients or conversion.',
       },
     ],
   },
@@ -239,11 +251,11 @@ export const servicesOrdered: ServiceDefinition[] = [
     slug: 'websites',
     title: 'Custom Websites',
     shortDescription:
-      'Fast, trustworthy sites that turn visitors into booked appointments—with mobile-first UX and SEO-ready structure.',
+      'Fast, trustworthy sites that convert—with mobile-first UX, SEO- and GEO-ready structure so search and AI surfaces can understand your practice.',
     h1: 'Custom dental websites that convert',
     metaTitle: 'Dental website design & development',
     metaDescription:
-      'High-converting dental practice websites: mobile-first UX, Core Web Vitals, SEO structure, and clear calls to book. Custom builds for Canadian clinics.',
+      'High-converting dental websites: mobile-first UX, Core Web Vitals, SEO and GEO-friendly structure, and clear calls to book. Custom builds for Canadian clinics.',
     iconKey: 'monitor',
     iconGradient: 'from-indigo-500 to-purple-400',
     iconColor: 'text-white',
@@ -251,7 +263,7 @@ export const servicesOrdered: ServiceDefinition[] = [
     heroTagline: 'Your front door online should feel as polished as your reception area.',
     heroBullets: [
       'Modern UI aligned with your brand and photography',
-      'Speed, accessibility, and SEO-friendly IA',
+      'Speed, accessibility, and information architecture that supports SEO and GEO',
       'Clear primary actions: call, book, directions, key procedures',
     ],
     forWho:
@@ -261,12 +273,12 @@ export const servicesOrdered: ServiceDefinition[] = [
       'Visual design system applied to core templates',
       'Build on Webflow or your agreed stack; QA across devices',
       'Analytics and conversion events wired to real buttons and forms',
-      'Launch checklist: redirects, metadata, and performance sanity checks',
+      'Launch checklist: redirects, metadata, structured cues where helpful, and performance sanity checks',
     ],
     processSteps: [
       { title: 'Positioning', body: 'Services, differentiation, and the story patients should feel in the first screen.' },
       { title: 'Design & build', body: 'Iterative layouts, content integration, and technical implementation.' },
-      { title: 'Launch & learn', body: 'Post-launch fixes, heatmaps optional, and hooks for SEO and ads.' },
+      { title: 'Launch & learn', body: 'Post-launch fixes, heatmaps optional, and hooks for SEO, GEO, and ads.' },
     ],
     gallery: [
       {
@@ -290,7 +302,7 @@ export const servicesOrdered: ServiceDefinition[] = [
       {
         question: 'Can you migrate my existing content?',
         answer:
-          'Yes, with an audit of what to keep, merge, or retire for SEO and clarity.',
+          'Yes, with an audit of what to keep, merge, or retire for SEO, GEO consistency, and clarity.',
       },
       {
         question: 'Will my site be fast?',

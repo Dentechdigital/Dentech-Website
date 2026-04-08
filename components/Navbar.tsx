@@ -24,7 +24,7 @@ const Navbar: React.FC = () => {
   }, [scrolled]);
 
   const services = [
-    { name: 'Local SEO & Maps', path: '/services/local-seo' },
+    { name: 'Local SEO, GEO & Maps', path: '/services/local-seo' },
     { name: 'Paid Advertising', path: '/services/paid-ads' },
     { name: 'Custom Websites', path: '/services/websites' },
     { name: 'Content & Community', path: '/services/social-content' },

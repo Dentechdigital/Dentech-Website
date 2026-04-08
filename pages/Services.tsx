@@ -80,7 +80,7 @@ const ServicesPage: React.FC = () => {
         <FaqAccordion
           idPrefix="services-hub"
           heading="Services FAQs"
-          subheading="General questions about working with us across SEO, paid media, web, content, print, and AI."
+          subheading="General questions about working with us across SEO, GEO, paid media, web, content, print, and AI."
           items={servicesHubFaq}
         />
 

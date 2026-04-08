@@ -16,7 +16,7 @@ export default function Footer() {
   ];
 
   const coreServices: { label: string; to: string }[] = [
-    { label: 'Local SEO & Maps', to: '/services/local-seo' },
+    { label: 'Local SEO, GEO & Maps', to: '/services/local-seo' },
     { label: 'Google + Meta Ads', to: '/services/paid-ads' },
     { label: 'Custom Dental Websites', to: '/services/websites' },
     { label: 'Social & Content', to: '/services/social-content' },
@@ -49,7 +49,7 @@ export default function Footer() {
                   Growth Partner for Clinics
                 </span>
                 <span className="inline-flex items-center rounded-full border border-cyan-200 bg-cyan-50 px-3 py-1 text-xs font-semibold text-cyan-700 dark:border-cyan-400/30 dark:bg-cyan-500/10 dark:text-cyan-200">
-                  SEO, Paid Ads, AI Automation
+                  SEO, GEO, Paid Ads, AI Automation
                 </span>
               </div>
             </div>

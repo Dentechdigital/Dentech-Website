@@ -8,9 +8,9 @@ export type HomeFaqItem = {
 
 export const homeFaqItems: HomeFaqItem[] = [
   {
-    question: 'Why does local SEO matter for dental practices in Ottawa and across Canada?',
+    question: 'Why do local SEO and GEO matter for dental practices in Ottawa and across Canada?',
     answer:
-      'Local SEO matters because most new patients still discover clinics through Google Search and Maps—in Ottawa, Toronto, Calgary, or smaller markets. A complete Google Business Profile, consistent name/address/phone (NAP), service-area clarity, and localized content help you rank for high-intent searches like "dentist near me," emergency dental, implants, or Invisalign. Dentech Digital treats local SEO as a core layer of growth for Canadian clinics and multi-location groups, not an optional add-on.',
+      'Most new patients still discover clinics through Google Search and Maps—and increasingly through AI-powered answers and overviews. Local SEO helps you rank for high-intent queries like "dentist near me" and emergency or specialty care. GEO (generative engine optimization) helps your practice be summarized accurately in those experiences: consistent NAP, clear service and provider pages, and trustworthy copy. Dentech Digital treats local SEO and GEO as core layers of growth for Canadian clinics and multi-location groups.',
   },
   {
     question: 'What types of dental practices do you work with?',
@@ -167,7 +167,7 @@ export default function HomeFAQ() {
             Dental marketing questions
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300">
-            Straight answers on local SEO, channels, timelines, reputation, and how we support Canadian dental
+            Straight answers on local SEO, GEO, channels, timelines, reputation, and how we support Canadian dental
             practices—useful for owners, office managers, and AI-assisted search.
           </p>
         </div>

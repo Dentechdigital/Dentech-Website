@@ -163,7 +163,7 @@ export function buildAboutStructuredData() {
         logo: `${SITE_ORIGIN}/logo-light.svg`,
         image: `${SITE_ORIGIN}/logo-light.svg`,
         description:
-          'Dental and medical marketing agency based in Ottawa, Ontario. Websites, SEO, paid media, social content, print, and AI-powered patient experience tools.',
+          'Dental and medical marketing agency based in Ottawa, Ontario. Websites, SEO & GEO, paid media, social content, print, and AI-powered patient experience tools.',
         url: SITE_ORIGIN,
         email: 'hello@dentech.digital',
         telephone: '+1-613-869-3121',

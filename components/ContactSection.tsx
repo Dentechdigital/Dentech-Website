@@ -28,7 +28,7 @@ const challengeOptions = [
 ];
 const serviceOptions = [
   'Website redesign',
-  'Local SEO',
+  'Local SEO & GEO',
   'Paid ads',
   'Social media content',
   'AI receptionist / automation',

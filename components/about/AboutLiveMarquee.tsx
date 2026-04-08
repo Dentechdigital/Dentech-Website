@@ -1,21 +1,8 @@
 import React from 'react';
 import { Sparkles } from 'lucide-react';
-import { aboutTeamMembers } from '../../data/aboutContent';
-
-function photoUrl(path: string | null) {
-  if (!path) return '';
-  return `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
-}
-
-function initials(name: string) {
-  const parts = name.replace(/\./g, '').split(/\s+/).filter(Boolean);
-  if (parts.length >= 2) return (parts[0][0] + parts[1][0]).toUpperCase();
-  return name.slice(0, 2).toUpperCase();
-}
 
 export default function AboutLiveMarquee() {
-  const people = aboutTeamMembers;
-  const track = [...people, ...people];
+  const trelloImg = `${import.meta.env.BASE_URL}about/trello-workboard.png`;
 
   return (
     <section className="relative overflow-hidden bg-[#FAFAF9] py-14 dark:bg-slate-950">
@@ -37,32 +24,15 @@ export default function AboutLiveMarquee() {
           </p>
         </div>
 
-        <div className="mt-10 rounded-3xl border border-slate-200/80 bg-white/70 py-6 shadow-sm backdrop-blur dark:border-slate-700/80 dark:bg-slate-900/50">
-          <div className="about-marquee-mask">
-            <div className="about-marquee-track">
-              {track.map((m, idx) => (
-                <div key={`${m.nameDisplay}-${idx}`} className="about-marquee-item">
-                  <div className="relative h-14 w-14 overflow-hidden rounded-full ring-2 ring-white shadow-sm dark:ring-slate-950">
-                    {m.photo ? (
-                      <img
-                        src={photoUrl(m.photo)}
-                        alt={m.nameDisplay}
-                        className="h-full w-full object-cover"
-                        loading="lazy"
-                      />
-                    ) : (
-                      <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-blue-600 to-indigo-700 text-xs font-bold text-white">
-                        {initials(m.nameDisplay)}
-                      </div>
-                    )}
-                  </div>
-                  <div className="min-w-0">
-                    <p className="truncate text-sm font-semibold text-blue-950 dark:text-white">{m.nameDisplay}</p>
-                    <p className="truncate text-xs text-slate-600 dark:text-slate-400">{m.role}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+        <div className="mt-10 rounded-3xl border border-slate-200/80 bg-white/70 p-6 shadow-sm backdrop-blur dark:border-slate-700/80 dark:bg-slate-900/50 sm:p-8">
+          <div className="relative overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-sm dark:border-slate-700/70 dark:bg-slate-950">
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-blue-50/40 via-transparent to-cyan-50/40 dark:from-blue-500/10 dark:to-cyan-500/10" />
+            <img
+              src={trelloImg}
+              alt="Work in progress board (Trello)"
+              className="relative z-10 h-auto w-full object-cover"
+              loading="lazy"
+            />
           </div>
 
           <div className="mt-6 flex flex-wrap items-center justify-center gap-2 px-6">

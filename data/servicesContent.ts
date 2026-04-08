@@ -536,6 +536,25 @@ export function servicePath(slug: string): string {
   return `/services/${slug}`;
 }
 
+/**
+ * Hero collage filename under `public/services/{slug}/` (service detail pages only).
+ * Placeholders can be swapped for service-specific artwork without code changes.
+ */
+export const serviceHeroCollageFilename: Record<string, string> = {
+  'paid-ads': 'hero-collage-ads.png',
+  'local-seo': 'hero-collage-seo.png',
+  'websites': 'hero-collage-websites.png',
+  'social-content': 'hero-collage-social.png',
+  'print': 'hero-collage-print.png',
+  'ai-automation': 'hero-collage-ai.png',
+};
+
+/** Public path starting with `/` — pair with base URL / `mediaUrl()`. */
+export function serviceHeroCollagePublicPath(slug: string): string | null {
+  const file = serviceHeroCollageFilename[slug];
+  return file ? `/services/${slug}/${file}` : null;
+}
+
 export function buildServicesHubJsonLd(): Record<string, unknown> {
   const pageUrl = `${SITE_ORIGIN}/services`;
   return {

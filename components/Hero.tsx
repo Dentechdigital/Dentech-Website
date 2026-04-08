@@ -5,6 +5,8 @@ import DentalMarketingGraphic from './DentalMarketingGraphic';
 import DynamicDots from './DynamicDots';
 import { FEATURES } from '../constants';
 
+const HERO_BACKGROUND = `${import.meta.env.BASE_URL}hero-background.png`;
+
 const Hero: React.FC = () => {
   const [visibleFeatures, setVisibleFeatures] = useState<number[]>([]);
   const featuresRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -43,7 +45,30 @@ const Hero: React.FC = () => {
 
   return (
     <section className="relative w-full min-h-screen overflow-hidden bg-[#FAFAF9] dark:bg-slate-950 pt-32 pb-16 md:pt-40 md:pb-24 lg:pt-32 lg:pb-32 flex flex-col justify-center transition-colors duration-300">
-      
+      {/* Full-bleed hero art (dark left / plum panels right) */}
+      <div
+        aria-hidden
+        className="absolute inset-0 z-0 bg-cover bg-no-repeat bg-center sm:bg-right"
+        style={{ backgroundImage: `url(${HERO_BACKGROUND})` }}
+      />
+      {/* Keep headline column readable; let purple panels show on the right */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-[1] dark:hidden"
+        style={{
+          background:
+            'linear-gradient(to right, #FAFAF9 0%, #FAFAF9 36%, rgba(250,250,249,0.88) 50%, rgba(250,250,249,0.35) 68%, transparent 88%)',
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-[1] hidden dark:block"
+        style={{
+          background:
+            'linear-gradient(to right, rgb(2 6 23) 0%, rgb(2 6 23) 32%, rgba(2,6,23,0.88) 46%, rgba(2,6,23,0.4) 65%, transparent 88%)',
+        }}
+      />
+
       <style>{`
         @keyframes textShine {
           0% { background-position: 0% 50%; }
@@ -55,11 +80,8 @@ const Hero: React.FC = () => {
         }
       `}</style>
       
-      {/* Background Decorative Blur — light mode only (clean dark hero without top-left glow) */}
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-blue-50/50 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none transition-colors duration-300 dark:hidden" />
-
       {/* Full-width Dynamic Dots Background */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-100 dark:opacity-30 transition-opacity duration-300" style={{
+      <div className="absolute inset-0 z-[2] pointer-events-none opacity-100 dark:opacity-25 transition-opacity duration-300" style={{
         maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)',
         WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)'
       }}>

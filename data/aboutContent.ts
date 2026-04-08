@@ -132,21 +132,6 @@ export const aboutTeamMembers: {
   { nameDisplay: 'Maya', role: 'AI admin assistant', photo: 'team/maya.png' },
 ];
 
-export const scrumSteps = [
-  {
-    title: 'Discover',
-    body: 'Goals, audience, market, and quick wins — aligned with your capacity and revenue targets.',
-  },
-  {
-    title: 'Build',
-    body: 'Creative, landing experiences, and campaigns shipped in focused phases with visible milestones.',
-  },
-  {
-    title: 'Grow',
-    body: 'Optimize, scale what works, and report in plain language tied to leads and production.',
-  },
-];
-
 export const testimonialPlaceholder = {
   quote:
     'Dentech helped us turn scattered marketing into a system — clearer messaging, better leads, and a team that actually understands dentistry.',

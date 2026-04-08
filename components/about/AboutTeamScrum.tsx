@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Award, Kanban, Mail, MapPin, ShieldCheck, Users } from 'lucide-react';
-import { aboutTeamMembers, scrumSteps, TEAM_CONTACT_EMAIL } from '../../data/aboutContent';
+import { aboutTeamMembers, TEAM_CONTACT_EMAIL } from '../../data/aboutContent';
 
 function teamPhotoUrl(path: string | null) {
   if (!path) return '';
@@ -111,26 +111,6 @@ export default function AboutTeamScrum() {
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {aboutTeamMembers.map((m) => (
               <TeamMemberCard key={m.nameDisplay} nameDisplay={m.nameDisplay} role={m.role} photo={m.photo} />
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-14">
-          <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-            From brief to growth
-          </h3>
-          <div className="mt-6 grid gap-6 md:grid-cols-3">
-            {scrumSteps.map((step, i) => (
-              <div
-                key={step.title}
-                className="relative rounded-2xl border border-white/80 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800/70"
-              >
-                <span className="text-3xl font-bold text-blue-200 dark:text-blue-400/25">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <h4 className="mt-2 text-lg font-semibold text-blue-950 dark:text-white">{step.title}</h4>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">{step.body}</p>
-              </div>
             ))}
           </div>
         </div>

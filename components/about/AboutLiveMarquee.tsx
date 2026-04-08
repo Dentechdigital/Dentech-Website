@@ -2,7 +2,8 @@ import React from 'react';
 import { Folder, Sparkles, Users } from 'lucide-react';
 
 export default function AboutLiveMarquee() {
-  const trelloImg = `${import.meta.env.BASE_URL}about/trello-workboard.png`;
+  const trelloImgLight = `${import.meta.env.BASE_URL}about/trello-workboard-light.png`;
+  const trelloImgDark = `${import.meta.env.BASE_URL}about/trello-workboard.png`;
   const avatars = [
     { src: `${import.meta.env.BASE_URL}team/dahman-m.png`, alt: 'Dahman M.' },
     { src: `${import.meta.env.BASE_URL}team/balfoul.png`, alt: 'Balfoul M.' },
@@ -57,9 +58,16 @@ export default function AboutLiveMarquee() {
                 {/* Crop + keep sharp (avoid over-scaling / blur) */}
                 <div className="relative z-10 aspect-[16/9] overflow-hidden">
                   <img
-                    src={trelloImg}
-                    alt="Work in progress board (Trello)"
-                    className="h-full w-full object-cover object-center"
+                    src={trelloImgLight}
+                    alt="Work in progress board (Trello, light)"
+                    className="h-full w-full object-cover object-center dark:hidden"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <img
+                    src={trelloImgDark}
+                    alt="Work in progress board (Trello, dark)"
+                    className="hidden h-full w-full object-cover object-center dark:block"
                     loading="lazy"
                     decoding="async"
                   />

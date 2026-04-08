@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Award, Kanban, Mail, MapPin, ShieldCheck, Users } from 'lucide-react';
+import { Award, Mail, ShieldCheck } from 'lucide-react';
 import { aboutTeamMembers, TEAM_CONTACT_EMAIL } from '../../data/aboutContent';
 
 function teamPhotoUrl(path: string | null) {
@@ -83,26 +83,6 @@ export default function AboutTeamScrum() {
           <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/80 bg-blue-50/90 px-3 py-1.5 text-xs font-semibold text-blue-800 dark:border-blue-500/30 dark:bg-blue-950/50 dark:text-blue-200">
             <Award className="h-3.5 w-3.5" />
             10+ years combined experience
-          </div>
-        </div>
-
-        <div className="mt-10 flex flex-col gap-3 rounded-2xl border border-blue-100 bg-white/90 p-5 dark:border-blue-500/25 dark:bg-slate-800/85 dark:shadow-inner dark:shadow-black/20 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
-            <div className="flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-slate-200">
-              <MapPin className="h-4 w-4 text-blue-600 dark:text-blue-400" />
-              <span className="text-slate-500 dark:text-slate-400">Office:</span>
-              499 Preston St, Ottawa, ON
-            </div>
-            <div className="flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-slate-200">
-              <Users className="h-4 w-4 text-blue-600 dark:text-blue-400" />
-              <span className="text-slate-500 dark:text-slate-400">Coverage:</span>
-              Ottawa + remote specialists
-            </div>
-          </div>
-
-          <div className="flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-slate-200">
-            <Kanban className="h-4 w-4 text-blue-600 dark:text-blue-400" />
-            Milestones, QA, and reporting cadence
           </div>
         </div>
 

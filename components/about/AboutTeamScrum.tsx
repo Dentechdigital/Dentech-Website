@@ -34,7 +34,7 @@ function TeamMemberCard({
         {photo && imgOk ? (
           <img
             src={src}
-            alt=""
+            alt={nameDisplay}
             className="h-full w-full object-cover"
             loading="lazy"
             onError={() => setImgOk(false)}

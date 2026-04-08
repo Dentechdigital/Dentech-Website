@@ -6,11 +6,11 @@ import DynamicDots from '../DynamicDots';
 export default function AboutHero() {
   return (
     <section className="relative overflow-hidden border-b border-slate-200/70 bg-[#FAFAF9] pb-20 pt-28 transition-colors duration-300 dark:border-slate-800 dark:bg-slate-950 md:pb-24 md:pt-32">
-      {/* Match home hero: soft blue wash from the left */}
-      <div className="pointer-events-none absolute left-0 top-0 h-[min(520px,85vw)] w-[min(520px,90vw)] -translate-x-1/3 -translate-y-1/4 rounded-full bg-blue-50/55 blur-[100px] transition-colors duration-300 dark:bg-blue-900/22" />
+      {/* Soft blue wash — light mode only (avoids a bright patch top-left in dark) */}
+      <div className="pointer-events-none absolute left-0 top-0 h-[min(520px,85vw)] w-[min(520px,90vw)] -translate-x-1/3 -translate-y-1/4 rounded-full bg-blue-50/55 blur-[100px] transition-colors duration-300 dark:hidden" />
 
-      {/* Light rose → violet tint (quieter than before — dots add the main texture) */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-rose-50/40 via-transparent to-violet-50/35 dark:from-rose-950/18 dark:via-transparent dark:to-violet-950/20" />
+      {/* Rose → violet tint; in dark, only a faint cool depth toward the bottom — no wash in the top-left */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-rose-50/40 via-transparent to-violet-50/35 dark:from-transparent dark:via-slate-950/0 dark:to-slate-900/40" />
 
       {/* Same animated dot field as home; mask shifted toward upper-left for a distinct About look */}
       <div

@@ -55,8 +55,8 @@ const Hero: React.FC = () => {
         }
       `}</style>
       
-      {/* Background Decorative Blur (Left side subtle) */}
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-blue-50/50 dark:bg-blue-900/20 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none transition-colors duration-300" />
+      {/* Background Decorative Blur — light mode only (clean dark hero without top-left glow) */}
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-blue-50/50 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none transition-colors duration-300 dark:hidden" />
 
       {/* Full-width Dynamic Dots Background */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-100 dark:opacity-30 transition-opacity duration-300" style={{

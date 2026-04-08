@@ -123,7 +123,7 @@ export default function AboutAIPartners() {
                       </span>
                       {title}
                     </div>
-                    <p className="text-xs leading-snug text-slate-600 dark:text-slate-400">{body}</p>
+                    <p className="text-sm leading-snug text-slate-600 dark:text-slate-300">{body}</p>
                   </div>
                 ))}
               </div>

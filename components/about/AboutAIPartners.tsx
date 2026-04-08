@@ -61,7 +61,7 @@ const solutions = [
     icon: Workflow,
     title: 'Custom AI apps & ops automation',
     description:
-      'Need a business-level platform, a lightweight internal app, or tailored software? Share your workflow and goals — we design and build custom AI-assisted solutions to automate repetitive processes and help your team run operations more efficiently.',
+      'Need a business platform, internal app, or tailored software? Share your workflow and goals.\nWe build custom AI-assisted solutions to automate repetitive processes and streamline operations.',
   },
 ];
 

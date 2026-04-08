@@ -26,12 +26,12 @@ export default function AboutStoryTimeline() {
   }, []);
 
   return (
-    <section className="bg-white py-20 dark:bg-slate-900">
+    <section className="bg-white py-20 dark:bg-slate-950">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="about-display text-center text-3xl font-semibold tracking-tight text-blue-950 dark:text-white md:text-4xl">
           Our story
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-center text-slate-600 dark:text-slate-400">
+        <p className="mx-auto mt-4 max-w-2xl text-center text-slate-600 dark:text-slate-300">
           Dentech Digital is a dental and medical marketing agency headquartered in Ottawa, Ontario — shaped by years of
           building products, buying media, and earning trust in competitive markets.
         </p>
@@ -54,14 +54,14 @@ export default function AboutStoryTimeline() {
                 }`}
               >
                 <div className="flex shrink-0 items-start gap-4 md:w-44 md:flex-col md:items-center md:pt-1">
-                  <div className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border-4 border-white bg-blue-600 text-xs font-bold text-white shadow-md dark:border-slate-900 dark:bg-blue-500">
+                  <div className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border-4 border-white bg-blue-600 text-xs font-bold text-white shadow-md dark:border-slate-950 dark:bg-blue-500">
                     {i + 1}
                   </div>
                   <span className="text-sm font-bold uppercase tracking-wider text-blue-700 dark:text-blue-300 md:text-center">
                     {m.year}
                   </span>
                 </div>
-                <div className="rounded-2xl border border-slate-200/90 bg-[#FAFAF9] p-6 dark:border-slate-700 dark:bg-slate-800/50 md:flex-1">
+                <div className="rounded-2xl border border-slate-200/90 bg-[#FAFAF9] p-6 dark:border-slate-600/80 dark:bg-slate-800/75 md:flex-1">
                   <h3 className="text-xl font-semibold text-blue-950 dark:text-white">{m.title}</h3>
                   <p className="mt-3 leading-relaxed text-slate-600 dark:text-slate-300">{m.body}</p>
                 </div>

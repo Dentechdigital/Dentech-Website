@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
   // Determine navbar styling based on scroll state and current page
   const navClasses = `fixed w-full z-50 top-0 transition-all duration-300 ${
     scrolled || !isHomePage || isMobileMenuOpen
-      ? 'bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl shadow-sm border-b border-gray-200/50 dark:border-slate-800/50 py-2'
+      ? 'bg-white/60 dark:bg-slate-950/65 backdrop-blur-xl shadow-sm border-b border-gray-200/50 dark:border-slate-800/50 py-2'
       : 'bg-transparent border-b border-transparent py-4'
   }`;
 
@@ -172,7 +172,7 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white dark:bg-slate-900 border-t border-gray-100 dark:border-slate-800 shadow-xl absolute w-full">
+        <div className="md:hidden bg-white dark:bg-slate-950 border-t border-gray-100 dark:border-slate-800 shadow-xl absolute w-full">
           <div className="px-4 pt-2 pb-6 space-y-1 sm:px-6">
             <Link to="/" className="block px-3 py-3 rounded-lg text-base font-semibold text-blue-950 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors">Home</Link>
             <Link to="/about" className="block px-3 py-3 rounded-lg text-base font-semibold text-blue-950 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors">About</Link>

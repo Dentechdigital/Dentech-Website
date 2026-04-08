@@ -9,13 +9,13 @@ export default function AboutFounder() {
 
   return (
     <section className="relative overflow-hidden bg-[#F5F7FB] py-20 dark:bg-slate-950">
-      <div className="pointer-events-none absolute right-0 top-1/2 h-64 w-64 -translate-y-1/2 rounded-full bg-indigo-200/30 blur-3xl dark:bg-indigo-500/10" />
+      <div className="pointer-events-none absolute right-0 top-1/2 h-64 w-64 -translate-y-1/2 rounded-full bg-indigo-200/30 blur-3xl dark:bg-indigo-500/18" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="about-display text-3xl font-semibold tracking-tight text-blue-950 dark:text-white md:text-4xl">
           Founder
         </h2>
-        <p className="mt-3 max-w-2xl text-slate-600 dark:text-slate-400">
+        <p className="mt-3 max-w-2xl text-slate-600 dark:text-slate-300">
           Leadership with a builder’s mindset — code, creative, and accountable media buying.
         </p>
 
@@ -77,7 +77,7 @@ export default function AboutFounder() {
               </a>
               <a
                 href="mailto:hello@dentech.digital"
-                className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-800 transition hover:border-blue-400 hover:text-blue-700 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100 dark:hover:border-blue-500"
+                className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-800 transition hover:border-blue-400 hover:text-blue-700 dark:border-slate-500/70 dark:bg-slate-800/90 dark:text-slate-100 dark:hover:border-blue-400/60 dark:hover:bg-slate-700/90 dark:hover:text-blue-200"
               >
                 <Mail className="h-4 w-4" />
                 hello@dentech.digital

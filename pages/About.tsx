@@ -39,7 +39,7 @@ const About: React.FC = () => {
         structuredData={aboutStructuredData}
       />
 
-      <div className="min-h-screen bg-[#FAFAF9] transition-colors duration-300 dark:bg-slate-900">
+      <div className="min-h-screen bg-[#FAFAF9] transition-colors duration-300 dark:bg-slate-950">
         <AboutHero />
         <AboutStatsStrip />
         <AboutWhoWeServe />

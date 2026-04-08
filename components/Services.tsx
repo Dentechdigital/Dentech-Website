@@ -61,7 +61,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="py-24 bg-[#FAFAF9] dark:bg-slate-900 relative overflow-hidden transition-colors duration-300">
+    <section className="py-24 bg-[#FAFAF9] dark:bg-slate-950 relative overflow-hidden transition-colors duration-300">
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-slate-700 to-transparent" />
       <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-50 dark:bg-blue-900/20 rounded-full blur-3xl opacity-50 pointer-events-none transition-colors duration-300" />

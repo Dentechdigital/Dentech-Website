@@ -9,12 +9,12 @@ export default function AboutTeamScrum() {
         <h2 className="about-display text-3xl font-semibold tracking-tight text-blue-950 dark:text-white md:text-4xl">
           Team & how we work
         </h2>
-        <p className="mt-4 max-w-2xl text-slate-600 dark:text-slate-400">
+        <p className="mt-4 max-w-2xl text-slate-600 dark:text-slate-300">
           A hybrid crew — anchored in Ottawa with senior specialists working remotely. Everyone brings years of
           business-grade experience; many hold certifications and have completed Google and Meta partner training.
         </p>
 
-        <div className="mt-10 flex flex-wrap gap-4 rounded-2xl border border-blue-100 bg-white/90 p-5 dark:border-blue-900/40 dark:bg-slate-800/60">
+        <div className="mt-10 flex flex-wrap gap-4 rounded-2xl border border-blue-100 bg-white/90 p-5 dark:border-blue-500/25 dark:bg-slate-800/85 dark:shadow-inner dark:shadow-black/20">
           <div className="flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-slate-200">
             <MapPin className="h-4 w-4 text-blue-600 dark:text-blue-400" />
             Office: 499 Preston St, Ottawa, ON
@@ -53,7 +53,7 @@ export default function AboutTeamScrum() {
                 key={step.title}
                 className="relative rounded-2xl border border-white/80 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800/70"
               >
-                <span className="text-3xl font-bold text-blue-200 dark:text-blue-900">{String(i + 1).padStart(2, '0')}</span>
+                <span className="text-3xl font-bold text-blue-200 dark:text-blue-400/25">{String(i + 1).padStart(2, '0')}</span>
                 <h4 className="mt-2 text-lg font-semibold text-blue-950 dark:text-white">{step.title}</h4>
                 <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">{step.body}</p>
               </div>

@@ -4,12 +4,12 @@ import { devStack, marketingStack } from '../../data/aboutContent';
 
 export default function AboutStackTools() {
   return (
-    <section className="bg-white py-20 dark:bg-slate-900">
+    <section className="bg-white py-20 dark:bg-slate-950">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="about-display text-3xl font-semibold tracking-tight text-blue-950 dark:text-white md:text-4xl">
           Tools & platforms we master
         </h2>
-        <p className="mt-4 max-w-2xl text-slate-600 dark:text-slate-400">
+        <p className="mt-4 max-w-2xl text-slate-600 dark:text-slate-300">
           We are fluent in both build and buy — from custom code to no-code site builders and the marketing stack your
           clinic already uses (or should).
         </p>

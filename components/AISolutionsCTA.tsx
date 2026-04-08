@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default function AISolutionsCTA() {
   return (
-    <section className="py-10 bg-[#FAFAF9] dark:bg-slate-900 transition-colors duration-300">
+    <section className="py-10 bg-[#FAFAF9] dark:bg-slate-950 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative overflow-hidden rounded-3xl border border-blue-200/70 bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 px-6 py-7 sm:px-8 sm:py-8 shadow-xl shadow-blue-900/20">
           <div className="pointer-events-none absolute -top-16 -right-16 h-44 w-44 rounded-full bg-white/20 blur-3xl" />

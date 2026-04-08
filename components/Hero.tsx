@@ -42,7 +42,7 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative w-full min-h-screen overflow-hidden bg-[#FAFAF9] dark:bg-slate-900 pt-32 pb-16 md:pt-40 md:pb-24 lg:pt-32 lg:pb-32 flex flex-col justify-center transition-colors duration-300">
+    <section className="relative w-full min-h-screen overflow-hidden bg-[#FAFAF9] dark:bg-slate-950 pt-32 pb-16 md:pt-40 md:pb-24 lg:pt-32 lg:pb-32 flex flex-col justify-center transition-colors duration-300">
       
       <style>{`
         @keyframes textShine {
@@ -114,7 +114,7 @@ const Hero: React.FC = () => {
                       {/* Online glow effect behind avatar on hover */}
                       <div className="absolute inset-0 bg-green-500 rounded-full blur opacity-0 group-hover:opacity-40 group-hover:scale-150 transition-all duration-500"></div>
                       <img src={`${import.meta.env.BASE_URL}avatar.png`} alt="Expert" className="relative z-10 w-10 h-10 rounded-full object-cover shadow-sm border border-gray-200 dark:border-slate-700 group-hover:border-green-400 transition-colors duration-300" referrerPolicy="no-referrer" />
-                      <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-[#FAFAF9] dark:border-slate-900 rounded-full z-20 transition-colors duration-300"></span>
+                      <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-[#FAFAF9] dark:border-slate-950 rounded-full z-20 transition-colors duration-300"></span>
                     </div>
                     <span className="group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors duration-300">Let's talk</span>
                   </span>

@@ -3,7 +3,7 @@ import { HeartHandshake, Lightbulb } from 'lucide-react';
 
 export default function AboutPhilosophy() {
   return (
-    <section className="bg-white py-20 dark:bg-slate-900">
+    <section className="bg-white py-20 dark:bg-slate-950">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-rose-200 bg-rose-50 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-rose-700 dark:border-rose-500/30 dark:bg-rose-500/10 dark:text-rose-300">
@@ -21,7 +21,7 @@ export default function AboutPhilosophy() {
           </p>
         </div>
 
-        <div className="mx-auto mt-14 max-w-2xl rounded-2xl border border-amber-200/80 bg-amber-50/60 p-6 dark:border-amber-500/25 dark:bg-amber-500/10 md:p-8">
+        <div className="mx-auto mt-14 max-w-2xl rounded-2xl border border-amber-200/80 bg-amber-50/60 p-6 dark:border-amber-400/35 dark:bg-amber-950/45 md:p-8">
           <div className="flex gap-4">
             <Lightbulb className="h-8 w-8 shrink-0 text-amber-600 dark:text-amber-400" />
             <div>

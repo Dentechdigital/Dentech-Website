@@ -15,7 +15,7 @@ export default function AboutMobileCtaBar() {
   if (!visible) return null;
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/95 p-3 shadow-[0_-8px_30px_rgba(15,23,42,0.12)] backdrop-blur-md dark:border-slate-700 dark:bg-slate-900/95 lg:hidden">
+    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/95 p-3 shadow-[0_-8px_30px_rgba(15,23,42,0.12)] backdrop-blur-md dark:border-slate-600 dark:bg-slate-950/98 dark:shadow-[0_-12px_40px_rgba(0,0,0,0.45)] lg:hidden">
       <Link
         to="/contact"
         className="flex w-full items-center justify-center gap-2 rounded-full bg-blue-600 py-3.5 text-sm font-semibold text-white shadow-md active:bg-blue-700"

@@ -113,7 +113,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="py-24 bg-[#FAFAF9] dark:bg-slate-900 transition-colors duration-300 relative overflow-hidden" id="contact">
+    <section className="py-24 bg-[#FAFAF9] dark:bg-slate-950 transition-colors duration-300 relative overflow-hidden" id="contact">
       {/* Decorative background elements */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-blue-50/50 dark:bg-blue-900/10 transform -skew-x-12 translate-x-1/4 pointer-events-none"></div>
       

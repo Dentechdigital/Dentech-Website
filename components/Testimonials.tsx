@@ -86,7 +86,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="py-24 bg-white dark:bg-slate-800/50 transition-colors duration-300">
+    <section className="py-24 bg-white dark:bg-slate-950 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-blue-950 dark:text-white mb-6 tracking-tight">

@@ -10,13 +10,13 @@ export default function AboutProof() {
         <h2 className="about-display text-3xl font-semibold tracking-tight text-blue-950 dark:text-white md:text-4xl">
           Proof & partnerships
         </h2>
-        <p className="mt-4 max-w-2xl text-slate-600 dark:text-slate-400">
+        <p className="mt-4 max-w-2xl text-slate-600 dark:text-slate-300">
           We are proud to work alongside clinics that expect rigor — and to train continuously with leading platforms.
         </p>
 
         <div className="mt-10 grid gap-8 lg:grid-cols-2">
-          <div className="relative rounded-3xl border border-slate-200 bg-white p-8 shadow-sm dark:border-slate-700 dark:bg-slate-800/60">
-            <Quote className="h-10 w-10 text-blue-200 dark:text-blue-800" />
+          <div className="relative rounded-3xl border border-slate-200 bg-white p-8 shadow-sm dark:border-slate-600/80 dark:bg-slate-800/90 dark:shadow-lg dark:shadow-black/15">
+            <Quote className="h-10 w-10 text-blue-200 dark:text-blue-500/35" />
             <blockquote className="mt-4 text-lg leading-relaxed text-slate-700 dark:text-slate-200">
               “{testimonialPlaceholder.quote}”
             </blockquote>

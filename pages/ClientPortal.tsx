@@ -4,7 +4,7 @@ import { Lock } from 'lucide-react';
 
 const ClientPortal: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-slate-900 flex flex-col justify-center py-12 sm:px-6 lg:px-8 transition-colors duration-300">
+    <div className="min-h-screen bg-gray-50 dark:bg-slate-950 flex flex-col justify-center py-12 sm:px-6 lg:px-8 transition-colors duration-300">
       <SEO title="Client Portal Login" description="Secure login for our clients to access their dashboard." />
       
       <div className="sm:mx-auto sm:w-full sm:max-w-md">

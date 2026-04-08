@@ -31,7 +31,7 @@ const caseStudies = [
 
 export default function CaseStudiesPreview() {
   return (
-    <section className="py-24 bg-[#FAFAF9] dark:bg-slate-900 transition-colors duration-300">
+    <section className="py-24 bg-[#FAFAF9] dark:bg-slate-950 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="max-w-2xl">
@@ -68,7 +68,7 @@ export default function CaseStudiesPreview() {
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute top-4 left-4 z-20">
-                  <span className="px-3 py-1 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm text-blue-950 dark:text-white text-xs font-bold uppercase tracking-wider rounded-full shadow-sm">
+                  <span className="px-3 py-1 bg-white/90 dark:bg-slate-950/90 backdrop-blur-sm text-blue-950 dark:text-white text-xs font-bold uppercase tracking-wider rounded-full shadow-sm">
                     {study.clinic}
                   </span>
                 </div>

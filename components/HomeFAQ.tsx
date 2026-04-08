@@ -148,7 +148,7 @@ export default function HomeFAQ() {
 
   return (
     <section
-      className="py-24 bg-white dark:bg-slate-900 transition-colors duration-300 relative overflow-hidden"
+      className="py-24 bg-white dark:bg-slate-950 transition-colors duration-300 relative overflow-hidden"
       aria-labelledby="home-faq-heading"
     >
       <div className="pointer-events-none absolute -top-20 right-0 h-64 w-64 rounded-full bg-blue-100/50 blur-3xl dark:bg-blue-500/10" />

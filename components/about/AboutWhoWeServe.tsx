@@ -29,13 +29,13 @@ export default function AboutWhoWeServe() {
             </p>
           </div>
 
-          <div className="rounded-3xl border border-white/80 bg-white/90 p-8 shadow-xl shadow-blue-100/30 dark:border-slate-700 dark:bg-slate-800/60 dark:shadow-none">
+          <div className="rounded-3xl border border-white/80 bg-white/90 p-8 shadow-xl shadow-blue-100/30 dark:border-slate-600/80 dark:bg-slate-800/85 dark:shadow-lg dark:shadow-black/20">
             <h3 className="text-lg font-semibold text-blue-950 dark:text-white">What sets us apart</h3>
             <ul className="mt-6 space-y-4">
               {differentiators.map((line) => (
                 <li
                   key={line}
-                  className="flex gap-3 rounded-xl border border-slate-100 bg-slate-50/80 px-4 py-3 text-sm leading-relaxed text-slate-700 dark:border-slate-600 dark:bg-slate-900/40 dark:text-slate-300"
+                  className="flex gap-3 rounded-xl border border-slate-100 bg-slate-50/80 px-4 py-3 text-sm leading-relaxed text-slate-700 dark:border-slate-600/90 dark:bg-slate-900/70 dark:text-slate-200"
                 >
                   <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-blue-500" />
                   {line}

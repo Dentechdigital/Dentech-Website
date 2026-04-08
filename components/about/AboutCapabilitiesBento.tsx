@@ -8,7 +8,7 @@ export default function AboutCapabilitiesBento() {
         <h2 className="about-display text-3xl font-semibold tracking-tight text-blue-950 dark:text-white md:text-4xl">
           Full-funnel capabilities
         </h2>
-        <p className="mt-4 max-w-2xl text-slate-600 dark:text-slate-400">
+        <p className="mt-4 max-w-2xl text-slate-600 dark:text-slate-300">
           From the trade show booth to the TikTok campaign — one partner who understands how each piece connects. We
           collaborate with dental business leaders and industry experts so strategy stays current.
         </p>

@@ -4,9 +4,9 @@ import { Bot, ArrowRight } from 'lucide-react';
 
 export default function AboutAIPartners() {
   return (
-    <section className="bg-white py-20 dark:bg-slate-900">
+    <section className="bg-white py-20 dark:bg-slate-950">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="overflow-hidden rounded-3xl border border-cyan-200/80 bg-gradient-to-br from-cyan-50 via-white to-blue-50 dark:border-cyan-500/20 dark:from-slate-800 dark:via-slate-900 dark:to-slate-800">
+        <div className="overflow-hidden rounded-3xl border border-cyan-200/80 bg-gradient-to-br from-cyan-50 via-white to-blue-50 dark:border-cyan-500/35 dark:from-slate-800 dark:via-slate-900 dark:to-slate-800 dark:shadow-lg dark:shadow-black/25">
           <div className="grid gap-10 p-8 md:grid-cols-2 md:gap-12 md:p-12 lg:items-center">
             <div>
               <div className="inline-flex items-center gap-2 rounded-full border border-cyan-200 bg-white/80 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-cyan-800 dark:border-cyan-500/30 dark:bg-slate-800/80 dark:text-cyan-300">

@@ -3,18 +3,39 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import DynamicDots from '../DynamicDots';
 
+const aboutHeroBgUrl = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}hero-background.png`;
+
 export default function AboutHero() {
   return (
     <section className="relative overflow-hidden border-b border-slate-200/70 bg-[#FAFAF9] pb-20 pt-28 transition-colors duration-300 dark:border-slate-800 dark:bg-slate-950 md:pb-24 md:pt-32">
-      {/* Soft blue wash — light mode only (avoids a bright patch top-left in dark) */}
-      <div className="pointer-events-none absolute left-0 top-0 h-[min(520px,85vw)] w-[min(520px,90vw)] -translate-x-1/3 -translate-y-1/4 rounded-full bg-blue-50/55 blur-[100px] transition-colors duration-300 dark:hidden" />
-
-      {/* Rose → violet tint; in dark, only a faint cool depth toward the bottom — no wash in the top-left */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-rose-50/40 via-transparent to-violet-50/35 dark:from-transparent dark:via-slate-950/0 dark:to-slate-900/40" />
-
-      {/* Same animated dot field as home; mask shifted toward upper-left for a distinct About look */}
+      {/* Plum / dark panel artwork (full bleed) */}
+      <img
+        src={aboutHeroBgUrl}
+        alt=""
+        className="pointer-events-none absolute inset-0 z-0 h-full w-full min-h-[420px] object-cover object-[72%_center] sm:object-right"
+        decoding="async"
+        fetchPriority="low"
+      />
+      {/* Readability behind left-aligned copy */}
       <div
-        className="pointer-events-none absolute inset-0 z-0 opacity-100 transition-opacity duration-300 dark:opacity-[0.32]"
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-[1] dark:hidden"
+        style={{
+          background:
+            'linear-gradient(to right, #FAFAF9 0%, #FAFAF9 22%, rgba(250,250,249,0.88) 38%, rgba(250,250,249,0.25) 52%, transparent 60%, transparent 100%)',
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-[1] hidden dark:block"
+        style={{
+          background:
+            'linear-gradient(to right, rgb(2 6 23) 0%, rgb(2 6 23) 20%, rgba(2,6,23,0.88) 36%, rgba(2,6,23,0.28) 50%, transparent 58%, transparent 100%)',
+        }}
+      />
+
+      <div
+        className="pointer-events-none absolute inset-0 z-[2] opacity-50 transition-opacity duration-300 dark:opacity-[0.22]"
         style={{
           maskImage: 'radial-gradient(ellipse 90% 75% at 22% 28%, black 42%, transparent 80%)',
           WebkitMaskImage: 'radial-gradient(ellipse 90% 75% at 22% 28%, black 42%, transparent 80%)',
@@ -23,11 +44,7 @@ export default function AboutHero() {
         <DynamicDots />
       </div>
 
-      {/* Single accent glow — bottom right */}
-      <div className="pointer-events-none absolute -bottom-24 -right-16 h-80 w-80 rounded-full bg-gradient-to-tl from-fuchsia-200/45 via-violet-200/25 to-transparent blur-3xl dark:from-fuchsia-600/14 dark:via-violet-600/10 dark:to-transparent md:h-96 md:w-96" />
-
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* ~2/3 of content width, same left edge as rest of site; full width on small screens */}
         <div className="w-full lg:w-2/3 lg:max-w-none">
           <div className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-3 py-1.5 text-[10px] font-medium uppercase tracking-wide text-gray-500 shadow-sm transition-colors duration-300 dark:border-slate-700 dark:bg-slate-800 dark:text-gray-400">
             <span className="h-2 w-2 shrink-0 rounded-full bg-blue-500 animate-pulse" />

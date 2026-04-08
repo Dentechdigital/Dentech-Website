@@ -39,7 +39,7 @@ export default function AboutLiveMarquee() {
               loading="lazy"
               decoding="async"
             />
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-64 bg-gradient-to-b from-transparent via-[#FAFAF9]/60 to-[#FAFAF9] dark:via-slate-950/60 dark:to-slate-950" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[22.5rem] bg-gradient-to-b from-transparent via-[#FAFAF9]/90 to-[#FAFAF9] dark:via-slate-950/90 dark:to-slate-950" />
           </div>
         </div>
       </div>

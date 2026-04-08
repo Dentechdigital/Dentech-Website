@@ -20,7 +20,7 @@ export default function AboutOfficeCTA() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 inline-flex items-start gap-3 rounded-2xl border border-white/20 bg-white/10 px-5 py-4 text-left backdrop-blur transition hover:bg-white/15"
+              className="mt-8 inline-flex w-full items-start gap-3 rounded-2xl border border-white/20 bg-white/10 px-5 py-4 text-left backdrop-blur transition hover:bg-white/15"
             >
               <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-cyan-300" />
               <span>

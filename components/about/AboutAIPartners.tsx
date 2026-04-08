@@ -173,7 +173,7 @@ export default function AboutAIPartners() {
                 Explore the stack
               </span>
               <Link
-                to="/services#ai"
+                to="/services/ai-automation"
                 className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 transition hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
               >
                 Services & AI solutions

@@ -24,15 +24,16 @@ const Navbar: React.FC = () => {
   }, [scrolled]);
 
   const services = [
-    { name: 'SEO Optimization', path: '/services#seo' },
-    { name: 'Content Marketing', path: '/services#content' },
-    { name: 'PPC Advertising', path: '/services#ppc' },
-    { name: 'Social Media Management', path: '/services#social' },
-    { name: 'Web Design', path: '/services#web' },
-    { name: 'Email Marketing', path: '/services#email' },
+    { name: 'Local SEO & Maps', path: '/services/local-seo' },
+    { name: 'Paid Advertising', path: '/services/paid-ads' },
+    { name: 'Custom Websites', path: '/services/websites' },
+    { name: 'Content & Community', path: '/services/social-content' },
+    { name: 'Print & Direct Mail', path: '/services/print' },
+    { name: 'AI & Automation', path: '/services/ai-automation' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
+  const isServicesActive = location.pathname === '/services' || location.pathname.startsWith('/services/');
   const isHomePage = location.pathname === '/';
 
   // Determine navbar styling based on scroll state and current page
@@ -78,10 +79,23 @@ const Navbar: React.FC = () => {
               onMouseEnter={() => setIsServicesOpen(true)}
               onMouseLeave={() => setIsServicesOpen(false)}
             >
-              <Link to="/services" className={`${getTextColor('/services')} px-3 py-2 rounded-md text-sm font-semibold tracking-wide transition-colors`}>
+              <Link
+                to="/services"
+                className={`${
+                  isServicesActive
+                    ? 'text-blue-600 dark:text-blue-400'
+                    : getTextColor('/services')
+                } px-3 py-2 rounded-md text-sm font-semibold tracking-wide transition-colors`}
+              >
                 Services
               </Link>
-              <button className={`${getTextColor('/services')} -ml-2 p-1 rounded-md focus:outline-none`}>
+              <button
+                className={`${
+                  isServicesActive
+                    ? 'text-blue-600 dark:text-blue-400'
+                    : getTextColor('/services')
+                } -ml-2 rounded-md p-1 focus:outline-none`}
+              >
                 <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
               </button>
               

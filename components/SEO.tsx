@@ -33,9 +33,9 @@ const SEO: React.FC<SEOProps> = ({ title, description, faqStructuredData, struct
 
   return (
     <Helmet>
-      <title>{title} | Our Agency</title>
+      <title>{title} | Dentech Digital</title>
       <meta name="description" content={description} />
-      <meta property="og:title" content={`${title} | Our Agency`} />
+      <meta property="og:title" content={`${title} | Dentech Digital`} />
       <meta property="og:description" content={description} />
       <meta name="twitter:card" content="summary_large_image" />
       {faqJsonLd ? (

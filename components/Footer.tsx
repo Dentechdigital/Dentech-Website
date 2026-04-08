@@ -15,12 +15,13 @@ export default function Footer() {
     { label: 'Contact', to: '/contact' },
   ];
 
-  const coreServices = [
-    'Local SEO & Maps',
-    'Google + Meta Ads',
-    'Custom Dental Websites',
-    'Social Content Systems',
-    'AI Reception & Automation',
+  const coreServices: { label: string; to: string }[] = [
+    { label: 'Local SEO & Maps', to: '/services/local-seo' },
+    { label: 'Google + Meta Ads', to: '/services/paid-ads' },
+    { label: 'Custom Dental Websites', to: '/services/websites' },
+    { label: 'Social & Content', to: '/services/social-content' },
+    { label: 'Print & Direct Mail', to: '/services/print' },
+    { label: 'AI & Automation', to: '/services/ai-automation' },
   ];
 
   return (
@@ -70,8 +71,13 @@ export default function Footer() {
               <h4 className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">Core Services</h4>
               <ul className="mt-4 space-y-2.5">
                 {coreServices.map((service) => (
-                  <li key={service} className="text-sm text-slate-700 dark:text-slate-300">
-                    {service}
+                  <li key={service.to}>
+                    <Link
+                      to={service.to}
+                      className="text-sm text-slate-700 transition-colors hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-300"
+                    >
+                      {service.label}
+                    </Link>
                   </li>
                 ))}
               </ul>

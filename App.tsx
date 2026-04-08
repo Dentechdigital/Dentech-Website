@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 import ServicesPage from './pages/Services';
+import ServiceDetail from './pages/ServiceDetail';
 import CaseStudies from './pages/CaseStudies';
 import Contact from './pages/Contact';
 import ClientPortal from './pages/ClientPortal';
@@ -23,6 +24,7 @@ const App: React.FC = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/services" element={<ServicesPage />} />
+                <Route path="/services/:serviceSlug" element={<ServiceDetail />} />
                 <Route path="/case-studies" element={<CaseStudies />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/portal" element={<ClientPortal />} />

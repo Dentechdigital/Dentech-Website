@@ -7,7 +7,7 @@ export const FEATURES = [
     icon: Globe,
     iconGradient: 'from-blue-500 to-cyan-400',
     iconColor: 'text-white',
-    link: '/services#web',
+    link: '/services/websites',
   },
   {
     title: 'Growth Marketing',
@@ -15,7 +15,7 @@ export const FEATURES = [
     icon: Target,
     iconGradient: 'from-emerald-500 to-teal-400',
     iconColor: 'text-white',
-    link: '/services#ppc',
+    link: '/services/paid-ads',
   },
   {
     title: 'Social Community',
@@ -23,6 +23,6 @@ export const FEATURES = [
     icon: Users,
     iconGradient: 'from-indigo-500 to-purple-400',
     iconColor: 'text-white',
-    link: '/services#social',
+    link: '/services/social-content',
   },
 ];

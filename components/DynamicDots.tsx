@@ -1,6 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 
-const DynamicDots: React.FC = () => {
+export type DynamicDotsProps = {
+  /** Denser, brighter dots for full-bleed page heroes */
+  prominent?: boolean;
+};
+
+const DynamicDots: React.FC<DynamicDotsProps> = ({ prominent = false }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -37,10 +42,11 @@ const DynamicDots: React.FC = () => {
     resize();
 
     // Dot settings
-    const spacing = 28;
-    const baseRadius = 1.2;
-    const maxRadius = 3.5;
+    const spacing = prominent ? 26 : 28;
+    const baseRadius = prominent ? 1.35 : 1.2;
+    const maxRadius = prominent ? 3.8 : 3.5;
     const interactionRadius = 140;
+    const dotAlpha = prominent ? 0.62 : 0.5;
 
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -67,7 +73,7 @@ const DynamicDots: React.FC = () => {
           const g = Math.floor(197 + (231 - 197) * ratioY);
           const b = Math.floor(253 + (183 - 253) * ((ratioX + ratioY) / 2));
           
-          ctx.fillStyle = `rgba(${r}, ${g}, ${b}, 0.5)`;
+          ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${dotAlpha})`;
 
           // Calculate distance to mouse
           const dx = mouse.x - x;
@@ -111,12 +117,12 @@ const DynamicDots: React.FC = () => {
       window.removeEventListener('mouseleave', handleMouseLeave);
       cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [prominent]);
 
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-70"
+      className={`absolute inset-0 z-0 h-full w-full pointer-events-none ${prominent ? 'opacity-95' : 'opacity-70'}`}
     />
   );
 };

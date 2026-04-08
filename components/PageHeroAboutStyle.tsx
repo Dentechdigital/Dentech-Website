@@ -76,14 +76,8 @@ export default function PageHeroAboutStyle({
         }}
       />
 
-      <div
-        className="pointer-events-none absolute inset-0 z-[2] opacity-50 transition-opacity duration-300 dark:opacity-[0.22]"
-        style={{
-          maskImage: 'radial-gradient(ellipse 90% 75% at 22% 28%, black 42%, transparent 80%)',
-          WebkitMaskImage: 'radial-gradient(ellipse 90% 75% at 22% 28%, black 42%, transparent 80%)',
-        }}
-      >
-        <DynamicDots />
+      <div className="pointer-events-none absolute inset-0 z-[2] opacity-[0.78] transition-opacity duration-300 dark:opacity-[0.52]">
+        <DynamicDots prominent />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

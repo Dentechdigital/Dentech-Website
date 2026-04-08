@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { ArrowRight, Check, ChevronRight } from 'lucide-react';
 import SEO from '../components/SEO';
+import PageHeroAboutStyle from '../components/PageHeroAboutStyle';
 import FaqAccordion from '../components/FaqAccordion';
 import {
   buildServiceDetailStructuredData,
@@ -59,7 +60,7 @@ const ServiceDetail: React.FC = () => {
         />
       </Helmet>
       <style>{`
-        .services-display { font-family: 'Fraunces', Georgia, 'Times New Roman', serif; }
+        .about-display { font-family: 'Fraunces', Georgia, 'Times New Roman', serif; }
       `}</style>
 
       <SEO
@@ -70,8 +71,23 @@ const ServiceDetail: React.FC = () => {
       />
 
       <div className="min-h-screen bg-[#FAFAF9] transition-colors duration-300 dark:bg-slate-950">
-        <div className="border-b border-slate-200/80 bg-white/80 dark:border-slate-800 dark:bg-slate-950/80">
-          <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
+        <PageHeroAboutStyle
+          badge="Dental marketing service"
+          title={service.h1}
+          description={service.heroTagline}
+          afterDescription={
+            <ul className="flex max-w-3xl flex-col gap-3 sm:gap-2">
+              {service.heroBullets.map((b) => (
+                <li key={b} className="flex gap-3 text-slate-700 dark:text-slate-200">
+                  <Check className="mt-0.5 h-5 w-5 shrink-0 text-blue-600 dark:text-blue-400" strokeWidth={2} />
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
+          }
+          primaryCta={{ to: '/contact', label: 'Book a strategy call' }}
+          secondaryCta={{ to: '/services', label: 'All services' }}
+          breadcrumb={
             <nav className="flex flex-wrap items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
               <Link to="/" className="hover:text-blue-600 dark:hover:text-blue-400">
                 Home
@@ -83,40 +99,8 @@ const ServiceDetail: React.FC = () => {
               <ChevronRight className="h-4 w-4 opacity-50" aria-hidden />
               <span className="font-medium text-blue-950 dark:text-white">{service.title}</span>
             </nav>
-          </div>
-        </div>
-
-        <header className="border-b border-slate-200/60 bg-gradient-to-b from-white to-[#FAFAF9] px-4 pb-12 pt-10 dark:border-slate-800 dark:from-slate-950 dark:to-slate-950 sm:px-6 lg:px-8 lg:pb-16 lg:pt-14">
-          <div className="mx-auto max-w-7xl">
-            <h1 className="services-display text-3xl font-semibold tracking-tight text-blue-950 dark:text-white sm:text-4xl lg:text-5xl">
-              {service.h1}
-            </h1>
-            <p className="mt-4 max-w-3xl text-lg text-slate-600 dark:text-slate-300">{service.heroTagline}</p>
-            <ul className="mt-6 flex max-w-3xl flex-col gap-3 sm:gap-2">
-              {service.heroBullets.map((b) => (
-                <li key={b} className="flex gap-3 text-slate-700 dark:text-slate-200">
-                  <Check className="mt-0.5 h-5 w-5 shrink-0 text-blue-600 dark:text-blue-400" strokeWidth={2} />
-                  <span>{b}</span>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-blue-600/20 transition hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-400"
-              >
-                Book a strategy call
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link
-                to="/services"
-                className="inline-flex items-center justify-center text-sm font-semibold text-slate-600 underline-offset-4 hover:text-blue-600 hover:underline dark:text-slate-300 dark:hover:text-blue-400"
-              >
-                All services
-              </Link>
-            </div>
-          </div>
-        </header>
+          }
+        />
 
         <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-16" aria-labelledby="for-who-heading">
           <h2 id="for-who-heading" className="text-xl font-bold text-blue-950 dark:text-white">

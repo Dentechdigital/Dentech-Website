@@ -4,7 +4,6 @@ import { Sparkles } from 'lucide-react';
 export default function AboutLiveMarquee() {
   const trelloImgLight = `${import.meta.env.BASE_URL}about/trello-workboard-light.png`;
   const trelloImgDark = `${import.meta.env.BASE_URL}about/trello-workboard.png`;
-  const fadeMask = 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 62%, rgba(0,0,0,0) 100%)';
 
   return (
     <section className="relative overflow-hidden bg-[#FAFAF9] pb-0 pt-14 dark:bg-slate-950">
@@ -24,13 +23,12 @@ export default function AboutLiveMarquee() {
         </div>
 
         {/* Image preview: top-half crop + soft fade at bottom */}
-        <div className="relative mt-10">
+        <div className="relative mt-10 left-1/2 right-1/2 -mx-[50vw] w-screen">
           <div className="relative h-56 overflow-hidden sm:h-64 lg:h-72">
             <img
               src={trelloImgLight}
               alt="Work in progress board (light)"
               className="h-full w-full object-cover object-top dark:hidden"
-              style={{ WebkitMaskImage: fadeMask, maskImage: fadeMask }}
               loading="lazy"
               decoding="async"
             />
@@ -38,10 +36,10 @@ export default function AboutLiveMarquee() {
               src={trelloImgDark}
               alt="Work in progress board (dark)"
               className="hidden h-full w-full object-cover object-top dark:block"
-              style={{ WebkitMaskImage: fadeMask, maskImage: fadeMask }}
               loading="lazy"
               decoding="async"
             />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-[#FAFAF9] dark:to-slate-950" />
           </div>
         </div>
       </div>

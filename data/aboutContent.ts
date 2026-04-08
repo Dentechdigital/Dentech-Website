@@ -113,16 +113,23 @@ export const capabilityCards: {
   },
 ];
 
-export const teamRoles = [
-  'Account managers',
-  'Social media managers',
-  'Photographers & videographers',
-  'Video editors',
-  'SEO specialists',
-  'Media buyers',
-  'Designers',
-  'Content strategists',
-  'Email marketers',
+/** Shared inbox; mailto subject identifies the intended teammate. */
+export const TEAM_CONTACT_EMAIL = 'smile@dentech.digital';
+
+export const aboutTeamMembers: {
+  nameDisplay: string;
+  role: string;
+  /** File under /public/ — use null for initials-only until a photo exists */
+  photo: string | null;
+}[] = [
+  { nameDisplay: 'Balfoul', role: 'Account manager', photo: 'team/balfoul.jpg' },
+  { nameDisplay: 'Dahman. M', role: 'Founder', photo: 'mohammed-dahman.jpg' },
+  { nameDisplay: 'Omayma R.', role: 'Social media manager', photo: 'team/omayma-r.jpg' },
+  { nameDisplay: 'Youssef E.', role: 'Designer', photo: 'team/youssef-e.jpg' },
+  { nameDisplay: 'Khadir M.', role: 'SEO / GEO specialist', photo: 'team/khadir-m.jpg' },
+  { nameDisplay: 'Zak A.', role: 'Webflow designer', photo: 'team/zak-a.jpg' },
+  { nameDisplay: 'Sabri Y.', role: 'Web developer', photo: 'team/sabri-y.jpg' },
+  { nameDisplay: 'Maya', role: 'AI admin assistant', photo: 'team/maya.jpg' },
 ];
 
 export const scrumSteps = [

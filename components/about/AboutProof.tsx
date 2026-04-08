@@ -1,7 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Quote } from 'lucide-react';
 import { testimonialPlaceholder } from '../../data/aboutContent';
+
+function PartnerLogo({
+  src,
+  alt,
+}: {
+  src: string;
+  alt: string;
+}) {
+  const [ok, setOk] = useState(true);
+
+  return (
+    <div className="flex h-16 w-40 items-center justify-center rounded-xl border border-slate-200 bg-white px-4 shadow-sm dark:border-slate-600 dark:bg-slate-900">
+      {ok ? (
+        <img
+          src={src}
+          alt={alt}
+          className="max-h-10 w-auto max-w-full object-contain"
+          loading="lazy"
+          onError={() => setOk(false)}
+        />
+      ) : (
+        <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">{alt}</span>
+      )}
+    </div>
+  );
+}
 
 export default function AboutProof() {
   return (
@@ -33,12 +59,8 @@ export default function AboutProof() {
                 Use only marks you are entitled to display under each program&apos;s brand rules.
               </p>
               <div className="mt-6 flex flex-wrap gap-4">
-                <div className="flex h-16 w-28 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-xs font-medium text-slate-400 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-500">
-                  Google
-                </div>
-                <div className="flex h-16 w-28 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-xs font-medium text-slate-400 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-500">
-                  Meta
-                </div>
+                <PartnerLogo src={`${import.meta.env.BASE_URL}partners/google-partner.svg`} alt="Google Partner" />
+                <PartnerLogo src={`${import.meta.env.BASE_URL}partners/meta-business-partner.svg`} alt="Meta Business Partner" />
               </div>
             </div>
             <Link

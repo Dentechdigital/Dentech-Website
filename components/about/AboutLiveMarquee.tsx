@@ -24,22 +24,29 @@ export default function AboutLiveMarquee() {
 
         {/* Image preview: full width + bottom fade into next section */}
         <div className="relative -mt-10 left-1/2 right-1/2 -mx-[50vw] w-screen">
-          <div className="relative overflow-hidden">
-            <img
-              src={trelloImgLight}
-              alt="Work in progress board (light)"
-              className="w-full dark:hidden"
-              loading="lazy"
-              decoding="async"
+          <div className="relative">
+            <div className="relative overflow-hidden">
+              <img
+                src={trelloImgLight}
+                alt="Work in progress board (light)"
+                className="w-full dark:hidden"
+                loading="lazy"
+                decoding="async"
+              />
+              <img
+                src={trelloImgDark}
+                alt="Work in progress board (dark)"
+                className="hidden w-full dark:block"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+
+            {/* Fade is BELOW the image (slight overlap), not over it */}
+            <div
+              aria-hidden
+              className="-mt-6 h-20 bg-gradient-to-b from-transparent via-[#FAFAF9]/25 to-[#FAFAF9] dark:via-slate-950/25 dark:to-slate-950 sm:-mt-12 sm:h-40 sm:via-[#FAFAF9]/60 dark:sm:via-slate-950/60 lg:-mt-24 lg:h-[22.5rem] lg:via-[#FAFAF9]/95 dark:lg:via-slate-950/95"
             />
-            <img
-              src={trelloImgDark}
-              alt="Work in progress board (dark)"
-              className="hidden w-full dark:block"
-              loading="lazy"
-              decoding="async"
-            />
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-b from-transparent via-[#FAFAF9]/25 to-[#FAFAF9] dark:via-slate-950/25 dark:to-slate-950 sm:h-40 sm:via-[#FAFAF9]/60 dark:sm:via-slate-950/60 lg:h-[22.5rem] lg:via-[#FAFAF9]/95 dark:lg:via-slate-950/95" />
           </div>
         </div>
       </div>

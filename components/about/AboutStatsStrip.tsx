@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { aboutStats } from '../../data/aboutContent';
 
+/**
+ * Infinite one-line marquee on /about (under the hero).
+ * If you see a static grid instead: your OS has “Reduce motion” on
+ * (macOS: Accessibility → Display → Reduce motion). The animated strip is not commented out.
+ */
 function MarqueeSegment() {
   return (
     <div className="flex shrink-0 flex-nowrap items-center">
@@ -24,13 +29,17 @@ function MarqueeSegment() {
   );
 }
 
+function prefersReducedMotion(): boolean {
+  if (typeof window === 'undefined') return false;
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
 export default function AboutStatsStrip() {
-  const [reduceMotion, setReduceMotion] = useState(false);
+  const [reduceMotion, setReduceMotion] = useState(prefersReducedMotion);
 
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
     const update = () => setReduceMotion(mq.matches);
-    update();
     mq.addEventListener('change', update);
     return () => mq.removeEventListener('change', update);
   }, []);
@@ -52,30 +61,11 @@ export default function AboutStatsStrip() {
 
   return (
     <section className="border-y border-slate-200/80 bg-white py-6 dark:border-slate-700/70 dark:bg-slate-950 md:py-7">
-      <style>{`
-        @keyframes about-stats-marquee {
-          from {
-            transform: translate3d(0, 0, 0);
-          }
-          to {
-            transform: translate3d(-50%, 0, 0);
-          }
-        }
-        .about-stats-marquee-track {
-          display: flex;
-          width: max-content;
-          flex-wrap: nowrap;
-          animation: about-stats-marquee 38s linear infinite;
-          will-change: transform;
-        }
-      `}</style>
-
       <div
         className="w-full overflow-x-hidden overflow-y-visible [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]"
         aria-label="Company highlights"
       >
-        {/* Webflow-style: two identical rows; -50% shift = seamless loop */}
-        <div className="about-stats-marquee-track">
+        <div className="dentech-about-marquee-track">
           <MarqueeSegment />
           <MarqueeSegment />
         </div>

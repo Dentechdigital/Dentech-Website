@@ -103,3 +103,20 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Recoleta", Georgia, "Times New Roman", serif;
 }
 
+/* About page stats strip — infinite horizontal marquee (see AboutStatsStrip.tsx) */
+@keyframes dentech-about-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.dentech-about-marquee-track {
+  display: flex;
+  width: max-content;
+  flex-wrap: nowrap;
+  animation: dentech-about-marquee 28s linear infinite;
+  will-change: transform;
+}

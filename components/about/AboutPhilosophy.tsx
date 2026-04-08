@@ -14,22 +14,24 @@ export default function AboutPhilosophy() {
             Your outcomes are our report card
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
-            We have walked alongside dozens of businesses in Ottawa, across Canada, and internationally — often as the
-            &quot;local marketing person&quot; who connects signs, creative, web, email, social, and paid channels. Our
-            success is conditioned on the success of our clients and partners: we celebrate when your chairs fill and
-            your cost-per-lead drops.
+            We act as your full-stack marketing partner — brand and print, web, email, social media, and paid media — for
+            practices in Ottawa, across Canada, and with select international clients. Your results define ours: we plan
+            and optimize around booked care, production, and sustainable cost-per-lead, not activity for its own sake.
           </p>
         </div>
 
-        <div className="mx-auto mt-14 max-w-2xl rounded-2xl border border-amber-200/80 bg-amber-50/60 p-6 dark:border-amber-400/35 dark:bg-amber-950/45 md:p-8">
-          <div className="flex gap-4">
-            <Lightbulb className="h-8 w-8 shrink-0 text-amber-600 dark:text-amber-400" />
-            <div>
-              <h3 className="font-semibold text-amber-950 dark:text-amber-100">Original content on social</h3>
-              <p className="mt-2 text-sm leading-relaxed text-amber-900/90 dark:text-amber-200/90">
-                We use AI carefully for operations and custom tools — but on social, we prioritize original,
-                human-crafted content that sounds like your practice, not a generic bot. Authenticity builds trust with
-                patients and platforms alike.
+        <div className="mx-auto mt-14 max-w-4xl rounded-2xl border border-amber-200/80 bg-amber-50/60 p-6 dark:border-amber-400/35 dark:bg-amber-950/45 sm:p-8 lg:p-10">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-5">
+            <Lightbulb className="mx-auto h-8 w-8 shrink-0 text-amber-600 sm:mx-0 dark:text-amber-400" />
+            <div className="min-w-0 text-center sm:text-left">
+              <h3 className="about-display text-lg font-semibold text-amber-950 dark:text-amber-100 md:text-xl">
+                Social media content in your practice&apos;s voice
+              </h3>
+              <p className="mt-3 text-base leading-relaxed text-amber-900/90 dark:text-amber-200/90">
+                We use AI where it speeds up operations and powers custom tools. For the social media channels your
+                patients and families actually scroll, we prioritize clear, original posts and creative that reflect
+                your team and your standards — not generic filler that could be any clinic. That consistency builds trust
+                with people and holds up better with the platforms over time.
               </p>
             </div>
           </div>

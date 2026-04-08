@@ -20,14 +20,14 @@ export default function AboutPhilosophy() {
           </p>
         </div>
 
-        <div className="mx-auto mt-14 max-w-4xl rounded-2xl border border-amber-200/80 bg-amber-50/60 p-6 dark:border-amber-400/35 dark:bg-amber-950/45 sm:p-8 lg:p-10">
+        <div className="mx-auto mt-14 max-w-4xl rounded-2xl border border-amber-200/80 bg-amber-50/60 p-6 dark:border-amber-500/25 dark:bg-slate-900/70 sm:p-8 lg:p-10">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-5">
-            <Lightbulb className="mx-auto h-8 w-8 shrink-0 text-amber-600 sm:mx-0 dark:text-amber-400" />
+            <Lightbulb className="mx-auto h-8 w-8 shrink-0 text-amber-600 sm:mx-0 dark:text-amber-300" />
             <div className="min-w-0 text-center sm:text-left">
-              <h3 className="about-display text-lg font-semibold text-amber-950 dark:text-amber-100 md:text-xl">
+              <h3 className="about-display text-lg font-semibold text-amber-950 dark:text-slate-100 md:text-xl">
                 Social media content in your practice&apos;s voice
               </h3>
-              <p className="mt-3 text-base leading-relaxed text-amber-900/90 dark:text-amber-200/90">
+              <p className="mt-3 text-base leading-relaxed text-amber-900/90 dark:text-slate-300">
                 We use AI where it speeds up operations and powers custom tools. For the social media channels your
                 patients and families actually scroll, we prioritize clear, original posts and creative that reflect
                 your team and your standards — not generic filler that could be any clinic. That consistency builds trust

@@ -15,10 +15,10 @@ export default function AboutMobileCtaBar() {
   if (!visible) return null;
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/95 p-3 shadow-[0_-8px_30px_rgba(15,23,42,0.12)] backdrop-blur-md dark:border-slate-600 dark:bg-slate-950/98 dark:shadow-[0_-12px_40px_rgba(0,0,0,0.45)] lg:hidden">
+    <div className="fixed inset-x-0 bottom-0 z-40 bg-transparent px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-0 lg:hidden">
       <Link
         to="/contact"
-        className="flex w-full items-center justify-center gap-2 rounded-full bg-blue-600 py-3.5 text-sm font-semibold text-white shadow-md active:bg-blue-700"
+        className="flex w-full items-center justify-center gap-2 rounded-full border border-white/35 bg-blue-600/72 py-3.5 text-sm font-semibold text-white shadow-[0_8px_28px_rgba(37,99,235,0.38)] backdrop-blur-xl backdrop-saturate-150 transition-colors active:bg-blue-600/85 dark:border-white/20 dark:bg-blue-500/55 dark:shadow-[0_10px_36px_rgba(0,0,0,0.42)] dark:active:bg-blue-500/70"
       >
         Book a strategy call
         <ArrowRight className="h-4 w-4" />

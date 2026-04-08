@@ -78,7 +78,7 @@ export default function AboutAIPartners() {
 
           <div className="relative grid items-stretch gap-12 p-8 md:grid-cols-2 md:gap-14 md:p-12">
             <div className="flex h-full flex-col">
-              <div className="inline-flex items-center gap-2 rounded-full border border-cyan-200/90 bg-white/90 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-cyan-800 shadow-sm backdrop-blur-sm dark:border-cyan-500/35 dark:bg-slate-800/90 dark:text-cyan-300">
+              <div className="inline-flex self-start items-center gap-2 rounded-full border border-cyan-200/90 bg-white/90 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-cyan-800 shadow-sm backdrop-blur-sm dark:border-cyan-500/35 dark:bg-slate-800/90 dark:text-cyan-300">
                 <Bot className="h-3.5 w-3.5" />
                 AI & local partners
               </div>
@@ -102,6 +102,8 @@ export default function AboutAIPartners() {
                 and playbooks consistent as platforms evolve.
               </p>
 
+              <div className="flex-1" />
+
               <div className="mt-8 flex flex-wrap gap-3">
                 {highlights.map(({ icon: Icon, title, body }) => (
                   <div
@@ -117,20 +119,6 @@ export default function AboutAIPartners() {
                     <p className="text-xs leading-snug text-slate-600 dark:text-slate-400">{body}</p>
                   </div>
                 ))}
-              </div>
-
-              <div className="mt-auto inline-flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-cyan-200/60 pt-8 dark:border-cyan-500/20">
-                <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-cyan-800 dark:text-cyan-300">
-                  <Sparkles className="h-3.5 w-3.5" />
-                  Explore the stack
-                </span>
-                <Link
-                  to="/services#ai"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 transition hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
-                >
-                  Services & AI solutions
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
               </div>
             </div>
 
@@ -168,6 +156,22 @@ export default function AboutAIPartners() {
                   Email us
                 </a>
               </div>
+            </div>
+          </div>
+
+          <div className="relative px-8 pb-10 md:px-12">
+            <div className="inline-flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-cyan-200/60 pt-8 dark:border-cyan-500/20">
+              <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-cyan-800 dark:text-cyan-300">
+                <Sparkles className="h-3.5 w-3.5" />
+                Explore the stack
+              </span>
+              <Link
+                to="/services#ai"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 transition hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+              >
+                Services & AI solutions
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </div>
         </div>

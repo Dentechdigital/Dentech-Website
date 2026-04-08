@@ -85,8 +85,9 @@ export default function Services() {
           {services.map((service, index) => (
             <Link 
               to={service.link}
-              key={index} 
-              className="group relative bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-sm border border-gray-100 dark:border-slate-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 overflow-hidden cursor-pointer flex flex-col h-full"
+              key={index}
+              id={service.link.endsWith('#ai') ? 'ai' : undefined}
+              className="group relative bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-sm border border-gray-100 dark:border-slate-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 overflow-hidden cursor-pointer flex flex-col h-full scroll-mt-24"
             >
               {/* Smooth Background Image Effect (Top Right) */}
               <div 

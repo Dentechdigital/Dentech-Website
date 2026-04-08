@@ -5,9 +5,13 @@ export const FOUNDER_LINKEDIN_URL = 'https://www.linkedin.com/in/mohammed-dahman
 
 export const aboutStats = [
   { label: 'Serving practices since', value: '2017' },
-  { label: 'Dental & medical focus', value: '5+ yrs' },
-  { label: 'HQ', value: 'Ottawa, ON' },
-  { label: 'Team model', value: 'Hybrid' },
+  { label: 'Headquartered in', value: 'Ottawa, ON' },
+  { label: 'Industry focus', value: 'Dental & medical' },
+  { label: 'Delivery model', value: 'Hybrid team' },
+  { label: 'Markets', value: 'Canada-wide' },
+  { label: 'Campaign languages', value: 'English & French' },
+  { label: 'How we deliver', value: 'Scrum sprints' },
+  { label: 'Social content', value: 'Original-first' },
 ];
 
 export const whoWeServe = [

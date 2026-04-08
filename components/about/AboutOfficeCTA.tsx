@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, MapPin } from 'lucide-react';
+import { ArrowRight, MapPin, PhoneCall } from 'lucide-react';
 
 const MAPS_URL =
   'https://www.google.com/maps/search/?api=1&query=499+Preston+St+Ottawa+ON+Canada';
@@ -16,21 +16,33 @@ export default function AboutOfficeCTA() {
               Dentech Digital is headquartered in the heart of Ottawa. Book a call or stop by — we&apos;ll confirm
               availability for in-person meetings.
             </p>
-            <a
-              href={MAPS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 inline-flex w-full items-start gap-3 rounded-2xl border border-white/20 bg-white/10 px-5 py-4 text-left backdrop-blur transition hover:bg-white/15"
-            >
-              <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-cyan-300" />
-              <span>
-                <span className="block font-semibold">499 Preston Street</span>
-                <span className="block text-sm text-blue-100/80">Ottawa, ON, Canada</span>
-                <span className="mt-2 inline-block text-sm font-medium text-cyan-300 underline-offset-2 hover:underline">
-                  Open in Google Maps
+            <div className="mt-8 flex w-full flex-col gap-4 rounded-2xl border border-white/20 bg-white/10 px-5 py-4 text-left backdrop-blur sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex items-start gap-3">
+                <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-cyan-300" />
+                <span>
+                  <span className="block font-semibold">499 Preston Street</span>
+                  <span className="block text-sm text-blue-100/80">Ottawa, ON, Canada</span>
                 </span>
-              </span>
-            </a>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-2 sm:justify-end">
+                <a
+                  href={MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-cyan-300/60 px-3 py-1.5 text-sm font-semibold text-cyan-200 transition hover:bg-cyan-400/10"
+                >
+                  Open in Maps
+                </a>
+                <a
+                  href="tel:+16138693121"
+                  className="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-3 py-1.5 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300"
+                >
+                  <PhoneCall className="h-3.5 w-3.5" />
+                  613-869-3121
+                </a>
+              </div>
+            </div>
             <p className="mt-6 text-sm text-blue-200/80">Mon – Fri, 9:00 AM – 6:00 PM (as listed on our contact page)</p>
           </div>
           <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur md:p-10">

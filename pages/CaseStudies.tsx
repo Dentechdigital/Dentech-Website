@@ -23,7 +23,7 @@ const CaseStudies: React.FC = () => {
       <div className="min-h-screen bg-[#FAFAF9] transition-colors duration-300 dark:bg-slate-950">
         <PageHeroAboutStyle
           badge="Proof · Outcomes"
-          title="Case studies"
+          title="Case Studies"
           description="Discover how we have transformed businesses across various industries. Real results, real growth."
           primaryCta={{ to: '/contact', label: 'Book a strategy call' }}
           secondaryCta={{ to: '/services', label: 'View services' }}

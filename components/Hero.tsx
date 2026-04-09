@@ -81,8 +81,8 @@ const Hero: React.FC = () => {
             {/* Headlines */}
             <div className="space-y-6">
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tighter text-blue-950 dark:text-white leading-[1.1] transition-colors duration-300">
-                The marketing agency that top dentists{' '}
-                <span className="relative inline-block mt-2">
+                The marketing agency that top dentists&nbsp;
+                <span className="relative inline">
                   {/* Subtle animated glow behind the text */}
                   <span className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-teal-400 to-indigo-600 blur-xl opacity-30 dark:opacity-40 animate-text-shine rounded-full"></span>
                   {/* The actual text with animated gradient */}

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 const caseStudies = [
   {
     clinic: 'The Smile Doctors',
+    href: '/case-studies#smile-doctors',
     image: '/case-studies/smile-doctors-proof.png',
     title: '1300+ New Bookings in Under 12 Months',
     summary:
@@ -17,6 +18,7 @@ const caseStudies = [
   },
   {
     clinic: 'DWINC (and RED3)',
+    href: '/case-studies#dwinc',
     image: '/case-studies/dwinc-red3-laptop.png',
     title: '4.5x Revenue Growth in 2 Years',
     summary:
@@ -56,7 +58,7 @@ export default function CaseStudiesPreview() {
           {caseStudies.map((study, index) => (
             <Link 
               key={index}
-              to="/case-studies"
+              to={study.href ?? '/case-studies'}
               className="group flex flex-col bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-sm border border-gray-100 dark:border-slate-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-500"
             >
               <div className="relative h-72 overflow-hidden">

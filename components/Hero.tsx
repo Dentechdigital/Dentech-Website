@@ -81,13 +81,13 @@ const Hero: React.FC = () => {
             {/* Headlines */}
             <div className="space-y-6">
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tighter text-blue-950 dark:text-white leading-[1.1] transition-colors duration-300">
-                Guaranteed Patient Flow, Or
+                The marketing agency that top dentists{' '}
                 <span className="relative inline-block mt-2">
                   {/* Subtle animated glow behind the text */}
                   <span className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-teal-400 to-indigo-600 blur-xl opacity-30 dark:opacity-40 animate-text-shine rounded-full"></span>
                   {/* The actual text with animated gradient */}
                   <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-teal-400 to-indigo-600 animate-text-shine pr-2">
-                  You Don't Pay.
+                    won&apos;t share with their competition.
                   </span>
                 </span>
               </h1>

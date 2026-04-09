@@ -24,12 +24,13 @@ export default function CaseStudiesWorkGallery({ items, id = 'our-work' }: Props
   return (
     <section
       id={id}
-      className="scroll-mt-28 border-t border-slate-200/70 bg-[#FAFAF9] py-16 dark:border-slate-800 dark:bg-slate-950 md:py-20"
+      className="scroll-mt-28 border-t border-slate-200/70 bg-[#FAFAF9] py-16 dark:border-slate-800 dark:bg-slate-950 md:py-24"
       aria-labelledby="our-work-heading"
     >
-      <div className="w-full">
-        <div className="max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">Portfolio</p>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div className="max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">Portfolio</p>
           <h2
             id="our-work-heading"
             className="about-display mt-2 text-3xl font-semibold tracking-tight text-blue-950 dark:text-white md:text-4xl"
@@ -39,9 +40,9 @@ export default function CaseStudiesWorkGallery({ items, id = 'our-work' }: Props
           <p className="mt-4 text-lg text-slate-600 dark:text-slate-300">
             Websites, social, and print—replace these placeholders with final shots when you are ready. Structure and layout stay the same.
           </p>
-        </div>
+          </div>
 
-        <div className="mt-10 flex flex-wrap gap-2" role="tablist" aria-label="Filter work by type">
+          <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filter work by type">
           {TABS.map((tab) => {
             const active = filter === tab.id;
             return (
@@ -61,13 +62,14 @@ export default function CaseStudiesWorkGallery({ items, id = 'our-work' }: Props
               </button>
             );
           })}
+          </div>
         </div>
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" role="tabpanel">
           {visible.map((item) => (
             <article
               key={item.id}
-              className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm transition hover:border-blue-200/80 hover:shadow-md dark:border-slate-700 dark:bg-slate-900/40 dark:hover:border-blue-500/30"
+              className="group flex flex-col overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-sm transition hover:-translate-y-0.5 hover:border-blue-200/80 hover:shadow-lg dark:border-slate-700 dark:bg-slate-900/40 dark:hover:border-blue-500/30"
             >
               <div className="relative aspect-[4/3] overflow-hidden bg-slate-100 dark:bg-slate-800">
                 <img

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Check, Sparkles } from 'lucide-react';
 import SEO from '../components/SEO';
 import PageHeroAboutStyle from '../components/PageHeroAboutStyle';
 import FaqAccordion from '../components/FaqAccordion';
@@ -13,7 +13,6 @@ import {
   caseStudiesPageMeta,
   caseStudiesProofAtGlance,
   caseStudiesScopeBadges,
-  caseStudiesToc,
   caseStudiesTrustLogos,
   caseStudiesWorkGallery,
   dwincRed3CaseStudy,
@@ -53,174 +52,144 @@ const CaseStudies: React.FC = () => {
           secondaryCta={{ to: '/services', label: 'View services' }}
         />
 
-        {/* Mobile / small tablet: jump links */}
-        <div className="border-b border-slate-200/70 bg-white px-4 py-4 dark:border-slate-800 dark:bg-slate-900/35 lg:hidden">
-          <p className="mb-2 text-xs font-bold uppercase tracking-wider text-slate-500">Jump to</p>
-          <div className="flex flex-wrap gap-2">
-            {caseStudiesToc.map((item) => (
-              <a
-                key={item.id}
-                href={`#${item.id}`}
-                className="rounded-full border border-slate-200 bg-[#FAFAF9] px-3 py-1.5 text-xs font-semibold text-blue-950 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
-              >
-                {item.label}
-              </a>
-            ))}
-          </div>
-        </div>
-
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col gap-0 lg:flex-row lg:items-start lg:gap-12">
-            <div className="min-w-0 flex-1">
-              {/* Proof at a glance */}
-              <section
-                id="proof"
-                className="scroll-mt-28 border-t border-slate-200/70 bg-white py-14 dark:border-slate-800 dark:bg-slate-900/35 md:py-16"
-                aria-labelledby="proof-heading"
-              >
-                <div className="max-w-3xl">
-                  <h2
-                    id="proof-heading"
-                    className="about-display text-2xl font-semibold tracking-tight text-blue-950 dark:text-white md:text-3xl"
-                  >
-                    Proof at a glance
-                  </h2>
-                  <p className="mt-3 text-slate-600 dark:text-slate-300">
-                    Numbers we can stand behind, paired with the full-stack delivery model that makes outcomes repeatable—not lucky.
-                  </p>
-                </div>
-
-                <div className="mt-8 flex flex-wrap gap-2">
+        <section id="proof" className="border-t border-slate-200/70 bg-white py-16 dark:border-slate-800 dark:bg-slate-900/35 md:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
+              <div className="lg:col-span-5">
+                <p className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-blue-700 dark:border-blue-500/30 dark:bg-blue-500/10 dark:text-blue-300">
+                  <Sparkles className="h-4 w-4" />
+                  How we win
+                </p>
+                <h2 className="about-display mt-5 text-3xl font-semibold tracking-tight text-blue-950 dark:text-white md:text-4xl">
+                  Outcomes come from alignment—not one tactic
+                </h2>
+                <p className="mt-4 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+                  These case studies show the same operating system: tight positioning, clean data, fast creative iteration, and a single team owning the whole funnel.
+                </p>
+                <ul className="mt-8 space-y-3">
                   {caseStudiesScopeBadges.map((b) => (
-                    <span
-                      key={b}
-                      className="rounded-full border border-slate-200/90 bg-[#FAFAF9] px-3 py-1.5 text-xs font-semibold text-slate-700 dark:border-slate-600 dark:bg-slate-800/60 dark:text-slate-200"
-                    >
-                      {b}
-                    </span>
+                    <li key={b} className="flex items-center gap-3 text-slate-700 dark:text-slate-200">
+                      <Check className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                      <span className="font-medium">{b}</span>
+                    </li>
                   ))}
-                </div>
+                </ul>
+              </div>
 
-                <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+              <div className="lg:col-span-7">
+                <div className="grid gap-4 sm:grid-cols-2">
                   {caseStudiesProofAtGlance.map((s) => (
                     <div
                       key={s.label}
-                      className="rounded-2xl border border-slate-200/90 bg-[#FAFAF9] p-6 dark:border-slate-700 dark:bg-slate-800/60"
+                      className="rounded-[2rem] border border-slate-200/80 bg-gradient-to-b from-white to-[#FAFAF9] p-7 shadow-sm dark:border-slate-700 dark:from-slate-900/60 dark:to-slate-900/20"
                     >
                       <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">{s.label}</p>
-                      <p className="about-display mt-2 text-3xl font-semibold text-blue-950 dark:text-white md:text-4xl">{s.value}</p>
-                      {s.sublabel ? (
-                        <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">{s.sublabel}</p>
-                      ) : null}
+                      <p className="about-display mt-3 text-4xl font-semibold tracking-tight text-blue-950 dark:text-white">{s.value}</p>
+                      {s.sublabel ? <p className="mt-3 text-sm text-slate-600 dark:text-slate-400">{s.sublabel}</p> : null}
                     </div>
                   ))}
                 </div>
-              </section>
 
-              <CaseStudyLongSection study={smileDoctorsCaseStudy} imageSide="right" />
-              <CaseStudyLongSection study={dwincRed3CaseStudy} imageSide="left" />
-
-              <CaseStudiesWorkGallery items={caseStudiesWorkGallery} />
-
-              {/* Trust - logos only (text badges until assets supplied) */}
-              <section
-                id="trust"
-                className="scroll-mt-28 border-t border-slate-200/70 bg-white py-16 dark:border-slate-800 dark:bg-slate-900/35 md:py-20"
-                aria-labelledby="trust-heading"
-              >
-                <h2
-                  id="trust-heading"
-                  className="about-display text-2xl font-semibold tracking-tight text-blue-950 dark:text-white md:text-3xl"
-                >
-                  Brands we support
-                </h2>
-                <p className="mt-3 max-w-2xl text-slate-600 dark:text-slate-300">
-                  Logo-first strip (no quoted reviews on this version). Replace with monochrome SVG marks when you have final brand approvals.
-                </p>
-                <div className="mt-10 flex flex-wrap items-center gap-3">
-                  {caseStudiesTrustLogos.map((logo) =>
-                    logo.src ? (
-                      <div
-                        key={logo.name}
-                        className="flex h-14 items-center justify-center rounded-xl border border-slate-200/90 bg-[#FAFAF9] px-5 dark:border-slate-700 dark:bg-slate-800/60"
-                      >
-                        <img src={logo.src} alt="" className="max-h-8 w-auto opacity-80 dark:opacity-90" />
-                      </div>
-                    ) : (
-                      <div
-                        key={logo.name}
-                        className="flex h-14 items-center rounded-xl border border-slate-200/90 bg-[#FAFAF9] px-5 dark:border-slate-700 dark:bg-slate-800/60"
-                      >
-                        <span className="text-sm font-semibold text-slate-700 dark:text-slate-200">{logo.name}</span>
-                      </div>
-                    )
-                  )}
-                </div>
-              </section>
-
-              <div id="faq" className="scroll-mt-28">
-                <FaqAccordion
-                  idPrefix="case-studies-faq"
-                  heading="Questions teams ask before committing"
-                  subheading="Measurement, scope, timelines, and what we need from you."
-                  items={caseStudiesFaq}
-                  className="border-t border-slate-200/70 !bg-[#FAFAF9] py-16 dark:border-slate-800 dark:!bg-slate-950 md:py-20"
-                />
-              </div>
-
-              <section
-                id="cta"
-                className="scroll-mt-28 border-t border-slate-200/80 bg-white py-16 dark:border-slate-800 dark:bg-slate-900/40 md:py-20"
-                aria-labelledby="cta-heading"
-              >
-                <div className="mx-auto max-w-3xl text-center">
-                  <h2 id="cta-heading" className="about-display text-2xl font-semibold text-blue-950 dark:text-white md:text-3xl">
-                    Want a similar outcome?
-                  </h2>
-                  <p className="mt-4 text-slate-600 dark:text-slate-300">
-                    Send your market, capacity, and goals—we will return a practical sequencing plan (one channel or the full stack).
-                  </p>
-                  <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-                    <Link
-                      to="/contact"
-                      className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-blue-600/25 transition hover:bg-blue-700"
+                <div className="mt-6 rounded-[2rem] border border-slate-200/80 bg-[#FAFAF9] p-6 dark:border-slate-700 dark:bg-slate-800/50">
+                  <p className="text-sm font-semibold text-blue-950 dark:text-white">Jump into the stories</p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    <a
+                      href="#smile-doctors"
+                      className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-800 shadow-sm hover:text-blue-700 dark:bg-slate-900 dark:text-slate-100"
                     >
-                      Book a strategy call
-                      <ArrowRight className="h-4 w-4" />
-                    </Link>
-                    <Link
-                      to="/services"
-                      className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-slate-800 transition hover:border-blue-300 hover:text-blue-700 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100 dark:hover:border-blue-400/50"
+                      Smile Doctors
+                    </a>
+                    <a
+                      href="#dwinc"
+                      className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-800 shadow-sm hover:text-blue-700 dark:bg-slate-900 dark:text-slate-100"
                     >
-                      Explore services
-                    </Link>
+                      DWINC & RED³
+                    </a>
                   </div>
                 </div>
-              </section>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <CaseStudyLongSection study={smileDoctorsCaseStudy} imageSide="right" tone="tinted" />
+        <CaseStudyLongSection study={dwincRed3CaseStudy} imageSide="left" tone="light" />
+
+        <CaseStudiesWorkGallery items={caseStudiesWorkGallery} />
+
+        <section id="trust" className="border-t border-slate-200/70 bg-white py-16 dark:border-slate-800 dark:bg-slate-900/35 md:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="max-w-2xl">
+              <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">Trust</p>
+              <h2 className="about-display mt-2 text-3xl font-semibold tracking-tight text-blue-950 dark:text-white md:text-4xl">
+                Long-term operators choose one partner
+              </h2>
+              <p className="mt-4 text-lg text-slate-600 dark:text-slate-300">
+                Logos only for now. When you are ready, we’ll swap in approved monochrome marks.
+              </p>
             </div>
 
-            {/* Sticky TOC — large screens */}
-            <aside className="hidden w-48 shrink-0 lg:block xl:w-52">
-              <nav
-                className="sticky top-28 space-y-1 rounded-2xl border border-slate-200/90 bg-white/90 p-4 text-sm shadow-sm backdrop-blur dark:border-slate-700 dark:bg-slate-900/80"
-                aria-label="On this page"
-              >
-                <p className="mb-3 px-2 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-                  On this page
-                </p>
-                {caseStudiesToc.map((item) => (
-                  <a
-                    key={item.id}
-                    href={`#${item.id}`}
-                    className="block rounded-lg px-2 py-2 text-slate-600 transition hover:bg-blue-50 hover:text-blue-800 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-blue-300"
+            <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {caseStudiesTrustLogos.map((logo) =>
+                logo.src ? (
+                  <div
+                    key={logo.name}
+                    className="flex h-16 items-center justify-center rounded-3xl border border-slate-200/80 bg-[#FAFAF9] px-6 shadow-sm dark:border-slate-700 dark:bg-slate-800/50"
                   >
-                    {item.label}
-                  </a>
-                ))}
-              </nav>
-            </aside>
+                    <img src={logo.src} alt="" className="max-h-9 w-auto opacity-80 dark:opacity-90" />
+                  </div>
+                ) : (
+                  <div
+                    key={logo.name}
+                    className="flex h-16 items-center rounded-3xl border border-slate-200/80 bg-[#FAFAF9] px-6 shadow-sm dark:border-slate-700 dark:bg-slate-800/50"
+                  >
+                    <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">{logo.name}</span>
+                  </div>
+                )
+              )}
+            </div>
           </div>
-        </div>
+        </section>
+
+        <section id="faq" className="border-t border-slate-200/70 bg-[#FAFAF9] dark:border-slate-800 dark:bg-slate-950">
+          <FaqAccordion
+            idPrefix="case-studies-faq"
+            heading="Questions teams ask before committing"
+            subheading="Measurement, scope, timelines, and what we need from you."
+            items={caseStudiesFaq}
+            className="!bg-transparent"
+          />
+        </section>
+
+        <section id="cta" className="border-t border-slate-200/80 bg-white py-16 dark:border-slate-800 dark:bg-slate-900/40 md:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid gap-10 rounded-[2.25rem] border border-slate-200/80 bg-gradient-to-br from-[#FAFAF9] to-white p-10 shadow-sm dark:border-slate-700 dark:from-slate-900/60 dark:to-slate-900/20 md:p-14 lg:grid-cols-12 lg:items-center">
+              <div className="lg:col-span-8">
+                <h2 className="about-display text-3xl font-semibold tracking-tight text-blue-950 dark:text-white md:text-4xl">
+                  Want a similar outcome?
+                </h2>
+                <p className="mt-4 max-w-2xl text-lg text-slate-600 dark:text-slate-300">
+                  Tell us your market, capacity, and goals. We’ll map a practical sequence and what “winning” should look like within 90 days.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-3 lg:col-span-4 lg:justify-end">
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-blue-600/25 transition hover:bg-blue-700"
+                >
+                  Book a strategy call
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link
+                  to="/services"
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-slate-800 transition hover:border-blue-300 hover:text-blue-700 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100 dark:hover:border-blue-400/50"
+                >
+                  Explore services
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </>
   );

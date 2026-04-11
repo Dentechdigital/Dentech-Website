@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const featuredCaseStudy = {
   clinic: 'The Smile Doctors',
   href: '/case-studies#smile-doctors',
-  image: '/case-studies/hero-case-studies-banner.png',
+  image: '/case-studies/smile-doctors-proof.png',
   title: '1300+ New Bookings in Under 12 Months',
   summary:
     'We built a custom Webflow website and now run full website management, SEO, AI ranking optimization, Meta PPC, social media management, and content creation. They are crushing it and everyone in town is talking about them.',

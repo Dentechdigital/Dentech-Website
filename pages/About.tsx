@@ -1,5 +1,4 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import SEO from '../components/SEO';
 import { buildAboutStructuredData } from '../data/aboutContent';
 import AboutHero from '../components/about/AboutHero';
@@ -20,18 +19,6 @@ const aboutStructuredData = buildAboutStructuredData();
 const About: React.FC = () => {
   return (
     <>
-      <Helmet>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&display=swap"
-          rel="stylesheet"
-        />
-      </Helmet>
-      <style>{`
-        .about-display { font-family: 'Fraunces', Georgia, 'Times New Roman', serif; }
-      `}</style>
-
       <SEO
         title="About Dentech Digital"
         description="Ottawa dental marketing agency since 2017. Meet founder Mohammed Dahman, our hybrid team, full-funnel services for Canadian dental practices, and how we work."

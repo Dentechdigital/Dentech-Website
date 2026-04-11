@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import DynamicDots from './DynamicDots';
+import ResponsiveHeroPicture from './ResponsiveHeroPicture';
 
 const aboutHeroBgUrl = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}hero-background.png`;
 
@@ -52,12 +53,12 @@ export default function PageHeroAboutStyle({
 
   return (
     <section className="relative overflow-hidden border-b border-slate-200/70 bg-[#FAFAF9] pb-20 pt-28 transition-colors duration-300 dark:border-slate-800 dark:bg-slate-950 md:pb-24 md:pt-32">
-      <img
+      <ResponsiveHeroPicture
         src={bgSrc}
         alt=""
         className={`pointer-events-none absolute inset-0 z-0 h-full min-h-[420px] w-full opacity-90 transition-opacity duration-300 dark:opacity-[0.82] ${bgPosition}`}
         decoding="async"
-        fetchPriority={heroImageSrc ? 'high' : 'low'}
+        fetchPriority="high"
       />
       <div
         aria-hidden

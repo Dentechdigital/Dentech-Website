@@ -7,7 +7,7 @@ import { FEATURES } from '../constants';
 
 const Hero: React.FC = () => {
   const [visibleFeatures, setVisibleFeatures] = useState<number[]>([]);
-  const featuresRef = useRef<(HTMLDivElement | null)[]>([]);
+  const featuresRef = useRef<(HTMLAnchorElement | null)[]>([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(

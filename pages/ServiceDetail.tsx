@@ -1,5 +1,4 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { ArrowRight, Check, ChevronRight } from 'lucide-react';
 import SEO from '../components/SEO';
@@ -57,18 +56,6 @@ const ServiceDetail: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700&display=swap"
-          rel="stylesheet"
-        />
-      </Helmet>
-      <style>{`
-        .about-display { font-family: 'Fraunces', Georgia, 'Times New Roman', serif; }
-      `}</style>
-
       <SEO
         title={service.metaTitle}
         description={service.metaDescription}

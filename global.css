@@ -1,0 +1,295 @@
+/* Latin subset — smaller than full @fontsource/inter */
+@import '@fontsource/inter/latin-300.css';
+@import '@fontsource/inter/latin-400.css';
+@import '@fontsource/inter/latin-500.css';
+@import '@fontsource/inter/latin-600.css';
+@import '@fontsource/inter/latin-700.css';
+@import '@fontsource-variable/fraunces/opsz.css';
+@import '@fontsource-variable/fraunces/opsz-italic.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Recoleta';
+  src:
+    url('/fonts/Recoleta-Thin.woff2') format('woff2'),
+    url('/fonts/Recoleta-Thin.woff') format('woff');
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Recoleta';
+  src:
+    url('/fonts/Recoleta-Light.woff2') format('woff2'),
+    url('/fonts/Recoleta-Light.woff') format('woff');
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Recoleta';
+  src:
+    url('/fonts/Recoleta-Regular.woff2') format('woff2'),
+    url('/fonts/Recoleta-Regular.woff') format('woff');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Recoleta';
+  src:
+    url('/fonts/Recoleta-Medium.woff2') format('woff2'),
+    url('/fonts/Recoleta-Medium.woff') format('woff');
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Recoleta';
+  src:
+    url('/fonts/Recoleta-SemiBold.woff2') format('woff2'),
+    url('/fonts/Recoleta-SemiBold.woff') format('woff');
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Recoleta';
+  src:
+    url('/fonts/Recoleta-Bold.woff2') format('woff2'),
+    url('/fonts/Recoleta-Bold.woff') format('woff');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Recoleta';
+  src:
+    url('/fonts/Recoleta-Black.woff2') format('woff2'),
+    url('/fonts/Recoleta-Black.woff') format('woff');
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Recoleta Alt';
+  src:
+    url('/fonts/RecoletaAlt-Regular.woff2') format('woff2'),
+    url('/fonts/RecoletaAlt-Regular.woff') format('woff');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+.about-display {
+  font-family: 'Fraunces Variable', Georgia, 'Times New Roman', serif;
+  font-optical-sizing: auto;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Recoleta', Georgia, 'Times New Roman', serif;
+}
+
+body {
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  background-color: #fafaf9;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+html.dark body {
+  background-color: #0f172a;
+  color: #f8fafc;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+html.dark ::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #475569;
+}
+
+@keyframes hero-cascade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-cascade-item {
+  opacity: 0;
+  animation: hero-cascade-in 0.65s ease-out forwards;
+}
+
+@keyframes about-timeline-sticky-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-timeline-sticky-swap {
+  animation: about-timeline-sticky-in 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes about-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.about-marquee-mask {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.about-marquee-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  padding: 0 24px;
+  animation: about-marquee 28s linear infinite;
+  will-change: transform;
+}
+
+.about-marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 220px;
+  padding: 10px 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  background: rgba(255, 255, 255, 0.75);
+}
+
+html.dark .about-marquee-item {
+  border-color: rgba(51, 65, 85, 0.8);
+  background: rgba(15, 23, 42, 0.55);
+}
+
+@keyframes about-chip-pulse {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+.about-live-chip {
+  animation: about-chip-pulse 2.8s ease-in-out infinite;
+}
+
+.about-live-chip:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.about-live-chip:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.about-live-chip:nth-child(4) {
+  animation-delay: 0.45s;
+}
+
+.about-live-chip:nth-child(5) {
+  animation-delay: 0.6s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-motion {
+    opacity: 1 !important;
+    transform: none !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+
+  .hero-cascade-item {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .animate-marquee-track {
+    animation: none !important;
+  }
+
+  .hero-cascade-item .animate-pulse {
+    animation: none !important;
+  }
+
+  .about-timeline-sticky-swap {
+    animation: none;
+  }
+
+  .about-marquee-track {
+    animation: none;
+  }
+
+  .about-live-chip {
+    animation: none;
+  }
+}

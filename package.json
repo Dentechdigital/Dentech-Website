@@ -6,6 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:analyze": "ANALYZE=true vite build",
+    "typecheck": "tsc --noEmit",
+    "security:check": "npm audit --audit-level=high",
+    "release:check": "npm run security:check && npm run build && npm run typecheck",
+    "optimize:images": "node scripts/optimize-hero-images.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -16,8 +21,17 @@
     "react-router-dom": "^7.13.2"
   },
   "devDependencies": {
+    "@fontsource-variable/fraunces": "^5.2.9",
+    "@fontsource/inter": "^5.2.8",
     "@types/node": "^22.14.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.0.0",
+    "autoprefixer": "^10.4.27",
+    "postcss": "^8.5.9",
+    "rollup-plugin-visualizer": "^7.0.1",
+    "sharp": "^0.34.5",
+    "tailwindcss": "^3.4.19",
     "typescript": "~5.8.2",
     "vite": "^6.2.0"
   }

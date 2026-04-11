@@ -133,8 +133,9 @@ export const smileDoctorsCaseStudy: CaseStudy = {
   headline: '1300+ new bookings in year one with a full-stack growth system',
   summary:
     'We operated as the outsourced marketing department: digital properties, discovery (SEO/GEO), demand capture (Google & Meta), social presence, original creative, and physical brand presence through signage and print.',
-  heroImage: '/case-studies/smile-doctors-proof.png',
-  heroImageAlt: 'Smile Doctors patient growth summary showing 1309 patient count',
+  /** Used only when `showSideImage` is enabled on the long section */
+  heroImage: '/case-studies/hero-case-studies-banner.png',
+  heroImageAlt: 'Case study hero art',
   context: {
     title: 'Context',
     paragraphs: [
@@ -173,13 +174,7 @@ export const smileDoctorsCaseStudy: CaseStudy = {
       { title: 'Reinforce', body: 'Content, reviews momentum, and on-location branding increase trust after the click.' },
     ],
   },
-  artifacts: [
-    {
-      src: '/case-studies/smile-doctors-proof.png',
-      alt: 'Patient count documentation excerpt',
-      caption: 'Documented patient volume trajectory (redacted fields where required).',
-    },
-  ],
+  artifacts: [],
 };
 
 export const caseStudiesOrdered: CaseStudy[] = [smileDoctorsCaseStudy];

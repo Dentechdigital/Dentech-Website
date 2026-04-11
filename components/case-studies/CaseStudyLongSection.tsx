@@ -152,14 +152,12 @@ export default function CaseStudyLongSection({
 
         <h2
           id={`${study.anchorId}-heading`}
-          className={`about-display mt-4 text-3xl font-semibold tracking-tight text-blue-950 dark:text-white md:text-5xl ${showSideImage ? 'max-w-4xl' : 'max-w-none'}`}
+          className="about-display mt-4 max-w-4xl text-3xl font-semibold tracking-tight text-blue-950 dark:text-white md:text-5xl"
         >
           {study.clientName}
         </h2>
-        <p className={`mt-3 text-xl text-slate-700 dark:text-slate-200 ${showSideImage ? 'max-w-4xl' : 'max-w-none'}`}>{study.headline}</p>
-        <p
-          className={`mt-4 text-base leading-relaxed text-slate-600 dark:text-slate-300 md:text-lg ${showSideImage ? 'max-w-3xl' : 'max-w-none'}`}
-        >
+        <p className="mt-3 max-w-4xl text-xl text-slate-700 dark:text-slate-200">{study.headline}</p>
+        <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-600 dark:text-slate-300 md:text-lg">
           {study.summary}
         </p>
 

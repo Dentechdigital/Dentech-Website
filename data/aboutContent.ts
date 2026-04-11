@@ -2,7 +2,7 @@
 export const SITE_ORIGIN = 'https://dentech.digital';
 
 /** Full-bleed hero art on `/about` — medal / focal art on the right, copy zone left */
-export const ABOUT_PAGE_HERO_PATH = '/about/hero-about.png';
+export const ABOUT_PAGE_HERO_PATH = '/about/hero-about.webp';
 
 /** `object-position` for `PageHeroAboutStyle` background `<img>` */
 export const ABOUT_PAGE_HERO_IMAGE_CLASS =
@@ -129,14 +129,14 @@ export const aboutTeamMembers: {
   /** File under /public/ — use null for initials-only until a photo exists */
   photo: string | null;
 }[] = [
-  { nameDisplay: 'Dahman M.', role: 'Founder', photo: 'team/dahman-m.png' },
-  { nameDisplay: 'Balfoul M.', role: 'Account manager', photo: 'team/balfoul.png' },
-  { nameDisplay: 'Omayma R.', role: 'Social media manager', photo: 'team/omayma-r.png' },
-  { nameDisplay: 'Youssef E.', role: 'Designer', photo: 'team/youssef-e.png' },
-  { nameDisplay: 'Khadir M.', role: 'SEO / GEO specialist', photo: 'team/khadir-m.png' },
-  { nameDisplay: 'Zak A.', role: 'Webflow designer', photo: 'team/zak-a.png' },
-  { nameDisplay: 'Sabri Y.', role: 'Web developer', photo: 'team/sabri-y.png' },
-  { nameDisplay: 'Maya', role: 'AI admin assistant', photo: 'team/maya.png' },
+  { nameDisplay: 'Dahman M.', role: 'Founder', photo: 'team/dahman-m.webp' },
+  { nameDisplay: 'Balfoul M.', role: 'Account manager', photo: 'team/balfoul.webp' },
+  { nameDisplay: 'Omayma R.', role: 'Social media manager', photo: 'team/omayma-r.webp' },
+  { nameDisplay: 'Youssef E.', role: 'Designer', photo: 'team/youssef-e.webp' },
+  { nameDisplay: 'Khadir M.', role: 'SEO / GEO specialist', photo: 'team/khadir-m.webp' },
+  { nameDisplay: 'Zak A.', role: 'Webflow designer', photo: 'team/zak-a.webp' },
+  { nameDisplay: 'Sabri Y.', role: 'Web developer', photo: 'team/sabri-y.webp' },
+  { nameDisplay: 'Maya', role: 'AI admin assistant', photo: 'team/maya.webp' },
 ];
 
 export const testimonialPlaceholder = {

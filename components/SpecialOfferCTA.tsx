@@ -74,9 +74,12 @@ export default function SpecialOfferCTA() {
             />
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-blue-100/40 to-transparent dark:from-slate-950/55" />
             <img
-              src="/free-offer-mockup.png"
+              src="/free-offer-mockup.webp"
               alt="Dental clinic website mockup on desktop and mobile"
               className="relative z-10 m-0 -mb-6 block w-full max-w-[50rem] object-contain object-bottom p-0 drop-shadow-[0_24px_40px_rgba(15,23,42,0.16)] lg:-mb-8 lg:max-w-[56rem]"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
             />
           </div>
         </div>

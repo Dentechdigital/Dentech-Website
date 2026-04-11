@@ -76,7 +76,7 @@ export const caseStudiesPageMeta = {
 };
 
 /** Full-bleed hero background on `/case-studies` (same pattern as service detail `PageHeroAboutStyle`). */
-export const caseStudiesHeroBannerPath = '/case-studies/hero-case-studies-banner.png';
+export const caseStudiesHeroBannerPath = '/case-studies/hero-case-studies-banner.webp';
 
 /** `object-position` for the hero banner (dark copy zone left, proof/table art right). */
 export const caseStudiesHeroImageClassName =
@@ -134,7 +134,7 @@ export const smileDoctorsCaseStudy: CaseStudy = {
   summary:
     'We operated as the outsourced marketing department: digital properties, discovery (SEO/GEO), demand capture (Google & Meta), social presence, original creative, and physical brand presence through signage and print.',
   /** Used only when `showSideImage` is enabled on the long section */
-  heroImage: '/case-studies/hero-case-studies-banner.png',
+  heroImage: '/case-studies/hero-case-studies-banner.webp',
   heroImageAlt: 'Case study hero art',
   context: {
     title: 'Context',
@@ -188,7 +188,7 @@ export const caseStudiesWorkGallery: WorkGalleryItem[] = [
   {
     id: 'w1',
     category: 'websites',
-    src: '/case-studies/work/website-1.png',
+    src: '/case-studies/work/website-1.webp',
     alt: 'Placeholder website mockup 1',
     title: 'Website — conversion-led IA',
     description: 'Placeholder: replace with a full-width mock or screenshot.',
@@ -196,7 +196,7 @@ export const caseStudiesWorkGallery: WorkGalleryItem[] = [
   {
     id: 'w2',
     category: 'websites',
-    src: '/case-studies/work/website-2.png',
+    src: '/case-studies/work/website-2.webp',
     alt: 'Placeholder website mockup 2',
     title: 'Website — service depth',
     description: 'Placeholder: service pages, proof blocks, mobile parity.',
@@ -204,7 +204,7 @@ export const caseStudiesWorkGallery: WorkGalleryItem[] = [
   {
     id: 'w3',
     category: 'websites',
-    src: '/case-studies/work/website-3.png',
+    src: '/case-studies/work/website-3.webp',
     alt: 'Placeholder website mockup 3',
     title: 'Website — brand refresh',
     description: 'Placeholder: before/after or component library snapshot.',
@@ -212,7 +212,7 @@ export const caseStudiesWorkGallery: WorkGalleryItem[] = [
   {
     id: 's1',
     category: 'social',
-    src: '/case-studies/work/social-1.png',
+    src: '/case-studies/work/social-1.webp',
     alt: 'Placeholder social creative 1',
     title: 'Social — campaign creative',
     description: 'Placeholder: Meta or short-form creative tile.',
@@ -220,7 +220,7 @@ export const caseStudiesWorkGallery: WorkGalleryItem[] = [
   {
     id: 's2',
     category: 'social',
-    src: '/case-studies/work/social-2.png',
+    src: '/case-studies/work/social-2.webp',
     alt: 'Placeholder social creative 2',
     title: 'Social — educational thread',
     description: 'Placeholder: carousel or story frames.',
@@ -228,7 +228,7 @@ export const caseStudiesWorkGallery: WorkGalleryItem[] = [
   {
     id: 's3',
     category: 'social',
-    src: '/case-studies/work/social-3.png',
+    src: '/case-studies/work/social-3.webp',
     alt: 'Placeholder social creative 3',
     title: 'Social — offer test',
     description: 'Placeholder: creative variant for testing hooks.',
@@ -236,7 +236,7 @@ export const caseStudiesWorkGallery: WorkGalleryItem[] = [
   {
     id: 'p1',
     category: 'print',
-    src: '/case-studies/work/print-1.png',
+    src: '/case-studies/work/print-1.webp',
     alt: 'Placeholder print design 1',
     title: 'Print — signage system',
     description: 'Placeholder: window or exterior signage layout.',
@@ -244,7 +244,7 @@ export const caseStudiesWorkGallery: WorkGalleryItem[] = [
   {
     id: 'p2',
     category: 'print',
-    src: '/case-studies/work/print-2.png',
+    src: '/case-studies/work/print-2.webp',
     alt: 'Placeholder print design 2',
     title: 'Print — event collateral',
     description: 'Placeholder: symposium handout or booth panel.',
@@ -252,7 +252,7 @@ export const caseStudiesWorkGallery: WorkGalleryItem[] = [
   {
     id: 'p3',
     category: 'print',
-    src: '/case-studies/work/print-3.png',
+    src: '/case-studies/work/print-3.webp',
     alt: 'Placeholder print design 3',
     title: 'Print — brand stationery',
     description: 'Placeholder: business cards, letterhead, or mailer.',

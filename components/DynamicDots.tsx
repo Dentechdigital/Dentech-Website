@@ -15,21 +15,22 @@ const DynamicDots: React.FC = () => {
 
     let animationFrameId = 0;
     let mouse = { x: -1000, y: -1000 };
+    let targetMouse = { x: -1000, y: -1000 };
 
-    const handleMouseMove = (e: MouseEvent) => {
+    const handlePointerMove = (e: PointerEvent) => {
       const rect = canvas.getBoundingClientRect();
-      mouse.x = e.clientX - rect.left;
-      mouse.y = e.clientY - rect.top;
+      targetMouse.x = e.clientX - rect.left;
+      targetMouse.y = e.clientY - rect.top;
     };
 
-    const handleMouseLeave = () => {
-      mouse.x = -1000;
-      mouse.y = -1000;
+    const handlePointerLeave = () => {
+      targetMouse.x = -1000;
+      targetMouse.y = -1000;
     };
 
     if (finePointer) {
-      window.addEventListener('mousemove', handleMouseMove);
-      window.addEventListener('mouseleave', handleMouseLeave);
+      window.addEventListener('pointermove', handlePointerMove);
+      window.addEventListener('pointerleave', handlePointerLeave);
     }
 
     const resize = () => {
@@ -44,8 +45,8 @@ const DynamicDots: React.FC = () => {
 
     const spacing = isMobile ? 38 : 28;
     const baseRadius = 1.2;
-    const maxRadius = 3.5;
-    const interactionRadius = finePointer ? 140 : 0;
+    const maxRadius = finePointer ? 5.2 : 3.5;
+    const interactionRadius = finePointer ? 190 : 0;
     const minFrameMs = isMobile ? 1000 / 30 : 1000 / 60;
     let lastDraw = 0;
 
@@ -85,7 +86,7 @@ const DynamicDots: React.FC = () => {
             const easeForce = Math.pow(force, 1.5);
             radius = baseRadius + easeForce * (maxRadius - baseRadius);
             const angle = Math.atan2(dy, dx);
-            const repelStrength = easeForce * 15;
+            const repelStrength = easeForce * 24;
             xOffset = -Math.cos(angle) * repelStrength;
             yOffset = -Math.sin(angle) * repelStrength;
           }
@@ -103,12 +104,17 @@ const DynamicDots: React.FC = () => {
       drawFrame(0, false);
       return () => {
         window.removeEventListener('resize', resize);
-        window.removeEventListener('mousemove', handleMouseMove);
-        window.removeEventListener('mouseleave', handleMouseLeave);
+        window.removeEventListener('pointermove', handlePointerMove);
+        window.removeEventListener('pointerleave', handlePointerLeave);
       };
     }
 
     const draw = (now: number) => {
+      if (finePointer) {
+        // Smooth pointer tracking keeps the interaction natural.
+        mouse.x += (targetMouse.x - mouse.x) * 0.24;
+        mouse.y += (targetMouse.y - mouse.y) * 0.24;
+      }
       if (now - lastDraw < minFrameMs) {
         animationFrameId = requestAnimationFrame(draw);
         return;
@@ -123,8 +129,8 @@ const DynamicDots: React.FC = () => {
 
     return () => {
       window.removeEventListener('resize', resize);
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseleave', handleMouseLeave);
+      window.removeEventListener('pointermove', handlePointerMove);
+      window.removeEventListener('pointerleave', handlePointerLeave);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);

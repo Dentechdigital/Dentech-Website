@@ -3,27 +3,27 @@ import React from 'react';
 const clients = [
   {
     name: 'The Smile Doctors',
-    logoSrc: '/partners/smile-doctors.png',
+    logoSrc: '/partners/smile-doctors.webp',
     logoClass: 'h-10 sm:h-12',
   },
   {
     name: 'Riverside Orthodontics',
-    logoSrc: '/partners/riverside-orthodontics.png',
+    logoSrc: '/partners/riverside-orthodontics.webp',
     logoClass: 'h-10 sm:h-12',
   },
   {
     name: 'Luminara Dental',
-    logoSrc: '/partners/luminara-dental.png',
+    logoSrc: '/partners/luminara-dental.webp',
     logoClass: 'h-10 sm:h-12',
   },
   {
     name: 'Kanata Family Dentistry',
-    logoSrc: '/partners/kanata-family-dentistry.png',
+    logoSrc: '/partners/kanata-family-dentistry.webp',
     logoClass: 'h-12 sm:h-14',
   },
   {
     name: 'Dentistry @ Kanata',
-    logoSrc: '/partners/delta-medico-esthetique.png',
+    logoSrc: '/partners/delta-medico-esthetique.webp',
     logoClass: 'h-16 sm:h-20',
   },
 ];

@@ -47,11 +47,19 @@ const Hero: React.FC = () => {
       <style>{`
         @keyframes textShine {
           0% { background-position: 0% 50%; }
-          100% { background-position: 200% 50%; }
+          100% { background-position: 100% 50%; }
         }
         .animate-text-shine {
-          background-size: 200% auto;
-          animation: textShine 4s linear infinite;
+          background-size: 180% 100%;
+          animation: textShine 3.8s ease-in-out infinite alternate;
+          -webkit-text-fill-color: transparent;
+          text-shadow: 0 0 24px rgba(59, 130, 246, 0.18);
+        }
+        @media (max-width: 640px) {
+          .animate-text-shine {
+            background-size: 155% 100%;
+            text-shadow: 0 0 14px rgba(59, 130, 246, 0.14);
+          }
         }
       `}</style>
       
@@ -82,10 +90,7 @@ const Hero: React.FC = () => {
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tighter text-blue-950 dark:text-white leading-[1.1] transition-colors duration-300">
                 The marketing agency that top dentists&nbsp;
                 <span className="relative inline">
-                  {/* Subtle animated glow behind the text */}
-                  <span className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-teal-400 to-indigo-600 blur-xl opacity-30 dark:opacity-40 animate-text-shine rounded-full"></span>
-                  {/* The actual text with animated gradient */}
-                  <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-teal-400 to-indigo-600 animate-text-shine pr-2">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-teal-400 to-indigo-600 animate-text-shine pr-2">
                     won&apos;t share with their competition.
                   </span>
                 </span>
@@ -112,7 +117,7 @@ const Hero: React.FC = () => {
                     <div className="relative">
                       {/* Online glow effect behind avatar on hover */}
                       <div className="absolute inset-0 bg-green-500 rounded-full blur opacity-0 group-hover:opacity-40 group-hover:scale-150 transition-all duration-500"></div>
-                      <img src={`${import.meta.env.BASE_URL}avatar.png`} alt="Expert" className="relative z-10 w-10 h-10 rounded-full object-cover shadow-sm border border-gray-200 dark:border-slate-700 group-hover:border-green-400 transition-colors duration-300" referrerPolicy="no-referrer" />
+                      <img src={`${import.meta.env.BASE_URL}avatar.webp`} alt="Expert" className="relative z-10 w-10 h-10 rounded-full object-cover shadow-sm border border-gray-200 dark:border-slate-700 group-hover:border-green-400 transition-colors duration-300" referrerPolicy="no-referrer" />
                       <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-[#FAFAF9] dark:border-slate-950 rounded-full z-20 transition-colors duration-300"></span>
                     </div>
                     <span className="group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors duration-300">Let's talk</span>
@@ -148,7 +153,7 @@ const Hero: React.FC = () => {
                     <feature.icon className={`w-6 h-6 ${feature.iconColor}`} strokeWidth={1.5} />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-blue-950 dark:text-white mb-1 transition-colors duration-300 group-hover:text-blue-600 dark:group-hover:text-blue-400">{feature.title}</h4>
+                    <h3 className="font-semibold text-blue-950 dark:text-white mb-1 transition-colors duration-300 group-hover:text-blue-600 dark:group-hover:text-blue-400">{feature.title}</h3>
                     <p className="text-sm text-gray-500 dark:text-gray-400 leading-snug transition-colors duration-300">{feature.description}</p>
                   </div>
                 </Link>
@@ -158,7 +163,7 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Right: dashboard visual */}
-          <div className="relative mt-12 flex w-full max-w-[100vw] flex-col items-center justify-center pb-8 pt-12 sm:overflow-visible lg:mt-0 lg:py-0">
+          <div className="relative mt-12 flex min-h-[40rem] w-full max-w-[100vw] flex-col items-center justify-center pb-8 pt-12 sm:min-h-[44rem] sm:overflow-visible lg:mt-0 lg:min-h-[42rem] lg:py-0">
             <div className="mx-auto w-full max-w-md origin-center scale-[0.85] sm:scale-100">
               <DentalMarketingGraphic />
             </div>

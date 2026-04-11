@@ -31,7 +31,7 @@ const DentalMarketingGraphic: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative w-full max-w-[460px] mx-auto flex flex-col justify-between perspective-[1000px] z-10">
+    <div className="relative z-10 mx-auto flex min-h-[540px] w-full max-w-[460px] flex-col justify-between perspective-[1000px]">
       <style>{`
         @keyframes drawPath {
           to { stroke-dashoffset: 0; }
@@ -80,13 +80,18 @@ const DentalMarketingGraphic: React.FC = () => {
       <div className="relative z-10 flex-1 w-full flex items-start justify-center">
         {/* 
           NOTE: To use your attached cutout image:
-          1. Upload it to the file explorer (create a 'public' folder and upload it there as 'dentist-cutout.png')
-          2. Change the src below to "/dentist-cutout.png"
+          1. Upload it to the file explorer (create a 'public' folder and upload it there as 'dentist-cutout.webp')
+          2. Change the src below to "/dentist-cutout.webp"
         */}
         <img 
-          src={`${import.meta.env.BASE_URL}dentist-cutout.png`} 
+          src={`${import.meta.env.BASE_URL}dentist-cutout.webp`} 
           alt="Professional Dentist" 
+          width={1000}
+          height={1000}
           className="w-full h-auto object-contain object-top scale-[1.1] origin-top drop-shadow-2xl"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
           referrerPolicy="no-referrer"
         />
       </div>

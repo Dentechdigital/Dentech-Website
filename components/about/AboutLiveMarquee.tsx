@@ -2,8 +2,8 @@ import React from 'react';
 import { Sparkles } from 'lucide-react';
 
 export default function AboutLiveMarquee() {
-  const trelloImgLight = `${import.meta.env.BASE_URL}about/trello-light.png`;
-  const trelloImgDark = `${import.meta.env.BASE_URL}about/trello-dark.png`;
+  const trelloImgLight = `${import.meta.env.BASE_URL}about/trello-light.webp`;
+  const trelloImgDark = `${import.meta.env.BASE_URL}about/trello-dark.webp`;
 
   return (
     <section className="relative overflow-hidden bg-[#FAFAF9] pb-0 pt-14 dark:bg-slate-950">

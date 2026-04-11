@@ -95,6 +95,7 @@ const Navbar: React.FC = () => {
                     ? 'text-blue-600 dark:text-blue-400'
                     : getTextColor('/services')
                 } -ml-2 rounded-md p-1 focus:outline-none`}
+                aria-label="Open services menu"
               >
                 <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
               </button>
@@ -155,6 +156,7 @@ const Navbar: React.FC = () => {
                   ? 'text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-slate-800'
                   : 'text-blue-950 hover:bg-white/20 dark:text-gray-300 dark:hover:bg-slate-800'
               }`}
+              aria-label="Toggle dark mode"
             >
               {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
@@ -165,6 +167,7 @@ const Navbar: React.FC = () => {
                   ? 'text-gray-600 hover:text-blue-950 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-slate-800'
                   : 'text-blue-950 hover:text-blue-950 hover:bg-white/20 dark:text-gray-300 dark:hover:text-white dark:hover:bg-slate-800'
               }`}
+              aria-label={isMobileMenuOpen ? 'Close mobile menu' : 'Open mobile menu'}
             >
               {isMobileMenuOpen ? <X className="block h-6 w-6" /> : <Menu className="block h-6 w-6" />}
             </button>

@@ -1,5 +1,5 @@
 /** Full-bleed hero art on `/contact` (person right, negative space left for copy) */
-export const CONTACT_PAGE_HERO_PATH = '/contact/hero-contact.png';
+export const CONTACT_PAGE_HERO_PATH = '/contact/hero-contact.webp';
 
 /** Tailwind classes for `<img>` positioning in `PageHeroAboutStyle` */
 export const CONTACT_PAGE_HERO_IMAGE_CLASS =

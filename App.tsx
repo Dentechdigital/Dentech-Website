@@ -16,7 +16,7 @@ const ClientPortal = lazy(() => import('./pages/ClientPortal'));
 function RouteFallback() {
   return (
     <div
-      className="flex min-h-[50vh] flex-col items-center justify-center gap-3 bg-[#FAFAF9] dark:bg-slate-950"
+      className="flex min-h-screen flex-col items-center justify-center gap-3 bg-[#FAFAF9] dark:bg-slate-950"
       role="status"
       aria-live="polite"
     >

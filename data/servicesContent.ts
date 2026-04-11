@@ -541,12 +541,12 @@ export function servicePath(slug: string): string {
  * Placeholders can be swapped for service-specific artwork without code changes.
  */
 export const serviceHeroCollageFilename: Record<string, string> = {
-  'paid-ads': 'hero-collage-ads.png',
-  'local-seo': 'hero-collage-seo.png',
-  'websites': 'hero-collage-websites.png',
-  'social-content': 'hero-collage-social.png',
-  'print': 'hero-collage-print.png',
-  'ai-automation': 'hero-collage-ai.png',
+  'paid-ads': 'hero-collage-ads.webp',
+  'local-seo': 'hero-collage-seo.webp',
+  'websites': 'hero-collage-websites.webp',
+  'social-content': 'hero-collage-social.webp',
+  'print': 'hero-collage-print.webp',
+  'ai-automation': 'hero-collage-ai.webp',
 };
 
 /** Public path starting with `/` — pair with base URL / `mediaUrl()`. */

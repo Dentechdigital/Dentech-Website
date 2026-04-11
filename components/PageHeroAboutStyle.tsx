@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import DynamicDots from './DynamicDots';
 import ResponsiveHeroPicture from './ResponsiveHeroPicture';
 
-const aboutHeroBgUrl = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}hero-background.png`;
+const aboutHeroBgUrl = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}hero-background.webp`;
 
 export type PageHeroAboutStyleProps = {
   /** Small pill text (e.g. Since 2017 · Ottawa) */
@@ -20,7 +20,7 @@ export type PageHeroAboutStyleProps = {
   breadcrumb?: React.ReactNode;
   /**
    * Optional full-bleed hero image (path under public or absolute URL).
-   * Defaults to site-wide hero-background.png when omitted.
+   * Defaults to site-wide hero-background.webp when omitted.
    */
   heroImageSrc?: string;
   /**
@@ -31,7 +31,7 @@ export type PageHeroAboutStyleProps = {
 };
 
 /**
- * Full-bleed hero matching About: hero-background.png, gradients, DynamicDots,
+ * Full-bleed hero matching About: hero-background.webp, gradients, DynamicDots,
  * max-w-7xl padding, copy column lg:w-2/3 (art shows right), Fraunces via .about-display
  */
 export default function PageHeroAboutStyle({

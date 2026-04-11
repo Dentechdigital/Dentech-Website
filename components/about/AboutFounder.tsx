@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Linkedin, Mail } from 'lucide-react';
 import { FOUNDER_LINKEDIN_URL } from '../../data/aboutContent';
 
-const PHOTO = `${import.meta.env.BASE_URL}team/dahman-m.png`;
+const PHOTO = `${import.meta.env.BASE_URL}team/dahman-m.webp`;
 
 export default function AboutFounder() {
   const [imgOk, setImgOk] = useState(true);
@@ -34,7 +34,7 @@ export default function AboutFounder() {
                 <div className="flex aspect-[4/5] w-full flex-col items-center justify-center bg-gradient-to-br from-blue-600 to-cyan-600 p-8 text-white">
                   <span className="text-5xl font-bold tracking-tight">MD</span>
                   <span className="mt-4 max-w-xs text-center text-sm font-medium opacity-90">
-                    Photo: add team/dahman-m.png to your public folder
+                    Photo: add team/dahman-m.webp to your public folder
                   </span>
                 </div>
               )}

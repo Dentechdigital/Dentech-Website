@@ -65,6 +65,13 @@ export const caseStudiesPageMeta = {
     'How Dentech Digital helped The Smile Doctors generate 1300+ new patient bookings in year one with a full-stack system: website, SEO/GEO, Google & Meta ads, social, content, and print.',
 };
 
+/** Full-bleed hero background on `/case-studies` (same pattern as service detail `PageHeroAboutStyle`). */
+export const caseStudiesHeroBannerPath = '/case-studies/hero-case-studies-banner.png';
+
+/** `object-position` for the hero banner (dark copy zone left, proof/table art right). */
+export const caseStudiesHeroImageClassName =
+  'object-cover object-[28%_center] sm:object-[32%_center] lg:object-[36%_center]';
+
 export const caseStudiesProofAtGlance: ProofStat[] = [
   {
     label: 'New patient bookings',

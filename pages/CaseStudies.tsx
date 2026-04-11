@@ -10,6 +10,8 @@ import CaseStudiesWorkGallery from '../components/case-studies/CaseStudiesWorkGa
 import {
   buildCaseStudiesPageJsonLd,
   caseStudiesFaq,
+  caseStudiesHeroBannerPath,
+  caseStudiesHeroImageClassName,
   caseStudiesPageMeta,
   caseStudiesProofAtGlance,
   caseStudiesScopeBadges,
@@ -18,8 +20,15 @@ import {
   smileDoctorsCaseStudy,
 } from '../data/caseStudiesContent';
 
+function mediaUrl(src: string): string {
+  if (src.startsWith('http')) return src;
+  const base = import.meta.env.BASE_URL;
+  return `${base}${src.replace(/^\//, '')}`;
+}
+
 const CaseStudies: React.FC = () => {
   const structuredData = buildCaseStudiesPageJsonLd();
+  const caseStudiesHeroImageSrc = mediaUrl(caseStudiesHeroBannerPath);
 
   return (
     <>
@@ -47,6 +56,8 @@ const CaseStudies: React.FC = () => {
           badge="Case study · Dental group"
           title="How The Smile Doctors passed 1300 new bookings in year one"
           description="A full-funnel partnership: custom website, SEO & GEO, Google and Meta ads, social and original content, plus signage, wraps, and print—measured against real booked patients, not vanity metrics."
+          heroImageSrc={caseStudiesHeroImageSrc}
+          heroImageClassName={caseStudiesHeroImageClassName}
           primaryCta={{ to: '/contact', label: 'Book a strategy call' }}
           secondaryCta={{ to: '/services', label: 'View services' }}
         />

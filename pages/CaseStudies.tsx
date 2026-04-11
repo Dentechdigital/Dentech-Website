@@ -15,7 +15,6 @@ import {
   caseStudiesScopeBadges,
   caseStudiesTrustLogos,
   caseStudiesWorkGallery,
-  dwincRed3CaseStudy,
   smileDoctorsCaseStudy,
 } from '../data/caseStudiesContent';
 
@@ -45,9 +44,9 @@ const CaseStudies: React.FC = () => {
 
       <div className="min-h-screen bg-[#FAFAF9] transition-colors duration-300 dark:bg-slate-950">
         <PageHeroAboutStyle
-          badge="Proof · Outcomes"
-          title="Case studies built for decisions"
-          description="Two long-form examples—one dental group scaling bookings past 1300 in year one, and one non-clinical B2B leader winning organic and AI visibility without ad spend—plus the systems, creative, and print that connect it all."
+          badge="Case study · Dental group"
+          title="How The Smile Doctors passed 1300 new bookings in year one"
+          description="A full-funnel partnership: custom website, SEO & GEO, Google and Meta ads, social and original content, plus signage, wraps, and print—measured against real booked patients, not vanity metrics."
           primaryCta={{ to: '/contact', label: 'Book a strategy call' }}
           secondaryCta={{ to: '/services', label: 'View services' }}
         />
@@ -64,7 +63,7 @@ const CaseStudies: React.FC = () => {
                   Outcomes come from alignment—not one tactic
                 </h2>
                 <p className="mt-4 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
-                  These case studies show the same operating system: tight positioning, clean data, fast creative iteration, and a single team owning the whole funnel.
+                  One operating system: tight positioning, clean measurement, fast creative iteration, and a single team owning web, discovery, demand capture, and on-location brand presence.
                 </p>
                 <ul className="mt-8 space-y-3">
                   {caseStudiesScopeBadges.map((b) => (
@@ -91,19 +90,13 @@ const CaseStudies: React.FC = () => {
                 </div>
 
                 <div className="mt-6 rounded-[2rem] border border-slate-200/80 bg-[#FAFAF9] p-6 dark:border-slate-700 dark:bg-slate-800/50">
-                  <p className="text-sm font-semibold text-blue-950 dark:text-white">Jump into the stories</p>
-                  <div className="mt-4 flex flex-wrap gap-2">
+                  <p className="text-sm font-semibold text-blue-950 dark:text-white">Read the full breakdown</p>
+                  <div className="mt-4">
                     <a
                       href="#smile-doctors"
-                      className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-800 shadow-sm hover:text-blue-700 dark:bg-slate-900 dark:text-slate-100"
+                      className="inline-flex rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-800 shadow-sm hover:text-blue-700 dark:bg-slate-900 dark:text-slate-100"
                     >
-                      Smile Doctors
-                    </a>
-                    <a
-                      href="#dwinc"
-                      className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-800 shadow-sm hover:text-blue-700 dark:bg-slate-900 dark:text-slate-100"
-                    >
-                      DWINC & RED³
+                      Go to case study
                     </a>
                   </div>
                 </div>
@@ -112,8 +105,7 @@ const CaseStudies: React.FC = () => {
           </div>
         </section>
 
-        <CaseStudyLongSection study={smileDoctorsCaseStudy} imageSide="right" tone="tinted" />
-        <CaseStudyLongSection study={dwincRed3CaseStudy} imageSide="left" tone="light" />
+        <CaseStudyLongSection study={smileDoctorsCaseStudy} showSideImage={false} tone="tinted" />
 
         <CaseStudiesWorkGallery items={caseStudiesWorkGallery} />
 

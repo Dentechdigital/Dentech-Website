@@ -60,9 +60,9 @@ export type TrustLogo = {
 };
 
 export const caseStudiesPageMeta = {
-  title: 'Case Studies',
+  title: 'Case Study',
   description:
-    'Proof-driven results from Dentech Digital: 1300+ bookings for a dental group, organic #1 visibility without ad spend for DWINC/RED3, and full-stack creative from websites to print.',
+    'How Dentech Digital helped The Smile Doctors generate 1300+ new patient bookings in year one with a full-stack system: website, SEO/GEO, Google & Meta ads, social, content, and print.',
 };
 
 export const caseStudiesProofAtGlance: ProofStat[] = [
@@ -72,19 +72,19 @@ export const caseStudiesProofAtGlance: ProofStat[] = [
     sublabel: 'Smile Doctors — first full year',
   },
   {
-    label: 'Organic visibility',
-    value: '#1',
-    sublabel: 'DWINC — Google + AI-style answers (no paid media)',
+    label: 'Growth window',
+    value: '< 12 mo',
+    sublabel: 'Measured booking velocity in the launch year',
   },
   {
-    label: 'Partnership depth',
-    value: '5+ yrs',
-    sublabel: 'DWINC / RED3 — ongoing marketing + events',
+    label: 'Markets',
+    value: 'ON & QC',
+    sublabel: 'Ottawa + Gatineau footprint',
   },
   {
     label: 'Channels in one team',
-    value: 'Web → GEO',
-    sublabel: 'SEO, paid, social, content, print & signage',
+    value: 'Full stack',
+    sublabel: 'Web, SEO/GEO, paid, social, print & signage',
   },
 ];
 
@@ -99,7 +99,6 @@ export const caseStudiesScopeBadges = [
 export const caseStudiesToc = [
   { id: 'proof', label: 'Proof' },
   { id: 'smile-doctors', label: 'Smile Doctors' },
-  { id: 'dwinc', label: 'DWINC & RED3' },
   { id: 'our-work', label: 'Our work' },
   { id: 'trust', label: 'Clients' },
   { id: 'faq', label: 'FAQ' },
@@ -165,66 +164,7 @@ export const smileDoctorsCaseStudy: CaseStudy = {
   ],
 };
 
-export const dwincRed3CaseStudy: CaseStudy = {
-  slug: 'dwinc-red3',
-  anchorId: 'dwinc',
-  clientName: 'DWINC & RED³ (Red-Cubed)',
-  industry: 'Dental construction & VR design studio',
-  location: 'Ottawa, Canada',
-  timeframe: '5+ years ongoing partnership',
-  headline: 'Category-leading organic visibility—with $0 ad spend—and two flagship sites',
-  summary:
-    'DWINC competes in a technical B2B space where trust and specificity win. We built and evolved dwinc.ca, launched RED³ at red-cubed.com, owned SEO/GEO positioning, and stayed embedded as the marketing partner for symposiums, booths, creative, and brand systems.',
-  heroImage: '/case-studies/dwinc-red3-laptop.png',
-  heroImageAlt: 'Laptop showing RED3 website design work in progress',
-  context: {
-    title: 'Context',
-    paragraphs: [
-      'This is not a dental practice—it is a sophisticated operator selling high-stakes construction and design capabilities to dentists and related stakeholders. The buying journey is research-heavy: Google, referrals, and industry events.',
-      'The goal was simple to state and difficult to execute: own the organic narrative (including how AI-assisted answers summarize the brand) without relying on paid spend, while still looking world-class next to global competitors.',
-    ],
-  },
-  owned: {
-    title: 'What we delivered across 5+ years',
-    bullets: [
-      'First company website: dwinc.ca (strategy, UX, build, iteration)',
-      'Second brand & site: RED³ — red-cubed.com (positioning + premium creative)',
-      'SEO + GEO programs to earn #1 visibility for high-intent clusters and entity clarity',
-      'Symposiums & events: print, booth/support assets, video, photography, headshots',
-      'Brand hygiene: email signatures, presentation templates, campaign graphics, ongoing consulting',
-    ],
-  },
-  results: {
-    title: 'Outcomes',
-    paragraphs: [
-      'DWINC ranks first in Google for core intents and remains structurally strong in AI-style conversations—without buying attention through ads.',
-      'The relationship evolved from “launch a site” to “be our marketing partner,” which is how complex B2B brands scale creative without building an in-house department overnight.',
-    ],
-    metrics: [
-      { label: 'Google position', value: '#1', hint: 'Core commercial intents (organic)' },
-      { label: 'Paid media spend', value: '$0', hint: 'Growth without ad dependency' },
-      { label: 'Sites shipped', value: '2', hint: 'dwinc.ca + red-cubed.com' },
-      { label: 'Tenure', value: '5+ yrs', hint: 'Continuous partnership' },
-    ],
-  },
-  system: {
-    title: 'Organic leadership loop',
-    steps: [
-      { title: 'Clarify the entity', body: 'Services, geography, proof points, and differentiation encoded across pages and structured cues.' },
-      { title: 'Earned discovery', body: 'Depth, internal linking, and topical authority for how buyers actually search.' },
-      { title: 'Trust everywhere', body: 'Events and creative reinforce what rankings promise—so credibility holds in real rooms.' },
-    ],
-  },
-  artifacts: [
-    {
-      src: '/case-studies/dwinc-red3-laptop.png',
-      alt: 'Creative workspace showing RED3 site design',
-      caption: 'Design systems and web execution for RED³.',
-    },
-  ],
-};
-
-export const caseStudiesOrdered: CaseStudy[] = [smileDoctorsCaseStudy, dwincRed3CaseStudy];
+export const caseStudiesOrdered: CaseStudy[] = [smileDoctorsCaseStudy];
 
 export const caseStudiesBySlug: Record<string, CaseStudy> = Object.fromEntries(
   caseStudiesOrdered.map((c) => [c.slug, c])
@@ -308,8 +248,6 @@ export const caseStudiesWorkGallery: WorkGalleryItem[] = [
 
 export const caseStudiesTrustLogos: TrustLogo[] = [
   { name: 'The Smile Doctors' },
-  { name: 'DWINC' },
-  { name: 'RED³' },
   { name: 'Google Ads' },
   { name: 'Meta Business' },
   { name: 'Webflow' },

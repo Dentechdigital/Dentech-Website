@@ -3,7 +3,9 @@ import type { CaseStudy } from '../../data/caseStudiesContent';
 
 type Props = {
   study: CaseStudy;
-  /** Hero image column on large screens */
+  /** Sticky hero image column (large screens). Off by default for text-first case studies. */
+  showSideImage?: boolean;
+  /** When `showSideImage` is true, which side the image sits on */
   imageSide?: 'left' | 'right';
   /** Alternate background treatment */
   tone?: 'light' | 'tinted';
@@ -120,7 +122,12 @@ function StudyHeroImage({ study }: { study: CaseStudy }) {
   );
 }
 
-export default function CaseStudyLongSection({ study, imageSide = 'right', tone = 'light' }: Props) {
+export default function CaseStudyLongSection({
+  study,
+  showSideImage = false,
+  imageSide = 'right',
+  tone = 'light',
+}: Props) {
   const sectionBg =
     tone === 'tinted'
       ? 'bg-[#FAFAF9] dark:bg-slate-950'
@@ -154,8 +161,12 @@ export default function CaseStudyLongSection({ study, imageSide = 'right', tone 
           {study.summary}
         </p>
 
-        <div className="mt-12 grid gap-10 lg:grid-cols-12 lg:items-start lg:gap-12">
-          {imageSide === 'right' ? (
+        <div className={`mt-12 ${showSideImage ? 'grid gap-10 lg:grid-cols-12 lg:items-start lg:gap-12' : ''}`}>
+          {!showSideImage ? (
+            <div className="max-w-4xl">
+              <StudyBody study={study} />
+            </div>
+          ) : imageSide === 'right' ? (
             <>
               <div className="lg:col-span-7">
                 <StudyBody study={study} />

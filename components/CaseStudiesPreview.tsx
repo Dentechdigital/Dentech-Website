@@ -1,114 +1,95 @@
 import React from 'react';
-import { ArrowRight, TrendingUp, Users, DollarSign } from 'lucide-react';
+import { ArrowRight, TrendingUp, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const caseStudies = [
-  {
-    clinic: 'The Smile Doctors',
-    href: '/case-studies#smile-doctors',
-    image: '/case-studies/smile-doctors-proof.png',
-    title: '1300+ New Bookings in Under 12 Months',
-    summary:
-      'We built a custom Webflow website and now run full website management, SEO, AI ranking optimization, Meta PPC, social media management, and content creation. They are crushing it and everyone in town is talking about them.',
-    metrics: [
-      { label: 'New Bookings', value: '1300+', icon: Users, valueClass: 'text-emerald-600 dark:text-emerald-400' },
-      { label: 'Growth Window', value: '< 12 mo', icon: TrendingUp, valueClass: 'text-emerald-600 dark:text-emerald-400' },
-    ],
-    tags: ['Webflow Website', 'SEO', 'AI Ranking', 'Meta Ads', 'Social Media', 'Content Creation'],
-  },
-  {
-    clinic: 'DWINC (and RED3)',
-    href: '/case-studies#dwinc',
-    image: '/case-studies/dwinc-red3-laptop.png',
-    title: '4.5x Revenue Growth in 2 Years',
-    summary:
-      'We helped position DWINC as Ottawa’s leader in dental construction with dominant SEO and AI responses while spending $0 on ads. We redesigned the old website, support symposium print material and VR booths, and serve as their ongoing marketing consulting partner.',
-    metrics: [
-      { label: 'Revenue Growth', value: '4.5x', icon: TrendingUp, valueClass: 'text-emerald-600 dark:text-emerald-400' },
-      { label: 'Ads Spend', value: '$0', icon: DollarSign, valueClass: 'text-blue-600 dark:text-blue-400' },
-    ],
-    tags: ['SEO', 'AI Search', 'Website Redesign', 'Print Support', 'VR Booth Content', 'Consulting'],
-  },
-];
+const featuredCaseStudy = {
+  clinic: 'The Smile Doctors',
+  href: '/case-studies#smile-doctors',
+  image: '/case-studies/smile-doctors-proof.png',
+  title: '1300+ New Bookings in Under 12 Months',
+  summary:
+    'We built a custom Webflow website and now run full website management, SEO, AI ranking optimization, Meta PPC, social media management, and content creation. They are crushing it and everyone in town is talking about them.',
+  metrics: [
+    { label: 'New Bookings', value: '1300+', icon: Users, valueClass: 'text-emerald-600 dark:text-emerald-400' },
+    { label: 'Growth Window', value: '< 12 mo', icon: TrendingUp, valueClass: 'text-emerald-600 dark:text-emerald-400' },
+  ],
+  tags: ['Webflow Website', 'SEO', 'AI Ranking', 'Meta Ads', 'Social Media', 'Content Creation'],
+};
 
 export default function CaseStudiesPreview() {
   return (
-    <section className="py-24 bg-[#FAFAF9] dark:bg-slate-950 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+    <section className="bg-[#FAFAF9] py-24 transition-colors duration-300 dark:bg-slate-950">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-2xl">
-            <h2 className="text-3xl md:text-5xl font-bold text-blue-950 dark:text-white mb-6 tracking-tight">
+            <h2 className="mb-6 text-3xl font-bold tracking-tight text-blue-950 dark:text-white md:text-5xl">
               Real results for <br className="hidden md:block" />
               <span className="text-blue-600 dark:text-blue-400">real businesses.</span>
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300">
-              Verified wins from real clients: patient growth, category leadership, and measurable revenue impact.
+              Featured case study: patient growth with a full-stack marketing system.
             </p>
           </div>
-          <Link 
-            to="/case-studies" 
-            className="inline-flex items-center gap-2 px-6 py-3 bg-white dark:bg-slate-800 text-blue-950 dark:text-white border border-gray-200 dark:border-slate-700 rounded-full font-semibold hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors shadow-sm whitespace-nowrap"
+          <Link
+            to="/case-studies"
+            className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-gray-200 bg-white px-6 py-3 font-semibold text-blue-950 shadow-sm transition-colors hover:bg-gray-50 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:hover:bg-slate-700"
           >
-            View All Case Studies
-            <ArrowRight className="w-4 h-4" />
+            View case study
+            <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {caseStudies.map((study, index) => (
-            <Link 
-              key={index}
-              to={study.href ?? '/case-studies'}
-              className="group flex flex-col bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-sm border border-gray-100 dark:border-slate-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-500"
-            >
-              <div className="relative h-72 overflow-hidden">
-                <div className="absolute inset-0 bg-blue-900/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
-                <img 
-                  src={study.image} 
-                  alt={study.clinic} 
-                  className="w-full h-full object-cover object-bottom -translate-y-2 transform group-hover:-translate-y-1 group-hover:scale-105 transition-transform duration-700"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute top-4 left-4 z-20">
-                  <span className="px-3 py-1 bg-white/90 dark:bg-slate-950/90 backdrop-blur-sm text-blue-950 dark:text-white text-xs font-bold uppercase tracking-wider rounded-full shadow-sm">
-                    {study.clinic}
-                  </span>
-                </div>
+        <div className="mx-auto max-w-3xl">
+          <Link
+            to={featuredCaseStudy.href}
+            className="group flex flex-col overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl dark:border-slate-700 dark:bg-slate-800"
+          >
+            <div className="relative h-72 overflow-hidden">
+              <div className="absolute inset-0 z-10 bg-blue-900/20 transition-colors duration-500 group-hover:bg-transparent" />
+              <img
+                src={featuredCaseStudy.image}
+                alt={featuredCaseStudy.clinic}
+                className="h-full w-full -translate-y-2 transform object-cover object-bottom transition-transform duration-700 group-hover:-translate-y-1 group-hover:scale-105"
+                referrerPolicy="no-referrer"
+              />
+              <div className="absolute left-4 top-4 z-20">
+                <span className="rounded-full bg-white/90 px-3 py-1 text-xs font-bold uppercase tracking-wider text-blue-950 shadow-sm backdrop-blur-sm dark:bg-slate-950/90 dark:text-white">
+                  {featuredCaseStudy.clinic}
+                </span>
               </div>
-              
-              <div className="p-8 flex flex-col flex-grow">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {study.tags.map((tag, i) => (
-                    <span key={i} className="px-2.5 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-semibold rounded-md">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                
-                <h3 className="text-2xl font-bold text-blue-950 dark:text-white mb-6 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  {study.title}
-                </h3>
+            </div>
 
-                <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-300 mb-6">
-                  {study.summary}
-                </p>
-                
-                <div className="grid grid-cols-2 gap-4 mt-auto pt-6 border-t border-gray-100 dark:border-slate-700">
-                  {study.metrics.map((metric, i) => (
-                    <div key={i} className="flex flex-col">
-                      <div className="flex items-center gap-1.5 text-gray-500 dark:text-gray-400 mb-1">
-                        <metric.icon className="w-4 h-4" />
-                        <span className="text-xs font-medium uppercase tracking-wider">{metric.label}</span>
-                      </div>
-                      <span className={`text-2xl font-bold ${metric.valueClass}`}>
-                        {metric.value}
-                      </span>
-                    </div>
-                  ))}
-                </div>
+            <div className="flex flex-grow flex-col p-8">
+              <div className="mb-4 flex flex-wrap gap-2">
+                {featuredCaseStudy.tags.map((tag, i) => (
+                  <span
+                    key={i}
+                    className="rounded-md bg-blue-50 px-2.5 py-1 text-xs font-semibold text-blue-600 dark:bg-blue-900/30 dark:text-blue-400"
+                  >
+                    {tag}
+                  </span>
+                ))}
               </div>
-            </Link>
-          ))}
+
+              <h3 className="mb-6 text-2xl font-bold text-blue-950 transition-colors group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400">
+                {featuredCaseStudy.title}
+              </h3>
+
+              <p className="mb-6 text-sm leading-relaxed text-gray-600 dark:text-gray-300">{featuredCaseStudy.summary}</p>
+
+              <div className="mt-auto grid grid-cols-2 gap-4 border-t border-gray-100 pt-6 dark:border-slate-700">
+                {featuredCaseStudy.metrics.map((metric, i) => (
+                  <div key={i} className="flex flex-col">
+                    <div className="mb-1 flex items-center gap-1.5 text-gray-500 dark:text-gray-400">
+                      <metric.icon className="h-4 w-4" />
+                      <span className="text-xs font-medium uppercase tracking-wider">{metric.label}</span>
+                    </div>
+                    <span className={`text-2xl font-bold ${metric.valueClass}`}>{metric.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Link>
         </div>
       </div>
     </section>

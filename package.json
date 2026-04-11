@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run optimize:images && vite build",
     "build:analyze": "ANALYZE=true vite build",
     "typecheck": "tsc --noEmit",
     "security:check": "npm audit --audit-level=high",

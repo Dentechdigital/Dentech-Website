@@ -3,6 +3,8 @@ import { TrendingUp, Users, Star, Search, Calendar, MessageSquare, Instagram, Fa
 
 const fakeNames = ["Sarah M.", "David K.", "Emma R.", "Michael T.", "Jessica L.", "James B.", "Olivia C.", "Daniel W.", "Sophia H.", "Liam P."];
 
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+
 const DentalMarketingGraphic: React.FC = () => {
   // Simulated live data feed
   const [patients, setPatients] = useState(142);
@@ -83,9 +85,11 @@ const DentalMarketingGraphic: React.FC = () => {
           1. Upload it to the file explorer (create a 'public' folder and upload it there as 'dentist-cutout.webp')
           2. Change the src below to "/dentist-cutout.webp"
         */}
-        <img 
-          src={`${import.meta.env.BASE_URL}dentist-cutout.webp`} 
-          alt="Professional Dentist" 
+        <img
+          src={`${base}dentist-cutout.webp`}
+          srcSet={`${base}dentist-cutout-480w.webp 480w, ${base}dentist-cutout-800w.webp 800w, ${base}dentist-cutout.webp 1000w`}
+          sizes="(max-width: 640px) 92vw, (max-width: 1024px) min(420px, 45vw), min(460px, 28vw)"
+          alt="Professional Dentist"
           width={1000}
           height={1000}
           className="w-full h-auto object-contain object-top scale-[1.1] origin-top drop-shadow-2xl"

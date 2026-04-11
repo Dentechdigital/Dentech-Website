@@ -5,6 +5,8 @@ import DentalMarketingGraphic from './DentalMarketingGraphic';
 import DynamicDots from './DynamicDots';
 import { FEATURES } from '../constants';
 
+const assetBase = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}`;
+
 const Hero: React.FC = () => {
   const [visibleFeatures, setVisibleFeatures] = useState<number[]>([]);
   const featuresRef = useRef<(HTMLAnchorElement | null)[]>([]);
@@ -117,7 +119,18 @@ const Hero: React.FC = () => {
                     <div className="relative">
                       {/* Online glow effect behind avatar on hover */}
                       <div className="absolute inset-0 bg-green-500 rounded-full blur opacity-0 group-hover:opacity-40 group-hover:scale-150 transition-all duration-500"></div>
-                      <img src={`${import.meta.env.BASE_URL}avatar.webp`} alt="Expert" className="relative z-10 w-10 h-10 rounded-full object-cover shadow-sm border border-gray-200 dark:border-slate-700 group-hover:border-green-400 transition-colors duration-300" referrerPolicy="no-referrer" />
+                      <img
+                        src={`${assetBase}avatar.webp`}
+                        srcSet={`${assetBase}avatar-80w.webp 80w, ${assetBase}avatar-160w.webp 160w`}
+                        sizes="40px"
+                        alt="Expert"
+                        width={40}
+                        height={40}
+                        className="relative z-10 h-10 w-10 rounded-full border border-gray-200 object-cover shadow-sm transition-colors duration-300 dark:border-slate-700 group-hover:border-green-400"
+                        loading="eager"
+                        decoding="async"
+                        referrerPolicy="no-referrer"
+                      />
                       <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-[#FAFAF9] dark:border-slate-950 rounded-full z-20 transition-colors duration-300"></span>
                     </div>
                     <span className="group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors duration-300">Let's talk</span>

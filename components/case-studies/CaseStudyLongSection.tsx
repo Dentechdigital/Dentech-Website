@@ -152,20 +152,20 @@ export default function CaseStudyLongSection({
 
         <h2
           id={`${study.anchorId}-heading`}
-          className="about-display mt-4 max-w-4xl text-3xl font-semibold tracking-tight text-blue-950 dark:text-white md:text-5xl"
+          className={`about-display mt-4 text-3xl font-semibold tracking-tight text-blue-950 dark:text-white md:text-5xl ${showSideImage ? 'max-w-4xl' : 'max-w-none'}`}
         >
           {study.clientName}
         </h2>
-        <p className="mt-3 max-w-4xl text-xl text-slate-700 dark:text-slate-200">{study.headline}</p>
-        <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-600 dark:text-slate-300 md:text-lg">
+        <p className={`mt-3 text-xl text-slate-700 dark:text-slate-200 ${showSideImage ? 'max-w-4xl' : 'max-w-none'}`}>{study.headline}</p>
+        <p
+          className={`mt-4 text-base leading-relaxed text-slate-600 dark:text-slate-300 md:text-lg ${showSideImage ? 'max-w-3xl' : 'max-w-none'}`}
+        >
           {study.summary}
         </p>
 
         <div className={`mt-12 ${showSideImage ? 'grid gap-10 lg:grid-cols-12 lg:items-start lg:gap-12' : ''}`}>
           {!showSideImage ? (
-            <div className="max-w-4xl">
-              <StudyBody study={study} />
-            </div>
+            <StudyBody study={study} />
           ) : imageSide === 'right' ? (
             <>
               <div className="lg:col-span-7">

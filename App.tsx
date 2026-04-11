@@ -4,8 +4,8 @@ import { HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from './components/ThemeProvider';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-
-const Home = lazy(() => import('./pages/Home'));
+/** Eager: avoids a second network round-trip on `/` (common cause of long “splash” on cold mobile loads). */
+import Home from './pages/Home';
 const About = lazy(() => import('./pages/About'));
 const ServicesPage = lazy(() => import('./pages/Services'));
 const ServiceDetail = lazy(() => import('./pages/ServiceDetail'));

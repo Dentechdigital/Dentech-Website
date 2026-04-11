@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import SEO from '../components/SEO';
 import PageHeroAboutStyle from '../components/PageHeroAboutStyle';
+import ContactTrustBadges from '../components/contact/ContactTrustBadges';
 import LeadInquiryForm from '../components/LeadInquiryForm';
 import {
   CONTACT_PAGE_HERO_IMAGE_CLASS,
@@ -112,6 +113,8 @@ const Contact: React.FC = () => {
           heroImageSrc={mediaUrl(CONTACT_PAGE_HERO_PATH)}
           heroImageClassName={CONTACT_PAGE_HERO_IMAGE_CLASS}
         />
+
+        <ContactTrustBadges />
 
         <section
           id="lead-form"

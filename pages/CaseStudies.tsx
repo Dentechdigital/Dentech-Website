@@ -101,15 +101,13 @@ const CaseStudies: React.FC = () => {
                 </div>
 
                 <div className="mt-6 rounded-[2rem] border border-slate-200/80 bg-[#FAFAF9] p-6 dark:border-slate-700 dark:bg-slate-800/50">
-                  <p className="text-sm font-semibold text-blue-950 dark:text-white">Read the full breakdown</p>
-                  <div className="mt-4">
-                    <a
-                      href="#smile-doctors"
-                      className="inline-flex rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-800 shadow-sm hover:text-blue-700 dark:bg-slate-900 dark:text-slate-100"
-                    >
-                      Go to case study
-                    </a>
-                  </div>
+                  <a
+                    href="#smile-doctors"
+                    className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-800 shadow-sm transition hover:text-blue-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:text-blue-300"
+                  >
+                    Read the full breakdown
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
                 </div>
               </div>
             </div>

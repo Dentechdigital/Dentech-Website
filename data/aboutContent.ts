@@ -1,6 +1,13 @@
 /** Public site origin for JSON-LD (update if your canonical domain differs). */
 export const SITE_ORIGIN = 'https://dentech.digital';
 
+/** Full-bleed hero art on `/about` — medal / focal art on the right, copy zone left */
+export const ABOUT_PAGE_HERO_PATH = '/about/hero-about.png';
+
+/** `object-position` for `PageHeroAboutStyle` background `<img>` */
+export const ABOUT_PAGE_HERO_IMAGE_CLASS =
+  'object-cover object-[52%_center] sm:object-[56%_center] md:object-[58%_center] lg:object-[62%_center] xl:object-[65%_35%]';
+
 export const FOUNDER_LINKEDIN_URL = 'https://www.linkedin.com/in/mohammed-dahman-2aab49128/';
 
 export const aboutStats = [

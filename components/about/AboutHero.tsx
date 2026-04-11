@@ -1,5 +1,12 @@
 import React from 'react';
 import PageHeroAboutStyle from '../PageHeroAboutStyle';
+import { ABOUT_PAGE_HERO_IMAGE_CLASS, ABOUT_PAGE_HERO_PATH } from '../../data/aboutContent';
+
+function mediaUrl(src: string): string {
+  if (src.startsWith('http')) return src;
+  const base = import.meta.env.BASE_URL;
+  return `${base}${src.replace(/^\//, '')}`;
+}
 
 export default function AboutHero() {
   return (
@@ -15,6 +22,8 @@ export default function AboutHero() {
       }
       primaryCta={{ to: '/contact', label: 'Book a strategy call' }}
       secondaryCta={{ to: '/case-studies', label: 'View case studies' }}
+      heroImageSrc={mediaUrl(ABOUT_PAGE_HERO_PATH)}
+      heroImageClassName={ABOUT_PAGE_HERO_IMAGE_CLASS}
     />
   );
 }

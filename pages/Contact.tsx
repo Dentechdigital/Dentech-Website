@@ -30,9 +30,8 @@ function ContactChannelCard({
   footer?: React.ReactNode;
 }) {
   return (
-    <div className="group relative overflow-hidden rounded-2xl border border-slate-200/90 bg-white/90 p-5 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-200/80 hover:shadow-lg dark:border-slate-700/90 dark:bg-slate-900/60 dark:hover:border-blue-500/35">
-      <div className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full bg-blue-500/5 transition-opacity group-hover:opacity-100 dark:bg-blue-400/10" />
-      <div className="relative flex gap-4">
+    <div className="group rounded-2xl border border-slate-200/90 bg-gradient-to-br from-white via-white to-slate-50/90 p-5 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-200/80 hover:shadow-md dark:border-slate-700/90 dark:from-slate-900/70 dark:via-slate-900/55 dark:to-slate-800/50 dark:hover:border-blue-500/35">
+      <div className="flex gap-4">
         <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 shadow-inner dark:bg-blue-500/15 dark:text-blue-300">
           {icon}
         </div>
@@ -114,8 +113,8 @@ const Contact: React.FC = () => {
               </span>
             </div>
 
-            <div className="grid gap-14 lg:grid-cols-12 lg:items-start lg:gap-16">
-              <div className="lg:col-span-5">
+            <div className="grid gap-14 lg:grid-cols-12 lg:items-stretch lg:gap-16">
+              <div className="flex flex-col lg:col-span-5">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 dark:text-blue-400">Contact</p>
                 <h2 className="about-display mt-2 text-3xl font-semibold tracking-tight text-blue-950 dark:text-white md:text-4xl">
                   Every channel, one team
@@ -213,8 +212,8 @@ const Contact: React.FC = () => {
                 </div>
               </div>
 
-              <div className="lg:col-span-7">
-                <LeadInquiryForm formTitle="Request a free audit" />
+              <div className="flex h-full min-h-0 lg:col-span-7">
+                <LeadInquiryForm className="h-full min-h-0 w-full" formTitle="Request a free audit" />
               </div>
             </div>
           </div>

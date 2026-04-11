@@ -40,6 +40,8 @@ const budgetOptions = ['< $1,500/mo', '$1,500-$2,500/mo', '$2,500-$5,000/mo', '$
 export type LeadInquiryFormProps = {
   /** Shown above the step progress */
   formTitle?: string;
+  /** Merged onto the outer card (e.g. `h-full w-full` on Contact page) */
+  className?: string;
 };
 
 const initialFormData = (): LeadFormData => ({
@@ -57,7 +59,10 @@ const initialFormData = (): LeadFormData => ({
   notes: '',
 });
 
-export default function LeadInquiryForm({ formTitle = 'Request a Free Audit' }: LeadInquiryFormProps) {
+export default function LeadInquiryForm({
+  formTitle = 'Request a Free Audit',
+  className = '',
+}: LeadInquiryFormProps) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
@@ -119,10 +124,13 @@ export default function LeadInquiryForm({ formTitle = 'Request a Free Audit' }: 
     }, 900);
   };
 
+  const cardClass =
+    `relative flex h-full min-h-[28rem] flex-col rounded-3xl border border-gray-100 bg-white p-8 shadow-xl dark:border-slate-700 dark:bg-slate-800 md:min-h-[32rem] md:p-10 ${className}`.trim();
+
   return (
-    <div className="relative rounded-3xl border border-gray-100 bg-white p-8 shadow-xl dark:border-slate-700 dark:bg-slate-800 md:p-10">
+    <div className={cardClass}>
             {isSubmitted ? (
-              <div className="flex flex-col items-center justify-center h-full min-h-[400px] text-center animate-in fade-in zoom-in duration-500">
+              <div className="flex min-h-[24rem] flex-1 flex-col items-center justify-center text-center animate-in fade-in zoom-in duration-500 md:min-h-[28rem]">
                 <div className="w-20 h-20 bg-emerald-100 dark:bg-emerald-900/30 rounded-full flex items-center justify-center mb-6">
                   <CheckCircle2 className="w-10 h-10 text-emerald-600 dark:text-emerald-400" />
                 </div>
@@ -143,16 +151,16 @@ export default function LeadInquiryForm({ formTitle = 'Request a Free Audit' }: 
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleFinalSubmit} className="space-y-6">
-                <div>
-                  <div className="flex items-center justify-between mb-2">
+              <form onSubmit={handleFinalSubmit} className="flex min-h-0 flex-1 flex-col">
+                <div className="shrink-0">
+                  <div className="mb-2 flex items-center justify-between">
                     <h3 className="text-2xl font-bold text-blue-950 dark:text-white">{formTitle}</h3>
-                    <span className="text-xs font-semibold text-blue-600 dark:text-blue-300 uppercase tracking-wide">
+                    <span className="text-xs font-semibold uppercase tracking-wide text-blue-600 dark:text-blue-300">
                       Step {currentStep + 1} / {stepTitles.length}
                     </span>
                   </div>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">{stepTitles[currentStep]}</p>
-                  <div className="h-2 rounded-full bg-gray-100 dark:bg-slate-700 overflow-hidden">
+                  <p className="mb-3 text-sm text-gray-500 dark:text-gray-400">{stepTitles[currentStep]}</p>
+                  <div className="h-2 overflow-hidden rounded-full bg-gray-100 dark:bg-slate-700">
                     <div
                       className="h-full rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 transition-all duration-300"
                       style={{ width: `${progressPercent}%` }}
@@ -160,6 +168,7 @@ export default function LeadInquiryForm({ formTitle = 'Request a Free Audit' }: 
                   </div>
                 </div>
 
+                <div className="mt-6 min-h-0 flex-1 space-y-6">
                 {currentStep === 0 && (
                   <div className="space-y-6">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -371,15 +380,16 @@ export default function LeadInquiryForm({ formTitle = 'Request a Free Audit' }: 
                     </div>
                   </div>
                 )}
+                </div>
 
-                <div className="flex items-center justify-between gap-3 pt-2">
+                <div className="mt-auto flex shrink-0 items-center justify-between gap-3 border-t border-gray-100 pt-6 dark:border-slate-700/80">
                   <button
                     type="button"
                     onClick={prevStep}
                     disabled={currentStep === 0}
-                    className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-gray-200 dark:border-slate-700 text-gray-600 dark:text-gray-300 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gray-50 dark:hover:bg-slate-700/50 transition-colors"
+                    className="inline-flex items-center gap-1.5 rounded-xl border border-gray-200 px-4 py-2.5 text-gray-600 transition-colors hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-40 dark:border-slate-700 dark:text-gray-300 dark:hover:bg-slate-700/50"
                   >
-                    <ChevronLeft className="w-4 h-4" />
+                    <ChevronLeft className="h-4 w-4" />
                     <span>Back</span>
                   </button>
 
@@ -388,19 +398,19 @@ export default function LeadInquiryForm({ formTitle = 'Request a Free Audit' }: 
                       type="button"
                       onClick={nextStep}
                       disabled={!canGoNext}
-                      className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                      className="inline-flex items-center gap-1.5 rounded-xl bg-blue-600 px-5 py-2.5 font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
                     >
                       <span>Next</span>
-                      <ChevronRight className="w-4 h-4" />
+                      <ChevronRight className="h-4 w-4" />
                     </button>
                   ) : (
                     <button
                       type="submit"
                       disabled={!canGoNext || isSubmitting}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                      className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-2.5 font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
                     >
                       <span>{isSubmitting ? 'Sending...' : 'Send Request'}</span>
-                      <Send className="w-4 h-4" />
+                      <Send className="h-4 w-4" />
                     </button>
                   )}
                 </div>

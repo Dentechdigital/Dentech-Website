@@ -53,6 +53,16 @@ export type WorkGalleryItem = {
   description: string;
 };
 
+/** Six slots for mixed proof assets (web, wraps, print). Set `src` when files exist under `public/`. */
+export type ProofOfWorkSlot = {
+  id: string;
+  categoryLabel: string;
+  hint: string;
+  /** Path under `public/`, e.g. `/case-studies/proof/pow-1.png` */
+  src?: string;
+  alt?: string;
+};
+
 export type TrustLogo = {
   name: string;
   /** Optional logo path under `public/`. When absent, render a text badge. */
@@ -109,6 +119,7 @@ export const caseStudiesToc = [
   { id: 'our-work', label: 'Our work' },
   { id: 'trust', label: 'Clients' },
   { id: 'faq', label: 'FAQ' },
+  { id: 'proof-of-work', label: 'Work proofs' },
   { id: 'cta', label: 'Next step' },
 ] as const;
 
@@ -251,6 +262,16 @@ export const caseStudiesWorkGallery: WorkGalleryItem[] = [
     title: 'Print — brand stationery',
     description: 'Placeholder: business cards, letterhead, or mailer.',
   },
+];
+
+/** Drop final JPG/PNG into `public/case-studies/proof/` and set `src` + `alt` on each slot. */
+export const caseStudiesProofOfWorkSlots: ProofOfWorkSlot[] = [
+  { id: 'pow-1', categoryLabel: 'Website', hint: 'Desktop home or key landing screenshot' },
+  { id: 'pow-2', categoryLabel: 'Website', hint: 'Mobile frame or high-converting service page' },
+  { id: 'pow-3', categoryLabel: 'Window wrap', hint: 'Storefront or vinyl mock / install photo' },
+  { id: 'pow-4', categoryLabel: 'Print', hint: 'Brochure, poster, or direct mail spread' },
+  { id: 'pow-5', categoryLabel: 'Signage', hint: 'Interior panel, wayfinding, or exterior board' },
+  { id: 'pow-6', categoryLabel: 'Campaign', hint: 'Meta/Google creative, OOH, or social proof tile' },
 ];
 
 export const caseStudiesTrustLogos: TrustLogo[] = [

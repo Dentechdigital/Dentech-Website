@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CalendarClock, Mail, MapPin, Phone, Sparkles } from 'lucide-react';
 import { useTheme } from './ThemeProvider';
+import { SITE_CONTACT } from '../data/siteContact';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -88,23 +89,29 @@ export default function Footer() {
               <ul className="mt-4 space-y-3">
                 <li className="flex items-start gap-2.5 text-sm text-slate-700 dark:text-slate-300">
                   <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-600 dark:text-blue-300" />
-                  <span>499 Preston St Ottawa, ON, Canada</span>
+                  <span>{SITE_CONTACT.addressSingleLine}</span>
                 </li>
                 <li className="flex items-center gap-2.5 text-sm text-slate-700 dark:text-slate-300">
                   <Phone className="h-4 w-4 flex-shrink-0 text-blue-600 dark:text-blue-300" />
-                  <a href="tel:6138693121" className="transition-colors hover:text-blue-600 dark:hover:text-blue-300">
-                    (613) 869-3121
+                  <a
+                    href={`tel:${SITE_CONTACT.phoneTel}`}
+                    className="transition-colors hover:text-blue-600 dark:hover:text-blue-300"
+                  >
+                    {SITE_CONTACT.phoneDisplay}
                   </a>
                 </li>
                 <li className="flex items-center gap-2.5 text-sm text-slate-700 dark:text-slate-300">
                   <Mail className="h-4 w-4 flex-shrink-0 text-blue-600 dark:text-blue-300" />
-                  <a href="mailto:hello@dentech.digital" className="transition-colors hover:text-blue-600 dark:hover:text-blue-300">
-                    hello@dentech.digital
+                  <a
+                    href={`mailto:${SITE_CONTACT.email}`}
+                    className="transition-colors hover:text-blue-600 dark:hover:text-blue-300"
+                  >
+                    {SITE_CONTACT.email}
                   </a>
                 </li>
                 <li className="flex items-center gap-2.5 text-sm text-slate-700 dark:text-slate-300">
                   <CalendarClock className="h-4 w-4 flex-shrink-0 text-blue-600 dark:text-blue-300" />
-                  <span>Mon - Fri, 9:00 AM - 6:00 PM</span>
+                  <span>{SITE_CONTACT.hoursShort}</span>
                 </li>
               </ul>
             </div>

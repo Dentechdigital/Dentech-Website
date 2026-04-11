@@ -39,58 +39,60 @@ export default function CaseStudiesPreview() {
           </Link>
         </div>
 
-        <div className="mx-auto max-w-3xl">
-          <Link
-            to={featuredCaseStudy.href}
-            className="group flex flex-col overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl dark:border-slate-700 dark:bg-slate-800"
-          >
-            <div className="relative h-72 overflow-hidden">
-              <div className="absolute inset-0 z-10 bg-blue-900/20 transition-colors duration-500 group-hover:bg-transparent" />
-              <img
-                src={featuredCaseStudy.image}
-                alt={featuredCaseStudy.clinic}
-                className="h-full w-full -translate-y-2 transform object-cover object-bottom transition-transform duration-700 group-hover:-translate-y-1 group-hover:scale-105"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute left-4 top-4 z-20">
-                <span className="rounded-full bg-white/90 px-3 py-1 text-xs font-bold uppercase tracking-wider text-blue-950 shadow-sm backdrop-blur-sm dark:bg-slate-950/90 dark:text-white">
-                  {featuredCaseStudy.clinic}
+        <Link
+          to={featuredCaseStudy.href}
+          className="group flex flex-col overflow-hidden rounded-[2rem] border border-gray-200/80 bg-white shadow-[0_20px_60px_-28px_rgba(15,23,42,0.18)] transition-all duration-500 hover:-translate-y-1 hover:border-blue-200/60 hover:shadow-[0_28px_80px_-24px_rgba(37,99,235,0.2)] dark:border-slate-700 dark:bg-slate-900/80 dark:shadow-black/40 dark:hover:border-blue-500/30 lg:flex-row lg:items-stretch"
+        >
+          {/* Visual — full width on mobile, left column on lg */}
+          <div className="relative isolate h-56 w-full shrink-0 overflow-hidden sm:h-64 lg:h-auto lg:min-h-[min(100%,22rem)] lg:w-[min(44%,28rem)] xl:w-[min(42%,32rem)]">
+            <div className="absolute inset-0 z-10 bg-gradient-to-t from-slate-950/50 via-blue-950/10 to-transparent transition-opacity duration-500 group-hover:opacity-70 dark:from-slate-950/70 lg:bg-gradient-to-r lg:from-transparent lg:via-blue-950/15 lg:to-blue-950/25" />
+            <img
+              src={`${import.meta.env.BASE_URL}${featuredCaseStudy.image.replace(/^\//, '')}`}
+              alt={featuredCaseStudy.clinic}
+              className="h-full w-full object-cover object-[center_35%] transition-transform duration-700 ease-out group-hover:scale-[1.04] lg:object-[28%_center]"
+              referrerPolicy="no-referrer"
+            />
+            <div className="absolute left-4 top-4 z-20 lg:left-5 lg:top-5">
+              <span className="rounded-full bg-slate-950/85 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-white shadow-lg backdrop-blur-sm ring-1 ring-white/10 dark:bg-white/95 dark:text-blue-950 dark:ring-0">
+                {featuredCaseStudy.clinic}
+              </span>
+            </div>
+          </div>
+
+          {/* Copy + metrics */}
+          <div className="flex min-w-0 flex-1 flex-col justify-center p-8 lg:p-10 xl:p-12">
+            <div className="mb-5 flex flex-wrap gap-2">
+              {featuredCaseStudy.tags.map((tag, i) => (
+                <span
+                  key={i}
+                  className="rounded-lg border border-blue-200/80 bg-blue-50/90 px-2.5 py-1 text-xs font-semibold text-blue-700 dark:border-blue-500/25 dark:bg-blue-500/10 dark:text-blue-300"
+                >
+                  {tag}
                 </span>
-              </div>
+              ))}
             </div>
 
-            <div className="flex flex-grow flex-col p-8">
-              <div className="mb-4 flex flex-wrap gap-2">
-                {featuredCaseStudy.tags.map((tag, i) => (
-                  <span
-                    key={i}
-                    className="rounded-md bg-blue-50 px-2.5 py-1 text-xs font-semibold text-blue-600 dark:bg-blue-900/30 dark:text-blue-400"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+            <h3 className="mb-4 text-2xl font-bold leading-tight text-blue-950 transition-colors group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400 md:text-3xl">
+              {featuredCaseStudy.title}
+            </h3>
 
-              <h3 className="mb-6 text-2xl font-bold text-blue-950 transition-colors group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400">
-                {featuredCaseStudy.title}
-              </h3>
+            <p className="mb-8 max-w-2xl text-sm leading-relaxed text-gray-600 dark:text-gray-300 md:text-base">
+              {featuredCaseStudy.summary}
+            </p>
 
-              <p className="mb-6 text-sm leading-relaxed text-gray-600 dark:text-gray-300">{featuredCaseStudy.summary}</p>
-
-              <div className="mt-auto grid grid-cols-2 gap-4 border-t border-gray-100 pt-6 dark:border-slate-700">
-                {featuredCaseStudy.metrics.map((metric, i) => (
-                  <div key={i} className="flex flex-col">
-                    <div className="mb-1 flex items-center gap-1.5 text-gray-500 dark:text-gray-400">
-                      <metric.icon className="h-4 w-4" />
-                      <span className="text-xs font-medium uppercase tracking-wider">{metric.label}</span>
-                    </div>
-                    <span className={`text-2xl font-bold ${metric.valueClass}`}>{metric.value}</span>
+            <div className="mt-auto grid grid-cols-2 gap-6 border-t border-gray-100 pt-6 dark:border-slate-700/80 sm:gap-8">
+              {featuredCaseStudy.metrics.map((metric, i) => (
+                <div key={i} className="flex flex-col">
+                  <div className="mb-1.5 flex items-center gap-1.5 text-gray-500 dark:text-gray-400">
+                    <metric.icon className="h-4 w-4 shrink-0" />
+                    <span className="text-xs font-semibold uppercase tracking-wider">{metric.label}</span>
                   </div>
-                ))}
-              </div>
+                  <span className={`text-2xl font-bold tracking-tight md:text-3xl ${metric.valueClass}`}>{metric.value}</span>
+                </div>
+              ))}
             </div>
-          </Link>
-        </div>
+          </div>
+        </Link>
       </div>
     </section>
   );

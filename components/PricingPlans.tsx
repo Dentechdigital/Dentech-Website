@@ -53,7 +53,7 @@ const marketingPackages: PackageItem[] = [
     price: '$1,500/mo',
     description: (
       <>
-        <span className="whitespace-nowrap">A reliable monthly growth foundation</span> focused on visibility, consistency, and steady lead generation across your key local channels.
+        A reliable monthly growth foundation focused on visibility, consistency, and steady lead generation across your key local channels.
       </>
     ),
     features: [
@@ -69,7 +69,7 @@ const marketingPackages: PackageItem[] = [
     price: '$2,500/mo',
     description: (
       <>
-        <span className="whitespace-nowrap">Best for clinics targeting faster growth</span>, stronger market share, and higher lead quality through multi-channel execution.
+        Best for clinics targeting faster growth, stronger market share, and higher lead quality through multi-channel execution.
       </>
     ),
     features: [
@@ -88,7 +88,7 @@ const marketingPackages: PackageItem[] = [
     price: '$5,000/mo',
     description: (
       <>
-        <span className="whitespace-nowrap">Enterprise-level growth support</span> with high-touch execution, advanced strategy, and ongoing optimization for scale.
+        Enterprise-level growth support with high-touch execution, advanced strategy, and ongoing optimization for scale.
       </>
     ),
     features: [
@@ -123,8 +123,8 @@ function PricingCard({ item }: { item: PackageItem }) {
       <div className="pointer-events-none absolute -bottom-10 -left-10 h-24 w-24 rounded-full bg-cyan-100/40 blur-xl dark:bg-cyan-400/10" />
 
       <div className="relative z-10 mb-5">
-        <div className="flex items-start justify-between gap-4">
-          <div>
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+          <div className="min-w-0 flex-1">
           <div className="mb-2 inline-flex items-center rounded-full border border-blue-200/80 bg-blue-50 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-blue-700 dark:border-blue-400/30 dark:bg-blue-500/10 dark:text-blue-200">
             {item.category}
           </div>
@@ -141,7 +141,7 @@ function PricingCard({ item }: { item: PackageItem }) {
             </div>
           )}
           </div>
-          <span className="flex-shrink-0 text-2xl md:text-3xl font-bold text-blue-600 dark:text-blue-300 whitespace-nowrap">
+          <span className="shrink-0 self-start text-2xl font-bold tabular-nums text-blue-600 dark:text-blue-300 sm:self-auto md:text-3xl">
             {item.price}
           </span>
         </div>
@@ -199,9 +199,11 @@ export default function PricingPlans() {
         <div className="space-y-8">
           <div className="relative rounded-3xl border border-blue-100/80 bg-white/70 dark:border-slate-700 dark:bg-slate-800/60 p-5 sm:p-6 overflow-hidden">
             <div className="pointer-events-none absolute -top-16 -right-16 h-40 w-40 rounded-full bg-blue-200/30 blur-2xl dark:bg-blue-500/20" />
-            <div className="mb-5 flex items-center justify-between gap-3">
-              <h3 className="text-xl sm:text-2xl font-bold text-blue-950 dark:text-white whitespace-nowrap">Website Design Packages</h3>
-              <span className="inline-flex shrink-0 items-center rounded-full border border-blue-200 bg-blue-50 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-blue-700 dark:border-blue-400/30 dark:bg-blue-500/10 dark:text-blue-300">
+            <div className="mb-5 flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+              <h3 className="min-w-0 text-xl font-bold leading-snug text-blue-950 dark:text-white sm:text-2xl">
+                Website Design Packages
+              </h3>
+              <span className="inline-flex w-fit max-w-full shrink-0 items-center rounded-full border border-blue-200 bg-blue-50 px-3 py-1.5 text-[11px] font-semibold uppercase leading-tight tracking-wide text-blue-700 dark:border-blue-400/30 dark:bg-blue-500/10 dark:text-blue-300 sm:text-xs">
                 One-Time Investment
               </span>
             </div>
@@ -216,9 +218,11 @@ export default function PricingPlans() {
 
           <div className="relative rounded-3xl border border-indigo-100/80 bg-white/70 dark:border-slate-700 dark:bg-slate-800/60 p-5 sm:p-6 overflow-hidden">
             <div className="pointer-events-none absolute -bottom-20 -left-16 h-44 w-44 rounded-full bg-indigo-200/30 blur-2xl dark:bg-indigo-500/20" />
-            <div className="mb-5 flex items-center justify-between gap-3">
-              <h3 className="text-xl sm:text-2xl font-bold text-blue-950 dark:text-white whitespace-nowrap">Ongoing Marketing Packages</h3>
-              <span className="inline-flex shrink-0 items-center rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-indigo-700 dark:border-indigo-400/30 dark:bg-indigo-500/10 dark:text-indigo-300">
+            <div className="mb-5 flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+              <h3 className="min-w-0 text-xl font-bold leading-snug text-blue-950 dark:text-white sm:text-2xl">
+                Ongoing Marketing Packages
+              </h3>
+              <span className="inline-flex w-fit max-w-full shrink-0 items-center rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1.5 text-[11px] font-semibold uppercase leading-tight tracking-wide text-indigo-700 dark:border-indigo-400/30 dark:bg-indigo-500/10 dark:text-indigo-300 sm:text-xs">
                 Monthly Retainer
               </span>
             </div>

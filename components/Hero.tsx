@@ -67,9 +67,9 @@ const Hero: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="flex flex-col gap-14 lg:gap-16">
-          {/* Main copy + features — full width of container */}
-          <div className="flex w-full flex-col items-start space-y-8 text-left">
+        <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-center lg:gap-8">
+          {/* Left: copy + features */}
+          <div className="mx-auto flex max-w-2xl flex-col items-start space-y-8 text-left lg:mx-0 lg:pr-12">
             
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 shadow-sm transition-colors duration-300">
@@ -157,9 +157,9 @@ const Hero: React.FC = () => {
 
           </div>
 
-          {/* Visual below fold — no empty side column */}
-          <div className="relative flex w-full max-w-[100vw] flex-col items-center justify-center border-t border-gray-200/60 pt-12 dark:border-slate-800 sm:overflow-visible">
-            <div className="mx-auto w-full max-w-2xl origin-center scale-[0.85] sm:scale-100">
+          {/* Right: dashboard visual */}
+          <div className="relative mt-12 flex w-full max-w-[100vw] flex-col items-center justify-center pb-8 pt-12 sm:overflow-visible lg:mt-0 lg:py-0">
+            <div className="mx-auto w-full max-w-md origin-center scale-[0.85] sm:scale-100">
               <DentalMarketingGraphic />
             </div>
           </div>

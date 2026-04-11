@@ -101,7 +101,7 @@ export default function PageHeroAboutStyle({
             </h1>
           </div>
 
-          <div className="mt-6 max-w-none text-lg leading-relaxed text-slate-600 dark:text-slate-300">{description}</div>
+          <div className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-600 dark:text-slate-300">{description}</div>
 
           {afterDescription ? <div className="mt-6 max-w-3xl">{afterDescription}</div> : null}
 

@@ -1,3 +1,10 @@
+/** Full-bleed hero art on `/contact` (person right, negative space left for copy) */
+export const CONTACT_PAGE_HERO_PATH = '/contact/hero-contact.png';
+
+/** Tailwind classes for `<img>` positioning in `PageHeroAboutStyle` */
+export const CONTACT_PAGE_HERO_IMAGE_CLASS =
+  'object-cover object-[50%_28%] sm:object-[55%_center] md:object-[58%_center] lg:object-[62%_center] xl:object-[58%_32%]';
+
 /** Canonical contact details — reuse on Contact page, embeds, and CTAs */
 export const SITE_CONTACT = {
   phoneDisplay: '(613) 869-3121',

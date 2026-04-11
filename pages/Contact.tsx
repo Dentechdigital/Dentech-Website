@@ -14,7 +14,19 @@ import {
 import SEO from '../components/SEO';
 import PageHeroAboutStyle from '../components/PageHeroAboutStyle';
 import LeadInquiryForm from '../components/LeadInquiryForm';
-import { SITE_CONTACT, googleMapsEmbedUrl, googleMapsExternalUrl } from '../data/siteContact';
+import {
+  CONTACT_PAGE_HERO_IMAGE_CLASS,
+  CONTACT_PAGE_HERO_PATH,
+  SITE_CONTACT,
+  googleMapsEmbedUrl,
+  googleMapsExternalUrl,
+} from '../data/siteContact';
+
+function mediaUrl(src: string): string {
+  if (src.startsWith('http')) return src;
+  const base = import.meta.env.BASE_URL;
+  return `${base}${src.replace(/^\//, '')}`;
+}
 
 type CopyKey = 'email' | 'address' | null;
 
@@ -97,6 +109,8 @@ const Contact: React.FC = () => {
           }
           primaryCta={{ to: '#lead-form', label: 'Start the form' }}
           secondaryCta={{ to: '/services', label: 'Browse services' }}
+          heroImageSrc={mediaUrl(CONTACT_PAGE_HERO_PATH)}
+          heroImageClassName={CONTACT_PAGE_HERO_IMAGE_CLASS}
         />
 
         <section

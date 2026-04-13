@@ -144,10 +144,13 @@ const Hero: React.FC = () => {
                 
                 {/* Hand-drawn Arrow pointing to Let's talk */}
                 <div
-                  className="pointer-events-none absolute -right-9 sm:-right-12 top-1/2 hidden -translate-y-1/2 text-blue-400 dark:text-blue-400 sm:block"
+                  className="pointer-events-none absolute left-full ml-1 top-1/2 hidden -translate-y-1/2 text-blue-400 dark:text-blue-400 sm:block"
+                  // Keep the arrowhead close to the end of "Let's talk".
+                  // Use left-full instead of negative right offsets so spacing stays stable across widths.
+                  aria-hidden
                   style={{ animation: 'arrowDriftX 2.8s ease-in-out infinite' }}
                 >
-                  <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 drop-shadow-sm">
+                  <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 drop-shadow-sm">
                     <path d="M84 16 Q84 58 30 74" stroke="currentColor" strokeWidth="6" strokeLinecap="round" fill="none" />
                     <path d="M46 58 L28 74 L50 88" stroke="currentColor" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                   </svg>

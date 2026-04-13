@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const featuredCaseStudy = {
   clinic: 'The Smile Doctors',
-  href: '/case-studies#smile-doctors',
+  href: '/case-studies',
   image: '/case-studies/smile-doctors-proof.webp',
   title: '1300+ Confirmed Bookings in Under 12 Months',
   summary:

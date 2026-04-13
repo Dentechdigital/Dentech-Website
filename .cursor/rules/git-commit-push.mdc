@@ -1,5 +1,5 @@
 ---
-description: After code changes, commit and push to origin without asking the user first.
+description: 
 alwaysApply: true
 ---
 

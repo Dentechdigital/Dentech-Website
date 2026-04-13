@@ -90,10 +90,10 @@ const Hero: React.FC = () => {
             {/* Headlines */}
             <div className="space-y-6">
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tighter text-blue-950 dark:text-white leading-[1.1] transition-colors duration-300">
-              Scale your clinic with&nbsp;
+              Scale your practice with&nbsp;
                 <span className="relative inline">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-teal-400 to-indigo-600 animate-text-shine pr-2">
-                  confidence & excellence.
+                  confidence and excellence.
                   </span>
                 </span>
               </h1>

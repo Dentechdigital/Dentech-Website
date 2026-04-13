@@ -51,11 +51,6 @@ const Hero: React.FC = () => {
           0% { background-position: 0% 50%; }
           100% { background-position: 100% 50%; }
         }
-        @keyframes arrowDriftX {
-          0% { transform: translateX(0); }
-          50% { transform: translateX(8px); }
-          100% { transform: translateX(0); }
-        }
         .animate-text-shine {
           background-size: 180% 100%;
           animation: textShine 3.8s ease-in-out infinite alternate;
@@ -142,19 +137,6 @@ const Hero: React.FC = () => {
                   </span>
                 </a>
                 
-                {/* Hand-drawn Arrow pointing to Let's talk */}
-                <div
-                  className="pointer-events-none absolute left-full ml-1 top-1/2 hidden -translate-y-1/2 text-blue-400 dark:text-blue-400 sm:block"
-                  // Keep the arrowhead close to the end of "Let's talk".
-                  // Use left-full instead of negative right offsets so spacing stays stable across widths.
-                  aria-hidden
-                  style={{ animation: 'arrowDriftX 2.8s ease-in-out infinite' }}
-                >
-                  <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 drop-shadow-sm">
-                    <path d="M84 16 Q84 58 30 74" stroke="currentColor" strokeWidth="6" strokeLinecap="round" fill="none" />
-                    <path d="M46 58 L28 74 L50 88" stroke="currentColor" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                  </svg>
-                </div>
               </div>
             </div>
 

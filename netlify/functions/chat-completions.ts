@@ -58,24 +58,25 @@ function mapCtas(intent: ChatIntent): SuggestedCta[] {
   switch (intent) {
     case 'pricing':
       return [
+        { label: 'Book Your Strategy Call', to: '/contact' },
         { label: 'View Pricing', to: '/#pricing' },
-        { label: 'Talk to Dentech', to: '/contact' },
       ];
     case 'services':
       return [
+        { label: 'Book Your Strategy Call', to: '/contact' },
         { label: 'Explore Services', to: '/services' },
         { label: 'See Case Studies', to: '/case-studies' },
       ];
     case 'case-studies':
       return [
-        { label: 'Case Studies', to: '/case-studies' },
         { label: 'Book Strategy Call', to: '/contact' },
+        { label: 'Case Studies', to: '/case-studies' },
       ];
     case 'booking':
-      return [{ label: 'Contact Dentech', to: '/contact' }];
+      return [{ label: 'Book Strategy Call', to: '/contact' }];
     default:
       return [
-        { label: 'Contact Team', to: '/contact' },
+        { label: 'Book Strategy Call', to: '/contact' },
         { label: 'Browse Services', to: '/services' },
       ];
   }
@@ -124,6 +125,7 @@ async function queryGemini(payload: ChatCompletionRequest): Promise<ChatCompleti
     'Do not fabricate guarantees, stats, clients, or outcomes.',
     'No medical, legal, or financial advice.',
     'Keep replies concise and conversion-oriented for clinic owners/managers.',
+    'Reply structure: (1) direct answer, (2) one practical next step, (3) invite to strategy call when intent is high.',
     'If uncertain, state limitation and route to Contact/Services/Pricing CTA.',
   ].join('\n');
 

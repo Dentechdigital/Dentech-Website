@@ -1,7 +1,13 @@
 import React, { createContext, useContext, useMemo, useState } from 'react';
 import { CHATBOT_FAQ } from '../../data/chatbotFaq';
-import { CHATBOT_STARTER_PROMPTS } from '../../data/chatbotPrompts';
-import type { ChatCompletionResponse, ChatMessage, ChatMode, SuggestedCta } from '../../types/chatbot';
+import { CHATBOT_QUALIFICATION_PROMPTS, CHATBOT_STARTER_PROMPTS } from '../../data/chatbotPrompts';
+import type {
+  ChatCompletionResponse,
+  ChatConversionStage,
+  ChatMessage,
+  ChatMode,
+  SuggestedCta,
+} from '../../types/chatbot';
 import { trackChatEvent } from './chatbotAnalytics';
 import { sendChatCompletion } from './useChatApi';
 
@@ -13,6 +19,8 @@ type ChatContextValue = {
   error: string | null;
   suggestedCtas: SuggestedCta[];
   suggestedPrompts: string[];
+  conversionStage: ChatConversionStage;
+  leadScore: number;
   sendPrompt: (text: string, source?: string) => Promise<void>;
   sessionId: string;
 };
@@ -55,6 +63,23 @@ function resolveLocalFaq(prompt: string): ChatCompletionResponse | null {
   };
 }
 
+function estimateLeadScore(prompt: string) {
+  const text = prompt.toLowerCase();
+  let score = 0;
+  if (/(price|pricing|cost|budget|retainer)/.test(text)) score += 2;
+  if (/(book|call|meeting|consult|strategy)/.test(text)) score += 3;
+  if (/(this week|asap|urgent|now|immediately)/.test(text)) score += 2;
+  if (/(single clinic|multi|group|locations|ottawa|canada)/.test(text)) score += 1;
+  if (/(roi|bookings|patients|acquisition|growth)/.test(text)) score += 2;
+  return score;
+}
+
+function stageFromScore(score: number): ChatConversionStage {
+  if (score >= 8) return 'ready';
+  if (score >= 4) return 'evaluate';
+  return 'explore';
+}
+
 export function ChatProvider({ children }: { children: React.ReactNode }) {
   const [mode, setMode] = useState<ChatMode>('faq');
   const [messages, setMessages] = useState<ChatMessage[]>([
@@ -67,11 +92,19 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
   const [error, setError] = useState<string | null>(null);
   const [suggestedCtas, setSuggestedCtas] = useState<SuggestedCta[]>([{ label: 'Contact Dentech', to: '/contact' }]);
   const [suggestedPrompts, setSuggestedPrompts] = useState<string[]>(CHATBOT_STARTER_PROMPTS);
+  const [leadScore, setLeadScore] = useState(0);
+  const [conversionStage, setConversionStage] = useState<ChatConversionStage>('explore');
+  const [ctaNudgeShown, setCtaNudgeShown] = useState(false);
   const sessionId = useMemo(() => ensureSessionId(), []);
 
   const sendPrompt = async (text: string, source = 'input') => {
     const prompt = text.trim();
     if (!prompt || loading) return;
+    const nextScore = leadScore + estimateLeadScore(prompt);
+    const nextStage = stageFromScore(nextScore);
+    setLeadScore(nextScore);
+    setConversionStage(nextStage);
+
     const userMessage = makeMessage('user', prompt);
     setMessages((prev) => [...prev, userMessage]);
     setLoading(true);
@@ -96,8 +129,32 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
       }
 
       setMessages((prev) => [...prev, makeMessage('assistant', result.reply)]);
-      setSuggestedCtas(result.suggestedCtas.length ? result.suggestedCtas : [{ label: 'Contact Dentech', to: '/contact' }]);
-      setSuggestedPrompts(result.suggestedPrompts.length ? result.suggestedPrompts : CHATBOT_STARTER_PROMPTS);
+      const baseCtas = result.suggestedCtas.length ? result.suggestedCtas : [{ label: 'Contact Dentech', to: '/contact' }];
+      const ctas =
+        nextStage === 'ready'
+          ? [
+              { label: 'Book Your Strategy Call', to: '/contact' },
+              ...baseCtas.filter((cta) => cta.to !== '/contact'),
+            ].slice(0, 3)
+          : baseCtas.slice(0, 3);
+      setSuggestedCtas(ctas);
+
+      const prompts =
+        nextStage === 'explore'
+          ? [...result.suggestedPrompts, ...CHATBOT_QUALIFICATION_PROMPTS].slice(0, 6)
+          : result.suggestedPrompts.slice(0, 6);
+      setSuggestedPrompts(prompts.length ? prompts : CHATBOT_STARTER_PROMPTS);
+
+      if (nextStage === 'ready' && !ctaNudgeShown) {
+        setMessages((prev) => [
+          ...prev,
+          makeMessage(
+            'assistant',
+            'You look close to decision stage. If you want, use "Book Your Strategy Call" and we can map your first 90-day plan.',
+          ),
+        ]);
+        setCtaNudgeShown(true);
+      }
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Something went wrong while sending your message.';
       setError(message);
@@ -115,8 +172,20 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
   };
 
   const contextValue = useMemo(
-    () => ({ mode, setMode, messages, loading, error, suggestedCtas, suggestedPrompts, sendPrompt, sessionId }),
-    [mode, messages, loading, error, suggestedCtas, suggestedPrompts, sessionId],
+    () => ({
+      mode,
+      setMode,
+      messages,
+      loading,
+      error,
+      suggestedCtas,
+      suggestedPrompts,
+      conversionStage,
+      leadScore,
+      sendPrompt,
+      sessionId,
+    }),
+    [mode, messages, loading, error, suggestedCtas, suggestedPrompts, conversionStage, leadScore, sessionId],
   );
 
   return <ChatContext.Provider value={contextValue}>{children}</ChatContext.Provider>;

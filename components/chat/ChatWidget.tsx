@@ -23,7 +23,8 @@ function playTeaserSound() {
 }
 
 function ChatWidgetInner() {
-  const { mode, setMode, messages, loading, error, suggestedCtas, suggestedPrompts, sendPrompt } = useChat();
+  const { mode, setMode, messages, loading, error, suggestedCtas, suggestedPrompts, conversionStage, leadScore, sendPrompt } =
+    useChat();
   const [open, setOpen] = useState(false);
   const [showTeaser, setShowTeaser] = useState(false);
   const [canPlaySound, setCanPlaySound] = useState(false);
@@ -84,6 +85,8 @@ function ChatWidgetInner() {
         error={error}
         onClose={() => setOpen(false)}
         onCtaClick={(to) => trackChatEvent('chat_cta_click', { mode, source: to })}
+        conversionStage={conversionStage}
+        leadScore={leadScore}
       />
       <ChatLauncher
         open={open}

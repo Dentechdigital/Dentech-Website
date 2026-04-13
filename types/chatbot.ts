@@ -18,6 +18,8 @@ export type ChatIntent =
   | 'timeline'
   | 'general';
 
+export type ChatConversionStage = 'explore' | 'evaluate' | 'ready';
+
 export type SuggestedCta = {
   label: string;
   to: string;

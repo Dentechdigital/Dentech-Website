@@ -24,7 +24,7 @@ export default function ChatTabs({ mode, onChange }: Props) {
             }`}
             onClick={() => onChange(tab)}
           >
-            {tab === 'faq' ? 'Quick Answers' : 'Live Chat'}
+            {tab === 'faq' ? 'Quick Answers' : 'Strategy Chat'}
           </button>
         );
       })}

@@ -8,7 +8,11 @@ type Props = {
 
 export default function QuickPrompts({ prompts, onPromptClick, disabled = false }: Props) {
   return (
-    <div className="flex flex-wrap gap-2">
+    <div>
+      <p className="mb-2 text-[11px] font-medium uppercase tracking-wide text-slate-500 dark:text-slate-400">
+        Start with one of these
+      </p>
+      <div className="flex flex-wrap gap-2">
       {prompts.slice(0, 6).map((prompt) => (
         <button
           key={prompt}
@@ -20,6 +24,7 @@ export default function QuickPrompts({ prompts, onPromptClick, disabled = false 
           {prompt}
         </button>
       ))}
+      </div>
     </div>
   );
 }

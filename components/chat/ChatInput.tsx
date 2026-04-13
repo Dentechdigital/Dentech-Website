@@ -27,7 +27,7 @@ export default function ChatInput({ onSubmit, disabled = false }: Props) {
         rows={2}
         value={value}
         onChange={(event) => setValue(event.target.value)}
-        placeholder="Ask about growth, pricing, services, or timelines..."
+        placeholder="Tell me your clinic goal (more bookings, better ROI, faster growth)..."
         className="min-h-[2.75rem] flex-1 resize-none rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none transition focus:border-blue-400 focus:ring-2 focus:ring-blue-100 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:focus:border-blue-500 dark:focus:ring-blue-900/30"
       />
       <button

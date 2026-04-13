@@ -71,7 +71,7 @@ const DynamicDots: React.FC = () => {
           const g = Math.floor(197 + (231 - 197) * ratioY);
           const b = Math.floor(253 + (183 - 253) * ((ratioX + ratioY) / 2));
 
-          ctx.fillStyle = `rgba(${r}, ${g}, ${b}, 0.5)`;
+          ctx.fillStyle = `rgba(${r}, ${g}, ${b}, 0.62)`;
 
           const dx = mouse.x - x;
           const dy = mouse.y - y;
@@ -138,7 +138,7 @@ const DynamicDots: React.FC = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="pointer-events-none absolute inset-0 z-0 h-full w-full opacity-70"
+      className="pointer-events-none absolute inset-0 z-0 h-full w-full opacity-80"
     />
   );
 };

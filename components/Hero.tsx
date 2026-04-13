@@ -69,9 +69,9 @@ const Hero: React.FC = () => {
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-blue-50/50 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none transition-colors duration-300 dark:hidden" />
 
       {/* Full-width Dynamic Dots Background */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-100 dark:opacity-30 transition-opacity duration-300" style={{
-        maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)',
-        WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)'
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-100 dark:opacity-50 transition-opacity duration-300" style={{
+        maskImage: 'radial-gradient(ellipse at center, black 32%, transparent 92%)',
+        WebkitMaskImage: 'radial-gradient(ellipse at center, black 32%, transparent 92%)'
       }}>
         <DynamicDots />
       </div>
@@ -90,7 +90,7 @@ const Hero: React.FC = () => {
             {/* Headlines */}
             <div className="space-y-6">
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tighter text-blue-950 dark:text-white leading-[1.1] transition-colors duration-300">
-              Scale your practice with&nbsp;
+              Scale your clinic with&nbsp;
                 <span className="relative inline">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-teal-400 to-indigo-600 animate-text-shine pr-2">
                   confidence and excellence.

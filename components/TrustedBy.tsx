@@ -11,7 +11,7 @@ const clients = [
   {
     name: 'Riverside Orthodontics',
     logoSrc: '/partners/riverside-orthodontics.webp',
-    logoClass: 'h-10 sm:h-12',
+    logoClass: 'h-12 sm:h-14',
     width: 420,
     height: 108,
   },

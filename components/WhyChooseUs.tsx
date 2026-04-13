@@ -26,21 +26,21 @@ const reasons = [
   },
   {
     title: 'Proven Framework',
-    description: 'We use a battle-tested marketing framework that has consistently generated thousands of new patients for our partner clinics.',
+    description: 'Our operating framework has already supported 1300+ confirmed bookings in a year for a featured client, and is designed for repeatable, measurable execution.',
     icon: CheckCircle2,
     color: 'text-rose-500',
     bg: 'bg-rose-50 dark:bg-rose-500/10'
   },
   {
-    title: 'Award-Winning Design',
-    description: 'Your practice deserves a premium brand. Our websites and ad creatives are designed to build immediate trust and authority.',
+    title: 'Conversion-First Creative',
+    description: 'Your website and campaign creative are built to improve trust, reduce friction, and move high-intent visitors to calls and bookings.',
     icon: Award,
     color: 'text-amber-500',
     bg: 'bg-amber-50 dark:bg-amber-500/10'
   },
   {
     title: 'Rapid Execution',
-    description: 'Time is money. We launch your foundational campaigns within 14 days, getting new patient inquiries flowing faster.',
+    description: 'We ship in practical phases, prioritize highest-impact tasks first, and keep momentum with clear weekly actions and ownership.',
     icon: Clock,
     color: 'text-cyan-500',
     bg: 'bg-cyan-50 dark:bg-cyan-500/10'
@@ -90,7 +90,7 @@ export default function WhyChooseUs() {
               </h2>
               
               <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
-                We don't just run ads. We build comprehensive growth engines tailored specifically for ambitious dental practices.
+                We do more than launch campaigns. We align strategy, creative, and execution so owners and managers can scale with clear visibility into results.
               </p>
               
               <Link to="/contact" className="hidden lg:inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 group">

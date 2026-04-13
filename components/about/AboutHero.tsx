@@ -17,7 +17,7 @@ export default function AboutHero() {
         <>
           If your team is stretched thin between the front desk and Facebook, you need a senior crew that treats marketing
           like a system — not a checklist. Dentech Digital is a small, experienced team based in Ottawa, helping dental
-          and medical practices across Canada launch, scale, and prove ROI since 2017.
+          and medical practices across Canada and international markets launch, scale, and prove ROI since 2017.
         </>
       }
       primaryCta={{ to: '/contact', label: 'Book a strategy call' }}

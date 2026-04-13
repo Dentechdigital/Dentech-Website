@@ -82,8 +82,8 @@ const Contact: React.FC = () => {
   return (
     <>
       <SEO
-        title="Contact"
-        description="Reach Dentech Digital in Ottawa: phone, email, Preston Street studio, and an interactive map. Request a free practice growth audit."
+        title="Contact Dentech Digital | Ottawa Dental Marketing Team"
+        description="Contact our Ottawa dental marketing team to discuss your growth goals. Book a strategy call, share project scope, or visit our Preston Street studio."
       />
 
       <div className="min-h-screen bg-[#FAFAF9] transition-colors duration-300 dark:bg-slate-950">
@@ -113,7 +113,7 @@ const Contact: React.FC = () => {
             <div className="mb-12 flex flex-wrap items-center gap-3">
               <span className="inline-flex items-center gap-2 rounded-full border border-blue-200/80 bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-blue-800 dark:border-blue-500/30 dark:bg-blue-500/10 dark:text-blue-200">
                 <Sparkles className="h-3.5 w-3.5" />
-                Same audit flow as the home page
+                Strategy intake form
               </span>
             </div>
 

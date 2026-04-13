@@ -50,11 +50,11 @@ export default function AISolutionsCTA() {
                 <div className="mt-4 space-y-2.5 text-white/95">
                   <div className="flex items-center gap-2 text-xs font-medium">
                     <ShieldCheck className="h-3.5 w-3.5 text-cyan-100" />
-                    <span>HIPAA-aware workflows and secure handling</span>
+                    <span>PIPEDA-aware workflows with secure data handling</span>
                   </div>
                   <div className="flex items-center gap-2 text-xs font-medium">
                     <BadgeCheck className="h-3.5 w-3.5 text-cyan-100" />
-                    <span>Works with your existing PMS and workflows</span>
+                    <span>Works with your existing PMS and front-desk workflows</span>
                   </div>
                   <div className="flex items-center gap-2 text-xs font-medium">
                     <Clock3 className="h-3.5 w-3.5 text-cyan-100" />

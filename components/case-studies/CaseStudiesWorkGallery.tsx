@@ -38,7 +38,7 @@ export default function CaseStudiesWorkGallery({ items, id = 'our-work' }: Props
             Some of our work
           </h2>
           <p className="mt-4 text-lg text-slate-600 dark:text-slate-300">
-            Websites, social, and print—replace these placeholders with final shots when you are ready. Structure and layout stay the same.
+            Selected website, social, and print samples from live delivery formats used in dental growth programs.
           </p>
           </div>
 

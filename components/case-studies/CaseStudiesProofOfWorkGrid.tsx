@@ -30,12 +30,7 @@ export default function CaseStudiesProofOfWorkGrid({ slots, id = 'proof-of-work'
             Creative &amp; collateral snapshots
           </h2>
           <p className="mt-4 text-lg text-slate-600 dark:text-slate-300">
-            Six frames for final photography—websites, window wraps, print, signage, and campaign art. Drop files under{' '}
-            <code className="rounded-md bg-slate-100 px-1.5 py-0.5 text-sm text-slate-800 dark:bg-slate-800 dark:text-slate-200">
-              public/case-studies/proof/
-            </code>{' '}
-            and point each entry in <code className="rounded-md bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-slate-800">caseStudiesProofOfWorkSlots</code>{' '}
-            at its <code className="rounded-md bg-slate-100 px-1.5 py-0.5 text-sm dark:bg-slate-800">src</code>.
+            Representative proof assets across websites, social campaigns, print collateral, and signage.
           </p>
         </div>
 

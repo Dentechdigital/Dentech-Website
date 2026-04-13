@@ -12,17 +12,18 @@ export const FOUNDER_LINKEDIN_URL = 'https://www.linkedin.com/in/mohammed-dahman
 
 export const aboutStats = [
   { label: 'Serving practices since', value: '2017' },
+  { label: 'Founder experience since', value: '2006' },
   { label: 'Headquartered in', value: 'Ottawa, ON' },
   { label: 'Industry focus', value: 'Dental & medical' },
   { label: 'Delivery model', value: 'Hybrid team' },
   { label: 'Markets', value: 'Canada-wide' },
-  { label: 'Campaign languages', value: 'English & French' },
+  { label: 'Campaign languages', value: 'English, French & Arabic' },
   { label: 'How we work', value: 'Roadmap-led' },
   { label: 'Creative & content', value: 'Strategy-first' },
 ];
 
 export const whoWeServe = [
-  'Solo practices and growing group practices across Canada (and select international clients)',
+  'Solo practices and growing group practices across Canada and international markets (Europe, MENA, and select global regions)',
   'General, cosmetic, orthodontic, pediatric, and specialty dental clinics',
   'Medical clinics that need the same disciplined approach to growth and creative',
 ];
@@ -39,7 +40,7 @@ export const timelineMilestones = [
     year: '2017',
     title: 'Dentech takes shape',
     body:
-      'Mohammed Dahman launches the agency after years in computer science, design, and web development — plus hands-on experience running significant paid media budgets across multiple businesses.',
+      'Mohammed Dahman launches the agency after years in computer science, design, and web development, building on entrepreneurial marketing experience that began in 2006 across ecommerce, publishing, and performance media operations.',
   },
   {
     year: '2017–2020',

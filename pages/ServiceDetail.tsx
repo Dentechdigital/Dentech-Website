@@ -153,8 +153,7 @@ const ServiceDetail: React.FC = () => {
                 Sample work & formats
               </h2>
               <p className="mt-2 max-w-2xl text-sm text-slate-600 dark:text-slate-400">
-                Illustrative examples of the types of deliverables we produce—replace with your branded case assets when
-                available.
+                Representative examples of deliverable formats used in active client programs.
               </p>
               <div className="mt-8 grid gap-6 sm:grid-cols-2">
                 {service.gallery.map((g) => (

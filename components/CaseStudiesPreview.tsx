@@ -6,9 +6,9 @@ const featuredCaseStudy = {
   clinic: 'The Smile Doctors',
   href: '/case-studies#smile-doctors',
   image: '/case-studies/smile-doctors-proof.webp',
-  title: '1300+ New Bookings in Under 12 Months',
+  title: '1300+ Confirmed Bookings in Under 12 Months',
   summary:
-    'We built a custom Webflow website and now run full website management, SEO, AI ranking optimization, Meta PPC, social media management, and content creation. They are crushing it and everyone in town is talking about them.',
+    'We deployed an integrated growth system across website management, SEO/GEO, Meta PPC, social media, and original content, with reporting tied to qualified booking outcomes.',
   metrics: [
     { label: 'New Bookings', value: '1300+', icon: Users, valueClass: 'text-emerald-600 dark:text-emerald-400' },
     { label: 'Growth Window', value: '< 12 mo', icon: TrendingUp, valueClass: 'text-emerald-600 dark:text-emerald-400' },

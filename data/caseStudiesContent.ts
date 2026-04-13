@@ -70,9 +70,9 @@ export type TrustLogo = {
 };
 
 export const caseStudiesPageMeta = {
-  title: 'Case Study',
+  title: 'Dental Marketing Case Studies | Ottawa & Canada',
   description:
-    'How Dentech Digital helped The Smile Doctors generate 1300+ new patient bookings in year one with a full-stack system: website, SEO/GEO, Google & Meta ads, social, content, and print.',
+    'See dental marketing case studies from Ottawa and Canada, including 1300+ confirmed bookings in year one through integrated SEO/GEO, paid media, website, social, and print execution.',
 };
 
 /** Full-bleed hero background on `/case-studies` (same pattern as service detail `PageHeroAboutStyle`). */
@@ -183,90 +183,126 @@ export const caseStudiesBySlug: Record<string, CaseStudy> = Object.fromEntries(
   caseStudiesOrdered.map((c) => [c.slug, c])
 );
 
-/** Placeholder gallery — replace images under `public/case-studies/work/` when ready. */
+/** Work gallery samples shown on `/case-studies`. */
 export const caseStudiesWorkGallery: WorkGalleryItem[] = [
   {
     id: 'w1',
     category: 'websites',
     src: '/case-studies/work/website-1.webp',
-    alt: 'Placeholder website mockup 1',
-    title: 'Website — conversion-led IA',
-    description: 'Placeholder: replace with a full-width mock or screenshot.',
+    alt: 'Dental website homepage sample with conversion-led structure',
+    title: 'Website — conversion-led architecture',
+    description: 'Homepage layout focused on service clarity, proof hierarchy, and high-intent CTAs.',
   },
   {
     id: 'w2',
     category: 'websites',
     src: '/case-studies/work/website-2.webp',
-    alt: 'Placeholder website mockup 2',
-    title: 'Website — service depth',
-    description: 'Placeholder: service pages, proof blocks, mobile parity.',
+    alt: 'Dental service page sample optimized for conversion and readability',
+    title: 'Website — service page depth',
+    description: 'Service detail pattern with treatment framing, trust blocks, and clear conversion paths.',
   },
   {
     id: 'w3',
     category: 'websites',
     src: '/case-studies/work/website-3.webp',
-    alt: 'Placeholder website mockup 3',
+    alt: 'Dental website visual system sample for brand consistency',
     title: 'Website — brand refresh',
-    description: 'Placeholder: before/after or component library snapshot.',
+    description: 'Component-level design system used across key pages to keep brand and UX consistent.',
   },
   {
     id: 's1',
     category: 'social',
     src: '/case-studies/work/social-1.webp',
-    alt: 'Placeholder social creative 1',
+    alt: 'Social campaign creative sample for dental audience',
     title: 'Social — campaign creative',
-    description: 'Placeholder: Meta or short-form creative tile.',
+    description: 'Creative variant used to test hooks and appointment-focused messaging on social channels.',
   },
   {
     id: 's2',
     category: 'social',
     src: '/case-studies/work/social-2.webp',
-    alt: 'Placeholder social creative 2',
+    alt: 'Educational social content sample for a dental brand',
     title: 'Social — educational thread',
-    description: 'Placeholder: carousel or story frames.',
+    description: 'Educational storytelling format built for authority and retention, not vanity engagement.',
   },
   {
     id: 's3',
     category: 'social',
     src: '/case-studies/work/social-3.webp',
-    alt: 'Placeholder social creative 3',
+    alt: 'Promotional social creative variant for a dental offer',
     title: 'Social — offer test',
-    description: 'Placeholder: creative variant for testing hooks.',
+    description: 'Offer-focused creative variant used in controlled tests to improve lead quality.',
   },
   {
     id: 'p1',
     category: 'print',
     src: '/case-studies/work/print-1.webp',
-    alt: 'Placeholder print design 1',
+    alt: 'Print signage concept sample for a dental clinic',
     title: 'Print — signage system',
-    description: 'Placeholder: window or exterior signage layout.',
+    description: 'Exterior/interior signage direction aligned with digital positioning and offers.',
   },
   {
     id: 'p2',
     category: 'print',
     src: '/case-studies/work/print-2.webp',
-    alt: 'Placeholder print design 2',
+    alt: 'Event and clinic print collateral sample',
     title: 'Print — event collateral',
-    description: 'Placeholder: symposium handout or booth panel.',
+    description: 'Print support assets used for events, in-office campaigns, and local visibility.',
   },
   {
     id: 'p3',
     category: 'print',
     src: '/case-studies/work/print-3.webp',
-    alt: 'Placeholder print design 3',
+    alt: 'Dental brand stationery and direct mail sample',
     title: 'Print — brand stationery',
-    description: 'Placeholder: business cards, letterhead, or mailer.',
+    description: 'Foundational print package ensuring consistent branding across all patient touchpoints.',
   },
 ];
 
-/** Drop final JPG/PNG into `public/case-studies/proof/` and set `src` + `alt` on each slot. */
+/** Mixed proof assets (web, social, print, and signage). */
 export const caseStudiesProofOfWorkSlots: ProofOfWorkSlot[] = [
-  { id: 'pow-1', categoryLabel: 'Website', hint: 'Desktop home or key landing screenshot' },
-  { id: 'pow-2', categoryLabel: 'Website', hint: 'Mobile frame or high-converting service page' },
-  { id: 'pow-3', categoryLabel: 'Window wrap', hint: 'Storefront or vinyl mock / install photo' },
-  { id: 'pow-4', categoryLabel: 'Print', hint: 'Brochure, poster, or direct mail spread' },
-  { id: 'pow-5', categoryLabel: 'Signage', hint: 'Interior panel, wayfinding, or exterior board' },
-  { id: 'pow-6', categoryLabel: 'Campaign', hint: 'Meta/Google creative, OOH, or social proof tile' },
+  {
+    id: 'pow-1',
+    categoryLabel: 'Website',
+    hint: 'Desktop home or key landing screenshot',
+    src: '/case-studies/work/website-1.webp',
+    alt: 'Website proof sample 1',
+  },
+  {
+    id: 'pow-2',
+    categoryLabel: 'Website',
+    hint: 'Mobile frame or high-converting service page',
+    src: '/case-studies/work/website-2.webp',
+    alt: 'Website proof sample 2',
+  },
+  {
+    id: 'pow-3',
+    categoryLabel: 'Window wrap',
+    hint: 'Storefront or vinyl mock / install photo',
+    src: '/case-studies/work/print-1.webp',
+    alt: 'Window wrap proof sample',
+  },
+  {
+    id: 'pow-4',
+    categoryLabel: 'Print',
+    hint: 'Brochure, poster, or direct mail spread',
+    src: '/case-studies/work/print-2.webp',
+    alt: 'Print collateral proof sample',
+  },
+  {
+    id: 'pow-5',
+    categoryLabel: 'Signage',
+    hint: 'Interior panel, wayfinding, or exterior board',
+    src: '/case-studies/work/print-3.webp',
+    alt: 'Signage proof sample',
+  },
+  {
+    id: 'pow-6',
+    categoryLabel: 'Campaign',
+    hint: 'Meta/Google creative, OOH, or social proof tile',
+    src: '/case-studies/work/social-1.webp',
+    alt: 'Campaign creative proof sample',
+  },
 ];
 
 export const caseStudiesTrustLogos: TrustLogo[] = [

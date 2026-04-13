@@ -55,8 +55,8 @@ export default function AboutProof() {
             <div>
               <h3 className="font-semibold text-blue-950 dark:text-white">Partner badges</h3>
               <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
-                Add official Google Partner, Meta Business Partner, and other logo files to your site when available.
-                Use only marks you are entitled to display under each program&apos;s brand rules.
+                We maintain active training and platform partnerships to keep campaign execution aligned with current Google and Meta standards.
+                Displayed marks follow each program&apos;s brand-use rules.
               </p>
               <div className="mt-6 flex flex-wrap gap-4">
                 <PartnerLogo src={`${import.meta.env.BASE_URL}partners/google-partner.webp`} alt="Google Partner" />

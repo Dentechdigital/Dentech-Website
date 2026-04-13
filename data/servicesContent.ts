@@ -38,9 +38,9 @@ export type ServiceDefinition = {
 };
 
 export const servicesHub = {
-  metaTitle: 'Dental marketing services',
+  metaTitle: 'Dental Marketing Services | Ottawa & Canada',
   metaDescription:
-    'Full-funnel dental marketing for Canadian practices: local SEO & GEO, Google Maps, paid ads, websites, social & content, print, and AI automation. Ottawa-based team, Canada-wide delivery.',
+    'Full-funnel dental marketing services for Ottawa and Canada: local SEO/GEO, Google Maps, paid ads, websites, social content, print, and AI automation for growth-focused clinics.',
   h1: 'Dental marketing services built for Canadian practices',
   intro:
     'From classic search and Maps to generative answers (AI Overviews, assistants, and answer engines), we help patients find and trust you—then book. One team connects strategy, creative, media, and engineering, headquartered in Ottawa with hybrid delivery across Canada.',
@@ -89,7 +89,7 @@ export const servicesHubFaq: ServiceFaqItem[] = [
   {
     question: 'Do you offer services in French?',
     answer:
-      'Yes—campaign languages can include English and French where your patients expect it, aligned with your brand and regulatory context.',
+      'Yes—campaign languages can include English, French, and Arabic where your patients expect it, aligned with your brand and regulatory context.',
   },
   {
     question: 'What makes Dentech different from a general marketing agency?',
@@ -108,7 +108,7 @@ export const servicesOrdered: ServiceDefinition[] = [
     shortDescription:
       'Classic rankings plus generative visibility: we tune your Google Business Profile, site, and entity signals so patients find you in Search, Maps, and AI-powered answers.',
     h1: 'Local SEO, GEO & Google Maps for dental practices',
-    metaTitle: 'Local SEO, GEO & Maps for dentists',
+    metaTitle: 'Local SEO, GEO & Maps for Dentists | Ottawa & Canada',
     metaDescription:
       'Dental local SEO, generative engine optimization (GEO), and Google Business Profile for Canadian practices. Maps visibility, traditional rankings, and accurate presence in AI search.',
     iconKey: 'map',
@@ -184,7 +184,7 @@ export const servicesOrdered: ServiceDefinition[] = [
     shortDescription:
       'Google and Meta campaigns built for dental margins—with tracking, creative testing, and clear reporting.',
     h1: 'Paid search & social ads for dental clinics',
-    metaTitle: 'Dental PPC & paid social (Google, Meta)',
+    metaTitle: 'Dental PPC & Paid Social Agency | Ottawa & Canada',
     metaDescription:
       'Performance-focused Google and Facebook/Instagram advertising for dental practices in Canada. Landing pages, tracking, creative testing, and transparent reporting.',
     iconKey: 'target',
@@ -253,7 +253,7 @@ export const servicesOrdered: ServiceDefinition[] = [
     shortDescription:
       'Fast, trustworthy sites that convert—with mobile-first UX, SEO- and GEO-ready structure so search and AI surfaces can understand your practice.',
     h1: 'Custom dental websites that convert',
-    metaTitle: 'Dental website design & development',
+    metaTitle: 'Dental Website Design Agency | Ottawa & Canada',
     metaDescription:
       'High-converting dental websites: mobile-first UX, Core Web Vitals, SEO and GEO-friendly structure, and clear calls to book. Custom builds for Canadian clinics.',
     iconKey: 'monitor',
@@ -322,7 +322,7 @@ export const servicesOrdered: ServiceDefinition[] = [
     shortDescription:
       'Strategy-first social and content that fits your brand—creative direction aligned with real appointment goals.',
     h1: 'Social media & content for dental practices',
-    metaTitle: 'Dental social media & content marketing',
+    metaTitle: 'Dental Social Media & Content Agency | Ottawa & Canada',
     metaDescription:
       'Social media strategy, creative direction, and content for Canadian dental practices. Brand-safe, conversion-aware posting—not generic filler.',
     iconKey: 'aperture',
@@ -391,7 +391,7 @@ export const servicesOrdered: ServiceDefinition[] = [
     shortDescription:
       'Neighborhood presence that matches your digital brand—postcards, flyers, and office collateral with clear CTAs.',
     h1: 'Print & direct mail for dental practices',
-    metaTitle: 'Dental print design & direct mail',
+    metaTitle: 'Dental Print Design & Direct Mail | Ottawa & Canada',
     metaDescription:
       'Print design and direct mail for dental clinics: new mover campaigns, reactivation, grand openings, and office collateral aligned with your digital brand.',
     iconKey: 'mail',
@@ -459,7 +459,7 @@ export const servicesOrdered: ServiceDefinition[] = [
     shortDescription:
       'Practical AI: chat, reminders, overflow coverage—implemented with privacy awareness and human oversight.',
     h1: 'AI & automation for dental front desks',
-    metaTitle: 'Dental AI receptionist & workflow automation',
+    metaTitle: 'Dental AI Receptionist & Automation | Ottawa & Canada',
     metaDescription:
       'AI-assisted chat, reminders, and operations automation for dental practices. Canadian privacy awareness, human escalation, and practical workflows.',
     iconKey: 'cpu',
@@ -538,7 +538,7 @@ export function servicePath(slug: string): string {
 
 /**
  * Hero collage filename under `public/services/{slug}/` (service detail pages only).
- * Placeholders can be swapped for service-specific artwork without code changes.
+ * Service artwork can be updated per slug without code changes.
  */
 export const serviceHeroCollageFilename: Record<string, string> = {
   'paid-ads': 'hero-collage-ads.webp',

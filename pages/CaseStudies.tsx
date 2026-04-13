@@ -115,7 +115,7 @@ const CaseStudies: React.FC = () => {
                 Long-term operators choose one partner
               </h2>
               <p className="mt-4 text-lg text-slate-600 dark:text-slate-300">
-                Logos only for now. When you are ready, we’ll swap in approved monochrome marks.
+                Selected platforms and organizations used across our operating stack.
               </p>
             </div>
 

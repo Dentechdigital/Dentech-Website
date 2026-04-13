@@ -19,7 +19,7 @@ export default function ContactSection() {
               <span className="text-blue-600 dark:text-blue-400">patient base?</span>
             </h2>
             <p className="mb-10 max-w-lg text-lg text-gray-600 dark:text-gray-300">
-              Get in touch with our team today for a free practice audit and discover how we can help you dominate your local market.
+              Share your current growth goals and constraints. We will map a practical action plan designed to increase qualified patient inquiries and improve conversion consistency.
             </p>
 
             <div className="space-y-8">

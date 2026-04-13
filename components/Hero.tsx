@@ -84,7 +84,7 @@ const Hero: React.FC = () => {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 shadow-sm transition-colors duration-300">
               <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-              <span className="text-[10px] font-medium text-gray-500 dark:text-gray-400 tracking-wide uppercase">Ottawa's #1 Dental Marketing Agency</span>
+              <span className="text-[10px] font-medium text-gray-500 dark:text-gray-400 tracking-wide uppercase">Ottawa-based dental growth partner</span>
             </div>
 
             {/* Headlines */}
@@ -98,7 +98,7 @@ const Hero: React.FC = () => {
                 </span>
               </h1>
               <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 font-light leading-relaxed max-w-lg mx-auto lg:mx-0 transition-colors duration-300">
-                Dentech helps Ottawa dental practices and DSOs attract more patients, dominate local search, and build a 5-star reputation.
+                Dentech helps Ottawa dental practices and Canadian groups generate qualified patient demand through SEO, GEO, paid media, conversion-focused websites, and reputation systems.
               </p>
             </div>
 

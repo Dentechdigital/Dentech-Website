@@ -40,8 +40,8 @@ export default function Services({ showSectionHeader = true }: ServicesProps) {
               </span>
             </h2>
             <p className="text-lg leading-relaxed text-gray-600 transition-colors duration-300 dark:text-gray-300">
-              We specialize exclusively in dental marketing. Our proven systems are designed to attract new patients,
-              increase case acceptance, and grow your revenue predictably.
+              We focus on dental marketing only. Strategy, creative, media, and web execution are aligned to one goal:
+              generate more qualified patient demand and stronger booking consistency.
             </p>
           </div>
         ) : null}

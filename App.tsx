@@ -12,6 +12,7 @@ const ServiceDetail = lazy(() => import('./pages/ServiceDetail'));
 const CaseStudies = lazy(() => import('./pages/CaseStudies'));
 const Contact = lazy(() => import('./pages/Contact'));
 const ClientPortal = lazy(() => import('./pages/ClientPortal'));
+const ChatWidget = lazy(() => import('./components/chat/ChatWidget'));
 
 function RouteScrollManager() {
   const { pathname, hash } = useLocation();
@@ -45,6 +46,57 @@ function RouteFallback() {
   );
 }
 
+function DeferredChatMount() {
+  const [ready, setReady] = React.useState(false);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const windowWithIdle = window as Window & {
+      requestIdleCallback?: (cb: () => void, options?: { timeout: number }) => number;
+      cancelIdleCallback?: (id: number) => void;
+    };
+
+    const reveal = () => setReady(true);
+    const onInteraction = () => {
+      reveal();
+      cleanup();
+    };
+
+    let idleHandle = 0;
+    let usingIdleCallback = false;
+    if (windowWithIdle.requestIdleCallback) {
+      usingIdleCallback = true;
+      idleHandle = windowWithIdle.requestIdleCallback(reveal, { timeout: 4500 });
+    } else {
+      idleHandle = window.setTimeout(reveal, 3000);
+    }
+
+    const cleanup = () => {
+      window.removeEventListener('pointerdown', onInteraction);
+      window.removeEventListener('keydown', onInteraction);
+    };
+
+    window.addEventListener('pointerdown', onInteraction, { once: true });
+    window.addEventListener('keydown', onInteraction, { once: true });
+
+    return () => {
+      cleanup();
+      if (usingIdleCallback && windowWithIdle.cancelIdleCallback) {
+        windowWithIdle.cancelIdleCallback(idleHandle);
+      } else {
+        window.clearTimeout(idleHandle);
+      }
+    };
+  }, []);
+
+  if (!ready) return null;
+  return (
+    <Suspense fallback={null}>
+      <ChatWidget />
+    </Suspense>
+  );
+}
+
 const App: React.FC = () => {
   return (
     <ThemeProvider defaultTheme="light" storageKey="dentech-theme">
@@ -67,6 +119,7 @@ const App: React.FC = () => {
               </Suspense>
             </main>
             <Footer />
+            <DeferredChatMount />
           </div>
         </Router>
       </HelmetProvider>

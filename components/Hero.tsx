@@ -55,6 +55,9 @@ const Hero: React.FC = () => {
           background-size: 180% 100%;
           animation: textShine 3.8s ease-in-out infinite alternate;
           -webkit-text-fill-color: transparent;
+          -webkit-box-decoration-break: clone;
+          box-decoration-break: clone;
+          padding-right: 0.06em;
           text-shadow: 0 0 24px rgba(59, 130, 246, 0.18);
         }
         @media (max-width: 640px) {

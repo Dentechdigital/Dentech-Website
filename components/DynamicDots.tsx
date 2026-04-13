@@ -11,16 +11,18 @@ const DynamicDots: React.FC = () => {
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const isMobile = window.matchMedia('(max-width: 768px)').matches;
-    // `any-pointer` is more reliable across mice/trackpads than `pointer` on some browsers.
-    const finePointer = window.matchMedia('(any-pointer: fine)').matches;
-    const hoverCapable = window.matchMedia('(hover: hover)').matches;
-    const interactivePointer = finePointer && hoverCapable;
+    // Detect desktop-class input with a broad fallback so interaction works across browsers/trackpads.
+    const finePointer =
+      window.matchMedia('(any-pointer: fine)').matches || window.matchMedia('(pointer: fine)').matches;
+    const coarseOnly =
+      window.matchMedia('(any-pointer: coarse)').matches && !window.matchMedia('(any-pointer: fine)').matches;
+    const interactivePointer = finePointer || (!isMobile && !coarseOnly);
 
     let animationFrameId = 0;
     let mouse = { x: -1000, y: -1000 };
     let targetMouse = { x: -1000, y: -1000 };
 
-    const handlePointerMove = (e: PointerEvent) => {
+    const handlePointerMove = (e: MouseEvent | PointerEvent) => {
       const rect = canvas.getBoundingClientRect();
       targetMouse.x = e.clientX - rect.left;
       targetMouse.y = e.clientY - rect.top;
@@ -34,6 +36,8 @@ const DynamicDots: React.FC = () => {
     if (interactivePointer) {
       window.addEventListener('pointermove', handlePointerMove);
       window.addEventListener('pointerleave', handlePointerLeave);
+      window.addEventListener('mousemove', handlePointerMove);
+      window.addEventListener('mouseleave', handlePointerLeave);
       window.addEventListener('blur', handlePointerLeave);
     }
 
@@ -110,6 +114,8 @@ const DynamicDots: React.FC = () => {
         window.removeEventListener('resize', resize);
         window.removeEventListener('pointermove', handlePointerMove);
         window.removeEventListener('pointerleave', handlePointerLeave);
+        window.removeEventListener('mousemove', handlePointerMove);
+        window.removeEventListener('mouseleave', handlePointerLeave);
         window.removeEventListener('blur', handlePointerLeave);
       };
     }
@@ -136,6 +142,8 @@ const DynamicDots: React.FC = () => {
       window.removeEventListener('resize', resize);
       window.removeEventListener('pointermove', handlePointerMove);
       window.removeEventListener('pointerleave', handlePointerLeave);
+      window.removeEventListener('mousemove', handlePointerMove);
+      window.removeEventListener('mouseleave', handlePointerLeave);
       window.removeEventListener('blur', handlePointerLeave);
       cancelAnimationFrame(animationFrameId);
     };

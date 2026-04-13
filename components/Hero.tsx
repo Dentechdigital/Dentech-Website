@@ -147,9 +147,9 @@ const Hero: React.FC = () => {
                   className="pointer-events-none absolute -right-9 sm:-right-12 top-1/2 hidden -translate-y-1/2 text-blue-400 dark:text-blue-400 sm:block"
                   style={{ animation: 'arrowDriftX 2.8s ease-in-out infinite' }}
                 >
-                  <svg viewBox="0 0 96 36" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-8 w-16 drop-shadow-sm">
-                    <path d="M86 18H20" stroke="currentColor" strokeWidth="5.5" strokeLinecap="round" />
-                    <path d="M30 8L18 18L30 28" stroke="currentColor" strokeWidth="5.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 drop-shadow-sm">
+                    <path d="M84 16 Q84 58 30 74" stroke="currentColor" strokeWidth="6" strokeLinecap="round" fill="none" />
+                    <path d="M46 58 L28 74 L50 88" stroke="currentColor" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                   </svg>
                 </div>
               </div>

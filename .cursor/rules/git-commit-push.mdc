@@ -1,15 +1,15 @@
 ---
-description: 
+description: Always commit and push after each completed code/content change without asking.
 alwaysApply: true
 ---
 
-# Git : commit et push automatiques
+# Git: automatic commit and push
 
-Dès qu’une tâche de code ou de contenu est terminée et que le build / les lints sont OK quand c’est pertinent :
+After every completed code or content change, and once build/lint checks pass when relevant:
 
-1. Exécuter `git add` sur les fichiers concernés, puis `git commit` avec un message clair en anglais (phrase complète, contexte du changement).
-2. Exécuter `git push` vers la branche courante (souvent `main`).
+1. Run `git add` on the relevant files, then `git commit` with a clear English message (full sentence, change context).
+2. Run `git push` to the current branch (usually `main`).
 
-Ne pas attendre une confirmation explicite de l’utilisateur pour commit ou push, sauf si la demande porte uniquement sur une exploration ou une lecture sans modification.
+Do not wait for explicit user confirmation before commit or push, unless the request is read-only exploration with no modifications.
 
-Si le dépôt n’a pas de remote ou si `push` échoue (auth, réseau), indiquer l’erreur et ce qui reste à faire.
+If the repository has no remote, or if `push` fails (auth/network), report the error and what remains to be done.

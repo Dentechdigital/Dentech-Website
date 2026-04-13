@@ -56,7 +56,10 @@ function ChatWidgetInner() {
   }, [location.pathname, location.hash]);
 
   return (
-    <div className="pointer-events-none fixed bottom-4 right-4 z-40 flex flex-col items-end sm:bottom-6 sm:right-6">
+    <div
+      className="pointer-events-none fixed right-2 z-40 flex flex-col items-end sm:right-6"
+      style={{ bottom: 'max(0.75rem, env(safe-area-inset-bottom))' }}
+    >
       <ChatTeaser
         visible={showTeaser && !open}
         onClick={() => {

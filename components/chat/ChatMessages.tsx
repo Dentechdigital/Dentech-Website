@@ -14,14 +14,14 @@ export default function ChatMessages({ messages, loading }: Props) {
   }, [messages, loading]);
 
   return (
-    <div className="h-[18.5rem] overflow-y-auto rounded-xl border border-slate-200 bg-white p-3 dark:border-slate-700 dark:bg-slate-900">
+    <div className="h-full min-h-[13.5rem] overflow-y-auto rounded-xl border border-slate-200 bg-white/90 p-3 dark:border-slate-700 dark:bg-slate-900/90">
       <div className="space-y-3">
         {messages.map((message) => (
           <div key={message.id} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
             <div
               className={`max-w-[86%] rounded-2xl px-3 py-2 text-sm leading-relaxed ${
                 message.role === 'user'
-                  ? 'bg-blue-600 text-white'
+                  ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white'
                   : 'bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-100'
               }`}
             >

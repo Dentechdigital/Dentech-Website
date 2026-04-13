@@ -13,7 +13,7 @@ const IMAGE_RE = /\.(png|jpe?g)$/i;
 
 /** Resize masters for srcset (paths relative to repo root). */
 const RESPONSIVE_WEBP = [
-  { file: 'public/dentist-cutout.webp', widths: [480, 800] },
+  { file: 'public/dentist-cutout.webp', widths: [480, 640, 800], quality: 72 },
   { file: 'public/avatar.webp', widths: [80, 160] },
 ];
 
@@ -39,7 +39,7 @@ for (const input of rasterSources) {
   console.log('ok', path.relative(process.cwd(), input), '->', path.relative(process.cwd(), output));
 }
 
-for (const { file, widths } of RESPONSIVE_WEBP) {
+for (const { file, widths, quality = 80 } of RESPONSIVE_WEBP) {
   const input = path.resolve(file);
   if (!existsSync(input)) {
     console.warn('skip responsive (missing):', file);
@@ -51,7 +51,7 @@ for (const { file, widths } of RESPONSIVE_WEBP) {
     const outPath = path.join(dir, `${base}-${w}w.webp`);
     await sharp(input)
       .resize({ width: w, withoutEnlargement: true })
-      .webp({ quality: 80, effort: 6 })
+      .webp({ quality, effort: 6 })
       .toFile(outPath);
     console.log('ok responsive', path.relative(process.cwd(), outPath));
   }

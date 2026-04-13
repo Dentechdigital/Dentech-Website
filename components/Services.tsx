@@ -68,6 +68,8 @@ export default function Services({ showSectionHeader = true }: ServicesProps) {
                     src={service.cardBgImage}
                     alt=""
                     className="h-full w-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110"
+                    loading="lazy"
+                    decoding="async"
                     referrerPolicy="no-referrer"
                   />
                 </div>

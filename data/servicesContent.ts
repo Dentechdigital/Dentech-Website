@@ -98,8 +98,8 @@ export const servicesHubFaq: ServiceFaqItem[] = [
   },
 ];
 
-const unsplash = (id: string, w = 800) =>
-  `https://images.unsplash.com/${id}?auto=format&fit=crop&q=80&w=${w}`;
+const unsplash = (id: string, w = 640) =>
+  `https://images.unsplash.com/${id}?auto=format&fit=crop&q=70&w=${w}`;
 
 export const servicesOrdered: ServiceDefinition[] = [
   {

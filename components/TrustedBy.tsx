@@ -5,26 +5,36 @@ const clients = [
     name: 'The Smile Doctors',
     logoSrc: '/partners/smile-doctors.webp',
     logoClass: 'h-10 sm:h-12',
+    width: 420,
+    height: 99,
   },
   {
     name: 'Riverside Orthodontics',
     logoSrc: '/partners/riverside-orthodontics.webp',
     logoClass: 'h-10 sm:h-12',
+    width: 420,
+    height: 108,
   },
   {
     name: 'Luminara Dental',
     logoSrc: '/partners/luminara-dental.webp',
     logoClass: 'h-10 sm:h-12',
+    width: 420,
+    height: 118,
   },
   {
     name: 'Kanata Family Dentistry',
     logoSrc: '/partners/kanata-family-dentistry.webp',
     logoClass: 'h-12 sm:h-14',
+    width: 420,
+    height: 140,
   },
   {
     name: 'Dentistry @ Kanata',
     logoSrc: '/partners/delta-medico-esthetique.webp',
     logoClass: 'h-16 sm:h-20',
+    width: 420,
+    height: 140,
   },
 ];
 
@@ -47,8 +57,12 @@ export default function TrustedBy() {
               <img
                 src={client.logoSrc}
                 alt={client.name}
+                width={client.width}
+                height={client.height}
                 className={`${client.logoClass} w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]`}
                 style={{ filter: 'brightness(0) invert(1) saturate(0) contrast(1.08)' }}
+                loading="lazy"
+                decoding="async"
               />
             </div>
           ))}

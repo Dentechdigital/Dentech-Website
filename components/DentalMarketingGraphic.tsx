@@ -87,8 +87,8 @@ const DentalMarketingGraphic: React.FC = () => {
         */}
         <img
           src={`${base}dentist-cutout.webp`}
-          srcSet={`${base}dentist-cutout-480w.webp 480w, ${base}dentist-cutout-800w.webp 800w, ${base}dentist-cutout.webp 1000w`}
-          sizes="(max-width: 640px) 92vw, (max-width: 1024px) min(420px, 45vw), min(460px, 28vw)"
+          srcSet={`${base}dentist-cutout-480w.webp 480w, ${base}dentist-cutout-640w.webp 640w, ${base}dentist-cutout-800w.webp 800w, ${base}dentist-cutout.webp 1000w`}
+          sizes="(max-width: 640px) 88vw, (max-width: 1024px) min(380px, 42vw), min(420px, 26vw)"
           alt="Professional Dentist"
           width={1000}
           height={1000}

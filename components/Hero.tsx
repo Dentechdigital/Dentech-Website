@@ -51,6 +51,11 @@ const Hero: React.FC = () => {
           0% { background-position: 0% 50%; }
           100% { background-position: 100% 50%; }
         }
+        @keyframes arrowDriftX {
+          0% { transform: translateX(0); }
+          50% { transform: translateX(8px); }
+          100% { transform: translateX(0); }
+        }
         .animate-text-shine {
           background-size: 180% 100%;
           animation: textShine 3.8s ease-in-out infinite alternate;
@@ -138,10 +143,13 @@ const Hero: React.FC = () => {
                 </a>
                 
                 {/* Hand-drawn Arrow pointing to Let's talk */}
-                <div className="absolute -right-8 sm:-right-12 top-1 sm:top-0 w-12 h-12 sm:w-16 sm:h-16 text-blue-400 dark:text-blue-400 pointer-events-none hidden sm:block animate-bounce" style={{ animationDuration: '3s' }}>
-                  <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-sm">
-                    <path d="M80,10 Q80,60 20,80" stroke="currentColor" strokeWidth="6" strokeLinecap="round" fill="none" />
-                    <path d="M40,60 L20,80 L45,95" stroke="currentColor" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                <div
+                  className="pointer-events-none absolute -right-9 sm:-right-12 top-1/2 hidden -translate-y-1/2 text-blue-400 dark:text-blue-400 sm:block"
+                  style={{ animation: 'arrowDriftX 2.8s ease-in-out infinite' }}
+                >
+                  <svg viewBox="0 0 96 36" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-8 w-16 drop-shadow-sm">
+                    <path d="M86 18H20" stroke="currentColor" strokeWidth="5.5" strokeLinecap="round" />
+                    <path d="M30 8L18 18L30 28" stroke="currentColor" strokeWidth="5.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
               </div>

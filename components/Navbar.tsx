@@ -35,6 +35,12 @@ const Navbar: React.FC = () => {
   const isActive = (path: string) => location.pathname === path;
   const isServicesActive = location.pathname === '/services' || location.pathname.startsWith('/services/');
   const isHomePage = location.pathname === '/';
+  const closeMobileMenu = () => setIsMobileMenuOpen(false);
+
+  // Safety: ensure menu closes after any route change.
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname, location.hash]);
 
   // Determine navbar styling based on scroll state and current page
   const navClasses = `fixed w-full z-50 top-0 transition-all duration-300 ${
@@ -179,19 +185,19 @@ const Navbar: React.FC = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white dark:bg-slate-950 border-t border-gray-100 dark:border-slate-800 shadow-xl absolute w-full">
           <div className="px-4 pt-2 pb-6 space-y-1 sm:px-6">
-            <Link to="/" className="block px-3 py-3 rounded-lg text-base font-semibold text-blue-950 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors">Home</Link>
-            <Link to="/about" className="block px-3 py-3 rounded-lg text-base font-semibold text-blue-950 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors">About</Link>
-            <Link to="/services" className="block px-3 py-3 rounded-lg text-base font-semibold text-blue-950 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors">Services</Link>
+            <Link to="/" onClick={closeMobileMenu} className="block px-3 py-3 rounded-lg text-base font-semibold text-blue-950 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors">Home</Link>
+            <Link to="/about" onClick={closeMobileMenu} className="block px-3 py-3 rounded-lg text-base font-semibold text-blue-950 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors">About</Link>
+            <Link to="/services" onClick={closeMobileMenu} className="block px-3 py-3 rounded-lg text-base font-semibold text-blue-950 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors">Services</Link>
             <div className="pl-4 space-y-1 border-l-2 border-gray-100 dark:border-slate-800 ml-3 my-2">
               {services.map((service) => (
-                <Link key={service.name} to={service.path} className="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors">
+                <Link key={service.name} to={service.path} onClick={closeMobileMenu} className="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors">
                   {service.name}
                 </Link>
               ))}
             </div>
-            <Link to="/case-studies" className="block px-3 py-3 rounded-lg text-base font-semibold text-blue-950 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors">Case Studies</Link>
-            <Link to="/contact" className="block px-3 py-3 rounded-lg text-base font-semibold text-blue-950 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors">Contact</Link>
-            <Link to="/portal" className="flex items-center justify-center space-x-2 w-full mt-6 px-4 py-3 rounded-xl text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 shadow-md transition-colors">
+            <Link to="/case-studies" onClick={closeMobileMenu} className="block px-3 py-3 rounded-lg text-base font-semibold text-blue-950 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors">Case Studies</Link>
+            <Link to="/contact" onClick={closeMobileMenu} className="block px-3 py-3 rounded-lg text-base font-semibold text-blue-950 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors">Contact</Link>
+            <Link to="/portal" onClick={closeMobileMenu} className="flex items-center justify-center space-x-2 w-full mt-6 px-4 py-3 rounded-xl text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 shadow-md transition-colors">
               <UserCircle className="w-5 h-5" />
               <span>Client Portal Login</span>
             </Link>

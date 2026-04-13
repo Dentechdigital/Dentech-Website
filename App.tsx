@@ -1,5 +1,5 @@
-import React, { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { Suspense, lazy, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from './components/ThemeProvider';
 import Navbar from './components/Navbar';
@@ -12,6 +12,25 @@ const ServiceDetail = lazy(() => import('./pages/ServiceDetail'));
 const CaseStudies = lazy(() => import('./pages/CaseStudies'));
 const Contact = lazy(() => import('./pages/Contact'));
 const ClientPortal = lazy(() => import('./pages/ClientPortal'));
+
+function RouteScrollManager() {
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const id = hash.replace('#', '');
+      // Defer until route content is painted, then scroll to anchored section when explicitly requested.
+      requestAnimationFrame(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: 'auto', block: 'start' });
+      });
+      return;
+    }
+    // Default behavior for cross-page navigation: always start at hero/top.
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [pathname, hash]);
+
+  return null;
+}
 
 function RouteFallback() {
   return (
@@ -31,6 +50,7 @@ const App: React.FC = () => {
     <ThemeProvider defaultTheme="light" storageKey="dentech-theme">
       <HelmetProvider>
         <Router>
+          <RouteScrollManager />
           <div className="flex min-h-screen flex-col bg-[#FAFAF9] transition-colors duration-300 dark:bg-slate-950">
             <Navbar />
             <main className="flex-grow">

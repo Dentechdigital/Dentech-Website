@@ -62,8 +62,6 @@ const BlogPost: React.FC = () => {
           badge={`Blog · Published ${formatDate(post.publishedAt)}`}
           title={post.title}
           description={post.metaDescription}
-          heroImageSrc={post.heroImageSrc}
-          heroImageClassName={post.heroImageClassName}
           breadcrumb={
             <nav aria-label="Breadcrumb" className="text-sm text-slate-600 dark:text-slate-400">
               <Link to="/" className="font-medium hover:text-blue-600 dark:hover:text-blue-400">
@@ -109,6 +107,7 @@ const BlogPost: React.FC = () => {
                 heading="Frequently asked questions"
                 subheading="Quick answers related to this topic."
                 items={post.faq}
+                embedded
               />
             </div>
 

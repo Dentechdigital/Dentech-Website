@@ -8,24 +8,6 @@ type Props = {
   className?: string;
 };
 
-function MarkdownImg({
-  src,
-  alt,
-  className,
-  ...rest
-}: React.ImgHTMLAttributes<HTMLImageElement>) {
-  return (
-    <img
-      src={src}
-      alt={alt ?? ''}
-      loading="lazy"
-      decoding="async"
-      className={`my-8 w-full rounded-2xl border border-slate-200/80 shadow-sm dark:border-slate-700 ${className ?? ''}`}
-      {...rest}
-    />
-  );
-}
-
 function MarkdownLink({
   href,
   children,
@@ -52,7 +34,6 @@ export default function BlogMarkdown({ markdown, className }: Props) {
         remarkPlugins={[remarkGfm]}
         components={{
           a: MarkdownLink,
-          img: MarkdownImg,
         }}
       >
         {markdown}

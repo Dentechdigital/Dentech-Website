@@ -49,24 +49,11 @@ const Blog: React.FC = () => {
               </p>
             </div>
 
-            <ul className="mx-auto mt-12 grid max-w-6xl gap-6 sm:grid-cols-2">
+            <ul className="mx-auto mt-12 grid max-w-7xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
               {blogPosts.map((post) => (
                 <li key={post.slug}>
-                  <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-slate-50/80 shadow-sm transition hover:border-blue-200 hover:shadow-md dark:border-slate-700 dark:bg-slate-800/50 dark:hover:border-blue-700/50">
-                    {post.cardImageSrc ? (
-                      <Link to={`/blog/${post.slug}`} className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900">
-                        <img
-                          src={post.cardImageSrc}
-                          alt={post.heroImageAlt}
-                          width={800}
-                          height={450}
-                          loading="lazy"
-                          decoding="async"
-                          className="aspect-[16/9] w-full object-cover"
-                        />
-                      </Link>
-                    ) : null}
-                    <div className="flex flex-1 flex-col p-6">
+                  <article className="flex h-full flex-col rounded-2xl border border-slate-200/80 bg-slate-50/80 p-6 shadow-sm transition hover:border-blue-200 hover:shadow-md dark:border-slate-700 dark:bg-slate-800/50 dark:hover:border-blue-700/50">
+                    <div className="flex flex-1 flex-col">
                       <div className="flex items-center gap-2 text-xs font-medium text-slate-500 dark:text-slate-400">
                         <Calendar className="h-3.5 w-3.5" aria-hidden />
                         <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>

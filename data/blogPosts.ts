@@ -15,6 +15,7 @@ import {
   postContentStrategy,
   postMarketingCalendar,
 } from './blog/articles/articles-08-10';
+import { postCallAnswerTraining, postHiringMarketingAgency } from './blog/articles/articles-11-12';
 
 const all: BlogPost[] = [
   postLocalSeoCanada,
@@ -27,6 +28,8 @@ const all: BlogPost[] = [
   postContentStrategy,
   postAnalyticsAttribution,
   postMarketingCalendar,
+  postCallAnswerTraining,
+  postHiringMarketingAgency,
 ];
 
 /** Sorted newest first */

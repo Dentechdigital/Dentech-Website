@@ -12,11 +12,6 @@ export const postWebsiteConversion: BlogPost = {
     'dental booking UX',
     'mobile dental website Canada',
   ],
-  heroImageAlt: 'Responsive dental clinic website mockup on phone and desktop',
-  heroImageSrc: '/services/websites/hero-collage-websites.webp',
-  heroImageClassName:
-    'object-cover object-[26%_center] sm:object-[30%_center] lg:object-[34%_center]',
-  cardImageSrc: '/services/websites/hero-collage-websites.webp',
   faq: [
     {
       question: 'What is a good conversion rate for a dental website?',
@@ -51,8 +46,6 @@ export const postWebsiteConversion: BlogPost = {
 This article is for teams who want **practical improvements** without guaranteed multiples on revenue. Your results depend on traffic quality, scheduling capacity, and how well your front desk converts inquiries.
 
 Most practices already have the right *clinical* story; the gap is usually **clarity** (what to do next), **speed** (especially on cellular networks), and **trust** (who you are, in human language). The sections below walk through a realistic week of fixes you can prioritize without a full redesign.
-
-![Website and digital presence collage for dental practices](/services/websites/hero-collage-websites.webp)
 
 ## Booking-first mobile layout
 
@@ -114,11 +107,6 @@ export const postMultiLocation: BlogPost = {
     'dental group local landing pages',
     'DSO local SEO Canada',
   ],
-  heroImageAlt: 'Map pins representing multiple dental clinic locations in a region',
-  heroImageSrc: '/services/local-seo/hero-collage-seo.webp',
-  heroImageClassName:
-    'object-cover object-[30%_center] sm:object-[34%_center] lg:object-[38%_center]',
-  cardImageSrc: '/services/local-seo/hero-collage-seo.webp',
   faq: [
     {
       question: 'One website or microsites per location?',
@@ -151,8 +139,6 @@ export const postMultiLocation: BlogPost = {
   bodyMarkdown: `Growing from **one chair** to **many locations** changes how you think about search. Brand queries grow, but **local relevance** still wins “near me” intent. **Dentech Digital** helps **Canadian dental groups** structure sites and listings so each location can compete without confusing patients—or Google.
 
 The hardest part is rarely the first location page—it is **keeping every listing, phone tree, and URL pattern coherent** after hiring, acquisitions, and rebrands. Think of local SEO for groups as **governance + templates + local proof**, not a one-time project.
-
-![Local SEO and maps visibility collage](/services/local-seo/hero-collage-seo.webp)
 
 ## Brand search vs local intent
 
@@ -213,11 +199,6 @@ export const postReputationReviews: BlogPost = {
     'Google reviews dental clinic',
     'reputation management dentistry Canada',
   ],
-  heroImageAlt: 'Dental reception area with welcoming atmosphere for patients',
-  heroImageSrc: '/services/social-content/hero-collage-social.webp',
-  heroImageClassName:
-    'object-cover object-[24%_center] sm:object-[28%_center] lg:object-[32%_center]',
-  cardImageSrc: '/services/social-content/hero-collage-social.webp',
   faq: [
     {
       question: 'Can we ask every patient for a review?',
@@ -252,8 +233,6 @@ export const postReputationReviews: BlogPost = {
 **Dentech Digital** treats reputation as part of **patient experience**, not a gimmick. This playbook fits **Ottawa** metros and national groups alike.
 
 If your team feels awkward “asking for stars,” reframe it as **inviting honest feedback** at the right moment—after a smooth visit, clear billing conversation, or successful follow-up. The platforms reward **recency and volume over time**, not one lucky weekend.
-
-![Social and content marketing collage](/services/social-content/hero-collage-social.webp)
 
 ## When to ask
 
@@ -305,11 +284,6 @@ export const postPrivacyMarketing: BlogPost = {
     'dental clinic privacy compliance Canada',
     'health marketing consent',
   ],
-  heroImageAlt: 'Secure computer workspace representing privacy-conscious digital marketing',
-  heroImageSrc: '/services/ai-automation/hero-collage-ai.webp',
-  heroImageClassName:
-    'object-cover object-[22%_center] sm:object-[26%_center] lg:object-[30%_center]',
-  cardImageSrc: '/services/ai-automation/hero-collage-ai.webp',
   faq: [
     {
       question: 'Is this article legal advice?',
@@ -344,8 +318,6 @@ export const postPrivacyMarketing: BlogPost = {
 **Important:** This article is **not legal advice**. **Dentech Digital** implements technical marketing systems; your lawyer and privacy advisor should approve policies for your practice.
 
 Teams often discover privacy questions when they add **chat widgets**, **call tracking**, or **AI-assisted triage**. The right sequence is: inventory data flows first, then choose vendors, then turn on automation—not the reverse.
-
-![Automation and systems collage for dental marketing](/services/ai-automation/hero-collage-ai.webp)
 
 ## Practical starting points
 

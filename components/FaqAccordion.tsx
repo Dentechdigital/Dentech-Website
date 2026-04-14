@@ -14,6 +14,11 @@ type FaqAccordionProps = {
   heading: string;
   subheading?: string;
   className?: string;
+  /**
+   * Lighter layout: no section/card fills or decorative background—use inside articles
+   * or other already-framed pages.
+   */
+  embedded?: boolean;
 };
 
 function useLgBreakpoint() {
@@ -38,12 +43,14 @@ function FaqCard({
   isOpen,
   onToggle,
   idPrefix,
+  embedded,
 }: {
   item: FaqAccordionItem;
   index: number;
   isOpen: boolean;
   onToggle: (index: number) => void;
   idPrefix: string;
+  embedded: boolean;
 }) {
   const panelId = `${idPrefix}-panel-${index}`;
   const triggerId = `${idPrefix}-trigger-${index}`;
@@ -53,10 +60,14 @@ function FaqCard({
     onToggle(index);
   };
 
+  const cardSurface = embedded
+    ? 'border-slate-200/80 bg-transparent open:shadow-none hover:shadow-none dark:border-slate-600/80 dark:bg-transparent'
+    : 'border-slate-200/90 bg-[#FAFAF9]/90 open:shadow-md hover:shadow-md dark:border-slate-700 dark:bg-slate-800/50 dark:open:shadow-slate-900/50 dark:hover:shadow-slate-900/50';
+
   return (
     <details
       open={isOpen}
-      className="group overflow-hidden rounded-2xl border border-slate-200/90 bg-[#FAFAF9]/90 transition-shadow open:shadow-md hover:shadow-md dark:border-slate-700 dark:bg-slate-800/50 dark:open:shadow-slate-900/50 dark:hover:shadow-slate-900/50"
+      className={`group overflow-hidden rounded-2xl border transition-shadow ${cardSurface}`}
     >
       <summary
         id={triggerId}
@@ -95,6 +106,7 @@ export default function FaqAccordion({
   heading,
   subheading,
   className = '',
+  embedded = false,
 }: FaqAccordionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const isLg = useLgBreakpoint();
@@ -111,21 +123,52 @@ export default function FaqAccordion({
 
   return (
     <section
-      className={`relative overflow-hidden bg-white py-16 dark:bg-slate-950 md:py-20 ${className}`}
+      className={
+        embedded
+          ? `relative ${className}`
+          : `relative overflow-hidden bg-white py-16 dark:bg-slate-950 md:py-20 ${className}`
+      }
       aria-labelledby={headingId}
     >
-      <div className="pointer-events-none absolute -top-20 right-0 h-64 w-64 rounded-full bg-blue-100/50 blur-3xl dark:bg-blue-500/10" />
+      {!embedded ? (
+        <div className="pointer-events-none absolute -top-20 right-0 h-64 w-64 rounded-full bg-blue-100/50 blur-3xl dark:bg-blue-500/10" />
+      ) : null}
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto mb-10 max-w-3xl text-center">
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-blue-700 dark:border-blue-500/30 dark:bg-blue-500/10 dark:text-blue-300">
-            <HelpCircle className="h-4 w-4" />
-            <span>{badgeText}</span>
-          </div>
-          <h2 id={headingId} className="mb-3 text-3xl font-bold tracking-tight text-blue-950 dark:text-white md:text-4xl">
+      <div className={embedded ? 'relative z-10' : 'relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'}>
+        <div
+          className={
+            embedded
+              ? 'mb-8 max-w-none text-left'
+              : 'mx-auto mb-10 max-w-3xl text-center'
+          }
+        >
+          {!embedded ? (
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-blue-700 dark:border-blue-500/30 dark:bg-blue-500/10 dark:text-blue-300">
+              <HelpCircle className="h-4 w-4" />
+              <span>{badgeText}</span>
+            </div>
+          ) : null}
+          <h2
+            id={headingId}
+            className={
+              embedded
+                ? 'mb-2 text-xl font-semibold tracking-tight text-blue-950 dark:text-white md:text-2xl'
+                : 'mb-3 text-3xl font-bold tracking-tight text-blue-950 dark:text-white md:text-4xl'
+            }
+          >
             {heading}
           </h2>
-          {subheading ? <p className="text-lg text-gray-600 dark:text-gray-300">{subheading}</p> : null}
+          {subheading ? (
+            <p
+              className={
+                embedded
+                  ? 'text-base text-slate-600 dark:text-slate-400'
+                  : 'text-lg text-gray-600 dark:text-gray-300'
+              }
+            >
+              {subheading}
+            </p>
+          ) : null}
         </div>
 
         {isLg ? (
@@ -139,6 +182,7 @@ export default function FaqAccordion({
                   isOpen={openIndex === index}
                   onToggle={handleAccordionToggle}
                   idPrefix={idPrefix}
+                  embedded={embedded}
                 />
               ))}
             </div>
@@ -151,6 +195,7 @@ export default function FaqAccordion({
                   isOpen={openIndex === index}
                   onToggle={handleAccordionToggle}
                   idPrefix={idPrefix}
+                  embedded={embedded}
                 />
               ))}
             </div>
@@ -165,6 +210,7 @@ export default function FaqAccordion({
                 isOpen={openIndex === index}
                 onToggle={handleAccordionToggle}
                 idPrefix={idPrefix}
+                embedded={embedded}
               />
             ))}
           </div>

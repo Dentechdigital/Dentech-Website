@@ -12,11 +12,6 @@ export const postContentStrategy: BlogPost = {
     'dental service page SEO',
     'dental blog strategy',
   ],
-  heroImageAlt: 'Content calendar and dental marketing notes on a desk',
-  heroImageSrc: '/services/social-content/hero-collage-social.webp',
-  heroImageClassName:
-    'object-cover object-[24%_center] sm:object-[28%_center] lg:object-[32%_center]',
-  cardImageSrc: '/services/social-content/hero-collage-social.webp',
   faq: [
     {
       question: 'Should we blog weekly?',
@@ -49,8 +44,6 @@ export const postContentStrategy: BlogPost = {
   bodyMarkdown: `Content is not “extra”—it is how patients and search engines **understand what you do**. **Dentech Digital** helps **Canadian dental clinics** invest in the right mix of **service pages**, **blogs**, and **FAQs** so you do not churn low-value articles while core pages stay thin.
 
 The mistake we see most often is a busy **editorial calendar** paired with **thin service pages**—so traffic lands on blog posts that cannot convert because the money pages still read like a brochure from 2012. Flip the priority: **depth where revenue is decided**, then support with education that links back cleanly.
-
-![Social and content strategy collage](/services/social-content/hero-collage-social.webp)
 
 ## Service pages: your revenue spine
 
@@ -101,11 +94,6 @@ export const postAnalyticsAttribution: BlogPost = {
     'call tracking dental marketing',
     'dental CRM attribution',
   ],
-  heroImageAlt: 'Analytics dashboard showing marketing metrics for a healthcare practice',
-  heroImageSrc: '/services/paid-ads/hero-collage-ads.webp',
-  heroImageClassName:
-    'object-cover object-[28%_center] sm:object-[32%_center] lg:object-[36%_center]',
-  cardImageSrc: '/services/paid-ads/hero-collage-ads.webp',
   faq: [
     {
       question: 'Do I need call tracking?',
@@ -138,8 +126,6 @@ export const postAnalyticsAttribution: BlogPost = {
   bodyMarkdown: `If you cannot **see** which messages drive **booked patients**, you optimize for clicks. **Dentech Digital** builds measurement plans for **Canadian dental clinics** that respect **privacy** and front-desk reality.
 
 Dashboards are only useful when someone owns the **interpretation**: why did calls spike—seasonality, a new associate, a promo, or a tracking change? Start with a short narrative each month, not twenty slides.
-
-![Paid media and performance collage](/services/paid-ads/hero-collage-ads.webp)
 
 ## Start with decisions, not tools
 
@@ -193,11 +179,6 @@ export const postMarketingCalendar: BlogPost = {
     'hygiene recall marketing',
     'dental emergency SEO',
   ],
-  heroImageAlt: 'Wall calendar with marketing milestones for a dental practice',
-  heroImageSrc: '/services/print/hero-collage-print.webp',
-  heroImageClassName:
-    'object-cover object-[26%_center] sm:object-[30%_center] lg:object-[34%_center]',
-  cardImageSrc: '/services/print/hero-collage-print.webp',
   faq: [
     {
       question: 'How far ahead should we plan campaigns?',
@@ -230,8 +211,6 @@ export const postMarketingCalendar: BlogPost = {
   bodyMarkdown: `**Dentech Digital** helps **Ottawa** and **Canadian** practices align **marketing calendars** with **clinical capacity** and **patient behavior**. This framework segments demand so you are not only running generic “dental office” ads.
 
 Calendars fail when marketing announces an offer the schedule cannot absorb—or when recall campaigns go silent for months because no one owns the rhythm. The goal is **predictable, repeatable pushes** aligned to chair time and community context.
-
-![Print and direct mail collage](/services/print/hero-collage-print.webp)
 
 ## Three demand lanes
 

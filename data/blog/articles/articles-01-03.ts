@@ -12,11 +12,6 @@ export const postLocalSeoCanada: BlogPost = {
     'Google Business Profile dental',
     'dental clinic maps visibility Ottawa',
   ],
-  heroImageAlt: 'Dental clinic team reviewing local search performance on a laptop',
-  heroImageSrc: '/services/local-seo/hero-collage-seo.webp',
-  heroImageClassName:
-    'object-cover object-[28%_center] sm:object-[32%_center] lg:object-[36%_center]',
-  cardImageSrc: '/services/local-seo/hero-collage-seo.webp',
   faq: [
     {
       question: 'How long does local SEO take for a dental clinic?',
@@ -107,8 +102,6 @@ Yes, when posts answer real patient questions and link to authoritative service 
 **What about paid search?**  
 Google Ads can complement SEO during competitive periods or new launches. Balance depends on margin, capacity, and how fast you need patients.
 
-![Local SEO and maps visibility for dental practices](/services/local-seo/hero-collage-seo.webp)
-
 ## Working with your front office and clinicians
 
 Local SEO is not only a marketing exercise. Your reception team hears how people found you, whether the number on a postcard matches Google, and which doctor name patients mention. **Dentech Digital** often runs short working sessions with **Ottawa** and national clients so clinical and administrative voices align: we are not chasing tricks—we are making accurate, helpful information easier to find.
@@ -136,11 +129,6 @@ export const postGeoAiDiscovery: BlogPost = {
     'AI search visibility dental clinic',
     'generative engine optimization Canada',
   ],
-  heroImageAlt: 'Clinic professional using tablet to review online patient inquiries',
-  heroImageSrc: '/services/ai-automation/hero-collage-ai.webp',
-  heroImageClassName:
-    'object-cover object-[30%_center] sm:object-[34%_center] lg:object-[38%_center]',
-  cardImageSrc: '/services/ai-automation/hero-collage-ai.webp',
   faq: [
     {
       question: 'What is GEO in dental marketing?',
@@ -210,8 +198,6 @@ Maps and traditional search remain dominant for high-intent “dentist near me�
 **Do I need new tools?**  
 Often no. Better information architecture and disciplined content beat chasing experimental widgets.
 
-![AI and automation concepts applied to dental practice workflows](/services/ai-automation/hero-collage-ai.webp)
-
 ## Entity clarity in plain language
 
 Start with a one-page **entity sheet**: legal business name, public-facing brand, address, main phone, hours, list of doctors, and top 10 procedures. When every system—from your **[website](/services/websites)** to **[social profiles](/services/social-content)**—uses the same facts, both humans and AI summaries struggle less to describe you accurately.
@@ -237,11 +223,6 @@ export const postGoogleAdsVsMeta: BlogPost = {
     'Facebook ads dental practice',
     'dental patient acquisition paid media',
   ],
-  heroImageAlt: 'Marketing discussion reviewing ad performance charts for a dental clinic',
-  heroImageSrc: '/services/paid-ads/hero-collage-ads.webp',
-  heroImageClassName:
-    'object-cover object-[26%_center] sm:object-[30%_center] lg:object-[34%_center]',
-  cardImageSrc: '/services/paid-ads/hero-collage-ads.webp',
   faq: [
     {
       question: 'Which platform brings cheaper leads for dentists?',
@@ -306,8 +287,6 @@ Rarely. Use dedicated landing pages that mirror the ad and load fast on mobile.
 
 **What about LSAs (Local Services Ads)?**  
 They can work in eligible categories and regions; eligibility and lead quality vary. Evaluate alongside standard search campaigns.
-
-![Paid media and performance dashboards for dental marketing](/services/paid-ads/hero-collage-ads.webp)
 
 ## Creative iteration without burning trust
 

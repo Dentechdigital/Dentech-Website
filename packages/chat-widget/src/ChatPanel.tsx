@@ -18,6 +18,27 @@ type Props = {
   onCtaClick: (to: string) => void;
 };
 
+/** Collapse a hint when the same sequence of sentences was pasted twice (e.g. "A. B. A. B."). */
+function dedupeResponseHintLine(text: string): string {
+  const normalized = text.replace(/\s+/g, ' ').trim();
+  if (normalized.length >= 4 && normalized.length % 2 === 0) {
+    const mid = normalized.length / 2;
+    if (normalized.slice(0, mid) === normalized.slice(mid)) {
+      return normalized.slice(0, mid).trim();
+    }
+  }
+  const segments = normalized.split(/(?<=\.)\s+/).map((s) => s.trim()).filter(Boolean);
+  if (segments.length < 2) return normalized;
+  for (let len = Math.floor(segments.length / 2); len >= 1; len--) {
+    const first = segments.slice(0, len).join('\u0000');
+    const second = segments.slice(len, len * 2).join('\u0000');
+    if (first === second) {
+      return segments.slice(0, len).join(' ');
+    }
+  }
+  return segments.join(' ');
+}
+
 function getFocusable(container: HTMLDivElement | null) {
   if (!container) return [];
   return Array.from(
@@ -220,7 +241,9 @@ export default function ChatPanel({
 
       {mode === 'chat' && config.chatResponseHintLine?.trim() ? (
         <div className="border-b border-slate-100 px-3 py-2 text-center dark:border-slate-800">
-          <p className="text-[11px] leading-snug text-slate-500 dark:text-slate-400">{config.chatResponseHintLine}</p>
+          <p className="text-[11px] leading-snug text-slate-500 dark:text-slate-400">
+            {dedupeResponseHintLine(config.chatResponseHintLine)}
+          </p>
         </div>
       ) : null}
 

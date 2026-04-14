@@ -6,7 +6,12 @@ export const CHATBOT_FAQ: ChatFaqItem[] = [
     question: 'How much does it cost to work with Dentech?',
     answer:
       'Most engagements start with website packages or monthly marketing retainers, depending on your growth stage and channel mix. We can recommend the best-fit starting point after a quick strategy call.',
-    prompts: ['Show pricing options', 'What package fits a single clinic?', 'Do you offer monthly retainers?'],
+    prompts: [
+      'Show pricing options',
+      'What package fits a single clinic?',
+      'Do you offer monthly retainers?',
+      'What is the best package for my clinic stage?',
+    ],
     intent: 'pricing',
     ctas: [
       { label: 'View Pricing', to: '/#pricing' },
@@ -90,7 +95,12 @@ export const CHATBOT_FAQ: ChatFaqItem[] = [
     question: 'What does the first 90 days usually look like?',
     answer:
       'Typical rollout: Phase 1 audit and tracking stabilization, Phase 2 launch and baseline acquisition, Phase 3 optimization with weekly tuning and monthly leadership reporting focused on booked-treatment outcomes.',
-    prompts: ['What happens in first month?', 'How often do we review performance?', 'How is progress reported?'],
+    prompts: [
+      'What happens in first month?',
+      'How often do we review performance?',
+      'How is progress reported?',
+      'What should we prioritize in the first 90 days?',
+    ],
     intent: 'timeline',
     ctas: [
       { label: 'Book a Strategy Call', to: '/contact' },
@@ -126,7 +136,12 @@ export const CHATBOT_FAQ: ChatFaqItem[] = [
     question: 'How do we get started?',
     answer:
       'Start with a strategy call so we can review your goals, channels, and growth constraints. We then recommend a practical phase-by-phase plan with clear next steps.',
-    prompts: ['Book a strategy call', 'What should I prepare?', 'Can we start with one service?'],
+    prompts: [
+      'Book a strategy call',
+      'What should I prepare?',
+      'Can we start with one service?',
+      'How do we book a strategy call this week?',
+    ],
     intent: 'booking',
     ctas: [
       { label: 'Start the Contact Form', to: '/contact' },

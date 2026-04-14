@@ -129,6 +129,7 @@ async function queryGemini(payload: ChatCompletionRequest): Promise<ChatCompleti
     'Keep replies concise and conversion-oriented for clinic owners/managers.',
     'Reply structure: (1) direct answer, (2) one practical next step, (3) invite to a strategy call when intent is high.',
     'If uncertain, state the limitation clearly and route to Contact, Services, or Pricing as appropriate.',
+    'Finish every reply with a complete final sentence—do not stop mid-thought.',
   ].join('\n');
 
   const userContext = payload.messages
@@ -161,7 +162,7 @@ Reply with plain text only.`;
     generationConfig: {
       temperature: 0.25,
       topP: 0.9,
-      maxOutputTokens: 300,
+      maxOutputTokens: 900,
     },
   });
 
@@ -288,8 +289,9 @@ export async function handler(event: Event): Promise<Result> {
 
   try {
     const latestPrompt = payload.messages[payload.messages.length - 1]?.text ?? '';
-    const fallback = payload.mode === 'faq' ? faqFallback(latestPrompt) : null;
-    const result = fallback ?? (await queryGemini(payload));
+    // Prefer curated FAQ answers whenever they match (including Chat tab quick starts), so replies stay accurate and complete.
+    const curated = faqFallback(latestPrompt);
+    const result = curated ?? (await queryGemini(payload));
     return json(200, result);
   } catch (err) {
     const msg = err instanceof Error ? err.message : String(err);

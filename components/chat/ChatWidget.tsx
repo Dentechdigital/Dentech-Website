@@ -6,11 +6,12 @@ import ChatPanel from './ChatPanel';
 import ChatTeaser from './ChatTeaser';
 import { trackChatEvent } from './chatbotAnalytics';
 
-function playTeaserSound() {
+function playTeaserSound(audioContext?: AudioContext | null) {
   if (typeof window === 'undefined') return;
-  const AudioContextCtor = window.AudioContext || (window as typeof window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
+  const AudioContextCtor =
+    window.AudioContext || (window as typeof window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
   if (!AudioContextCtor) return;
-  const context = new AudioContextCtor();
+  const context = audioContext ?? new AudioContextCtor();
   const oscillator = context.createOscillator();
   const gain = context.createGain();
   oscillator.type = 'sine';
@@ -18,7 +19,7 @@ function playTeaserSound() {
   gain.gain.value = 0.03;
   oscillator.connect(gain);
   gain.connect(context.destination);
-  oscillator.start();
+  oscillator.start(context.currentTime + 0.01);
   oscillator.stop(context.currentTime + 0.08);
 }
 
@@ -28,11 +29,21 @@ function ChatWidgetInner() {
   const [open, setOpen] = useState(false);
   const [showTeaser, setShowTeaser] = useState(false);
   const [canPlaySound, setCanPlaySound] = useState(false);
+  const audioContextRef = React.useRef<AudioContext | null>(null);
+  const teaserSoundPlayedRef = React.useRef(false);
   const location = useLocation();
 
   useEffect(() => {
     function armSound() {
       setCanPlaySound(true);
+      if (typeof window !== 'undefined' && !audioContextRef.current) {
+        const AudioContextCtor =
+          window.AudioContext || (window as typeof window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
+        if (AudioContextCtor) {
+          audioContextRef.current = new AudioContextCtor();
+        }
+      }
+      void audioContextRef.current?.resume?.();
       window.removeEventListener('pointerdown', armSound);
       window.removeEventListener('keydown', armSound);
     }
@@ -47,10 +58,18 @@ function ChatWidgetInner() {
   useEffect(() => {
     const timeout = window.setTimeout(() => {
       setShowTeaser(true);
-      if (canPlaySound) playTeaserSound();
     }, 7000);
     return () => window.clearTimeout(timeout);
-  }, [canPlaySound]);
+  }, []);
+
+  useEffect(() => {
+    if (!showTeaser || open || !canPlaySound || teaserSoundPlayedRef.current) return;
+    teaserSoundPlayedRef.current = true;
+    const raf = window.requestAnimationFrame(() => {
+      playTeaserSound(audioContextRef.current);
+    });
+    return () => window.cancelAnimationFrame(raf);
+  }, [showTeaser, open, canPlaySound]);
 
   useEffect(() => {
     setOpen(false);

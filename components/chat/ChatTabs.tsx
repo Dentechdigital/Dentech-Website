@@ -1,4 +1,5 @@
 import React from 'react';
+import { MessageCircle, Search } from 'lucide-react';
 import type { ChatMode } from '../../types/chatbot';
 
 type Props = {
@@ -7,10 +8,16 @@ type Props = {
 };
 
 export default function ChatTabs({ mode, onChange }: Props) {
+  const config: Record<ChatMode, { label: string; icon: React.ReactNode }> = {
+    chat: { label: 'Chat', icon: <MessageCircle size={12} /> },
+    faq: { label: 'Helpdesk', icon: <Search size={12} /> },
+  };
+
   return (
     <div className="grid grid-cols-2 rounded-lg bg-white/20 p-1 backdrop-blur-sm dark:bg-slate-800/60" role="tablist" aria-label="Chat modes">
       {(['faq', 'chat'] as ChatMode[]).map((tab) => {
         const active = mode === tab;
+        const item = config[tab];
         return (
           <button
             key={tab}
@@ -24,7 +31,10 @@ export default function ChatTabs({ mode, onChange }: Props) {
             }`}
             onClick={() => onChange(tab)}
           >
-            {tab === 'faq' ? 'Quick Answers' : 'Strategy Chat'}
+            <span className="inline-flex items-center gap-1.5">
+              {item.icon}
+              {item.label}
+            </span>
           </button>
         );
       })}

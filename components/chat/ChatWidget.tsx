@@ -70,6 +70,7 @@ function ChatWidgetInner() {
           setShowTeaser(false);
         }}
         onSecondaryClick={() => {
+          trackChatEvent('chat_teaser_click', { mode, source: 'helpdesk' });
           setMode('faq');
           setShowTeaser(false);
           setOpen(true);

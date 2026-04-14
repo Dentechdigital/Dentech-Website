@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Search } from 'lucide-react';
 
 type Props = {
@@ -11,9 +11,33 @@ type Props = {
 const miniAvatars = ['/avatar-80w.webp', '/avatar-160w.webp', '/avatar.webp'];
 
 export default function ChatTeaser({ visible, onPrimaryClick, onSecondaryClick, onDismiss }: Props) {
-  if (!visible) return null;
+  const [rendered, setRendered] = useState(visible);
+  const [isExiting, setIsExiting] = useState(false);
+
+  useEffect(() => {
+    if (visible) {
+      setRendered(true);
+      setIsExiting(false);
+      return;
+    }
+    if (!rendered) return;
+    setIsExiting(true);
+    const timeout = window.setTimeout(() => {
+      setRendered(false);
+      setIsExiting(false);
+    }, 220);
+    return () => window.clearTimeout(timeout);
+  }, [visible, rendered]);
+
+  if (!rendered) return null;
+
   return (
-    <aside className="pointer-events-auto mb-3 w-[min(19rem,calc(100vw-1rem))] rounded-2xl border border-slate-200 bg-white p-3 text-left shadow-[0_16px_38px_rgba(2,6,23,0.18)] dark:border-slate-700 dark:bg-slate-900">
+    <aside
+      className={`pointer-events-auto mb-3 w-[min(19rem,calc(100vw-1rem))] rounded-2xl border border-slate-200 bg-white p-3 text-left shadow-[0_16px_38px_rgba(2,6,23,0.18)] dark:border-slate-700 dark:bg-slate-900 ${
+        isExiting ? 'dchat-teaser-exit' : 'dchat-teaser-enter'
+      }`}
+      aria-hidden={isExiting}
+    >
       <div className="flex items-start justify-between gap-3">
         <div>
           <p className="text-[13px] font-semibold text-slate-900 dark:text-white">Do you have any questions?</p>

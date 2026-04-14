@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import type { ChatConversionStage, ChatMessage, ChatMode, SuggestedCta } from '../../types/chatbot';
 import ChatInput from './ChatInput';
@@ -47,6 +47,23 @@ export default function ChatPanel({
   leadScore,
 }: Props) {
   const panelRef = useRef<HTMLDivElement | null>(null);
+  const [rendered, setRendered] = useState(open);
+  const [isExiting, setIsExiting] = useState(false);
+
+  useEffect(() => {
+    if (open) {
+      setRendered(true);
+      setIsExiting(false);
+      return;
+    }
+    if (!rendered) return;
+    setIsExiting(true);
+    const timeout = window.setTimeout(() => {
+      setRendered(false);
+      setIsExiting(false);
+    }, 260);
+    return () => window.clearTimeout(timeout);
+  }, [open, rendered]);
 
   useEffect(() => {
     if (!open) return;
@@ -83,14 +100,14 @@ export default function ChatPanel({
     return () => document.removeEventListener('keydown', onKeyDown);
   }, [open, onClose]);
 
-  if (!open) return null;
+  if (!rendered) return null;
 
   const stageLabel =
     conversionStage === 'ready'
-      ? 'Best next step: Book strategy call'
+      ? 'Ready to book'
       : conversionStage === 'evaluate'
-        ? 'Best next step: Compare rollout options'
-        : 'Best next step: Clarify clinic priority';
+        ? 'Comparing options'
+        : 'Discovery';
   const stageTone =
     conversionStage === 'ready'
       ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-300'
@@ -105,11 +122,14 @@ export default function ChatPanel({
       ref={panelRef}
       role="dialog"
       aria-label="Dentech chatbot assistant"
-      className="pointer-events-auto mb-3 flex max-h-[82vh] w-[min(23.5rem,calc(100vw-1rem))] flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_22px_52px_rgba(2,6,23,0.28)] dark:border-slate-700 dark:bg-slate-950"
+      aria-hidden={isExiting}
+      className={`pointer-events-auto mb-3 flex max-h-[82vh] w-[min(23.5rem,calc(100vw-1rem))] flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_22px_52px_rgba(2,6,23,0.28)] dark:border-slate-700 dark:bg-slate-950 ${
+        isExiting ? 'dchat-panel-exit' : 'dchat-panel-enter'
+      }`}
     >
       <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-3 pb-3 pt-2.5 text-white">
         <div className="flex items-start justify-between">
-          <div className="flex items-start gap-2">
+          <div className="dchat-bubble-enter flex items-start gap-2">
             <img
               src="/avatar.webp"
               alt=""
@@ -166,7 +186,9 @@ export default function ChatPanel({
           <Link
             to={primaryCta.to}
             onClick={() => onCtaClick(primaryCta.to)}
-            className="block rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 px-3 py-2 text-center text-xs font-semibold text-white transition hover:from-blue-700 hover:to-indigo-700"
+            className={`block rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 px-3 py-2 text-center text-xs font-semibold text-white transition duration-200 hover:-translate-y-0.5 hover:from-blue-700 hover:to-indigo-700 ${
+              conversionStage === 'ready' ? 'dchat-cta-ready' : ''
+            }`}
           >
             {primaryCta.label}
           </Link>

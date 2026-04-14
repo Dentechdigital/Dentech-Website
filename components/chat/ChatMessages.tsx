@@ -10,7 +10,7 @@ export default function ChatMessages({ messages, loading }: Props) {
   const endRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    endRef.current?.scrollIntoView({ block: 'end' });
+    endRef.current?.scrollIntoView({ block: 'end', behavior: 'smooth' });
   }, [messages, loading]);
 
   return (
@@ -24,7 +24,7 @@ export default function ChatMessages({ messages, loading }: Props) {
                 message.role === 'user'
                   ? 'rounded-br-md bg-gradient-to-r from-blue-600 to-indigo-600 text-white'
                   : 'rounded-bl-md bg-white text-slate-800 dark:bg-slate-800 dark:text-slate-100'
-              }`}
+              } dchat-bubble-enter`}
             >
               {message.text}
             </div>
@@ -34,9 +34,9 @@ export default function ChatMessages({ messages, loading }: Props) {
           <div className="flex justify-start">
             <div className="rounded-2xl rounded-bl-md bg-white px-3 py-2 text-sm text-slate-600 shadow-sm dark:bg-slate-800 dark:text-slate-300">
               <span className="inline-flex items-center gap-1">
-                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-slate-400" />
-                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-slate-400 [animation-delay:120ms]" />
-                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-slate-400 [animation-delay:240ms]" />
+                <span className="dchat-dot h-1.5 w-1.5 rounded-full bg-slate-400" />
+                <span className="dchat-dot h-1.5 w-1.5 rounded-full bg-slate-400" />
+                <span className="dchat-dot h-1.5 w-1.5 rounded-full bg-slate-400" />
               </span>
             </div>
           </div>

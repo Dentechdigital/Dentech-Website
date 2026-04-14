@@ -12,7 +12,9 @@ export default function ChatLauncher({ open, onClick }: Props) {
       type="button"
       aria-label={open ? 'Close chat assistant' : 'Open chat assistant'}
       onClick={onClick}
-      className="pointer-events-auto group relative inline-flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 text-white shadow-[0_14px_30px_rgba(37,99,235,0.45)] transition hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300"
+      className={`pointer-events-auto group relative inline-flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 text-white shadow-[0_14px_30px_rgba(37,99,235,0.45)] transition hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 ${
+        open ? '' : 'dchat-fab-idle'
+      }`}
     >
       <MessageCircle size={22} className={`transition ${open ? 'opacity-0' : 'opacity-100'}`} />
       <img

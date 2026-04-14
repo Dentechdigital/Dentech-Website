@@ -56,65 +56,76 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="lg:col-span-3">
-              <h4 className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">Explore</h4>
-              <ul className="mt-4 space-y-2.5">
-                {quickLinks.map((link) => (
-                  <li key={link.label}>
-                    <Link to={link.to} className="text-sm font-medium text-slate-700 transition-colors hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-300">
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <div className="grid grid-cols-1 gap-10 sm:grid-cols-3 lg:col-span-7 lg:gap-8">
+              <div>
+                <h4 className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
+                  Explore
+                </h4>
+                <ul className="mt-4 space-y-2.5">
+                  {quickLinks.map((link) => (
+                    <li key={link.label}>
+                      <Link
+                        to={link.to}
+                        className="text-sm font-medium text-slate-700 transition-colors hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-300"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-            <div className="lg:col-span-2">
-              <h4 className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">Core Services</h4>
-              <ul className="mt-4 space-y-2.5">
-                {coreServices.map((service) => (
-                  <li key={service.to}>
-                    <Link
-                      to={service.to}
-                      className="text-sm text-slate-700 transition-colors hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-300"
+              <div>
+                <h4 className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
+                  Core Services
+                </h4>
+                <ul className="mt-4 space-y-2.5">
+                  {coreServices.map((service) => (
+                    <li key={service.to}>
+                      <Link
+                        to={service.to}
+                        className="text-sm text-slate-700 transition-colors hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-300"
+                      >
+                        {service.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
+                  Contact
+                </h4>
+                <ul className="mt-4 space-y-3">
+                  <li className="flex items-start gap-2.5 text-sm text-slate-700 dark:text-slate-300">
+                    <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-600 dark:text-blue-300" />
+                    <span>{SITE_CONTACT.addressSingleLine}</span>
+                  </li>
+                  <li className="flex items-center gap-2.5 text-sm text-slate-700 dark:text-slate-300">
+                    <Phone className="h-4 w-4 flex-shrink-0 text-blue-600 dark:text-blue-300" />
+                    <a
+                      href={`tel:${SITE_CONTACT.phoneTel}`}
+                      className="transition-colors hover:text-blue-600 dark:hover:text-blue-300"
                     >
-                      {service.label}
-                    </Link>
+                      {SITE_CONTACT.phoneDisplay}
+                    </a>
                   </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="lg:col-span-2">
-              <h4 className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">Contact</h4>
-              <ul className="mt-4 space-y-3">
-                <li className="flex items-start gap-2.5 text-sm text-slate-700 dark:text-slate-300">
-                  <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-600 dark:text-blue-300" />
-                  <span>{SITE_CONTACT.addressSingleLine}</span>
-                </li>
-                <li className="flex items-center gap-2.5 text-sm text-slate-700 dark:text-slate-300">
-                  <Phone className="h-4 w-4 flex-shrink-0 text-blue-600 dark:text-blue-300" />
-                  <a
-                    href={`tel:${SITE_CONTACT.phoneTel}`}
-                    className="transition-colors hover:text-blue-600 dark:hover:text-blue-300"
-                  >
-                    {SITE_CONTACT.phoneDisplay}
-                  </a>
-                </li>
-                <li className="flex items-center gap-2.5 text-sm text-slate-700 dark:text-slate-300">
-                  <Mail className="h-4 w-4 flex-shrink-0 text-blue-600 dark:text-blue-300" />
-                  <a
-                    href={`mailto:${SITE_CONTACT.email}`}
-                    className="transition-colors hover:text-blue-600 dark:hover:text-blue-300"
-                  >
-                    {SITE_CONTACT.email}
-                  </a>
-                </li>
-                <li className="flex items-center gap-2.5 text-sm text-slate-700 dark:text-slate-300">
-                  <CalendarClock className="h-4 w-4 flex-shrink-0 text-blue-600 dark:text-blue-300" />
-                  <span>{SITE_CONTACT.hoursShort}</span>
-                </li>
-              </ul>
+                  <li className="flex items-center gap-2.5 text-sm text-slate-700 dark:text-slate-300">
+                    <Mail className="h-4 w-4 flex-shrink-0 text-blue-600 dark:text-blue-300" />
+                    <a
+                      href={`mailto:${SITE_CONTACT.email}`}
+                      className="transition-colors hover:text-blue-600 dark:hover:text-blue-300"
+                    >
+                      {SITE_CONTACT.email}
+                    </a>
+                  </li>
+                  <li className="flex items-center gap-2.5 text-sm text-slate-700 dark:text-slate-300">
+                    <CalendarClock className="h-4 w-4 flex-shrink-0 text-blue-600 dark:text-blue-300" />
+                    <span>{SITE_CONTACT.hoursShort}</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
 

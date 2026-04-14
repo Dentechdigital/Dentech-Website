@@ -8,7 +8,7 @@ import { sendChatCompletion } from './sendChatCompletion';
 export const dentechChatRuntimeConfig: ChatRuntimeConfig = {
   sessionStorageKey: 'dentech-chat-session',
   welcomeMessage:
-    "Hi — I'm Maya, Dentech Digital's AI admin assistant. Ask me about our services, pricing, timelines, or how to book a strategy call and I'll point you in the right direction.",
+    "Hi — I'm Maya, Dentech Digital's assistant. Ask about services, pricing, timelines, or booking a strategy call.",
   teaserTitle: 'Need a quick answer?',
   teaserBody: 'Maya, our AI admin assistant, can help with services, pricing, and next steps.',
   teaserStatusLine: 'Online now',

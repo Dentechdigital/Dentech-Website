@@ -123,19 +123,9 @@ export default function ChatPanel({
       }`}
     >
       <div className="border-b border-white/10 bg-gradient-to-r from-blue-600 to-indigo-600 pt-2.5 text-white dark:border-white/10 dark:from-blue-700 dark:to-indigo-700">
-        <div className="relative px-3 pb-3">
-          <button
-            type="button"
-            aria-label="Close chat"
-            onClick={onClose}
-            className="dchat-close-btn absolute right-3 top-0 z-10 flex h-8 w-8 items-center justify-center rounded-lg text-white/85 transition hover:bg-white/15 hover:text-white"
-          >
-            <span className="text-[1.125rem] font-light leading-none" aria-hidden>
-              ×
-            </span>
-          </button>
-          <div className="mx-auto flex w-full justify-center pr-9">
-            <div className="w-full min-w-0 max-w-[16.75rem]">
+        <div className="px-3 pb-3">
+          <div className="flex items-center gap-2">
+            <div className="min-w-0 flex-1">
               <ChatTabs
                 surface="brand"
                 mode={mode}
@@ -144,6 +134,16 @@ export default function ChatPanel({
                 helpdeskLabel={config.tabHelpdeskLabel}
               />
             </div>
+            <button
+              type="button"
+              aria-label="Close chat"
+              onClick={onClose}
+              className="dchat-close-btn flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-white/85 transition hover:bg-white/15 hover:text-white"
+            >
+              <span className="text-[1.125rem] font-light leading-none" aria-hidden>
+                ×
+              </span>
+            </button>
           </div>
           <div className="mt-3 min-w-0">
             {mode === 'chat' ? (
@@ -163,7 +163,7 @@ export default function ChatPanel({
                     <p className="text-[10px] font-semibold uppercase tracking-wide text-blue-100/90">
                       {config.assistantRoleBadge ?? 'AI assistant'}
                     </p>
-                    <h2 className="dchat-assistant-name-gradient text-sm font-semibold leading-snug sm:text-[15px]">
+                    <h2 className="text-sm font-semibold leading-snug text-white sm:text-[15px] [text-shadow:0_1px_2px_rgba(0,0,0,0.22)]">
                       {config.assistantName}
                     </h2>
                     {config.assistantTagline?.trim() ? (

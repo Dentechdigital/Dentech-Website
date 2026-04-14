@@ -27,7 +27,7 @@ export default function ChatLauncher({ open, onClick, launcherBadgeSrc, assistan
           alt=""
           width={56}
           height={56}
-          className={`h-full w-full object-cover transition duration-300 ease-out ${open ? 'scale-95 brightness-[0.88]' : 'scale-100 brightness-100'}`}
+          className={`h-full w-full object-cover transition duration-300 ease-out ${open ? 'scale-100 opacity-0' : 'scale-100 brightness-100'}`}
           loading="lazy"
           decoding="async"
         />
@@ -40,10 +40,10 @@ export default function ChatLauncher({ open, onClick, launcherBadgeSrc, assistan
       )}
       {open && (
         <span
-          className="absolute inset-0 z-30 grid place-items-center overflow-hidden rounded-full bg-gradient-to-t from-slate-900/55 to-slate-900/25 text-white backdrop-blur-[2px]"
+          className="absolute inset-0 z-30 grid place-items-center rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.18)]"
           aria-hidden
         >
-          <X className="h-7 w-7 drop-shadow-md" strokeWidth={2.25} />
+          <X className="h-6 w-6 drop-shadow-sm" strokeWidth={2.5} />
         </span>
       )}
     </button>

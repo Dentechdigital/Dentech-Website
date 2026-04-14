@@ -4,28 +4,6 @@
   --dchat-ease-in: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Matches site hero headline: blue → teal → indigo gradient with slow shine */
-@keyframes dchat-text-shine {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 100% 50%;
-  }
-}
-
-.dchat-assistant-name-gradient {
-  background-image: linear-gradient(90deg, rgb(37 99 235), rgb(45 212 191), rgb(79 70 229));
-  background-size: 180% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: dchat-text-shine 3.8s ease-in-out infinite alternate;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-  padding-right: 0.06em;
-}
-
 @keyframes dchat-fade-up-in {
   from {
     opacity: 0;
@@ -254,13 +232,8 @@ html.dark .dchat-helpdesk-scroll::-webkit-scrollbar-thumb {
   .dchat-fab-idle,
   .dchat-bubble-enter,
   .dchat-messenger-dot,
-  .dchat-helpdesk-pane,
-  .dchat-assistant-name-gradient {
+  .dchat-helpdesk-pane {
     animation: none !important;
     transition-duration: 0.01ms !important;
-  }
-
-  .dchat-assistant-name-gradient {
-    background-position: 0% 50%;
   }
 }

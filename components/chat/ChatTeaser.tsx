@@ -38,20 +38,22 @@ export default function ChatTeaser({ visible, onPrimaryClick, onSecondaryClick, 
       }`}
       aria-hidden={isExiting}
     >
-      <div className="flex items-start justify-between gap-3">
-        <div>
-          <p className="text-[13px] font-semibold text-slate-900 dark:text-white">Do you have any questions?</p>
-          <p className="mt-1 text-[12px] text-slate-600 dark:text-slate-300">
+      <div className="flex items-start justify-between gap-2">
+        <div className="min-w-0 flex-1 pr-1">
+          <p className="text-[13px] font-semibold leading-snug text-slate-900 dark:text-white">Do you have any questions?</p>
+          <p className="mt-1 text-[12px] leading-snug text-slate-600 dark:text-slate-300">
             Dentech support is online and can guide your next growth step.
           </p>
         </div>
         <button
           type="button"
           aria-label="Dismiss teaser"
-          className="text-xs text-slate-400 transition hover:text-slate-700 dark:hover:text-slate-200"
+          className="dchat-close-btn flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-slate-400 transition hover:bg-slate-100 hover:text-slate-800 dark:text-slate-400 dark:hover:bg-white/10 dark:hover:text-white"
           onClick={onDismiss}
         >
-          ×
+          <span className="text-[1.125rem] font-light leading-none" aria-hidden>
+            ×
+          </span>
         </button>
       </div>
 
@@ -71,7 +73,7 @@ export default function ChatTeaser({ visible, onPrimaryClick, onSecondaryClick, 
             />
           ))}
         </div>
-        <span className="text-[11px] text-slate-500 dark:text-slate-400">Team replies under 1 hour</span>
+        <span className="text-[11px] leading-snug text-slate-500 dark:text-slate-400">Team replies under 1 hour</span>
       </div>
 
       <div className="mt-3 space-y-2">

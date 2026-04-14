@@ -151,12 +151,18 @@ export default function ChatPanel({
       }`}
     >
       <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-3 pb-3 pt-2.5 text-white">
-        <div className="flex items-start justify-between">
-          <div className="min-w-0 flex-1">
+        <div className="flex items-start justify-between gap-2">
+          <div className="min-w-0 flex-1 pr-1">
             <ChatTabs mode={mode} onChange={onModeChange} />
             {mode === 'chat' ? (
-              <div className="dchat-bubble-enter mt-3">
-                <div className="flex items-center justify-center">
+              <div className="dchat-bubble-enter mt-3 text-left">
+                <h2 className="text-[13px] font-semibold leading-snug text-white sm:text-sm">
+                  Talk with Dentech Team! <span aria-hidden>🙂</span>
+                </h2>
+                <p className="mt-1 text-[12px] leading-snug text-blue-100/95">
+                  Dentech support is online and can guide your next growth step.
+                </p>
+                <div className="mt-2 flex items-center gap-2">
                   <div className="flex -space-x-2">
                     {HEADER_AVATARS.map((src) => (
                       <img
@@ -164,34 +170,39 @@ export default function ChatPanel({
                         src={src}
                         alt=""
                         aria-hidden
-                        width={34}
-                        height={34}
-                        className="h-8 w-8 rounded-full border-2 border-blue-500/70 bg-white object-cover"
+                        width={28}
+                        height={28}
+                        className="h-7 w-7 rounded-full border-2 border-white/50 bg-white object-cover"
                         loading="lazy"
                         decoding="async"
                       />
                     ))}
-                    <span className="grid h-8 w-8 place-items-center rounded-full border-2 border-blue-500/70 bg-white text-blue-600">💬</span>
+                    <span
+                      className="grid h-7 w-7 place-items-center rounded-full border-2 border-white/50 bg-white text-sm text-blue-600"
+                      aria-hidden
+                    >
+                      💬
+                    </span>
                   </div>
+                  <span className="text-[11px] leading-snug text-blue-100/90">
+                    <span className="mr-1 inline-block h-2 w-2 rounded-full bg-emerald-300 align-middle" />
+                    Team replies under 1 hour
+                  </span>
                 </div>
-                <h2 className="mt-2 text-center text-base font-semibold leading-tight tracking-tight text-white sm:text-lg">
-                  Talk with Dentech Team! <span aria-hidden>🙂</span>
-                </h2>
-                <p className="mt-1 text-center text-[11px] text-blue-100">
-                  <span className="mr-1 inline-block h-2 w-2 rounded-full bg-emerald-300" />
-                  Team replies under 1 hour
-                </p>
               </div>
             ) : (
-              <p className="mt-3 text-center text-lg font-semibold tracking-tight text-white">Popular questions</p>
+              <p className="mt-3 text-left text-[13px] font-semibold leading-snug text-white sm:text-sm">Popular questions</p>
             )}
           </div>
           <button
             type="button"
+            aria-label="Close chat"
             onClick={onClose}
-            className="ml-2 rounded-md px-1.5 py-1 text-xs text-blue-100 transition hover:bg-white/15 hover:text-white"
+            className="dchat-close-btn flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-white/85 transition hover:bg-white/15 hover:text-white"
           >
-            ✕
+            <span className="text-[1.125rem] font-light leading-none" aria-hidden>
+              ×
+            </span>
           </button>
         </div>
       </div>

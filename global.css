@@ -440,6 +440,11 @@ html.dark .dchat-helpdesk-scroll::-webkit-scrollbar-thumb {
   background-color: rgba(100, 116, 139, 0.85);
 }
 
+.dchat-close-btn:focus-visible {
+  outline: 2px solid rgba(59, 130, 246, 0.55);
+  outline-offset: 2px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal-motion {
     opacity: 1 !important;

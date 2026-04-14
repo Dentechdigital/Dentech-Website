@@ -69,31 +69,18 @@
   }
 }
 
-@keyframes dchat-dot-wave {
+/* Facebook Messenger–style typing: three dots bounce in sequence; bubble stays still */
+@keyframes dchat-messenger-dot {
   0%,
+  25%,
   100% {
     transform: translateY(0);
-    opacity: 0.35;
   }
-  35% {
-    transform: translateY(-5px);
-    opacity: 1;
+  7% {
+    transform: translateY(-7px);
   }
-  70% {
-    transform: translateY(-1px);
-    opacity: 0.65;
-  }
-}
-
-@keyframes dchat-typing-breathe {
-  0%,
-  100% {
-    opacity: 0.97;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.004);
+  15% {
+    transform: translateY(0);
   }
 }
 
@@ -158,20 +145,39 @@
   animation: dchat-bubble-in 220ms var(--dchat-ease-out) both;
 }
 
-.dchat-dot {
-  animation: dchat-dot-wave 1.05s ease-in-out infinite;
+.dchat-typing-dots {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 0.28rem;
+  min-height: 1.1rem;
+  padding-bottom: 1px;
 }
 
-.dchat-dot:nth-child(2) {
-  animation-delay: 160ms;
+.dchat-messenger-dot {
+  display: block;
+  width: 0.5rem;
+  height: 0.5rem;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background-color: rgb(148 163 184);
+  animation: dchat-messenger-dot 1.05s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  will-change: transform;
 }
 
-.dchat-dot:nth-child(3) {
-  animation-delay: 320ms;
+.dchat-messenger-dot:nth-child(1) {
+  animation-delay: 0ms;
 }
 
-.dchat-typing-bubble {
-  animation: dchat-typing-breathe 2.8s ease-in-out infinite;
+.dchat-messenger-dot:nth-child(2) {
+  animation-delay: 180ms;
+}
+
+.dchat-messenger-dot:nth-child(3) {
+  animation-delay: 360ms;
+}
+
+html.dark .dchat-messenger-dot {
+  background-color: rgb(148 163 184 / 0.92);
 }
 
 .dchat-cta-ready {
@@ -225,9 +231,8 @@ html.dark .dchat-helpdesk-scroll::-webkit-scrollbar-thumb {
   .dchat-panel-exit,
   .dchat-fab-idle,
   .dchat-bubble-enter,
-  .dchat-dot,
-  .dchat-helpdesk-pane,
-  .dchat-typing-bubble {
+  .dchat-messenger-dot,
+  .dchat-helpdesk-pane {
     animation: none !important;
     transition-duration: 0.01ms !important;
   }

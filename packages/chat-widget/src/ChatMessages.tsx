@@ -106,12 +106,12 @@ export default function ChatMessages({ messages, loading }: Props) {
               {assistantLabel ? (
                 <p className="mb-0.5 text-[11px] font-semibold leading-none text-blue-600 dark:text-blue-400">{assistantLabel}</p>
               ) : null}
-              <div className="dchat-typing-bubble dchat-bubble-enter rounded-2xl rounded-bl-md bg-white px-4 py-3 shadow-sm dark:bg-slate-800">
+              <div className="rounded-2xl rounded-bl-md bg-white px-4 py-3 shadow-sm dark:bg-slate-800">
                 <span className="sr-only">{typingLabel} is typing</span>
-                <span className="inline-flex items-center gap-1.5" aria-hidden>
-                  <span className="dchat-dot h-2 w-2 rounded-full bg-slate-400 dark:bg-slate-500" />
-                  <span className="dchat-dot h-2 w-2 rounded-full bg-slate-400 dark:bg-slate-500" />
-                  <span className="dchat-dot h-2 w-2 rounded-full bg-slate-400 dark:bg-slate-500" />
+                <span className="dchat-typing-dots" aria-hidden>
+                  <span className="dchat-messenger-dot" />
+                  <span className="dchat-messenger-dot" />
+                  <span className="dchat-messenger-dot" />
                 </span>
               </div>
             </div>

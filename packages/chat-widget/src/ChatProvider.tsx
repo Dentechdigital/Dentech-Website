@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useMemo, useState } from 'react';
+import { flushSync } from 'react-dom';
 import { findFaqMatchForPrompt } from './faqMatch';
 import { useChatConfig } from './chat-config';
 import type {
@@ -103,9 +104,11 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
     setConversionStage(nextStage);
 
     const userMessage = makeMessage('user', prompt);
-    setMessages((prev) => [...prev, userMessage]);
-    setLoading(true);
-    setError(null);
+    flushSync(() => {
+      setMessages((prev) => [...prev, userMessage]);
+      setLoading(true);
+      setError(null);
+    });
     const startedAt = Date.now();
     config.onTrack?.('chat_send', { mode, source });
 

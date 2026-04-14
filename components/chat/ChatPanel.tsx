@@ -117,6 +117,8 @@ export default function ChatPanel({
       : conversionStage === 'evaluate'
         ? 'bg-amber-50 text-amber-700 dark:bg-amber-950/30 dark:text-amber-300'
         : 'bg-blue-50 text-blue-700 dark:bg-blue-950/30 dark:text-blue-300';
+  const latestAssistantSummary = [...messages].reverse().find((message) => message.role === 'assistant')?.text;
+  const latestUserQuestion = [...messages].reverse().find((message) => message.role === 'user')?.text;
   const primaryCta = ctas[0];
   const secondaryCtas = ctas.slice(1);
 
@@ -185,6 +187,17 @@ export default function ChatPanel({
                 </button>
               ))}
             </div>
+            {latestAssistantSummary && (
+              <div className="mt-4 rounded-lg border border-blue-100 bg-blue-50/80 p-3 dark:border-blue-900/40 dark:bg-blue-950/25">
+                <p className="text-[11px] font-semibold uppercase tracking-wide text-blue-700 dark:text-blue-300">
+                  Summary
+                </p>
+                {latestUserQuestion && (
+                  <p className="mt-1 text-[11px] text-blue-800/80 dark:text-blue-200/80">Q: {latestUserQuestion}</p>
+                )}
+                <p className="mt-1 text-xs leading-relaxed text-slate-700 dark:text-slate-100">{latestAssistantSummary}</p>
+              </div>
+            )}
             <div className="mt-4 border-t border-slate-200 pt-3 dark:border-slate-700">
               <p className="mb-2 text-[11px] font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
                 Helpful links

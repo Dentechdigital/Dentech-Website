@@ -2,15 +2,54 @@ import type { ChatFaqItem } from '../types/chatbot';
 
 export const CHATBOT_FAQ: ChatFaqItem[] = [
   {
+    id: 'pricing-show-options',
+    question: 'How do I view Dentech pricing?',
+    answer:
+      'You will find website and marketing packages summarized on our home page in the Pricing section—website tiers, signature marketing retainers, and how offers like the current promotion are framed. Open Pricing below for line items; if you want a mix matched to your market and capacity, a short strategy call is the fastest way to lock the right starting scope.',
+    prompts: ['Show pricing options', 'Where is your pricing?', 'See pricing details'],
+    intent: 'pricing',
+    ctas: [
+      { label: 'View Pricing', to: '/#pricing' },
+      { label: 'Talk to a Strategist', to: '/#contact' },
+    ],
+  },
+  {
+    id: 'pricing-monthly-retainers',
+    question: 'Do you offer monthly retainers?',
+    answer:
+      'Yes. Monthly marketing retainers are a core model for ongoing SEO/GEO, paid media, content, and optimization—often after a website launch or alongside one. Scope is aligned to your growth objective (demand, conversion, or authority) and spelled out before kickoff so deliverables and rhythm stay predictable.',
+    prompts: ['Do you offer monthly retainers?', 'Monthly marketing retainer', 'Retainer billing model'],
+    intent: 'pricing',
+    ctas: [
+      { label: 'View Pricing', to: '/#pricing' },
+      { label: 'Talk to a Strategist', to: '/#contact' },
+    ],
+  },
+  {
+    id: 'pricing-best-package-stage',
+    question: 'What is the best package for my clinic stage?',
+    answer:
+      'It depends on your bottleneck and capacity. If you need more qualified demand, we often pair a conversion-ready site with local SEO/GEO or disciplined paid. If traffic exists but bookings lag, we prioritize tracking, offer clarity, and nurture. Multi-location groups add governance and location-level reporting. A strategy call is the quickest way to map the right first package to your stage.',
+    prompts: [
+      'What is the best package for my clinic stage?',
+      'Which package should we start with?',
+      'Best package for a single dental clinic',
+    ],
+    intent: 'pricing',
+    ctas: [
+      { label: 'View Pricing', to: '/#pricing' },
+      { label: 'Book a Strategy Call', to: '/#contact' },
+    ],
+  },
+  {
     id: 'pricing-overview',
     question: 'How much does it cost to work with Dentech?',
     answer:
       'Most engagements start with website packages or monthly marketing retainers, depending on your growth stage and channel mix. We can recommend the best-fit starting point after a quick strategy call.',
     prompts: [
-      'Show pricing options',
       'What package fits a single clinic?',
-      'Do you offer monthly retainers?',
-      'What is the best package for my clinic stage?',
+      'How much does dental marketing cost',
+      'Dentech pricing overview',
     ],
     intent: 'pricing',
     ctas: [

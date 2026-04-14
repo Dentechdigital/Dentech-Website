@@ -1,20 +1,57 @@
-import React, { Suspense, lazy, useEffect } from 'react';
+import React, { Suspense, lazy, useEffect, type ComponentType } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from './components/ThemeProvider';
+import AppErrorBoundary from './components/AppErrorBoundary';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 /** Eager: avoids a second network round-trip on `/` (common cause of long “splash” on cold mobile loads). */
 import Home from './pages/Home';
-const About = lazy(() => import('./pages/About'));
-const ServicesPage = lazy(() => import('./pages/Services'));
-const ServiceDetail = lazy(() => import('./pages/ServiceDetail'));
-const CaseStudies = lazy(() => import('./pages/CaseStudies'));
-const Blog = lazy(() => import('./pages/Blog'));
-const BlogPost = lazy(() => import('./pages/BlogPost'));
-const Contact = lazy(() => import('./pages/Contact'));
-const ClientPortal = lazy(() => import('./pages/ClientPortal'));
-const DentechChatWidget = lazy(() => import('./components/chat/DentechChatWidget'));
+
+const CHUNK_RELOAD_KEY = 'dentech-chunk-reload-once';
+
+function lazyRetry<T extends ComponentType<unknown>>(importer: () => Promise<{ default: T }>) {
+  return lazy(async () => {
+    try {
+      const mod = await importer();
+      try {
+        sessionStorage.removeItem(CHUNK_RELOAD_KEY);
+      } catch {
+        /* ignore */
+      }
+      return mod;
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : String(err);
+      const chunkFailed =
+        msg.includes('Failed to fetch dynamically imported module') ||
+        msg.includes('error loading dynamically imported module') ||
+        msg.includes('Importing a module script failed') ||
+        msg.includes('Unable to preload CSS');
+
+      if (chunkFailed && typeof window !== 'undefined') {
+        try {
+          if (!sessionStorage.getItem(CHUNK_RELOAD_KEY)) {
+            sessionStorage.setItem(CHUNK_RELOAD_KEY, '1');
+            window.location.reload();
+          }
+        } catch {
+          /* ignore */
+        }
+      }
+      throw err;
+    }
+  });
+}
+
+const About = lazyRetry(() => import('./pages/About'));
+const ServicesPage = lazyRetry(() => import('./pages/Services'));
+const ServiceDetail = lazyRetry(() => import('./pages/ServiceDetail'));
+const CaseStudies = lazyRetry(() => import('./pages/CaseStudies'));
+const Blog = lazyRetry(() => import('./pages/Blog'));
+const BlogPost = lazyRetry(() => import('./pages/BlogPost'));
+const Contact = lazyRetry(() => import('./pages/Contact'));
+const ClientPortal = lazyRetry(() => import('./pages/ClientPortal'));
+const DentechChatWidget = lazyRetry(() => import('./components/chat/DentechChatWidget'));
 
 function RouteScrollManager() {
   const { pathname, hash } = useLocation();
@@ -46,6 +83,27 @@ function RouteFallback() {
       <span className="sr-only">Loading page</span>
     </div>
   );
+}
+
+/** Prevents a chat-widget runtime error from unmounting the whole site. */
+class SilentErrorBoundary extends React.Component<
+  { children: React.ReactNode },
+  { failed: boolean }
+> {
+  state = { failed: false };
+
+  static getDerivedStateFromError(): { failed: boolean } {
+    return { failed: true };
+  }
+
+  componentDidCatch(error: Error) {
+    console.warn('[Dentech] Chat widget failed to render:', error.message);
+  }
+
+  render() {
+    if (this.state.failed) return null;
+    return this.props.children;
+  }
 }
 
 function DeferredChatMount() {
@@ -93,9 +151,11 @@ function DeferredChatMount() {
 
   if (!ready) return null;
   return (
-    <Suspense fallback={null}>
-      <DentechChatWidget />
-    </Suspense>
+    <SilentErrorBoundary>
+      <Suspense fallback={null}>
+        <DentechChatWidget />
+      </Suspense>
+    </SilentErrorBoundary>
   );
 }
 
@@ -108,19 +168,21 @@ const App: React.FC = () => {
           <div className="flex min-h-screen flex-col bg-[#FAFAF9] transition-colors duration-300 dark:bg-slate-950">
             <Navbar />
             <main className="flex-grow">
-              <Suspense fallback={<RouteFallback />}>
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="/services" element={<ServicesPage />} />
-                  <Route path="/services/:serviceSlug" element={<ServiceDetail />} />
-                  <Route path="/case-studies" element={<CaseStudies />} />
-                  <Route path="/blog" element={<Blog />} />
-                  <Route path="/blog/:slug" element={<BlogPost />} />
-                  <Route path="/contact" element={<Contact />} />
-                  <Route path="/portal" element={<ClientPortal />} />
-                </Routes>
-              </Suspense>
+              <AppErrorBoundary>
+                <Suspense fallback={<RouteFallback />}>
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/services" element={<ServicesPage />} />
+                    <Route path="/services/:serviceSlug" element={<ServiceDetail />} />
+                    <Route path="/case-studies" element={<CaseStudies />} />
+                    <Route path="/blog" element={<Blog />} />
+                    <Route path="/blog/:slug" element={<BlogPost />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/portal" element={<ClientPortal />} />
+                  </Routes>
+                </Suspense>
+              </AppErrorBoundary>
             </main>
             <Footer />
             <DeferredChatMount />

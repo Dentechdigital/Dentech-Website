@@ -172,9 +172,7 @@ export default function ChatPanel({
                         aria-hidden
                         width={28}
                         height={28}
-                        className={`h-7 w-7 rounded-full border-2 border-white/50 bg-white object-cover${
-                          src.includes('/team/') ? ' dchat-header-team-avatar' : ''
-                        }`}
+                        className="h-7 w-7 rounded-full border-2 border-white/50 bg-white object-cover"
                         loading="lazy"
                         decoding="async"
                       />
@@ -216,9 +214,9 @@ export default function ChatPanel({
         </div>
       )}
 
-      <div className="min-h-0 flex-1 overflow-hidden px-3 pt-2">
+      <div className="flex min-h-0 flex-1 flex-col overflow-hidden px-3 pt-2">
         {mode === 'faq' ? (
-          <div className="dchat-helpdesk-scroll flex h-full min-h-0 flex-col overflow-y-auto overscroll-y-contain rounded-xl bg-slate-50 px-3 pb-4 pt-2 dark:bg-slate-900/70">
+          <div className="dchat-helpdesk-scroll flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-y-contain rounded-xl bg-slate-50 px-3 pb-4 pt-2 dark:bg-slate-900/70">
             <p className="mb-2 text-xs font-semibold text-slate-700 dark:text-slate-200">Helpdesk quick answers</p>
             <p className="mb-3 text-xs text-slate-500 dark:text-slate-400">
               Pick a category, then open a question. Use the Chat tab for a live conversation.

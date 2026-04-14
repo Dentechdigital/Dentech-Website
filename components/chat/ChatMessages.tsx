@@ -1,5 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import type { ChatMessage } from '../../types/chatbot';
+
+const NEAR_BOTTOM_PX = 72;
 
 type Props = {
   messages: ChatMessage[];
@@ -7,14 +9,32 @@ type Props = {
 };
 
 export default function ChatMessages({ messages, loading }: Props) {
+  const scrollRef = useRef<HTMLDivElement | null>(null);
   const endRef = useRef<HTMLDivElement | null>(null);
+  const nearBottomRef = useRef(true);
+
+  const updateNearBottom = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const distance = el.scrollHeight - el.scrollTop - el.clientHeight;
+    nearBottomRef.current = distance <= NEAR_BOTTOM_PX;
+  }, []);
 
   useEffect(() => {
-    endRef.current?.scrollIntoView({ block: 'end', behavior: 'smooth' });
-  }, [messages, loading]);
+    const el = scrollRef.current;
+    if (!el) return;
+    updateNearBottom();
+    if (nearBottomRef.current) {
+      endRef.current?.scrollIntoView({ block: 'end', behavior: loading ? 'auto' : 'smooth' });
+    }
+  }, [messages, loading, updateNearBottom]);
 
   return (
-    <div className="dchat-scrollbar-none h-full min-h-0 overflow-y-auto rounded-xl bg-slate-50 px-3 py-2.5 dark:bg-slate-900/70">
+    <div
+      ref={scrollRef}
+      onScroll={updateNearBottom}
+      className="dchat-helpdesk-scroll min-h-0 flex-1 overflow-y-auto overscroll-y-contain rounded-xl bg-slate-50 px-3 py-2.5 dark:bg-slate-900/70"
+    >
       <div className="mb-2 text-center text-[10px] font-medium uppercase tracking-wide text-slate-400">Today</div>
       <div className="space-y-2.5">
         {messages.map((message) => (

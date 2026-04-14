@@ -67,9 +67,7 @@ export default function ChatTeaser({ visible, onPrimaryClick, onSecondaryClick, 
               aria-hidden
               width={24}
               height={24}
-              className={`h-6 w-6 rounded-full border border-white object-cover dark:border-slate-800${
-                src.includes('/team/') ? ' dchat-header-team-avatar' : ''
-              }`}
+              className="h-6 w-6 rounded-full border border-white object-cover dark:border-slate-800"
               loading="lazy"
               decoding="async"
             />

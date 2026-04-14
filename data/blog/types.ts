@@ -13,10 +13,6 @@ export type BlogPost = {
   metaTitle: string;
   metaDescription: string;
   keywords: string[];
-  /** Full-bleed Unsplash hero (HTTPS `images.unsplash.com` URL). */
-  heroUnsplashUrl: string;
-  /** Short description of the hero image for accessibility. */
-  heroImageAlt: string;
   faq: BlogFaqItem[];
   bodyMarkdown: string;
   keyTakeaways: string[];

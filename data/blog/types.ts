@@ -14,7 +14,12 @@ export type BlogPost = {
   metaDescription: string;
   keywords: string[];
   heroImageAlt: string;
+  /** Full-bleed hero on post detail (public path). */
   heroImageSrc?: string;
+  /** Optional Tailwind classes for hero image positioning. */
+  heroImageClassName?: string;
+  /** Thumbnail on blog index cards. */
+  cardImageSrc?: string;
   faq: BlogFaqItem[];
   bodyMarkdown: string;
   keyTakeaways: string[];

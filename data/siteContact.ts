@@ -28,7 +28,8 @@ function mapsQueryEncoded(): string {
 }
 
 export function googleMapsEmbedUrl(): string {
-  return `https://www.google.com/maps?q=${mapsQueryEncoded()}&z=15&output=embed`;
+  /** Use maps subdomain + output=embed; parent CSP must allow frame-src to Google. */
+  return `https://maps.google.com/maps?q=${mapsQueryEncoded()}&z=15&output=embed&hl=en`;
 }
 
 export function googleMapsExternalUrl(): string {

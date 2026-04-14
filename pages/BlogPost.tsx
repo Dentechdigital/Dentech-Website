@@ -62,6 +62,8 @@ const BlogPost: React.FC = () => {
           badge={`Blog · Published ${formatDate(post.publishedAt)}`}
           title={post.title}
           description={post.metaDescription}
+          heroImageSrc={post.heroImageSrc}
+          heroImageClassName={post.heroImageClassName}
           breadcrumb={
             <nav aria-label="Breadcrumb" className="text-sm text-slate-600 dark:text-slate-400">
               <Link to="/" className="font-medium hover:text-blue-600 dark:hover:text-blue-400">
@@ -78,10 +80,10 @@ const BlogPost: React.FC = () => {
         />
 
         <article className="border-t border-slate-200/70 bg-white py-12 dark:border-slate-800 dark:bg-slate-900/35 md:py-16">
-          <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
             <BlogMarkdown
               markdown={post.bodyMarkdown}
-              className="prose prose-slate max-w-none dark:prose-invert prose-headings:scroll-mt-24 prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline dark:prose-a:text-blue-400 prose-strong:text-blue-950 dark:prose-strong:text-white"
+              className="prose prose-lg prose-slate max-w-none dark:prose-invert prose-headings:scroll-mt-24 prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline dark:prose-a:text-blue-400 prose-strong:text-blue-950 dark:prose-strong:text-white"
             />
 
             {post.keyTakeaways.length > 0 ? (

@@ -13,6 +13,10 @@ export const postWebsiteConversion: BlogPost = {
     'mobile dental website Canada',
   ],
   heroImageAlt: 'Responsive dental clinic website mockup on phone and desktop',
+  heroImageSrc: '/services/websites/hero-collage-websites.webp',
+  heroImageClassName:
+    'object-cover object-[26%_center] sm:object-[30%_center] lg:object-[34%_center]',
+  cardImageSrc: '/services/websites/hero-collage-websites.webp',
   faq: [
     {
       question: 'What is a good conversion rate for a dental website?',
@@ -46,6 +50,10 @@ export const postWebsiteConversion: BlogPost = {
 
 This article is for teams who want **practical improvements** without guaranteed multiples on revenue. Your results depend on traffic quality, scheduling capacity, and how well your front desk converts inquiries.
 
+Most practices already have the right *clinical* story; the gap is usually **clarity** (what to do next), **speed** (especially on cellular networks), and **trust** (who you are, in human language). The sections below walk through a realistic week of fixes you can prioritize without a full redesign.
+
+![Website and digital presence collage for dental practices](/services/websites/hero-collage-websites.webp)
+
 ## Booking-first mobile layout
 
 Most local patients browse on phones. Prioritize:
@@ -65,6 +73,12 @@ Large hero images and unoptimized sliders hurt **Core Web Vitals**. Use modern f
 - **Before/after** galleries only with proper consent and college-compliant presentation  
 - **Reviews** embedded or linked where allowed
 
+### Above-the-fold hierarchy (what patients scan in 5 seconds)
+
+On mobile, patients typically decide whether to stay based on: **practice name + city**, **hours**, **one clear primary action** (call or book), and **a single proof point** (years serving the community, languages spoken, or a calm photo of the team—not ten competing promos). Secondary links (blog, careers, community) belong slightly lower so the primary path stays obvious.
+
+If you run **paid campaigns** to specific services, match landing sections to ad copy. A generic homepage can work for brand traffic, but procedure-specific traffic often converts better when the first screen repeats the promise and shows the next step immediately.
+
 ## One-week conversion checklist
 
 | Task | Owner |
@@ -81,7 +95,11 @@ Large hero images and unoptimized sliders hurt **Core Web Vitals**. Use modern f
 Opaque sites frustrate users. High-level ranges or “starting at” language—where compliant—often reduce bounce.
 
 **What about accessibility?**  
-Accessibility helps everyone and reduces legal risk. Use sufficient contrast, labels on forms, and keyboard-navigable menus.`,
+Accessibility helps everyone and reduces legal risk. Use sufficient contrast, labels on forms, and keyboard-navigable menus.
+
+## After the first pass: what to measure
+
+Once the basics are stable, compare **month over month**: sessions to booking-started, form errors, and call clicks from the header vs. buried links. If you change one major element (hero, booking vendor, or top nav), annotate the date in your reports so you do not confuse seasonal demand with UX impact.`,
 };
 
 export const postMultiLocation: BlogPost = {
@@ -97,6 +115,10 @@ export const postMultiLocation: BlogPost = {
     'DSO local SEO Canada',
   ],
   heroImageAlt: 'Map pins representing multiple dental clinic locations in a region',
+  heroImageSrc: '/services/local-seo/hero-collage-seo.webp',
+  heroImageClassName:
+    'object-cover object-[30%_center] sm:object-[34%_center] lg:object-[38%_center]',
+  cardImageSrc: '/services/local-seo/hero-collage-seo.webp',
   faq: [
     {
       question: 'One website or microsites per location?',
@@ -128,6 +150,10 @@ export const postMultiLocation: BlogPost = {
   ],
   bodyMarkdown: `Growing from **one chair** to **many locations** changes how you think about search. Brand queries grow, but **local relevance** still wins “near me” intent. **Dentech Digital** helps **Canadian dental groups** structure sites and listings so each location can compete without confusing patients—or Google.
 
+The hardest part is rarely the first location page—it is **keeping every listing, phone tree, and URL pattern coherent** after hiring, acquisitions, and rebrands. Think of local SEO for groups as **governance + templates + local proof**, not a one-time project.
+
+![Local SEO and maps visibility collage](/services/local-seo/hero-collage-seo.webp)
+
 ## Brand search vs local intent
 
 - **Brand**: patients type your group name; homepage and knowledge panels should dominate.  
@@ -149,6 +175,10 @@ Each page includes: providers, hours, parking, services offered **at that site**
 
 Central marketing should own **templates**, **analytics**, and **brand voice**; local leaders contribute **community hooks** and **photo updates**. Without governance, listings drift after staff turnover.
 
+### Practical “single source of truth”
+
+Maintain a lightweight spreadsheet (even a shared tab) with: canonical **location URL**, **GBP link**, **public phone**, **after-hours policy**, and **parking notes**. When front desk workflows change, update the sheet first—then the site and listings in the same sprint. Small inconsistencies (mismatched suite numbers, old holiday hours) are surprisingly common after busy seasons.
+
 ## Acquisition checklist
 
 When buying a practice:
@@ -164,7 +194,11 @@ When buying a practice:
 Often one brand account is enough; highlight locations via Stories and pinned posts. Separate accounts only if brands truly differ.
 
 **How fast can we see stabilization after a merger?**  
-Expect weeks to months for search consolidation; communicate internally to avoid unrealistic expectations.`,
+Expect weeks to months for search consolidation; communicate internally to avoid unrealistic expectations.
+
+## Scaling content without sounding robotic
+
+Location pages should share a **structure** (providers, hours, directions, services at this site) but not identical paragraphs with only the city name swapped. Pull in **neighborhood cues**, **transit or parking reality**, and **which specialists rotate** through that office. That depth is what keeps pages useful for patients and resilient when search algorithms emphasize helpful content.`,
 };
 
 export const postReputationReviews: BlogPost = {
@@ -180,6 +214,10 @@ export const postReputationReviews: BlogPost = {
     'reputation management dentistry Canada',
   ],
   heroImageAlt: 'Dental reception area with welcoming atmosphere for patients',
+  heroImageSrc: '/services/social-content/hero-collage-social.webp',
+  heroImageClassName:
+    'object-cover object-[24%_center] sm:object-[28%_center] lg:object-[32%_center]',
+  cardImageSrc: '/services/social-content/hero-collage-social.webp',
   faq: [
     {
       question: 'Can we ask every patient for a review?',
@@ -213,6 +251,10 @@ export const postReputationReviews: BlogPost = {
 
 **Dentech Digital** treats reputation as part of **patient experience**, not a gimmick. This playbook fits **Ottawa** metros and national groups alike.
 
+If your team feels awkward “asking for stars,” reframe it as **inviting honest feedback** at the right moment—after a smooth visit, clear billing conversation, or successful follow-up. The platforms reward **recency and volume over time**, not one lucky weekend.
+
+![Social and content marketing collage](/services/social-content/hero-collage-social.webp)
+
 ## When to ask
 
 The best moments are often after **successful routine care** or **clear treatment completion**—when patients feel relief, not when they are mid-procedure or under sedation.
@@ -234,13 +276,21 @@ A professional response:
 
 Track **volume**, **recency**, **rating trend**, and **themes** in feedback (wait times, billing clarity, parking). Feed insights to operations—not only marketing.
 
+### Templates that stay human
+
+Scripts should sound like your office, not a call center. A simple pattern works: **thank the patient**, **name the moment** (“after today’s hygiene visit”), **one link**, **no pressure**. Train alternate wording for team members who prefer shorter messages—consistency of *timing* matters more than identical wording.
+
 ## People also ask
 
 **Can we remove unfair reviews?**  
 Sometimes, via platform processes—but many stay. A thoughtful response often matters more than removal.
 
 **Do testimonials on my site replace Google reviews?**  
-They complement, not replace. Use consent and accuracy; align with regulatory guidance.`,
+They complement, not replace. Use consent and accuracy; align with regulatory guidance.
+
+## Reviews + social proof in other channels
+
+When you publish **[social & content](/services/social-content)** that highlights community involvement or patient education, link back to **verified profiles** where appropriate. The goal is a coherent story: your site, maps listing, and social presence should reinforce the same **name, locations, and tone**—not three different brands by accident.`,
 };
 
 export const postPrivacyMarketing: BlogPost = {
@@ -256,6 +306,10 @@ export const postPrivacyMarketing: BlogPost = {
     'health marketing consent',
   ],
   heroImageAlt: 'Secure computer workspace representing privacy-conscious digital marketing',
+  heroImageSrc: '/services/ai-automation/hero-collage-ai.webp',
+  heroImageClassName:
+    'object-cover object-[22%_center] sm:object-[26%_center] lg:object-[30%_center]',
+  cardImageSrc: '/services/ai-automation/hero-collage-ai.webp',
   faq: [
     {
       question: 'Is this article legal advice?',
@@ -289,6 +343,10 @@ export const postPrivacyMarketing: BlogPost = {
 
 **Important:** This article is **not legal advice**. **Dentech Digital** implements technical marketing systems; your lawyer and privacy advisor should approve policies for your practice.
 
+Teams often discover privacy questions when they add **chat widgets**, **call tracking**, or **AI-assisted triage**. The right sequence is: inventory data flows first, then choose vendors, then turn on automation—not the reverse.
+
+![Automation and systems collage for dental marketing](/services/ai-automation/hero-collage-ai.webp)
+
 ## Practical starting points
 
 1. **Data minimization** on lead forms (name, contact, reason for visit—not full charts).  
@@ -304,11 +362,19 @@ Many clinics run **Google Analytics** and ad pixels. A privacy review should ask
 
 Testimonials and photos require **meaningful consent** and often **college advertising** compliance. Store consent records.
 
+### Vendor and integration hygiene
+
+Before you connect a new marketing tool to your inbox or CRM, document: **what personal data it processes**, **where it is stored**, **retention defaults**, and **who can access exports**. Many issues come not from malice but from **shadow IT**—well-meaning staff adopting free trials that sync more than expected.
+
 ## People also ask
 
 **Do I need a cookie banner?**  
 Often yes, depending on tracking and provincial expectations. Your counsel can recommend wording.
 
 **What about call recording for attribution?**  
-Recording calls may require additional notices and consents—do not assume marketing vendors handle this for you.`,
+Recording calls may require additional notices and consents—do not assume marketing vendors handle this for you.
+
+## When you add AI or automation
+
+If you explore **[AI & automation](/services/ai-automation)** for lead follow-up or content drafting, treat outputs as **drafts** that need human review—especially for clinical framing, pricing language, and anything that could identify a patient. Automation should reduce repetitive work, not bypass your accountability framework.`,
 };

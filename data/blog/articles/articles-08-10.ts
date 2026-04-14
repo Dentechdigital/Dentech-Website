@@ -13,6 +13,10 @@ export const postContentStrategy: BlogPost = {
     'dental blog strategy',
   ],
   heroImageAlt: 'Content calendar and dental marketing notes on a desk',
+  heroImageSrc: '/services/social-content/hero-collage-social.webp',
+  heroImageClassName:
+    'object-cover object-[24%_center] sm:object-[28%_center] lg:object-[32%_center]',
+  cardImageSrc: '/services/social-content/hero-collage-social.webp',
   faq: [
     {
       question: 'Should we blog weekly?',
@@ -44,6 +48,10 @@ export const postContentStrategy: BlogPost = {
   ],
   bodyMarkdown: `Content is not “extra”—it is how patients and search engines **understand what you do**. **Dentech Digital** helps **Canadian dental clinics** invest in the right mix of **service pages**, **blogs**, and **FAQs** so you do not churn low-value articles while core pages stay thin.
 
+The mistake we see most often is a busy **editorial calendar** paired with **thin service pages**—so traffic lands on blog posts that cannot convert because the money pages still read like a brochure from 2012. Flip the priority: **depth where revenue is decided**, then support with education that links back cleanly.
+
+![Social and content strategy collage](/services/social-content/hero-collage-social.webp)
+
 ## Service pages: your revenue spine
 
 Service pages should answer: **who is a candidate**, **what happens**, **how long recovery broadly takes**, **what questions to ask**, and **how to book**. Avoid copying manufacturer brochures verbatim; localize to your team and protocols (without overpromising).
@@ -64,13 +72,21 @@ Use FAQs on service pages and a central FAQ hub if helpful. Write answers **pati
 | Marketing | Calendar, SEO targets, internal links |
 | Front desk | Patient questions feed content ideas |
 
+### Internal linking discipline
+
+Every blog post should answer: **which service page does this support?** Use descriptive anchors (“dental implant consultation process”) rather than vague “click here.” When you refresh a service page, scan older posts for outdated links or mentions of retired offers—stale internal links confuse patients and dilute relevance signals over time.
+
 ## People also ask
 
 **Do we need video?**  
 Short explainers can help engagement; accessibility captions matter. Start with written depth if budget is tight.
 
 **Should we translate content?**  
-If you serve bilingual communities (common around **Ottawa**), consider professionally translated high-value pages—not only widget translation.`,
+If you serve bilingual communities (common around **Ottawa**), consider professionally translated high-value pages—not only widget translation.
+
+## A simple quarterly audit
+
+Once per quarter, export your top 20 landing URLs and ask: **Is the primary CTA obvious?** **Does the page answer the top three patient questions** your team hears on the phone? **Do FAQs match what people actually type?** Small updates beat “content for content’s sake” when capacity and compliance are real constraints.`,
 };
 
 export const postAnalyticsAttribution: BlogPost = {
@@ -86,6 +102,10 @@ export const postAnalyticsAttribution: BlogPost = {
     'dental CRM attribution',
   ],
   heroImageAlt: 'Analytics dashboard showing marketing metrics for a healthcare practice',
+  heroImageSrc: '/services/paid-ads/hero-collage-ads.webp',
+  heroImageClassName:
+    'object-cover object-[28%_center] sm:object-[32%_center] lg:object-[36%_center]',
+  cardImageSrc: '/services/paid-ads/hero-collage-ads.webp',
   faq: [
     {
       question: 'Do I need call tracking?',
@@ -117,6 +137,10 @@ export const postAnalyticsAttribution: BlogPost = {
   ],
   bodyMarkdown: `If you cannot **see** which messages drive **booked patients**, you optimize for clicks. **Dentech Digital** builds measurement plans for **Canadian dental clinics** that respect **privacy** and front-desk reality.
 
+Dashboards are only useful when someone owns the **interpretation**: why did calls spike—seasonality, a new associate, a promo, or a tracking change? Start with a short narrative each month, not twenty slides.
+
+![Paid media and performance collage](/services/paid-ads/hero-collage-ads.webp)
+
 ## Start with decisions, not tools
 
 Pick **3–5 KPIs**: booked new patients, consults scheduled, hygiene reactivation rate, cost per acquisition (blended), and organic share of leads.
@@ -140,13 +164,21 @@ Even a lightweight spreadsheet beats nothing: date, source, procedure interest, 
 3. Pause underperformers; scale winners  
 4. Feed learnings to creative and landing pages  
 
+### UTM hygiene (small detail, big clarity)
+
+Agree on a **naming convention** for campaigns and stick to it: source, medium, campaign, and optional content/ad variant. When UTMs are inconsistent, reports become untrustworthy and teams argue about data instead of decisions. Keep a one-page cheat sheet in your shared drive and update it when you launch new channels.
+
 ## People also ask
 
 **Is GA4 enough?**  
 Often yes for websites; complement with ad platform data and call metrics.
 
 **What about HIPAA vs PIPEDA framing?**  
-Canadian clinics primarily navigate **PIPEDA**/provincial health laws; US HIPAA analogies can confuse—ask counsel.`,
+Canadian clinics primarily navigate **PIPEDA**/provincial health laws; US HIPAA analogies can confuse—ask counsel.
+
+## Bridging online metrics to the schedule
+
+Even without a perfect CRM, you can tag front-desk notes with **inquiry source** for a sample week each quarter. Comparing that sample to analytics trends catches blind spots—especially when patients research online but book by phone after a day or two.`,
 };
 
 export const postMarketingCalendar: BlogPost = {
@@ -162,10 +194,14 @@ export const postMarketingCalendar: BlogPost = {
     'dental emergency SEO',
   ],
   heroImageAlt: 'Wall calendar with marketing milestones for a dental practice',
+  heroImageSrc: '/services/print/hero-collage-print.webp',
+  heroImageClassName:
+    'object-cover object-[26%_center] sm:object-[30%_center] lg:object-[34%_center]',
+  cardImageSrc: '/services/print/hero-collage-print.webp',
   faq: [
     {
       question: 'How far ahead should we plan campaigns?',
-        answer:
+      answer:
         'A rolling 90-day plan with a lighter 12-month skeleton works well: seasons, school holidays, and insurance benefit cycles matter for many Canadian families.',
     },
     {
@@ -192,6 +228,10 @@ export const postMarketingCalendar: BlogPost = {
     'Align calendar with **[SEO](/services/local-seo)** and **[paid media](/services/paid-ads)** jointly.',
   ],
   bodyMarkdown: `**Dentech Digital** helps **Ottawa** and **Canadian** practices align **marketing calendars** with **clinical capacity** and **patient behavior**. This framework segments demand so you are not only running generic “dental office” ads.
+
+Calendars fail when marketing announces an offer the schedule cannot absorb—or when recall campaigns go silent for months because no one owns the rhythm. The goal is **predictable, repeatable pushes** aligned to chair time and community context.
+
+![Print and direct mail collage](/services/print/hero-collage-print.webp)
 
 ## Three demand lanes
 
@@ -220,12 +260,20 @@ Adjust to your patient mix—this table is illustrative, not prescriptive.
 
 Use **real team faces**, **short videos**, and **clear hours**. Respect **college advertising** and **contest rules** if you run promotions.
 
+### Offline + online in the same story
+
+**[Print & direct mail](/services/print)** still works for recall when paired with easy booking paths. Mention the same phone number and web address across pieces; mismatches erode trust and confuse attribution. If you run a seasonal mailer, mirror the theme on your site hero for a few weeks so digital and physical experiences feel intentional—not accidental.
+
 ## People also ask
 
 **How do we coordinate with front desk?**  
 Share a one-page calendar with talk tracks and booking priorities before each push.
 
 **What if we lack creative bandwidth?**  
-Start with **[print & direct mail](/services/print)** for hyper-local recall and pair with modest paid boosts—test, then scale.`,
+Start with **[print & direct mail](/services/print)** for hyper-local recall and pair with modest paid boosts—test, then scale.
+
+## A realistic “minimum viable” calendar
+
+If you can only execute a few beats per quarter, prioritize: **recall before benefit windows**, **one specialty consult push** aligned to provider capacity, and **emergency clarity** (hours, phone, after-hours messaging) year-round. Everything else is optional polish until those three stay consistent.`,
 };
 

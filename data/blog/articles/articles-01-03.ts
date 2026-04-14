@@ -13,6 +13,10 @@ export const postLocalSeoCanada: BlogPost = {
     'dental clinic maps visibility Ottawa',
   ],
   heroImageAlt: 'Dental clinic team reviewing local search performance on a laptop',
+  heroImageSrc: '/services/local-seo/hero-collage-seo.webp',
+  heroImageClassName:
+    'object-cover object-[28%_center] sm:object-[32%_center] lg:object-[36%_center]',
+  cardImageSrc: '/services/local-seo/hero-collage-seo.webp',
   faq: [
     {
       question: 'How long does local SEO take for a dental clinic?',
@@ -101,7 +105,23 @@ If your team lacks bandwidth to maintain profiles, publish helpful content, and 
 Yes, when posts answer real patient questions and link to authoritative service pages. Thin content published only for keywords tends not to help.
 
 **What about paid search?**  
-Google Ads can complement SEO during competitive periods or new launches. Balance depends on margin, capacity, and how fast you need patients.`,
+Google Ads can complement SEO during competitive periods or new launches. Balance depends on margin, capacity, and how fast you need patients.
+
+![Local SEO and maps visibility for dental practices](/services/local-seo/hero-collage-seo.webp)
+
+## Working with your front office and clinicians
+
+Local SEO is not only a marketing exercise. Your reception team hears how people found you, whether the number on a postcard matches Google, and which doctor name patients mention. **Dentech Digital** often runs short working sessions with **Ottawa** and national clients so clinical and administrative voices align: we are not chasing tricks—we are making accurate, helpful information easier to find.
+
+Document **common patient questions** each month (parking, sedation, direct billing, languages spoken) and reflect answers on your site and GBP. Small gaps—outdated holiday hours, a broken booking link—cost bookings even when rankings look fine.
+
+## What to review every 30 days
+
+Export **GBP insights** (calls, direction requests, website taps) and compare to the prior month. In analytics, segment **organic traffic** to high-intent service pages. Add a qualitative line to your leadership report: *three things patients misunderstood this month*. That feedback loop improves both SEO and chairside communication.
+
+## Planning beyond the first win
+
+After foundations are stable, layer **seasonal content** (benefits windows, back-to-school), **neighbourhood-specific** FAQs where you truly serve those communities, and carefully tested **paid search** for high-value procedures. Scale spend only when scheduling and clinical capacity support it—overpromising availability erodes the same trust your reviews are building.`,
 };
 
 export const postGeoAiDiscovery: BlogPost = {
@@ -117,6 +137,10 @@ export const postGeoAiDiscovery: BlogPost = {
     'generative engine optimization Canada',
   ],
   heroImageAlt: 'Clinic professional using tablet to review online patient inquiries',
+  heroImageSrc: '/services/ai-automation/hero-collage-ai.webp',
+  heroImageClassName:
+    'object-cover object-[30%_center] sm:object-[34%_center] lg:object-[38%_center]',
+  cardImageSrc: '/services/ai-automation/hero-collage-ai.webp',
   faq: [
     {
       question: 'What is GEO in dental marketing?',
@@ -184,7 +208,21 @@ AI answers often pull from **high-trust pages** and **well-linked local entities
 Maps and traditional search remain dominant for high-intent “dentist near me” queries. AI layers sit alongside—not instead of—those behaviors in most cities.
 
 **Do I need new tools?**  
-Often no. Better information architecture and disciplined content beat chasing experimental widgets.`,
+Often no. Better information architecture and disciplined content beat chasing experimental widgets.
+
+![AI and automation concepts applied to dental practice workflows](/services/ai-automation/hero-collage-ai.webp)
+
+## Entity clarity in plain language
+
+Start with a one-page **entity sheet**: legal business name, public-facing brand, address, main phone, hours, list of doctors, and top 10 procedures. When every system—from your **[website](/services/websites)** to **[social profiles](/services/social-content)**—uses the same facts, both humans and AI summaries struggle less to describe you accurately.
+
+## Content that earns citations
+
+Long-form pages that explain **candidacy**, **alternatives**, and **what a first visit includes** tend to outperform keyword-stuffed blurbs. Link internally to booking and to **[contact](/contact)** when readers are ready—do not force a sales tone in educational sections.
+
+## Governance as you scale
+
+Multi-location groups should assign a **single owner** for the entity sheet and schedule quarterly audits. Acquisitions and rebrands are where summaries break; plan verification steps for Google and health-directory listings as part of integration checklists—not as an afterthought.`,
 };
 
 export const postGoogleAdsVsMeta: BlogPost = {
@@ -200,6 +238,10 @@ export const postGoogleAdsVsMeta: BlogPost = {
     'dental patient acquisition paid media',
   ],
   heroImageAlt: 'Marketing discussion reviewing ad performance charts for a dental clinic',
+  heroImageSrc: '/services/paid-ads/hero-collage-ads.webp',
+  heroImageClassName:
+    'object-cover object-[26%_center] sm:object-[30%_center] lg:object-[34%_center]',
+  cardImageSrc: '/services/paid-ads/hero-collage-ads.webp',
   faq: [
     {
       question: 'Which platform brings cheaper leads for dentists?',
@@ -263,5 +305,19 @@ Configure **call tracking** and form events. Review **cost per booked patient** 
 Rarely. Use dedicated landing pages that mirror the ad and load fast on mobile.
 
 **What about LSAs (Local Services Ads)?**  
-They can work in eligible categories and regions; eligibility and lead quality vary. Evaluate alongside standard search campaigns.`,
+They can work in eligible categories and regions; eligibility and lead quality vary. Evaluate alongside standard search campaigns.
+
+![Paid media and performance dashboards for dental marketing](/services/paid-ads/hero-collage-ads.webp)
+
+## Creative iteration without burning trust
+
+Rotate **headlines and primary text** every few weeks on Meta; on Google, test **responsive search ads** with benefit-led and proof-led lines (compliant with your college’s advertising rules). Keep a **swipe file** of patient questions—ads that mirror real language often outperform generic “best dentist” claims.
+
+## Capacity checks before you scale
+
+Before increasing budgets, confirm **hygiene columns**, **doctor time**, and **financing conversations** can absorb volume. **Dentech Digital** maps acquisition plans to operational reality so you do not buy clicks you cannot serve well.
+
+## When to widen geography
+
+Expand radius only when **conversion rate** holds and reviews stay strong. If a farther radius dilutes quality, tighten targeting and reinvest savings in **landing page speed** and **call-answer training**.`,
 };

@@ -57,8 +57,16 @@ export type ChatRuntimeConfig = {
   onTrack?: (event: ChatEventName, payload?: ChatEventPayload) => void;
   LinkComponent: ChatLinkComponent;
   teaserDelayMs?: number;
-  /** Minimum time (ms) to show the typing indicator before an assistant reply (~2–3s feels natural). Respects `prefers-reduced-motion`. */
+  /**
+   * Minimum total time (ms) from send to first assistant line; typing dots show for at least this long
+   * (including network/FAQ work). Respects `prefers-reduced-motion`.
+   */
   assistantReplyMinDelayMs?: number;
+  /**
+   * Wait this long after showing the typing row before starting FAQ/API work so dots mount and animate first.
+   * Respects `prefers-reduced-motion`.
+   */
+  assistantTypingLeadInMs?: number;
 };
 
 const ChatConfigContext = createContext<ChatRuntimeConfig | null>(null);

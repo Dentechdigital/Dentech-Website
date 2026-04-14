@@ -109,13 +109,16 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
     const startedAt = Date.now();
     config.onTrack?.('chat_send', { mode, source });
 
-    const applyAssistantReplyDelay = async () => {
-      const minDelay =
-        typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
-          ? 0
-          : (config.assistantReplyMinDelayMs ?? 2200);
+    const motionReduce =
+      typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    const leadInMs = motionReduce ? 0 : (config.assistantTypingLeadInMs ?? 450);
+    const minTypingTotalMs = motionReduce ? 0 : (config.assistantReplyMinDelayMs ?? 2800);
+
+    await sleep(leadInMs);
+
+    const waitUntilMinTypingShown = async () => {
       const elapsed = Date.now() - startedAt;
-      await sleep(Math.max(0, minDelay - elapsed));
+      await sleep(Math.max(0, minTypingTotalMs - elapsed));
     };
 
     try {
@@ -145,7 +148,7 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
         });
       }
 
-      await applyAssistantReplyDelay();
+      await waitUntilMinTypingShown();
       setMessages((prev) => [...prev, makeMessage('assistant', result!.reply)]);
       const defaultCta = config.defaultContactCta;
       const baseCtas = result!.suggestedCtas.length ? result!.suggestedCtas : [defaultCta];
@@ -169,7 +172,7 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
         setCtaNudgeShown(true);
       }
     } catch {
-      await applyAssistantReplyDelay();
+      await waitUntilMinTypingShown();
       const fallback = resolveLocalFaq(prompt);
       if (fallback) {
         setError(null);

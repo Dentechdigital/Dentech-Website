@@ -61,5 +61,6 @@ export const dentechChatRuntimeConfig: ChatRuntimeConfig = {
   onTrack: trackChatEvent,
   LinkComponent: ChatRouterLink,
   teaserDelayMs: 7000,
-  assistantReplyMinDelayMs: 2500,
+  assistantTypingLeadInMs: 550,
+  assistantReplyMinDelayMs: 3200,
 };

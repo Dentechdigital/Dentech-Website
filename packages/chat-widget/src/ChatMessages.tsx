@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, { useCallback, useLayoutEffect, useRef } from 'react';
 import type { ChatMessage } from './types';
 
 const NEAR_BOTTOM_PX = 72;
@@ -11,28 +11,39 @@ type Props = {
 export default function ChatMessages({ messages, loading }: Props) {
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const endRef = useRef<HTMLDivElement | null>(null);
-  const nearBottomRef = useRef(true);
+  /** Only updated from onScroll — not after layout grows, or we falsely think the user scrolled up. */
+  const stickToBottomRef = useRef(true);
+  const prevMessageCountRef = useRef(messages.length);
 
-  const updateNearBottom = useCallback(() => {
+  const onScroll = useCallback(() => {
     const el = scrollRef.current;
     if (!el) return;
     const distance = el.scrollHeight - el.scrollTop - el.clientHeight;
-    nearBottomRef.current = distance <= NEAR_BOTTOM_PX;
+    stickToBottomRef.current = distance <= NEAR_BOTTOM_PX;
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
-    updateNearBottom();
-    if (nearBottomRef.current) {
+
+    const count = messages.length;
+    const last = messages[count - 1];
+    const userJustSent = count > prevMessageCountRef.current && last?.role === 'user';
+    prevMessageCountRef.current = count;
+
+    if (userJustSent) {
+      stickToBottomRef.current = true;
+    }
+
+    if (stickToBottomRef.current) {
       endRef.current?.scrollIntoView({ block: 'end', behavior: loading ? 'auto' : 'smooth' });
     }
-  }, [messages, loading, updateNearBottom]);
+  }, [messages, loading]);
 
   return (
     <div
       ref={scrollRef}
-      onScroll={updateNearBottom}
+      onScroll={onScroll}
       className="dchat-helpdesk-scroll min-h-0 flex-1 overflow-y-auto overscroll-y-contain rounded-xl bg-slate-50 px-3 py-2.5 dark:bg-slate-900/70"
     >
       <div className="mb-2 text-center text-[10px] font-medium uppercase tracking-wide text-slate-400">Today</div>

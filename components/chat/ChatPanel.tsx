@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CHATBOT_FAQ } from '../../data/chatbotFaq';
-import type { ChatConversionStage, ChatIntent, ChatMessage, ChatMode, SuggestedCta } from '../../types/chatbot';
+import type { ChatConversionStage, ChatFaqItem, ChatIntent, ChatMessage, ChatMode, SuggestedCta } from '../../types/chatbot';
 import ChatInput from './ChatInput';
 import ChatMessages from './ChatMessages';
 import ChatTabs from './ChatTabs';
@@ -85,6 +85,8 @@ export default function ChatPanel({
   const [rendered, setRendered] = useState(open);
   const [isExiting, setIsExiting] = useState(false);
   const [helpdeskCategory, setHelpdeskCategory] = useState<HelpdeskCategory>('pricing');
+  const [helpdeskScreen, setHelpdeskScreen] = useState<'questions' | 'answer'>('questions');
+  const [selectedHelpdeskItem, setSelectedHelpdeskItem] = useState<ChatFaqItem | null>(null);
 
   useEffect(() => {
     if (open) {
@@ -154,14 +156,16 @@ export default function ChatPanel({
         : 'bg-blue-50 text-blue-700 dark:bg-blue-950/30 dark:text-blue-300';
   const latestAssistantSummary = [...messages].reverse().find((message) => message.role === 'assistant')?.text;
   const latestUserQuestion = [...messages].reverse().find((message) => message.role === 'user')?.text;
-  const recentAssistantResponses = [...messages]
-    .filter((message) => message.role === 'assistant')
-    .slice(-3)
-    .reverse();
   const primaryCta = ctas[0];
   const secondaryCtas = ctas.slice(1);
   const activeHelpdeskCategory = HELPDESK_CATEGORIES.find((category) => category.id === helpdeskCategory) ?? HELPDESK_CATEGORIES[0];
   const filteredFaq = CHATBOT_FAQ.filter((item) => activeHelpdeskCategory.intents.includes(item.intent)).slice(0, 4);
+
+  useEffect(() => {
+    if (mode !== 'faq') return;
+    setHelpdeskScreen('questions');
+    setSelectedHelpdeskItem(null);
+  }, [mode, helpdeskCategory]);
 
   return (
     <div
@@ -216,7 +220,7 @@ export default function ChatPanel({
             <p className="mb-2 text-xs text-slate-500 dark:text-slate-400">
               Browse approved answers and helpful pages. Use the Chat tab if you want a live conversation.
             </p>
-            <p className="mb-3 text-[11px] font-medium text-slate-400 dark:text-slate-500">Scroll down to view all responses</p>
+            <p className="mb-3 text-[11px] font-medium text-slate-400 dark:text-slate-500">Choose a category to open common questions</p>
             <div className="mb-3 grid grid-cols-2 gap-2">
               {HELPDESK_CATEGORIES.map((category) => {
                 const isActive = category.id === helpdeskCategory;
@@ -224,7 +228,11 @@ export default function ChatPanel({
                   <button
                     key={category.id}
                     type="button"
-                    onClick={() => setHelpdeskCategory(category.id)}
+                    onClick={() => {
+                      setHelpdeskCategory(category.id);
+                      setHelpdeskScreen('questions');
+                      setSelectedHelpdeskItem(null);
+                    }}
                     className={`rounded-md px-2 py-1.5 text-xs font-semibold transition ${
                       isActive
                         ? 'bg-blue-600 text-white'
@@ -236,45 +244,68 @@ export default function ChatPanel({
                 );
               })}
             </div>
-            <div className="mb-3 rounded-lg border border-slate-200 bg-white p-3 dark:border-slate-700 dark:bg-slate-800">
-              <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-                {activeHelpdeskCategory.label}
-              </p>
-              <p className="mt-1 text-xs text-slate-600 dark:text-slate-300">{activeHelpdeskCategory.description}</p>
-            </div>
-            <div className="space-y-2">
-              {filteredFaq.map((item) => (
-                <button
-                  key={item.id}
-                  type="button"
-                  onClick={() => onSubmit(item.question, 'helpdesk')}
-                  className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-left text-xs font-medium text-slate-700 transition hover:border-blue-200 hover:bg-blue-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:hover:border-blue-700 dark:hover:bg-blue-950/20"
-                >
-                  {item.question}
-                </button>
-              ))}
-            </div>
-            {latestAssistantSummary && (
-              <div className="mt-4 rounded-lg border border-blue-100 bg-blue-50/80 p-3 dark:border-blue-900/40 dark:bg-blue-950/25">
-                <p className="text-[11px] font-semibold uppercase tracking-wide text-blue-700 dark:text-blue-300">
-                  Summary
-                </p>
-                {latestUserQuestion && (
-                  <p className="mt-1 text-[11px] text-blue-800/80 dark:text-blue-200/80">Q: {latestUserQuestion}</p>
-                )}
-                <p className="mt-1 text-xs leading-relaxed text-slate-700 dark:text-slate-100">{latestAssistantSummary}</p>
-              </div>
-            )}
-            {recentAssistantResponses.length > 0 && (
-              <div className="mt-3 rounded-lg border border-slate-200 bg-white p-3 dark:border-slate-700 dark:bg-slate-800">
-                <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-                  Recent responses
-                </p>
-                <div className="mt-2 space-y-2">
-                  {recentAssistantResponses.map((message) => (
-                    <p key={message.id} className="rounded-md bg-slate-50 px-2 py-1.5 text-xs text-slate-700 dark:bg-slate-900 dark:text-slate-200">
-                      {message.text}
+            {helpdeskScreen === 'questions' && (
+              <>
+                <div className="mb-3 rounded-lg border border-slate-200 bg-white p-3 dark:border-slate-700 dark:bg-slate-800">
+                  <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                    {activeHelpdeskCategory.label}
+                  </p>
+                  <p className="mt-1 text-xs text-slate-600 dark:text-slate-300">{activeHelpdeskCategory.description}</p>
+                </div>
+                <div className="space-y-2">
+                  {filteredFaq.map((item) => (
+                    <button
+                      key={item.id}
+                      type="button"
+                      onClick={() => {
+                        setSelectedHelpdeskItem(item);
+                        setHelpdeskScreen('answer');
+                      }}
+                      className="flex w-full items-center justify-between rounded-lg border border-slate-200 bg-white px-3 py-2 text-left text-xs font-medium text-slate-700 transition hover:border-blue-200 hover:bg-blue-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:hover:border-blue-700 dark:hover:bg-blue-950/20"
+                    >
+                      <span>{item.question}</span>
+                      <span className="ml-3 text-slate-400">›</span>
+                    </button>
+                  ))}
+                </div>
+                {latestAssistantSummary && (
+                  <div className="mt-4 rounded-lg border border-blue-100 bg-blue-50/80 p-3 dark:border-blue-900/40 dark:bg-blue-950/25">
+                    <p className="text-[11px] font-semibold uppercase tracking-wide text-blue-700 dark:text-blue-300">
+                      Summary
                     </p>
+                    {latestUserQuestion && (
+                      <p className="mt-1 text-[11px] text-blue-800/80 dark:text-blue-200/80">Q: {latestUserQuestion}</p>
+                    )}
+                    <p className="mt-1 text-xs leading-relaxed text-slate-700 dark:text-slate-100">{latestAssistantSummary}</p>
+                  </div>
+                )}
+              </>
+            )}
+            {helpdeskScreen === 'answer' && selectedHelpdeskItem && (
+              <div className="rounded-lg border border-slate-200 bg-white p-3 dark:border-slate-700 dark:bg-slate-800">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setHelpdeskScreen('questions');
+                    setSelectedHelpdeskItem(null);
+                  }}
+                  className="mb-3 inline-flex items-center gap-1 rounded-md px-1.5 py-1 text-xs font-semibold text-slate-500 transition hover:bg-slate-100 hover:text-slate-700 dark:text-slate-300 dark:hover:bg-slate-700 dark:hover:text-white"
+                >
+                  <span aria-hidden>←</span>
+                  Back to questions
+                </button>
+                <p className="text-sm font-semibold text-slate-800 dark:text-slate-100">{selectedHelpdeskItem.question}</p>
+                <p className="mt-2 text-xs leading-relaxed text-slate-600 dark:text-slate-300">{selectedHelpdeskItem.answer}</p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {selectedHelpdeskItem.ctas.map((cta) => (
+                    <Link
+                      key={cta.to + cta.label}
+                      to={cta.to}
+                      onClick={() => onCtaClick(cta.to)}
+                      className="rounded-md bg-slate-100 px-2.5 py-1.5 text-xs font-medium text-slate-700 transition hover:bg-slate-200 dark:bg-slate-700 dark:text-slate-100 dark:hover:bg-slate-600"
+                    >
+                      {cta.label}
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -338,33 +369,35 @@ export default function ChatPanel({
         </div>
       )}
 
-      <div className="mx-3 mt-2 border-t border-slate-200 pb-3 pt-2 dark:border-slate-800">
-        {primaryCta && (
-          <Link
-            to={primaryCta.to}
-            onClick={() => onCtaClick(primaryCta.to)}
-            className={`block rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 px-3 py-2 text-center text-xs font-semibold text-white transition duration-200 hover:-translate-y-0.5 hover:from-blue-700 hover:to-indigo-700 ${
-              conversionStage === 'ready' ? 'dchat-cta-ready' : ''
-            }`}
-          >
-            {primaryCta.label}
-          </Link>
-        )}
-        {secondaryCtas.length > 0 && (
-          <div className="mt-2 flex flex-wrap gap-2">
-            {secondaryCtas.map((cta) => (
-              <Link
-                key={cta.to + cta.label}
-                to={cta.to}
-                onClick={() => onCtaClick(cta.to)}
-                className="rounded-lg bg-slate-100 px-3 py-1.5 text-xs font-medium text-slate-800 transition hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700"
-              >
-                {cta.label}
-              </Link>
-            ))}
-          </div>
-        )}
-      </div>
+      {mode === 'chat' && (
+        <div className="mx-3 mt-2 border-t border-slate-200 pb-3 pt-2 dark:border-slate-800">
+          {primaryCta && (
+            <Link
+              to={primaryCta.to}
+              onClick={() => onCtaClick(primaryCta.to)}
+              className={`block rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 px-3 py-2 text-center text-xs font-semibold text-white transition duration-200 hover:-translate-y-0.5 hover:from-blue-700 hover:to-indigo-700 ${
+                conversionStage === 'ready' ? 'dchat-cta-ready' : ''
+              }`}
+            >
+              {primaryCta.label}
+            </Link>
+          )}
+          {secondaryCtas.length > 0 && (
+            <div className="mt-2 flex flex-wrap gap-2">
+              {secondaryCtas.map((cta) => (
+                <Link
+                  key={cta.to + cta.label}
+                  to={cta.to}
+                  onClick={() => onCtaClick(cta.to)}
+                  className="rounded-lg bg-slate-100 px-3 py-1.5 text-xs font-medium text-slate-800 transition hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700"
+                >
+                  {cta.label}
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }

@@ -136,7 +136,7 @@ function FaqCard({
 }
 
 export default function HomeFAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
   const isLg = useLgBreakpoint();
 
   const handleAccordionToggle = (index: number) => {

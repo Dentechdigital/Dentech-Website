@@ -108,7 +108,7 @@ export default function FaqAccordion({
   className = '',
   embedded = false,
 }: FaqAccordionProps) {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
   const isLg = useLgBreakpoint();
   const headingId = `${idPrefix}-heading`;
 

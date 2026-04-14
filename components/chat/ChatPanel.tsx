@@ -1,11 +1,45 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CHATBOT_FAQ } from '../../data/chatbotFaq';
-import type { ChatConversionStage, ChatMessage, ChatMode, SuggestedCta } from '../../types/chatbot';
+import type { ChatConversionStage, ChatIntent, ChatMessage, ChatMode, SuggestedCta } from '../../types/chatbot';
 import ChatInput from './ChatInput';
 import ChatMessages from './ChatMessages';
 import ChatTabs from './ChatTabs';
 import QuickPrompts from './QuickPrompts';
+
+type HelpdeskCategory = 'pricing' | 'services' | 'timeline' | 'getting-started';
+
+const HELPDESK_CATEGORIES: Array<{
+  id: HelpdeskCategory;
+  label: string;
+  intents: ChatIntent[];
+  description: string;
+}> = [
+  {
+    id: 'pricing',
+    label: 'Pricing',
+    intents: ['pricing'],
+    description: 'Packages, retainers, scope, and fit by clinic stage.',
+  },
+  {
+    id: 'services',
+    label: 'Services',
+    intents: ['services'],
+    description: 'Channel strategy, priorities, and full-funnel execution.',
+  },
+  {
+    id: 'timeline',
+    label: 'Timeline',
+    intents: ['timeline'],
+    description: 'Expected ramp-up, 30-90 day milestones, and team rhythm.',
+  },
+  {
+    id: 'getting-started',
+    label: 'Getting started',
+    intents: ['booking'],
+    description: 'How to prepare, kickoff steps, and first implementation phase.',
+  },
+];
 
 type Props = {
   open: boolean;
@@ -50,6 +84,7 @@ export default function ChatPanel({
   const panelRef = useRef<HTMLDivElement | null>(null);
   const [rendered, setRendered] = useState(open);
   const [isExiting, setIsExiting] = useState(false);
+  const [helpdeskCategory, setHelpdeskCategory] = useState<HelpdeskCategory>('pricing');
 
   useEffect(() => {
     if (open) {
@@ -121,6 +156,8 @@ export default function ChatPanel({
   const latestUserQuestion = [...messages].reverse().find((message) => message.role === 'user')?.text;
   const primaryCta = ctas[0];
   const secondaryCtas = ctas.slice(1);
+  const activeHelpdeskCategory = HELPDESK_CATEGORIES.find((category) => category.id === helpdeskCategory) ?? HELPDESK_CATEGORIES[0];
+  const filteredFaq = CHATBOT_FAQ.filter((item) => activeHelpdeskCategory.intents.includes(item.intent)).slice(0, 4);
 
   return (
     <div
@@ -175,8 +212,33 @@ export default function ChatPanel({
             <p className="mb-3 text-xs text-slate-500 dark:text-slate-400">
               Browse approved answers and helpful pages. Use the Chat tab if you want a live conversation.
             </p>
+            <div className="mb-3 grid grid-cols-2 gap-2">
+              {HELPDESK_CATEGORIES.map((category) => {
+                const isActive = category.id === helpdeskCategory;
+                return (
+                  <button
+                    key={category.id}
+                    type="button"
+                    onClick={() => setHelpdeskCategory(category.id)}
+                    className={`rounded-md px-2 py-1.5 text-xs font-semibold transition ${
+                      isActive
+                        ? 'bg-blue-600 text-white'
+                        : 'bg-white text-slate-700 hover:bg-slate-100 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700'
+                    }`}
+                  >
+                    {category.label}
+                  </button>
+                );
+              })}
+            </div>
+            <div className="mb-3 rounded-lg border border-slate-200 bg-white p-3 dark:border-slate-700 dark:bg-slate-800">
+              <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                {activeHelpdeskCategory.label}
+              </p>
+              <p className="mt-1 text-xs text-slate-600 dark:text-slate-300">{activeHelpdeskCategory.description}</p>
+            </div>
             <div className="space-y-2">
-              {CHATBOT_FAQ.slice(0, 5).map((item) => (
+              {filteredFaq.map((item) => (
                 <button
                   key={item.id}
                   type="button"

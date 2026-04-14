@@ -1,4 +1,5 @@
 import React from 'react';
+import { MessageCircle } from 'lucide-react';
 
 type Props = {
   open: boolean;
@@ -11,21 +12,21 @@ export default function ChatLauncher({ open, onClick }: Props) {
       type="button"
       aria-label={open ? 'Close chat assistant' : 'Open chat assistant'}
       onClick={onClick}
-      className="pointer-events-auto group relative inline-flex h-14 w-14 items-center justify-center overflow-hidden rounded-full border border-white/40 bg-gradient-to-br from-blue-600 to-indigo-600 text-white shadow-[0_12px_32px_rgba(37,99,235,0.35)] transition hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300"
+      className="pointer-events-auto group relative inline-flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 text-white shadow-[0_14px_30px_rgba(37,99,235,0.45)] transition hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300"
     >
+      <MessageCircle size={22} className={`transition ${open ? 'opacity-0' : 'opacity-100'}`} />
       <img
-        src="/avatar.webp"
+        src="/avatar-80w.webp"
         alt=""
         aria-hidden
-        width={56}
-        height={56}
-        className={`h-full w-full object-cover transition duration-300 ${open ? 'scale-105 opacity-80' : 'scale-100 opacity-95 group-hover:opacity-100'}`}
+        width={20}
+        height={20}
+        className="absolute -right-0.5 -top-0.5 h-5 w-5 rounded-full border-2 border-white object-cover"
         loading="lazy"
         decoding="async"
       />
-      <span className="absolute bottom-1 right-1 h-2.5 w-2.5 rounded-full border border-white bg-emerald-400 shadow-[0_0_0_3px_rgba(16,185,129,0.2)]" />
       {open && (
-        <span className="absolute inset-0 grid place-items-center bg-slate-950/35 text-xl font-medium text-white backdrop-blur-[1px]">
+        <span className="absolute inset-0 grid place-items-center text-xl font-medium text-white">
           ×
         </span>
       )}

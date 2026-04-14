@@ -14,15 +14,16 @@ export default function ChatMessages({ messages, loading }: Props) {
   }, [messages, loading]);
 
   return (
-    <div className="h-full min-h-[13.5rem] overflow-y-auto rounded-xl border border-slate-200 bg-white/90 p-3 dark:border-slate-700 dark:bg-slate-900/90">
-      <div className="space-y-3">
+    <div className="h-full min-h-[14rem] overflow-y-auto rounded-xl bg-slate-50 px-3 py-2.5 dark:bg-slate-900/70">
+      <div className="mb-2 text-center text-[10px] font-medium uppercase tracking-wide text-slate-400">Today</div>
+      <div className="space-y-2.5">
         {messages.map((message) => (
           <div key={message.id} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
             <div
-              className={`max-w-[86%] rounded-2xl px-3 py-2 text-sm leading-relaxed ${
+              className={`max-w-[84%] rounded-2xl px-3 py-2 text-[13px] leading-relaxed shadow-sm ${
                 message.role === 'user'
-                  ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white'
-                  : 'bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-100'
+                  ? 'rounded-br-md bg-gradient-to-r from-blue-600 to-indigo-600 text-white'
+                  : 'rounded-bl-md bg-white text-slate-800 dark:bg-slate-800 dark:text-slate-100'
               }`}
             >
               {message.text}
@@ -31,8 +32,12 @@ export default function ChatMessages({ messages, loading }: Props) {
         ))}
         {loading && (
           <div className="flex justify-start">
-            <div className="rounded-2xl bg-slate-100 px-3 py-2 text-sm text-slate-600 dark:bg-slate-800 dark:text-slate-300">
-              Thinking...
+            <div className="rounded-2xl rounded-bl-md bg-white px-3 py-2 text-sm text-slate-600 shadow-sm dark:bg-slate-800 dark:text-slate-300">
+              <span className="inline-flex items-center gap-1">
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-slate-400" />
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-slate-400 [animation-delay:120ms]" />
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-slate-400 [animation-delay:240ms]" />
+              </span>
             </div>
           </div>
         )}

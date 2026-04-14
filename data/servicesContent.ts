@@ -8,6 +8,12 @@ export type ServiceFaqItem = {
   answer: string;
 };
 
+/** Subsection for “Under the hood” technical copy on service detail pages */
+export type ServiceTechnicalSection = {
+  heading: string;
+  paragraphs: string[];
+};
+
 export type ServiceDefinition = {
   slug: string;
   title: string;
@@ -22,11 +28,23 @@ export type ServiceDefinition = {
   heroBullets: string[];
   /** Opening paragraph on the detail page */
   overview: string;
+  /** Plain-language definition for readers new to the service */
+  whatItIs: string;
+  /** Why practices invest—symptoms, risk, opportunity */
+  whyItMatters: string[];
   forWho: string;
+  /** Optional: readiness before buying (tracking, site, capacity) */
+  prerequisites?: string[];
   included: string[];
   processSteps: { title: string; body: string }[];
+  /** Credible technical depth—platforms, signals, mechanisms */
+  technicalDeepDive: ServiceTechnicalSection[];
+  /** Trust-building “what we see go wrong” */
+  commonMistakes: string[];
   /** Plain-text outcome signals (no imagery) */
   outcomes: string[];
+  /** How we judge progress with you */
+  metricsWeWatch: string[];
   relatedSlugs: [string, string];
   faq: ServiceFaqItem[];
 };
@@ -135,6 +153,63 @@ export const servicesOrdered: ServiceDefinition[] = [
       'Fewer mismatches between GBP, website, and third-party listings',
       'Reporting your team can act on—not a spreadsheet nobody opens',
     ],
+    whatItIs:
+      'Local SEO (search engine optimization) is the work of helping your practice show up when people search in your area—for example “dentist near me,” “emergency dentist,” or “Invisalign [city].” It combines your Google Business Profile (GBP—the Maps listing), your website, reviews, and citations so Google understands who you are, where you are, and what you treat. GEO—generative engine optimization—is the newer sibling: it is about being described accurately when patients get answers from AI overviews and assistants, not only blue links. Both depend on the same foundation: consistent facts and clear service language.',
+    whyItMatters: [
+      'High-intent patients compare you in seconds on Maps and mobile search; if categories, photos, or hours are wrong, they call someone else.',
+      'Specialty and fee-for-service growth (implants, ortho, sleep, perio surgery) needs pages and entities that match how people actually search—not only how clinicians label procedures.',
+      'AI summaries and Maps pull from GBP and your site; when those disagree, patients lose trust before they ever reach your front desk.',
+      'Multi-location groups live or die on whether each location has correct landing pages and GBP logic—otherwise locations compete with each other.',
+      'Reviews and recency signals influence both human choice and local ranking; ignoring reputation is effectively choosing invisibility.',
+    ],
+    prerequisites: [
+      'Accurate legal business name, address, and phone as you want them shown publicly.',
+      'Access to Google Business Profile (owner or manager) and Google Search Console for the website domain.',
+      'A realistic list of priority procedures and markets (neighbourhoods, cities, or radii) you want to grow.',
+    ],
+    technicalDeepDive: [
+      {
+        heading: 'Google Business Profile (GBP) and Maps',
+        paragraphs: [
+          'GBP is the structured record Google uses for Maps, local pack results, and many knowledge-style answers. Primary and secondary categories, services with descriptions, attributes (e.g. accessibility), photos, and Q&A all send signals about relevance. We align categories with how patients search, not only how software defaults suggest.',
+          'Photo cadence and quality affect engagement; we give practical capture briefs so your team or photographer can feed the profile without clutter.',
+        ],
+      },
+      {
+        heading: 'On-site structure, entities, and internal links',
+        paragraphs: [
+          'Search engines and AI systems both benefit when each major procedure has a dedicated page with plain-language headings, FAQs, and internal links to related services and providers. Thin “doorway” pages hurt; specific, helpful pages help.',
+          'Internal linking distributes authority and clarifies relationships—for example linking “dental implants” to “bone grafting” and “sedation dentistry” where appropriate.',
+        ],
+      },
+      {
+        heading: 'NAP, citations, and schema (where it helps)',
+        paragraphs: [
+          'NAP stands for name, address, and phone—your core identity online. Inconsistent NAP across directories confuses Google and patients. We audit high-impact listings and fix conflicts without chasing every obsolete directory.',
+          'Structured data (JSON-LD schema) can clarify organization, local business, and FAQs when implemented correctly; we recommend it where it reflects visible content, not as a gimmick.',
+        ],
+      },
+      {
+        heading: 'GEO in plain terms',
+        paragraphs: [
+          'Generative systems summarize from multiple sources. When your GBP, site, and bios agree on doctors, hours, insurance posture, and flagship services, summaries are more likely to be accurate. GEO is not “tricking AI”—it is disciplined factual marketing plus strong pages worth citing.',
+        ],
+      },
+    ],
+    commonMistakes: [
+      'Keyword-stuffed city pages that read fake and get ignored by both users and algorithms.',
+      'Ignoring the difference between brand search and non-brand local search—both need different content and measurement.',
+      'Letting a marketing vendor “own” GBP under their email; you should retain ownership.',
+      'Chasing blog volume instead of answering the twenty questions patients in your market actually ask.',
+      'Treating reviews as “someone else’s job” instead of a steady, ethical request process tied to real visits.',
+    ],
+    metricsWeWatch: [
+      'Non-brand impressions and clicks in Search Console for priority local queries.',
+      'GBP actions: calls, direction requests, website taps—trended month over month.',
+      'Rank distribution for tracked terms (e.g. top 3 / top 10) for each priority service and location.',
+      'Review velocity, rating stability, and qualitative themes in feedback.',
+      'Landing page engagement on key service URLs (scroll, time on page where meaningful).',
+    ],
     relatedSlugs: ['websites', 'paid-ads'],
     faq: [
       {
@@ -204,6 +279,63 @@ export const servicesOrdered: ServiceDefinition[] = [
       'Creative and landing tests tied to real booking outcomes',
       'Weekly clarity on what to scale, pause, or fix next',
     ],
+    whatItIs:
+      'Paid advertising for dental practices usually means buying placements on Google (Search, sometimes Performance Max, Display where appropriate) and Meta (Facebook and Instagram). You pay when someone clicks or when the platform delivers impressions, depending on the objective. Unlike organic SEO, paid media can put you in front of intent immediately—but only if tracking, offers, landing pages, and front-desk follow-up are aligned. The goal is not “traffic”; it is qualified conversations you can book.',
+    whyItMatters: [
+      'Organic visibility takes time; paid fills chairs while SEO and reputation compound—especially for high-value procedures with long research cycles.',
+      'Competitors bid on your brand and category terms; absence from paid auctions can mean you never appear for the most valuable clicks in your city.',
+      'Without conversion tracking, you cannot tell which ads, keywords, or audiences actually produce patients—so budgets drift to waste.',
+      'Slow phone answer or a weak booking page silently burns ad spend; the platform still charges for the click.',
+      'Seasonal pushes (whitening, ortho consults, implant seminars) need controlled tests with clear start and end—not vague “always on” spend.',
+    ],
+    prerequisites: [
+      'Confirmed booking paths: phone, online scheduling, or forms someone monitors within minutes during business hours.',
+      'Rough margin and capacity guardrails for the procedures you want to advertise.',
+      'Access to Google Ads / Meta Business Suite (we work in your accounts with documented structure).',
+    ],
+    technicalDeepDive: [
+      {
+        heading: 'Search intent and campaign structure',
+        paragraphs: [
+          'Search campaigns should separate high-intent themes (e.g. “emergency dentist,” “dental implants [city]”) from broader research queries. Match types, negatives, and search term reviews prevent paying for irrelevant clicks like unrelated jobs or geographies you do not serve.',
+          'Performance Max and broad match can work when fed clean conversion signals and strong creative; they are not a substitute for strategy when tracking is weak.',
+        ],
+      },
+      {
+        heading: 'Tracking that matches real dentistry',
+        paragraphs: [
+          'We wire primary conversion actions to calls, form fills, and booked appointments where technically possible—often via call tracking numbers, CRM tags, or offline conversion imports from your PMS export (scoped to what your compliance allows).',
+          'UTM hygiene matters: consistent naming lets you compare Meta vs Google vs organic downstream in analytics.',
+        ],
+      },
+      {
+        heading: 'Landing experience and creative',
+        paragraphs: [
+          'The headline on the landing page should echo the ad promise. Mismatch is the #1 silent killer of quality score and conversion rate.',
+          'Creative for dental must stay within professional and regulatory tone: before/afters, testimonials, and offers need your approval and sometimes college guidance—we build review cycles into production.',
+        ],
+      },
+      {
+        heading: 'Budget, learning phase, and pacing',
+        paragraphs: [
+          'Platforms need enough conversion volume to optimize. Micro-budgets across too many campaigns starve learning. We recommend consolidation until signals stabilize, then expand.',
+        ],
+      },
+    ],
+    commonMistakes: [
+      'Optimizing for clicks or impressions instead of booked consults or new patients.',
+      'Sending all traffic to the homepage instead of procedure-specific landers.',
+      'Ignoring negative keywords until thousands are wasted on “jobs” or “free” intent.',
+      'Letting multiple vendors retarget the same users with conflicting messages.',
+      'Turning off campaigns every time the schedule is full—then losing algorithmic history.',
+    ],
+    metricsWeWatch: [
+      'Cost per qualified lead and cost per booked consult (definitions agreed upfront).',
+      'Search term and placement quality—what you actually paid for.',
+      'Call answer rate and booking conversion from tracked calls.',
+      'Return on ad spend (ROAS) only where revenue attribution is honest—not fabricated.',
+      'Creative fatigue signals: frequency, CTR drops, rising CPA on Meta.',
+    ],
     relatedSlugs: ['websites', 'local-seo'],
     faq: [
       {
@@ -267,6 +399,62 @@ export const servicesOrdered: ServiceDefinition[] = [
       'Obvious paths to call, book, or get directions',
       'Service and location pages that support SEO and GEO programs',
       'Analytics that reflect what patients actually do on your site',
+    ],
+    whatItIs:
+      'A dental website is your always-on receptionist: it explains who you are, what you treat, how to book, and why patients should trust you—usually on a phone screen first. “Custom” means information architecture, design, copy, performance, and analytics are built around your real services and markets, not a one-size-fits-all template that hides weak strategy behind stock photos. Technical quality (speed, accessibility, stable layout) affects both Google rankings and whether a nervous patient actually taps “Book.”',
+    whyItMatters: [
+      'Most discovery journeys end on your site or booking widget; Maps and ads only start the conversation.',
+      'Patients compare 2–3 practices quickly; slow loads, cluttered navigation, or buried phone numbers directly cost appointments.',
+      'SEO and GEO programs need crawlable, well-structured pages; a pretty site that search engines cannot parse wastes downstream marketing spend.',
+      'Relaunches go wrong without redirect plans—losing years of link equity and causing confusing AI summaries.',
+      'Accessibility is both the right thing and increasingly aligned with good UX: contrast, focus states, readable type.',
+    ],
+    prerequisites: [
+      'Brand basics: logo, colours, and any brand guidelines; or willingness to define them as part of the project.',
+      'Photo direction: professional photography strongly preferred for trust; we can brief your photographer.',
+      'Decision-makers available for structured approvals so timelines do not slip.',
+    ],
+    technicalDeepDive: [
+      {
+        heading: 'Information architecture and UX',
+        paragraphs: [
+          'We map primary journeys: new patient general, emergency, cosmetic consult, ortho parent, implant second opinion, etc. Each journey gets obvious next steps and minimal cognitive load.',
+          'Navigation depth is balanced: enough pages for SEO/GEO, not so many that patients get lost.',
+        ],
+      },
+      {
+        heading: 'Performance and Core Web Vitals',
+        paragraphs: [
+          'Largest Contentful Paint (LCP), Cumulative Layout Shift (CLS), and Interaction to Next Paint (INP) describe real user experience. We optimize images, font loading, lazy loading discipline, and third-party scripts (chat, analytics) so they do not tank performance.',
+        ],
+      },
+      {
+        heading: 'SEO/GEO-friendly templates',
+        paragraphs: [
+          'Semantic HTML headings, descriptive title tags and meta descriptions, internal linking blocks, and FAQ sections where they reflect real patient questions—all support discovery.',
+          'Migration: 301 redirect maps from old URLs, update of XML sitemaps, and Search Console monitoring catch soft 404s early.',
+        ],
+      },
+      {
+        heading: 'Analytics and consent',
+        paragraphs: [
+          'We wire events to meaningful actions: click-to-call, form start/submit, online booking clicks. Where Canadian privacy laws require consent banners, we coordinate with your counsel’s guidance on configuration—not one-size-fits-all legal advice.',
+        ],
+      },
+    ],
+    commonMistakes: [
+      'Auto-playing video or huge hero carousels that hurt LCP on mobile.',
+      'Hiding the phone number behind multiple taps on mobile.',
+      'Duplicating the same service copy across “city pages” with only the city name swapped.',
+      'Launching a new site without redirect mapping from old URLs.',
+      'Installing five marketing pixels with no owner—slowing the site and breaking attribution.',
+    ],
+    metricsWeWatch: [
+      'Core Web Vitals field and lab trends after launch.',
+      'Conversion rate on primary CTAs by traffic source.',
+      '404s and redirect chains from Search Console.',
+      'Scroll depth or engagement on key procedure pages (where tools allow).',
+      'Organic and paid landing engagement before/after redesign milestones.',
     ],
     relatedSlugs: ['local-seo', 'paid-ads'],
     faq: [
@@ -332,6 +520,60 @@ export const servicesOrdered: ServiceDefinition[] = [
       'Fewer “post for the sake of posting” weeks',
       'Clearer sense of what to repeat and what to stop',
     ],
+    whatItIs:
+      'Social media and content marketing for dentistry mean planned storytelling on the channels your patients actually use—usually Instagram and Facebook, sometimes short-form video—plus the supporting captions, carousels, and occasional blog or FAQ content that feeds search and your website. It is not random posting. It is a calendar tied to patient questions, seasonal demand (whitening before weddings, ortho before school), and the procedures you want to grow, with brand-safe tone and clear escalation when someone asks clinical or fee questions in comments or DMs.',
+    whyItMatters: [
+      'Trust is built before the first visit; consistent, educational content reduces anxiety for high-stakes treatments.',
+      'Referrals check you online; a stale or chaotic feed undermines word-of-mouth.',
+      'Paid campaigns work better when organic profiles and posts match the same offers and messaging.',
+      'Recall and reactivation campaigns need creative hooks patients recognize in the feed.',
+      'Without guardrails, well-meaning staff can post out-of-scope claims or PHI-adjacent content.',
+    ],
+    prerequisites: [
+      'Named approvers (doctor + marketing lead) and turnaround expectations for reviews.',
+      'Brand voice examples: posts you liked, competitors you do not want to resemble.',
+      'Photo/video access: in-office capture plan or photographer coordination.',
+    ],
+    technicalDeepDive: [
+      {
+        heading: 'Channel strategy and content pillars',
+        paragraphs: [
+          'We choose channels based on patient demographics and proof—not trends. Pillars typically mix education (how procedures work), social proof (tasteful testimonials), team culture (who will care for me), and soft promotional tied to capacity.',
+        ],
+      },
+      {
+        heading: 'Creative specs and production rhythm',
+        paragraphs: [
+          'We deliver specs for aspect ratios, safe zones, on-screen text size, and hook length for Reels/Shorts. Batch creation reduces context-switching for your team.',
+        ],
+      },
+      {
+        heading: 'Community management and compliance tone',
+        paragraphs: [
+          'Scripts for common DMs, escalation to human for clinical or billing questions, and crisis tone if reviews spike. Healthcare marketing should avoid before/after surprises and unverifiable superlatives.',
+        ],
+      },
+      {
+        heading: 'Measurement that is not vanity-only',
+        paragraphs: [
+          'Saves, shares, profile taps, and website clicks from bio matter more than raw follower counts. Where UTMs exist, we connect social-assisted conversions to the rest of your reporting story.',
+        ],
+      },
+    ],
+    commonMistakes: [
+      'Posting clinical jargon patients do not search or relate to.',
+      'Inconsistent hours or offers between social, GBP, and the website.',
+      'Over-polishing to the point of never shipping—cadence beats perfection.',
+      'Boosting random posts without a landing path or tracking.',
+      'Ignoring comment questions until they become public frustration.',
+    ],
+    metricsWeWatch: [
+      'Reach and engagement rate on priority content types.',
+      'Profile actions and website clicks from social referrals.',
+      'Saves and shares as quality signals on educational posts.',
+      'DM volume and response time (where measurable).',
+      'Downstream booked consults from social-tagged campaigns when UTMs are used.',
+    ],
     relatedSlugs: ['paid-ads', 'print'],
     faq: [
       {
@@ -395,6 +637,54 @@ export const servicesOrdered: ServiceDefinition[] = [
       'Attribution hooks so you know what to repeat',
       'Fewer print surprises at proof stage',
     ],
+    whatItIs:
+      'Print and direct mail are physical pieces—postcards, letters, brochures, referral pads, in-office signage—that reach people in a specific geography or relationship to your practice. Direct mail targets households or segments (for example new movers within a radius). Good dental print is readable at arm’s length, carries one primary offer, and uses QR codes or unique phone numbers so you can measure response. It works best when creative matches your digital brand so patients recognize you everywhere.',
+    whyItMatters: [
+      'Dense neighbourhoods and new mover streams still respond to tactile mail—especially for grand openings and reactivation.',
+      'Older demographics and families may notice mailbox pieces before they scroll far enough to see your ad.',
+      'Print reinforces digital: someone who saw your Meta ad may finally act when the postcard arrives.',
+      'Reactivation lists (patients overdue for hygiene or unscheduled treatment) often need a tangible nudge, not only email.',
+      'In-office leave-behinds support treatment acceptance when paired with clear next steps.',
+    ],
+    prerequisites: [
+      'Clear offer and audience: radius, new movers, inactive patient list (with compliant data use).',
+      'Print vendor or willingness to use one we coordinate with; proof approval workflow.',
+      'Tracking: unique URL, QR, or phone extension per campaign where possible.',
+    ],
+    technicalDeepDive: [
+      {
+        heading: 'Formats and postal realities',
+        paragraphs: [
+          'Standard sizes (e.g. 6×9 postcard, letter in envelope) affect postage class and speed. We design within Canada Post–friendly specs your printer recommends to avoid surprise surcharges.',
+        ],
+      },
+      {
+        heading: 'Creative hierarchy at mailbox distance',
+        paragraphs: [
+          'Headline, single offer, proof point, and one CTA above the fold on the address side. Body copy supports—not repeats—the headline. QR codes include quiet zones and human-readable fallback URLs.',
+        ],
+      },
+      {
+        heading: 'Lists and compliance',
+        paragraphs: [
+          'House lists from your PMS require consent and retention policies you own; we document how the campaign uses data. Purchased lists vary in quality—we advise where third-party data is worth it versus radius saturation.',
+        ],
+      },
+    ],
+    commonMistakes: [
+      'Cluttered postcards with ten services and no single action.',
+      'Mismatch between mail offer and website landing page.',
+      'Tiny type and low contrast for older eyes.',
+      'No attribution plan—“we think it worked” is not a strategy.',
+      'Skipping proof approval and reprinting at full cost.',
+    ],
+    metricsWeWatch: [
+      'Redemption of offer codes or unique URL visits.',
+      'Call volume spikes on tracked lines during mail windows.',
+      'Cost per booked appointment vs digital-only cohorts (honest comparisons).',
+      'Reactivation appointments attributed to list segments.',
+      'Reprint rate and proof revision counts (operational quality).',
+    ],
     relatedSlugs: ['social-content', 'local-seo'],
     faq: [
       {
@@ -457,6 +747,54 @@ export const servicesOrdered: ServiceDefinition[] = [
       'Scripts and flows your team trusts to hand off cleanly',
       'Small pilots before you commit to full rollout',
       'Clear rules for what stays with a human',
+    ],
+    whatItIs:
+      'AI and automation in a dental practice usually mean chatbots or scripted SMS flows for routine questions, after-hours coverage, appointment reminders, reactivation nudges, and internal checklists—always with human escalation for clinical, billing, or upset-patient situations. “AI” here is narrow: language models or decision trees configured to your policies, not a replacement for your team. Good automation feels like a helpful assistant; bad automation frustrates patients and creates privacy risk.',
+    whyItMatters: [
+      'Missed calls and slow texts are leaked production—especially for emergency and high-value consults.',
+      'Front desks experience predictable peaks; automation absorbs repetitive questions so humans handle nuance.',
+      'After-hours behaviour has shifted: patients message before they voicemail; if nobody answers, they move on.',
+      'Multi-location groups need consistent first-touch answers without each office improvising.',
+      'Done carefully, automation improves show rates when reminders respect patient preferences and regulations.',
+    ],
+    prerequisites: [
+      'Written policies on what can and cannot be said by automation (fees, clinical advice, insurance).',
+      'Telephony and PMS context: who answers escalations and within what timeframe.',
+      'Privacy review with your counsel for logging, retention, and vendor data processing in Canada.',
+    ],
+    technicalDeepDive: [
+      {
+        heading: 'Workflow mapping before tools',
+        paragraphs: [
+          'We document current paths: phone tree, website form, chat widget, Instagram DMs, referral portal. Only then do we match tools—off-the-shelf chat, PMS add-ons, or lightweight integrations—to realistic workflows.',
+        ],
+      },
+      {
+        heading: 'Prompting, guardrails, and logging',
+        paragraphs: [
+          'Scripts include fallback phrases, scope limits (“I cannot diagnose”), and handoff triggers. Logging helps you audit what patients asked and how the system responded—essential for tuning and compliance conversations.',
+        ],
+      },
+      {
+        heading: 'Integrations vs human bridge',
+        paragraphs: [
+          'Deep PMS integration is not always available; sometimes the right answer is SMS handoff to a human with templated context. We scope honest integration vs manual steps so you are not sold fantasy plumbing.',
+        ],
+      },
+    ],
+    commonMistakes: [
+      'Letting bots quote fees or clinical opinions.',
+      'No escalation path when the patient is angry or confused.',
+      'Over-automating reminders without opt-out hygiene.',
+      'Choosing tools before defining who owns content updates.',
+      'Skipping staff training so humans fight the system instead of using it.',
+    ],
+    metricsWeWatch: [
+      'Missed-call rate and time-to-first-response after hours.',
+      'Automation containment rate vs human takeover (quality, not just cost).',
+      'Appointment reminders delivery, confirm, and show-rate deltas.',
+      'Patient complaints or negative sentiment themes in escalated chats.',
+      'Pilot KPIs agreed before scale (e.g. 30-day window).',
     ],
     relatedSlugs: ['websites', 'paid-ads'],
     faq: [

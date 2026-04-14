@@ -1,0 +1,113 @@
+---
+import IslandDemo from '../components/IslandDemo';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta
+      name="description"
+      content="Static HTML-first prototype for Dentech Digital. Production site remains the React app on main."
+    />
+    <title>Dentech Astro prototype | Static-first experiment</title>
+    <style is:global>
+      :root {
+        --bg: #fafaf9;
+        --text: #0f172a;
+        --muted: #475569;
+        --blue: #2563eb;
+        --border: #e2e8f0;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family:
+          system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+      }
+      .wrap {
+        max-width: 42rem;
+        margin: 0 auto;
+        padding: 2.5rem 1.25rem 4rem;
+      }
+      h1 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin: 0 0 0.5rem;
+      }
+      .badge {
+        display: inline-block;
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+        margin-bottom: 1rem;
+      }
+      p {
+        margin: 0 0 1rem;
+        color: var(--muted);
+      }
+      .card {
+        margin-top: 2rem;
+        padding: 1.25rem 1.5rem;
+        border: 1px solid var(--border);
+        border-radius: 1rem;
+        background: #fff;
+        box-shadow: 0 1px 2px rgb(15 23 42 / 6%);
+      }
+      .island-demo__label {
+        font-size: 0.85rem;
+        margin: 0 0 0.75rem;
+      }
+      .island-demo__btn {
+        font: inherit;
+        padding: 0.5rem 1rem;
+        border-radius: 9999px;
+        border: 1px solid var(--border);
+        background: var(--bg);
+        cursor: pointer;
+      }
+      .island-demo__btn:hover {
+        border-color: var(--blue);
+        color: var(--blue);
+      }
+      code {
+        font-size: 0.9em;
+        background: #f1f5f9;
+        padding: 0.12em 0.35em;
+        border-radius: 0.25rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <span class="badge">Experiment branch only</span>
+      <h1>Dentech static-first prototype</h1>
+      <p>
+        This page is <strong>mostly HTML and CSS</strong> at build time. The button below is a small
+        <strong>React island</strong>—only that chunk hydrates in the browser. A production migration could keep
+        the chat widget the same way while shipping lean pages everywhere else.
+      </p>
+      <p>
+        The live site is unchanged: stay on <code>main</code> and run <code>npm run dev</code> at the repo root.
+      </p>
+      <div class="card">
+        <IslandDemo client:visible />
+      </div>
+    </div>
+  </body>
+</html>

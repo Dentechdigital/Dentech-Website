@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CHATBOT_FAQ } from '../../data/chatbotFaq';
-import type { ChatConversionStage, ChatFaqItem, ChatIntent, ChatMessage, ChatMode, SuggestedCta } from '../../types/chatbot';
+import type { ChatConversionStage, ChatFaqItem, ChatIntent, ChatMessage, ChatMode } from '../../types/chatbot';
 import ChatInput from './ChatInput';
 import ChatMessages from './ChatMessages';
 import ChatTabs from './ChatTabs';
@@ -49,7 +49,6 @@ type Props = {
   prompts: string[];
   loading: boolean;
   messages: ChatMessage[];
-  ctas: SuggestedCta[];
   error: string | null;
   onClose: () => void;
   onCtaClick: (to: string) => void;
@@ -74,7 +73,6 @@ export default function ChatPanel({
   prompts,
   loading,
   messages,
-  ctas,
   error,
   onClose,
   onCtaClick,
@@ -156,8 +154,6 @@ export default function ChatPanel({
         : 'bg-blue-50 text-blue-700 dark:bg-blue-950/30 dark:text-blue-300';
   const latestAssistantSummary = [...messages].reverse().find((message) => message.role === 'assistant')?.text;
   const latestUserQuestion = [...messages].reverse().find((message) => message.role === 'user')?.text;
-  const primaryCta = ctas[0];
-  const secondaryCtas = ctas.slice(1);
   const activeHelpdeskCategory = HELPDESK_CATEGORIES.find((category) => category.id === helpdeskCategory) ?? HELPDESK_CATEGORIES[0];
   const filteredFaq = CHATBOT_FAQ.filter((item) => activeHelpdeskCategory.intents.includes(item.intent)).slice(0, 4);
 
@@ -369,35 +365,7 @@ export default function ChatPanel({
         </div>
       )}
 
-      {mode === 'chat' && (
-        <div className="mx-3 mt-2 border-t border-slate-200 pb-3 pt-2 dark:border-slate-800">
-          {primaryCta && (
-            <Link
-              to={primaryCta.to}
-              onClick={() => onCtaClick(primaryCta.to)}
-              className={`block rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 px-3 py-2 text-center text-xs font-semibold text-white transition duration-200 hover:-translate-y-0.5 hover:from-blue-700 hover:to-indigo-700 ${
-                conversionStage === 'ready' ? 'dchat-cta-ready' : ''
-              }`}
-            >
-              {primaryCta.label}
-            </Link>
-          )}
-          {secondaryCtas.length > 0 && (
-            <div className="mt-2 flex flex-wrap gap-2">
-              {secondaryCtas.map((cta) => (
-                <Link
-                  key={cta.to + cta.label}
-                  to={cta.to}
-                  onClick={() => onCtaClick(cta.to)}
-                  className="rounded-lg bg-slate-100 px-3 py-1.5 text-xs font-medium text-slate-800 transition hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700"
-                >
-                  {cta.label}
-                </Link>
-              ))}
-            </div>
-          )}
-        </div>
-      )}
+      {/* Chat mode intentionally keeps only conversation + composer UI */}
     </div>
   );
 }

@@ -148,7 +148,7 @@ export default function ChatPanel({
           <div className="mt-3 min-w-0">
             {mode === 'chat' ? (
               config.assistantName && config.assistantAvatarSrc ? (
-                <div className="dchat-bubble-enter flex gap-3 text-left">
+                <div className="dchat-bubble-enter flex items-start gap-3 text-left">
                   <img
                     src={config.assistantAvatarSrc}
                     alt=""
@@ -159,22 +159,20 @@ export default function ChatPanel({
                     loading="lazy"
                     decoding="async"
                   />
-                  <div className="min-w-0 flex-1">
-                    <p className="text-[10px] font-semibold uppercase tracking-wide text-blue-100/90">
-                      {config.assistantRoleBadge ?? 'AI assistant'}
-                    </p>
+                  <div className="flex min-w-0 flex-1 flex-col items-start">
                     <h2 className="text-sm font-semibold leading-snug text-white sm:text-[15px] [text-shadow:0_1px_2px_rgba(0,0,0,0.22)]">
                       {config.assistantName}
                     </h2>
+                    <p className="mt-0.5 text-[10px] font-semibold uppercase tracking-wide text-blue-100/90">
+                      {config.assistantRoleBadge ?? 'AI assistant'}
+                    </p>
                     {config.assistantTagline?.trim() ? (
                       <p className="mt-1 text-[12px] leading-snug text-blue-100/95">{config.assistantTagline}</p>
                     ) : null}
-                    <div className="mt-2 flex items-center gap-2">
-                      <span className="text-[11px] leading-snug text-blue-100/90">
-                        <span className="mr-1 inline-block h-2 w-2 rounded-full bg-emerald-300 align-middle" />
-                        {config.chatHeaderStatusLine}
-                      </span>
-                    </div>
+                    <p className="mt-1.5 text-[11px] leading-snug text-blue-100/90">
+                      <span className="mr-1 inline-block h-2 w-2 rounded-full bg-emerald-300 align-middle" />
+                      {config.chatHeaderStatusLine}
+                    </p>
                   </div>
                 </div>
               ) : (

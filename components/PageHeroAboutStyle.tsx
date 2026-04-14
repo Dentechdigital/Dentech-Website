@@ -28,8 +28,6 @@ export type PageHeroAboutStyleProps = {
    * Example: `object-left` when the artboard has a dark/empty left and artwork on the right.
    */
   heroImageClassName?: string;
-  /** When true, omit the photo background and use a simple gradient (e.g. service pages). */
-  plainBackground?: boolean;
 };
 
 /**
@@ -46,7 +44,6 @@ export default function PageHeroAboutStyle({
   breadcrumb,
   heroImageSrc,
   heroImageClassName,
-  plainBackground = false,
 }: PageHeroAboutStyleProps) {
   const bgSrc = heroImageSrc ?? aboutHeroBgUrl;
   const bgPosition =
@@ -56,45 +53,29 @@ export default function PageHeroAboutStyle({
 
   return (
     <section className="relative overflow-hidden border-b border-slate-200/70 bg-[#FAFAF9] pb-20 pt-28 transition-colors duration-300 dark:border-slate-800 dark:bg-slate-950 md:pb-24 md:pt-32">
-      {plainBackground ? (
-        <>
-          <div className="pointer-events-none absolute inset-0 z-0 bg-[#FAFAF9] dark:bg-slate-950" />
-          <div
-            aria-hidden
-            className="pointer-events-none absolute -right-24 top-1/4 z-0 h-[min(28rem,70vw)] w-[min(28rem,70vw)] rounded-full bg-blue-200/40 blur-3xl dark:bg-blue-900/30"
-          />
-          <div
-            aria-hidden
-            className="pointer-events-none absolute -left-20 bottom-0 z-0 h-72 w-72 rounded-full bg-teal-200/30 blur-3xl dark:bg-teal-900/20"
-          />
-        </>
-      ) : (
-        <>
-          <ResponsiveHeroPicture
-            src={bgSrc}
-            alt=""
-            className={`pointer-events-none absolute inset-0 z-0 h-full min-h-[420px] w-full opacity-90 transition-opacity duration-300 dark:opacity-[0.82] ${bgPosition}`}
-            decoding="async"
-            fetchPriority="high"
-          />
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0 z-[1] dark:hidden"
-            style={{
-              background:
-                'linear-gradient(to right, #FAFAF9 0%, #FAFAF9 22%, rgba(250,250,249,0.88) 38%, rgba(250,250,249,0.25) 52%, transparent 60%, transparent 100%)',
-            }}
-          />
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0 z-[1] hidden dark:block"
-            style={{
-              background:
-                'linear-gradient(to right, rgb(2 6 23) 0%, rgb(2 6 23) 20%, rgba(2,6,23,0.88) 36%, rgba(2,6,23,0.28) 50%, transparent 58%, transparent 100%)',
-            }}
-          />
-        </>
-      )}
+      <ResponsiveHeroPicture
+        src={bgSrc}
+        alt=""
+        className={`pointer-events-none absolute inset-0 z-0 h-full min-h-[420px] w-full opacity-90 transition-opacity duration-300 dark:opacity-[0.82] ${bgPosition}`}
+        decoding="async"
+        fetchPriority="high"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-[1] dark:hidden"
+        style={{
+          background:
+            'linear-gradient(to right, #FAFAF9 0%, #FAFAF9 22%, rgba(250,250,249,0.88) 38%, rgba(250,250,249,0.25) 52%, transparent 60%, transparent 100%)',
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-[1] hidden dark:block"
+        style={{
+          background:
+            'linear-gradient(to right, rgb(2 6 23) 0%, rgb(2 6 23) 20%, rgba(2,6,23,0.88) 36%, rgba(2,6,23,0.28) 50%, transparent 58%, transparent 100%)',
+        }}
+      />
 
       <div
         className="pointer-events-none absolute inset-0 z-[2] opacity-50 transition-opacity duration-300 dark:opacity-[0.22]"

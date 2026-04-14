@@ -497,6 +497,24 @@ export function servicePath(slug: string): string {
   return `/services/${slug}`;
 }
 
+/**
+ * Hero collage filename under `public/services/{slug}/` (service detail pages only).
+ */
+export const serviceHeroCollageFilename: Record<string, string> = {
+  'paid-ads': 'hero-collage-ads.webp',
+  'local-seo': 'hero-collage-seo.webp',
+  websites: 'hero-collage-websites.webp',
+  'social-content': 'hero-collage-social.webp',
+  print: 'hero-collage-print.webp',
+  'ai-automation': 'hero-collage-ai.webp',
+};
+
+/** Public path starting with `/` — pair with base URL / `mediaUrl()`. */
+export function serviceHeroCollagePublicPath(slug: string): string | null {
+  const file = serviceHeroCollageFilename[slug];
+  return file ? `/services/${slug}/${file}` : null;
+}
+
 export function buildServicesHubJsonLd(): Record<string, unknown> {
   const pageUrl = `${SITE_ORIGIN}/services`;
   return {

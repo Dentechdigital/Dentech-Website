@@ -7,9 +7,16 @@ import FaqAccordion from '../components/FaqAccordion';
 import {
   buildServiceDetailStructuredData,
   getServiceBySlug,
+  serviceHeroCollagePublicPath,
   servicePath,
   servicesBySlug,
 } from '../data/servicesContent';
+
+function mediaUrl(src: string): string {
+  if (src.startsWith('http')) return src;
+  const base = import.meta.env.BASE_URL;
+  return `${base}${src.replace(/^\//, '')}`;
+}
 
 const ServiceDetail: React.FC = () => {
   const { serviceSlug } = useParams<{ serviceSlug: string }>();
@@ -42,6 +49,11 @@ const ServiceDetail: React.FC = () => {
     .map((slug) => servicesBySlug[slug])
     .filter(Boolean) as typeof service[];
 
+  const heroCollageRel = serviceHeroCollagePublicPath(service.slug);
+  const heroCollageUrl = heroCollageRel ? mediaUrl(heroCollageRel) : undefined;
+  const serviceHeroImageClass =
+    'object-cover object-[28%_center] sm:object-[32%_center] lg:object-[36%_center]';
+
   return (
     <>
       <SEO
@@ -56,7 +68,8 @@ const ServiceDetail: React.FC = () => {
           badge="Dental marketing service"
           title={service.h1}
           description={service.heroTagline}
-          plainBackground
+          heroImageSrc={heroCollageUrl}
+          heroImageClassName={heroCollageUrl ? serviceHeroImageClass : undefined}
           afterDescription={
             <ul className="flex max-w-3xl flex-col gap-3 sm:gap-2">
               {service.heroBullets.map((b) => (

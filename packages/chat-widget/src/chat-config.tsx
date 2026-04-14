@@ -29,8 +29,8 @@ export type ChatRuntimeConfig = {
   assistantTagline?: string;
   /** Short label above the name (e.g. “AI admin assistant”). */
   assistantRoleBadge?: string;
-  /** Shown under the header in Chat mode (e.g. typical reply time). */
-  chatResponseHintLine: string;
+  /** Shown under the header in Chat mode (e.g. typical reply time). Omit to hide the row. */
+  chatResponseHintLine?: string;
   /** Footer branding (e.g. “Powered by Dentech Digital”). */
   poweredByLabel: string;
   /** If set, `poweredByLabel` is rendered as a link. */

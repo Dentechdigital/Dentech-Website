@@ -22,7 +22,6 @@ export const dentechChatRuntimeConfig: ChatRuntimeConfig = {
   assistantName: 'Maya',
   assistantAvatarSrc: '/team/maya.webp',
   assistantRoleBadge: 'AI admin assistant',
-  chatResponseHintLine: 'Typical replies within a few seconds. Complex questions may take a bit longer.',
   poweredByLabel: 'Powered by Dentech Digital',
   poweredByTo: '/',
   faqTabHeader: 'Popular questions',

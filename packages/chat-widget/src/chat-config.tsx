@@ -57,7 +57,7 @@ export type ChatRuntimeConfig = {
   onTrack?: (event: ChatEventName, payload?: ChatEventPayload) => void;
   LinkComponent: ChatLinkComponent;
   teaserDelayMs?: number;
-  /** Minimum time (ms) to show the typing indicator before an assistant reply. Respects `prefers-reduced-motion`. */
+  /** Minimum time (ms) to show the typing indicator before an assistant reply (~2–3s feels natural). Respects `prefers-reduced-motion`. */
   assistantReplyMinDelayMs?: number;
 };
 

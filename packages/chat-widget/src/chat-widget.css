@@ -71,26 +71,25 @@
 
 @keyframes dchat-dot-wave {
   0%,
-  80%,
   100% {
     transform: translateY(0);
-    opacity: 0.5;
+    opacity: 0.45;
   }
-  40% {
-    transform: translateY(-3px);
-    opacity: 1;
+  50% {
+    transform: translateY(-2px);
+    opacity: 0.95;
   }
 }
 
 @keyframes dchat-typing-breathe {
   0%,
   100% {
-    opacity: 0.92;
+    opacity: 0.97;
     transform: scale(1);
   }
   50% {
     opacity: 1;
-    transform: scale(1.015);
+    transform: scale(1.004);
   }
 }
 
@@ -156,19 +155,19 @@
 }
 
 .dchat-dot {
-  animation: dchat-dot-wave 1.3s ease-in-out infinite;
+  animation: dchat-dot-wave 1.85s ease-in-out infinite;
 }
 
 .dchat-dot:nth-child(2) {
-  animation-delay: 120ms;
+  animation-delay: 200ms;
 }
 
 .dchat-dot:nth-child(3) {
-  animation-delay: 240ms;
+  animation-delay: 400ms;
 }
 
 .dchat-typing-bubble {
-  animation: dchat-typing-breathe 1.15s ease-in-out infinite;
+  animation: dchat-typing-breathe 2.8s ease-in-out infinite;
 }
 
 .dchat-cta-ready {

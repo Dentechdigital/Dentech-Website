@@ -113,7 +113,7 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
       const minDelay =
         typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
           ? 0
-          : (config.assistantReplyMinDelayMs ?? 600);
+          : (config.assistantReplyMinDelayMs ?? 2200);
       const elapsed = Date.now() - startedAt;
       await sleep(Math.max(0, minDelay - elapsed));
     };

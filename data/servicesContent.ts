@@ -3,13 +3,6 @@ import { SITE_ORIGIN } from './aboutContent';
 /** Lucide icon key used by Services grid / detail pages */
 export type ServiceIconKey = 'map' | 'target' | 'monitor' | 'aperture' | 'mail' | 'cpu';
 
-export type ServiceGalleryItem = {
-  /** Path under `public/` or absolute image URL (phase 1 may use CDN) */
-  src: string;
-  alt: string;
-  caption?: string;
-};
-
 export type ServiceFaqItem = {
   question: string;
   answer: string;
@@ -25,14 +18,15 @@ export type ServiceDefinition = {
   iconKey: ServiceIconKey;
   iconGradient: string;
   iconColor: string;
-  /** Decorative image for service cards (full URL or path under public/) */
-  cardBgImage: string;
   heroTagline: string;
   heroBullets: string[];
+  /** Opening paragraph on the detail page */
+  overview: string;
   forWho: string;
   included: string[];
   processSteps: { title: string; body: string }[];
-  gallery: ServiceGalleryItem[];
+  /** Plain-text outcome signals (no imagery) */
+  outcomes: string[];
   relatedSlugs: [string, string];
   faq: ServiceFaqItem[];
 };
@@ -43,7 +37,7 @@ export const servicesHub = {
     'Full-funnel dental marketing services for Ottawa and Canada: local SEO/GEO, Google Maps, paid ads, websites, social content, print, and AI automation for growth-focused clinics.',
   h1: 'Dental marketing services built for Canadian practices',
   intro:
-    'From classic search and Maps to generative answers (AI Overviews, assistants, and answer engines), we help patients find and trust you—then book. One team connects strategy, creative, media, and engineering, headquartered in Ottawa with hybrid delivery across Canada.',
+    'From classic search and Maps to generative answers (AI Overviews, assistants, and answer engines), we help patients find and trust you—then book. One team connects strategy, creative, media, and engineering, headquartered in Ottawa with hybrid delivery across Canada. Below, each service page explains who it fits, what we deliver, how we work together, and what “good” looks like in plain terms.',
   funnelPitch: [
     {
       title: 'One funnel, one team',
@@ -98,9 +92,6 @@ export const servicesHubFaq: ServiceFaqItem[] = [
   },
 ];
 
-const unsplash = (id: string, w = 640) =>
-  `https://images.unsplash.com/${id}?auto=format&fit=crop&q=70&w=${w}`;
-
 export const servicesOrdered: ServiceDefinition[] = [
   {
     slug: 'local-seo',
@@ -114,7 +105,6 @@ export const servicesOrdered: ServiceDefinition[] = [
     iconKey: 'map',
     iconGradient: 'from-blue-500 to-cyan-400',
     iconColor: 'text-white',
-    cardBgImage: unsplash('photo-1557683316-973673baf926'),
     heroTagline: 'Show up in classic search, Maps, and the answers patients get from AI tools— with facts that match everywhere.',
     heroBullets: [
       'GBP optimization, categories, services, and photo discipline for Maps & Search',
@@ -122,6 +112,8 @@ export const servicesOrdered: ServiceDefinition[] = [
       'GEO layer: consistent NAP, provider bios, FAQ-style answers, and schema where appropriate',
       'Review velocity and reputation signals aligned with your real service areas',
     ],
+    overview:
+      'Most new patients still start with Google—Search, Maps, and increasingly AI summaries that pull from your profile and site. We align your Google Business Profile, on-site service pages, and factual consistency so humans and automated systems describe your practice the same way. Work is paced for your market: dense cities need different tactics than suburban or regional draws.',
     forWho:
       'Single-location and multi-site general, family, cosmetic, orthodontic, and specialty practices competing in Canadian markets—from tight urban corridors to wider service areas.',
     included: [
@@ -137,17 +129,11 @@ export const servicesOrdered: ServiceDefinition[] = [
       { title: 'Build baseline', body: 'Technical and local footprint review; GBP, site, and entity consistency sequenced for impact in Search and generative surfaces.' },
       { title: 'Publish & iterate', body: 'Localized, trustworthy content; measurement; and monthly tuning based on queries, leads, and evolving search/AI behavior.' },
     ],
-    gallery: [
-      {
-        src: unsplash('photo-1460925895917-afdab827c52f', 1200),
-        alt: 'Analytics dashboard illustrating local search, visibility, and traffic insights for a dental practice website',
-        caption: 'Local & generative visibility tracking',
-      },
-      {
-        src: unsplash('photo-1577563908411-5077b6dc7624', 1200),
-        alt: 'Smartphone showing map results for local business search',
-        caption: 'Maps and mobile discovery',
-      },
+    outcomes: [
+      'Clearer Maps presence for the services you want to grow',
+      'Service pages that answer real patient questions in plain language',
+      'Fewer mismatches between GBP, website, and third-party listings',
+      'Reporting your team can act on—not a spreadsheet nobody opens',
     ],
     relatedSlugs: ['websites', 'paid-ads'],
     faq: [
@@ -190,13 +176,14 @@ export const servicesOrdered: ServiceDefinition[] = [
     iconKey: 'target',
     iconGradient: 'from-emerald-500 to-teal-400',
     iconColor: 'text-white',
-    cardBgImage: unsplash('photo-1557682250-33bd709cbe85'),
     heroTagline: 'Buy intent you can measure—not clicks that disappear into a black box.',
     heroBullets: [
       'Search and social structures tuned for implants, Invisalign, emergency, and new-patient offers',
       'Conversion tracking aligned with calls, forms, and bookings',
       'Creative iterations grounded in your brand and compliance tone',
     ],
+    overview:
+      'Paid media works when the promise in the ad matches the landing experience and someone answers the phone or form quickly. We structure accounts for the procedures you want, set honest tracking, and review performance in language your front desk and leadership can use. You own the ad accounts; we document structure so you are never locked in.',
     forWho:
       'Practices ready to invest in paid demand with realistic targets, fast follow-up, and willingness to test offers and landing experiences.',
     included: [
@@ -211,17 +198,11 @@ export const servicesOrdered: ServiceDefinition[] = [
       { title: 'Launch foundation', body: 'Tracking, landing paths, and creative that match the promise in the ad.' },
       { title: 'Scale & refine', body: 'Lean into what converts; cut waste without hiding the truth in dashboards.' },
     ],
-    gallery: [
-      {
-        src: unsplash('photo-1542744173-8e7e5348bb09', 1200),
-        alt: 'Marketing team reviewing advertising performance metrics on screen',
-        caption: 'Campaign rhythm & reporting',
-      },
-      {
-        src: unsplash('photo-1563986768609-322da13575f3', 1200),
-        alt: 'Mobile phone displaying social media feed interface',
-        caption: 'Paid social creative testing',
-      },
+    outcomes: [
+      'Defined cost and volume signals for leads you actually want',
+      'Less budget wasted on irrelevant queries or broad targeting',
+      'Creative and landing tests tied to real booking outcomes',
+      'Weekly clarity on what to scale, pause, or fix next',
     ],
     relatedSlugs: ['websites', 'local-seo'],
     faq: [
@@ -259,13 +240,14 @@ export const servicesOrdered: ServiceDefinition[] = [
     iconKey: 'monitor',
     iconGradient: 'from-indigo-500 to-purple-400',
     iconColor: 'text-white',
-    cardBgImage: unsplash('photo-1557682224-5b8590cd9ec5'),
     heroTagline: 'Your front door online should feel as polished as your reception area.',
     heroBullets: [
       'Modern UI aligned with your brand and photography',
       'Speed, accessibility, and information architecture that supports SEO and GEO',
       'Clear primary actions: call, book, directions, key procedures',
     ],
+    overview:
+      'Your website is where search, ads, and referrals land—so it has to load fast, read clearly on phones, and make booking obvious. We structure pages around the procedures and locations you care about, wire analytics to real actions, and hand off with redirects and metadata handled so you do not lose equity from an old site.',
     forWho:
       'Practices launching new brands, redesigning dated sites, or opening additional locations that need a credible digital flagship.',
     included: [
@@ -280,17 +262,11 @@ export const servicesOrdered: ServiceDefinition[] = [
       { title: 'Design & build', body: 'Iterative layouts, content integration, and technical implementation.' },
       { title: 'Launch & learn', body: 'Post-launch fixes, heatmaps optional, and hooks for SEO, GEO, and ads.' },
     ],
-    gallery: [
-      {
-        src: unsplash('photo-1547658719-da2b51169166', 1200),
-        alt: 'Desktop computer displaying a clean modern healthcare website layout',
-        caption: 'Desktop & responsive layouts',
-      },
-      {
-        src: unsplash('photo-1512941937669-90a1b58e7e9c', 1200),
-        alt: 'Mobile phone held in hand showing a responsive website',
-        caption: 'Mobile-first patient journeys',
-      },
+    outcomes: [
+      'Faster loads and stable layout on real phones—not just lab scores',
+      'Obvious paths to call, book, or get directions',
+      'Service and location pages that support SEO and GEO programs',
+      'Analytics that reflect what patients actually do on your site',
     ],
     relatedSlugs: ['local-seo', 'paid-ads'],
     faq: [
@@ -328,13 +304,14 @@ export const servicesOrdered: ServiceDefinition[] = [
     iconKey: 'aperture',
     iconGradient: 'from-amber-500 to-orange-400',
     iconColor: 'text-white',
-    cardBgImage: unsplash('photo-1557682260-96773eb01377'),
     heroTagline: 'Posts that support trust, education, and the services you want to grow.',
     heroBullets: [
       'Editorial calendar tied to campaigns and seasons',
       'Creative specs for photo/video partners or in-office capture',
       'Community management guidelines that match your tone',
     ],
+    overview:
+      'Social should reinforce the same story as your website and front desk—not random trends. We pick channels with intent, map content to patient questions and the services you want to fill, and set approval rhythms that work for busy clinics. Performance is reported without vanity-only scoreboards.',
     forWho:
       'Practices investing in reputation and recall—cosmetic, ortho, family, and groups that want a coherent voice across platforms.',
     included: [
@@ -349,17 +326,11 @@ export const servicesOrdered: ServiceDefinition[] = [
       { title: 'Calendar & production', body: 'Batch planning, creation sprints, and approvals that respect your clinic schedule.' },
       { title: 'Optimize', body: 'Double down on what earns trust and inquiries; trim what does not.' },
     ],
-    gallery: [
-      {
-        src: unsplash('photo-1611162616305-c69b3fa7fbe0', 1200),
-        alt: 'Grid of social media content mockups on a design workspace',
-        caption: 'Social creative & grids',
-      },
-      {
-        src: unsplash('photo-1533750516457-a7f992034fec', 1200),
-        alt: 'Team planning content with sticky notes and laptop',
-        caption: 'Editorial planning',
-      },
+    outcomes: [
+      'A steady voice patients recognize across platforms',
+      'Content tied to procedures and seasons you care about',
+      'Fewer “post for the sake of posting” weeks',
+      'Clearer sense of what to repeat and what to stop',
     ],
     relatedSlugs: ['paid-ads', 'print'],
     faq: [
@@ -397,13 +368,14 @@ export const servicesOrdered: ServiceDefinition[] = [
     iconKey: 'mail',
     iconGradient: 'from-rose-500 to-pink-400',
     iconColor: 'text-white',
-    cardBgImage: unsplash('photo-1541701494587-cb58502866ab'),
     heroTagline: 'Tangible touchpoints for the households and corridors that matter.',
     heroBullets: [
       'Creative that mirrors your online positioning',
       'Offers and QR journeys tracked where possible',
       'Specs handled for reliable print partners',
     ],
+    overview:
+      'Print still works when the audience, offer, and follow-up path are clear—especially for hyper-local radius, new movers, or reactivation. We align copy and design with your digital brand, use trackable phone or URL paths where possible, and hand off print-ready files with specs your vendor expects.',
     forWho:
       'Practices with geographic density goals, new locations, reactivation pushes, or brand consistency across physical and digital.',
     included: [
@@ -417,17 +389,11 @@ export const servicesOrdered: ServiceDefinition[] = [
       { title: 'Design', body: 'Layouts tested for readability at mailbox distance.' },
       { title: 'Produce', body: 'Print partner coordination and quality checks on proofs.' },
     ],
-    gallery: [
-      {
-        src: unsplash('photo-1586075010923-2dd45780fb8e', 1200),
-        alt: 'Printed marketing postcards and brochures spread on a table',
-        caption: 'Direct mail & collateral',
-      },
-      {
-        src: unsplash('photo-1561070791-2526d30994b5', 1200),
-        alt: 'Graphic design workspace with color swatches and print samples',
-        caption: 'Print-ready design',
-      },
+    outcomes: [
+      'Mail and collateral that match your online story',
+      'Clear calls to action patients can act on in one step',
+      'Attribution hooks so you know what to repeat',
+      'Fewer print surprises at proof stage',
     ],
     relatedSlugs: ['social-content', 'local-seo'],
     faq: [
@@ -465,13 +431,14 @@ export const servicesOrdered: ServiceDefinition[] = [
     iconKey: 'cpu',
     iconGradient: 'from-violet-500 to-fuchsia-400',
     iconColor: 'text-white',
-    cardBgImage: unsplash('photo-1557672172-298e090bd0f1'),
     heroTagline: 'Automate repetitive patient touchpoints without sounding robotic.',
     heroBullets: [
       'After-hours and peak-time conversational coverage where appropriate',
       'Reminder and follow-up flows aligned with your PMS habits',
       'Governance: escalation paths and policy-friendly scripting',
     ],
+    overview:
+      'Automation should reduce repetitive load on staff—not replace judgment on fees, clinical questions, or upset patients. We map how patients reach you today, pilot narrow flows (e.g. after-hours chat or reminders) with logging, and define escalation paths that match your policies and Canadian privacy expectations.',
     forWho:
       'Busy practices losing calls and chats, multi-location groups standardizing first touch, or teams piloting AI with conservative risk posture.',
     included: [
@@ -485,17 +452,11 @@ export const servicesOrdered: ServiceDefinition[] = [
       { title: 'Pilot', body: 'Limited rollout with logging and human review.' },
       { title: 'Expand', body: 'Scale what holds up; retire what does not.' },
     ],
-    gallery: [
-      {
-        src: unsplash('photo-1531746797559-2fa8709246c3', 1200),
-        alt: 'Chat interface mockup on laptop showing customer support conversation',
-        caption: 'Chat & handoff flows',
-      },
-      {
-        src: unsplash('photo-1454165804606-c3d57bc86b40', 1200),
-        alt: 'Office desk with phone and scheduling calendar on screen',
-        caption: 'Front-desk alignment',
-      },
+    outcomes: [
+      'Fewer missed conversations at peak and after hours',
+      'Scripts and flows your team trusts to hand off cleanly',
+      'Small pilots before you commit to full rollout',
+      'Clear rules for what stays with a human',
     ],
     relatedSlugs: ['websites', 'paid-ads'],
     faq: [
@@ -534,25 +495,6 @@ export function getServiceBySlug(slug: string | undefined): ServiceDefinition | 
 
 export function servicePath(slug: string): string {
   return `/services/${slug}`;
-}
-
-/**
- * Hero collage filename under `public/services/{slug}/` (service detail pages only).
- * Service artwork can be updated per slug without code changes.
- */
-export const serviceHeroCollageFilename: Record<string, string> = {
-  'paid-ads': 'hero-collage-ads.webp',
-  'local-seo': 'hero-collage-seo.webp',
-  'websites': 'hero-collage-websites.webp',
-  'social-content': 'hero-collage-social.webp',
-  'print': 'hero-collage-print.webp',
-  'ai-automation': 'hero-collage-ai.webp',
-};
-
-/** Public path starting with `/` — pair with base URL / `mediaUrl()`. */
-export function serviceHeroCollagePublicPath(slug: string): string | null {
-  const file = serviceHeroCollageFilename[slug];
-  return file ? `/services/${slug}/${file}` : null;
 }
 
 export function buildServicesHubJsonLd(): Record<string, unknown> {

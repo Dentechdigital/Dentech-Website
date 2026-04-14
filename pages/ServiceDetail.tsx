@@ -7,16 +7,9 @@ import FaqAccordion from '../components/FaqAccordion';
 import {
   buildServiceDetailStructuredData,
   getServiceBySlug,
-  serviceHeroCollagePublicPath,
   servicePath,
   servicesBySlug,
 } from '../data/servicesContent';
-
-function mediaUrl(src: string): string {
-  if (src.startsWith('http')) return src;
-  const base = import.meta.env.BASE_URL;
-  return `${base}${src.replace(/^\//, '')}`;
-}
 
 const ServiceDetail: React.FC = () => {
   const { serviceSlug } = useParams<{ serviceSlug: string }>();
@@ -49,11 +42,6 @@ const ServiceDetail: React.FC = () => {
     .map((slug) => servicesBySlug[slug])
     .filter(Boolean) as typeof service[];
 
-  const heroCollageRel = serviceHeroCollagePublicPath(service.slug);
-  const heroCollageUrl = heroCollageRel ? mediaUrl(heroCollageRel) : undefined;
-  const serviceHeroImageClass =
-    'object-cover object-[28%_center] sm:object-[32%_center] lg:object-[36%_center]';
-
   return (
     <>
       <SEO
@@ -68,8 +56,7 @@ const ServiceDetail: React.FC = () => {
           badge="Dental marketing service"
           title={service.h1}
           description={service.heroTagline}
-          heroImageSrc={heroCollageUrl}
-          heroImageClassName={heroCollageUrl ? serviceHeroImageClass : undefined}
+          plainBackground
           afterDescription={
             <ul className="flex max-w-3xl flex-col gap-3 sm:gap-2">
               {service.heroBullets.map((b) => (
@@ -97,15 +84,29 @@ const ServiceDetail: React.FC = () => {
           }
         />
 
-        <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-16" aria-labelledby="for-who-heading">
-          <h2 id="for-who-heading" className="text-xl font-bold text-blue-950 dark:text-white">
-            Who this is for
+        <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-16" aria-labelledby="overview-heading">
+          <h2 id="overview-heading" className="text-xl font-bold text-blue-950 dark:text-white">
+            Overview
           </h2>
-          <p className="mt-3 max-w-3xl text-slate-600 dark:text-slate-300">{service.forWho}</p>
+          <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-600 dark:text-slate-300">
+            {service.overview}
+          </p>
         </section>
 
         <section
           className="border-y border-slate-200/70 bg-white py-14 dark:border-slate-800 dark:bg-slate-900/40"
+          aria-labelledby="for-who-heading"
+        >
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h2 id="for-who-heading" className="text-xl font-bold text-blue-950 dark:text-white">
+              Who this is for
+            </h2>
+            <p className="mt-3 max-w-3xl text-slate-600 dark:text-slate-300">{service.forWho}</p>
+          </div>
+        </section>
+
+        <section
+          className="border-y border-slate-200/70 bg-[#FAFAF9] py-14 dark:border-slate-800 dark:bg-slate-950/50"
           aria-labelledby="included-heading"
         >
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -146,36 +147,26 @@ const ServiceDetail: React.FC = () => {
           </ol>
         </section>
 
-        {service.gallery.length > 0 ? (
-          <section className="bg-slate-100/80 py-14 dark:bg-slate-900/60" aria-labelledby="work-heading">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <h2 id="work-heading" className="text-xl font-bold text-blue-950 dark:text-white">
-                Sample work & formats
-              </h2>
-              <p className="mt-2 max-w-2xl text-sm text-slate-600 dark:text-slate-400">
-                Representative examples of deliverable formats used in active client programs.
-              </p>
-              <div className="mt-8 grid gap-6 sm:grid-cols-2">
-                {service.gallery.map((g) => (
-                  <figure key={g.src + g.alt} className="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-800">
-                    <div className="aspect-[4/3] overflow-hidden bg-slate-100 dark:bg-slate-900">
-                      <img
-                        src={mediaUrl(g.src)}
-                        alt={g.alt}
-                        className="h-full w-full object-cover"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </div>
-                    {g.caption ? (
-                      <figcaption className="px-4 py-3 text-sm text-slate-600 dark:text-slate-400">{g.caption}</figcaption>
-                    ) : null}
-                  </figure>
-                ))}
-              </div>
-            </div>
-          </section>
-        ) : null}
+        <section className="bg-slate-100/80 py-14 dark:bg-slate-900/60" aria-labelledby="outcomes-heading">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h2 id="outcomes-heading" className="text-xl font-bold text-blue-950 dark:text-white">
+              What success looks like
+            </h2>
+            <p className="mt-2 max-w-2xl text-sm text-slate-600 dark:text-slate-400">
+              Plain-language signals we work toward—your market and capacity shape how quickly each shows up.
+            </p>
+            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+              {service.outcomes.map((line) => (
+                <li
+                  key={line}
+                  className="rounded-xl border border-slate-200/90 bg-white px-4 py-3 text-sm text-slate-700 dark:border-slate-700 dark:bg-slate-800/80 dark:text-slate-200"
+                >
+                  {line}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
 
         <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8" aria-labelledby="related-heading">
           <h2 id="related-heading" className="text-xl font-bold text-blue-950 dark:text-white">

@@ -61,21 +61,9 @@ export default function Services({ showSectionHeader = true }: ServicesProps) {
                 className="group relative flex h-full cursor-pointer flex-col overflow-hidden rounded-3xl border border-gray-100 bg-white p-8 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl dark:border-slate-700 dark:bg-slate-800 scroll-mt-24"
               >
                 <div
-                  className="pointer-events-none absolute right-0 top-0 h-64 w-64 opacity-10 transition-opacity duration-700 group-hover:opacity-30 dark:opacity-20 dark:group-hover:opacity-40"
-                  style={{
-                    maskImage: 'radial-gradient(circle at top right, black, transparent 70%)',
-                    WebkitMaskImage: 'radial-gradient(circle at top right, black, transparent 70%)',
-                  }}
-                >
-                  <img
-                    src={service.cardBgImage}
-                    alt=""
-                    className="h-full w-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110"
-                    loading="lazy"
-                    decoding="async"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
+                  aria-hidden
+                  className={`pointer-events-none absolute -right-8 -top-8 h-40 w-40 rounded-full bg-gradient-to-br ${service.iconGradient} opacity-[0.14] blur-2xl transition-opacity duration-500 group-hover:opacity-[0.22] dark:opacity-[0.18] dark:group-hover:opacity-[0.28]`}
+                />
 
                 <div className="relative z-10 flex flex-grow flex-col">
                   <div

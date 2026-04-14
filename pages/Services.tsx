@@ -26,6 +26,7 @@ const ServicesPage: React.FC = () => {
           description={servicesHub.intro}
           primaryCta={{ to: '/contact', label: 'Book a strategy call' }}
           secondaryCta={{ to: '/about', label: 'How we work' }}
+          plainBackground
         />
 
         <section className="border-b border-slate-200/60 bg-white py-14 dark:border-slate-800 dark:bg-slate-900/35" aria-labelledby="funnel-heading">

@@ -18,7 +18,7 @@ export const dentechChatRuntimeConfig: ChatRuntimeConfig = {
   chatHeaderTitle: 'Chat with Maya',
   chatHeaderSupportLine:
     'I help with Dentech Digital services, pricing, timelines, and getting you to the right next step.',
-  chatHeaderStatusLine: 'Online · Answers in seconds',
+  chatHeaderStatusLine: 'Online now',
   assistantName: 'Maya',
   assistantAvatarSrc: '/team/maya.webp',
   assistantRoleBadge: 'AI admin assistant',

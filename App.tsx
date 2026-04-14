@@ -10,6 +10,8 @@ const About = lazy(() => import('./pages/About'));
 const ServicesPage = lazy(() => import('./pages/Services'));
 const ServiceDetail = lazy(() => import('./pages/ServiceDetail'));
 const CaseStudies = lazy(() => import('./pages/CaseStudies'));
+const Blog = lazy(() => import('./pages/Blog'));
+const BlogPost = lazy(() => import('./pages/BlogPost'));
 const Contact = lazy(() => import('./pages/Contact'));
 const ClientPortal = lazy(() => import('./pages/ClientPortal'));
 const DentechChatWidget = lazy(() => import('./components/chat/DentechChatWidget'));
@@ -113,6 +115,8 @@ const App: React.FC = () => {
                   <Route path="/services" element={<ServicesPage />} />
                   <Route path="/services/:serviceSlug" element={<ServiceDetail />} />
                   <Route path="/case-studies" element={<CaseStudies />} />
+                  <Route path="/blog" element={<Blog />} />
+                  <Route path="/blog/:slug" element={<BlogPost />} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/portal" element={<ClientPortal />} />
                 </Routes>

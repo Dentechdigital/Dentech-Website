@@ -12,6 +12,7 @@ export default function Footer() {
     { label: 'Home', to: '/' },
     { label: 'About', to: '/about' },
     { label: 'Services', to: '/services' },
+    { label: 'Blog', to: '/blog' },
     { label: 'Case Studies', to: '/case-studies' },
     { label: 'Contact', to: '/contact' },
   ];

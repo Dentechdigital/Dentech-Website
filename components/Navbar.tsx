@@ -34,6 +34,7 @@ const Navbar: React.FC = () => {
 
   const isActive = (path: string) => location.pathname === path;
   const isServicesActive = location.pathname === '/services' || location.pathname.startsWith('/services/');
+  const isBlogActive = location.pathname.startsWith('/blog');
   const isHomePage = location.pathname === '/';
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
@@ -126,6 +127,14 @@ const Navbar: React.FC = () => {
               )}
             </div>
 
+            <Link
+              to="/blog"
+              className={`${
+                isBlogActive ? 'text-blue-600 dark:text-blue-400' : getTextColor('/blog')
+              } px-3 py-2 rounded-md text-sm font-semibold tracking-wide transition-colors`}
+            >
+              Blog
+            </Link>
             <Link to="/case-studies" className={`${getTextColor('/case-studies')} px-3 py-2 rounded-md text-sm font-semibold tracking-wide transition-colors`}>
               Case Studies
             </Link>
@@ -195,6 +204,7 @@ const Navbar: React.FC = () => {
                 </Link>
               ))}
             </div>
+            <Link to="/blog" onClick={closeMobileMenu} className="block px-3 py-3 rounded-lg text-base font-semibold text-blue-950 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors">Blog</Link>
             <Link to="/case-studies" onClick={closeMobileMenu} className="block px-3 py-3 rounded-lg text-base font-semibold text-blue-950 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors">Case Studies</Link>
             <Link to="/contact" onClick={closeMobileMenu} className="block px-3 py-3 rounded-lg text-base font-semibold text-blue-950 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors">Contact</Link>
             <Link to="/portal" onClick={closeMobileMenu} className="flex items-center justify-center space-x-2 w-full mt-6 px-4 py-3 rounded-xl text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 shadow-md transition-colors">

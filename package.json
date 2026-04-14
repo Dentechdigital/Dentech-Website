@@ -14,7 +14,8 @@
     "security:check": "npm audit --audit-level=high",
     "release:check": "npm run security:check && npm run build && npm run typecheck",
     "optimize:images": "node scripts/optimize-hero-images.mjs",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "smoke:chat": "node scripts/smoke-chat-completions.mjs"
   },
   "dependencies": {
     "@dentech/chat-widget": "workspace:*",

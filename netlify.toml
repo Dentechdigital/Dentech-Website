@@ -2,6 +2,17 @@
   command = "npm run build"
   publish = "dist"
 
+# Local full stack: serves Vite + Netlify Functions (live chat needs GEMINI_API_KEY in .env).
+# Run: npx netlify dev →  typically http://localhost:8888
+[dev]
+  command = "npm run dev"
+  targetPort = 3000
+  port = 8888
+
+# Production / preview: set in Netlify UI (Site settings → Environment variables).
+# Required for Chat tab (Gemini): GEMINI_API_KEY
+# Optional: GEMINI_MODEL (default gemini-2.0-flash in netlify/functions/chat-completions.ts)
+
 [[headers]]
   for = "/assets/*"
   [headers.values]

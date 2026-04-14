@@ -165,6 +165,15 @@ Reply with plain text only.`;
   });
 
   if (!response.ok) {
+    const snippet = (await response.text()).slice(0, 400).replace(/\s+/g, ' ').trim();
+    console.error(
+      JSON.stringify({
+        tag: 'chat_completions_gemini_http',
+        status: response.status,
+        model,
+        snippet,
+      }),
+    );
     throw new Error('Assistant is temporarily unavailable. Please retry.');
   }
 
@@ -174,6 +183,7 @@ Reply with plain text only.`;
 
   const reply = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
   if (!reply) {
+    console.error(JSON.stringify({ tag: 'chat_completions_gemini', detail: 'empty_model_output', model }));
     throw new Error('Empty assistant response.');
   }
 
@@ -239,7 +249,23 @@ export async function handler(event: Event): Promise<Result> {
     const fallback = payload.mode === 'faq' ? faqFallback(latestPrompt) : null;
     const result = fallback ?? (await queryGemini(payload));
     return json(200, result);
-  } catch {
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : String(err);
+    if (msg.includes('not configured')) {
+      console.error(JSON.stringify({ tag: 'chat_completions_failure', detail: 'configuration', safeMessage: msg.slice(0, 120) }));
+    } else if (msg.includes('Empty assistant')) {
+      console.error(JSON.stringify({ tag: 'chat_completions_failure', detail: 'empty_output' }));
+    } else if (msg.includes('temporarily unavailable')) {
+      console.error(JSON.stringify({ tag: 'chat_completions_failure', detail: 'gemini_request_failed' }));
+    } else {
+      console.error(
+        JSON.stringify({
+          tag: 'chat_completions_failure',
+          detail: 'unexpected',
+          safeMessage: msg.slice(0, 200),
+        }),
+      );
+    }
     return json(500, {
       code: 'server_error',
       message: 'Chat service is temporarily unavailable.',

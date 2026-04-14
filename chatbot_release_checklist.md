@@ -17,6 +17,8 @@
   - Optional `GEMINI_MODEL` (default fallback already provided).
 - Confirm function route:
   - `/.netlify/functions/chat-completions`
+- CLI smoke test (after deploy or with `npx netlify dev`):
+  - `npm run smoke:chat` or `CHAT_SMOKE_URL=https://<site> npm run smoke:chat`
 - Smoke test:
   - Open launcher
   - FAQ tab prompt

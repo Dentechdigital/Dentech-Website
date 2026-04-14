@@ -157,14 +157,22 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
       }
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Something went wrong while sending your message.';
-      setError(message);
-      setMessages((prev) => [
-        ...prev,
-        makeMessage(
-          'assistant',
-          'I could not complete that request right now. You can still continue by using Contact, Pricing, or Services.',
-        ),
-      ]);
+      const fallback = resolveLocalFaq(prompt);
+      if (fallback) {
+        setError('Live AI is temporarily unavailable. Showing approved quick answer.');
+        setMessages((prev) => [...prev, makeMessage('assistant', fallback.reply)]);
+        setSuggestedCtas(fallback.suggestedCtas.length ? fallback.suggestedCtas : [{ label: 'Contact Dentech', to: '/contact' }]);
+        setSuggestedPrompts(fallback.suggestedPrompts.length ? fallback.suggestedPrompts : CHATBOT_STARTER_PROMPTS);
+      } else {
+        setError(message);
+        setMessages((prev) => [
+          ...prev,
+          makeMessage(
+            'assistant',
+            'The live assistant is temporarily unavailable. You can continue with Contact, Pricing, or Services right now.',
+          ),
+        ]);
+      }
       trackChatEvent('chat_error', { mode, source, retryable: true });
     } finally {
       setLoading(false);

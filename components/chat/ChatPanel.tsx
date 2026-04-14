@@ -123,7 +123,7 @@ export default function ChatPanel({
       role="dialog"
       aria-label="Dentech chatbot assistant"
       aria-hidden={isExiting}
-      className={`pointer-events-auto mb-3 flex max-h-[82vh] w-[min(23.5rem,calc(100vw-1rem))] flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_22px_52px_rgba(2,6,23,0.28)] dark:border-slate-700 dark:bg-slate-950 ${
+      className={`pointer-events-auto mb-3 flex max-h-[calc(100dvh-6.25rem)] w-[min(23.5rem,calc(100vw-1rem))] flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_22px_52px_rgba(2,6,23,0.28)] sm:max-h-[82vh] dark:border-slate-700 dark:bg-slate-950 ${
         isExiting ? 'dchat-panel-exit' : 'dchat-panel-enter'
       }`}
     >
@@ -163,11 +163,11 @@ export default function ChatPanel({
         <span className="text-[10px] text-slate-400 dark:text-slate-500">{leadScore >= 8 ? 'High intent' : 'Guided flow'}</span>
       </div>
 
-      <div className="min-h-0 flex-1 px-3 pt-2">
+      <div className="min-h-0 flex-1 overflow-hidden px-3 pt-2">
         <ChatMessages messages={messages} loading={loading} />
       </div>
 
-      <div className="px-3 pt-2">
+      <div className="px-3 pt-1.5">
         <QuickPrompts prompts={prompts} disabled={loading} onPromptClick={(prompt) => onSubmit(prompt, 'prompt')} />
       </div>
 
@@ -177,7 +177,7 @@ export default function ChatPanel({
         </p>
       )}
 
-      <div className="px-3">
+      <div className="px-3 pt-1">
         <ChatInput onSubmit={(prompt) => onSubmit(prompt, 'input')} disabled={loading} compact />
       </div>
 

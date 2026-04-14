@@ -14,7 +14,7 @@ export default function ChatMessages({ messages, loading }: Props) {
   }, [messages, loading]);
 
   return (
-    <div className="h-full min-h-[14rem] overflow-y-auto rounded-xl bg-slate-50 px-3 py-2.5 dark:bg-slate-900/70">
+    <div className="dchat-scrollbar-none h-full min-h-0 overflow-y-auto rounded-xl bg-slate-50 px-3 py-2.5 dark:bg-slate-900/70">
       <div className="mb-2 text-center text-[10px] font-medium uppercase tracking-wide text-slate-400">Today</div>
       <div className="space-y-2.5">
         {messages.map((message) => (

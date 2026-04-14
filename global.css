@@ -353,6 +353,17 @@ html.dark .about-marquee-item {
   }
 }
 
+@keyframes dchat-helpdesk-pane-in {
+  from {
+    opacity: 0;
+    transform: translateX(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .dchat-teaser-enter {
   animation: dchat-fade-up-in 360ms var(--dchat-ease-out) both;
 }
@@ -391,6 +402,10 @@ html.dark .about-marquee-item {
 
 .dchat-cta-ready {
   animation: dchat-cta-ready 1.6s ease-in-out infinite;
+}
+
+.dchat-helpdesk-pane {
+  animation: dchat-helpdesk-pane-in 200ms var(--dchat-ease-out) both;
 }
 
 .dchat-scrollbar-none {
@@ -442,7 +457,8 @@ html.dark .about-marquee-item {
   .dchat-panel-exit,
   .dchat-fab-idle,
   .dchat-bubble-enter,
-  .dchat-dot {
+  .dchat-dot,
+  .dchat-helpdesk-pane {
     animation: none !important;
     transition-duration: 0.01ms !important;
   }

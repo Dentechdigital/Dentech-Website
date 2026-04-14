@@ -41,6 +41,8 @@ const HELPDESK_CATEGORIES: Array<{
   },
 ];
 
+const HEADER_AVATARS = ['/mohammed-dahman.webp', '/team/balfoul.webp', '/team/omayma-r.webp'];
+
 type Props = {
   open: boolean;
   mode: ChatMode;
@@ -175,39 +177,56 @@ export default function ChatPanel({
     >
       <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-3 pb-3 pt-2.5 text-white">
         <div className="flex items-start justify-between">
-          <div className="dchat-bubble-enter flex items-start gap-2">
-            <img
-              src="/avatar.webp"
-              alt=""
-              aria-hidden
-              width={36}
-              height={36}
-              className="h-9 w-9 rounded-full border border-white/40 object-cover"
-              loading="lazy"
-              decoding="async"
-            />
-            <div>
-              <h2 className="text-sm font-semibold">Talk with Dentech</h2>
-              <p className="text-[11px] text-blue-100">Team replies under 1 hour</p>
-            </div>
+          <div className="min-w-0 flex-1">
+            <ChatTabs mode={mode} onChange={onModeChange} />
+            {mode === 'chat' ? (
+              <div className="dchat-bubble-enter mt-3">
+                <div className="flex items-center justify-center">
+                  <div className="flex -space-x-2">
+                    {HEADER_AVATARS.map((src) => (
+                      <img
+                        key={src}
+                        src={src}
+                        alt=""
+                        aria-hidden
+                        width={34}
+                        height={34}
+                        className="h-8 w-8 rounded-full border-2 border-blue-500/70 bg-white object-cover"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    ))}
+                    <span className="grid h-8 w-8 place-items-center rounded-full border-2 border-blue-500/70 bg-white text-blue-600">💬</span>
+                  </div>
+                </div>
+                <h2 className="mt-2 text-center text-base font-semibold leading-tight tracking-tight text-white sm:text-lg">
+                  Talk with Dentech Team! <span aria-hidden>🙂</span>
+                </h2>
+                <p className="mt-1 text-center text-[11px] text-blue-100">
+                  <span className="mr-1 inline-block h-2 w-2 rounded-full bg-emerald-300" />
+                  Team replies under 1 hour
+                </p>
+              </div>
+            ) : (
+              <p className="mt-3 text-center text-lg font-semibold tracking-tight text-white">Popular questions</p>
+            )}
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="rounded-md px-1.5 py-1 text-xs text-blue-100 transition hover:bg-white/15 hover:text-white"
+            className="ml-2 rounded-md px-1.5 py-1 text-xs text-blue-100 transition hover:bg-white/15 hover:text-white"
           >
             ✕
           </button>
         </div>
-        <div className="mt-2">
-          <ChatTabs mode={mode} onChange={onModeChange} />
-        </div>
       </div>
 
-      <div className="flex items-center justify-between border-b border-slate-100 px-3 py-1.5 dark:border-slate-800">
-        <span className={`inline-flex rounded-full px-2 py-0.5 text-[10px] font-semibold ${stageTone}`}>{stageLabel}</span>
-        <span className="text-[10px] text-slate-400 dark:text-slate-500">{leadScore >= 8 ? 'High intent' : 'Guided flow'}</span>
-      </div>
+      {mode === 'chat' && (
+        <div className="flex items-center justify-between border-b border-slate-100 px-3 py-1.5 dark:border-slate-800">
+          <span className={`inline-flex rounded-full px-2 py-0.5 text-[10px] font-semibold ${stageTone}`}>{stageLabel}</span>
+          <span className="text-[10px] text-slate-400 dark:text-slate-500">{leadScore >= 8 ? 'High intent' : 'Guided flow'}</span>
+        </div>
+      )}
 
       <div className="min-h-0 flex-1 overflow-hidden px-3 pt-2">
         {mode === 'faq' ? (
@@ -241,7 +260,7 @@ export default function ChatPanel({
               })}
             </div>
             {helpdeskScreen === 'questions' && (
-              <>
+              <div className="dchat-helpdesk-pane">
                 <div className="mb-3 rounded-lg border border-slate-200 bg-white p-3 dark:border-slate-700 dark:bg-slate-800">
                   <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
                     {activeHelpdeskCategory.label}
@@ -275,10 +294,10 @@ export default function ChatPanel({
                     <p className="mt-1 text-xs leading-relaxed text-slate-700 dark:text-slate-100">{latestAssistantSummary}</p>
                   </div>
                 )}
-              </>
+              </div>
             )}
             {helpdeskScreen === 'answer' && selectedHelpdeskItem && (
-              <div className="rounded-lg border border-slate-200 bg-white p-3 dark:border-slate-700 dark:bg-slate-800">
+              <div className="dchat-helpdesk-pane rounded-lg border border-slate-200 bg-white p-3 dark:border-slate-700 dark:bg-slate-800">
                 <button
                   type="button"
                   onClick={() => {

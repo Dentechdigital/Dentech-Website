@@ -58,8 +58,7 @@ function ChatWidgetInner() {
 
   return (
     <div
-      className="pointer-events-none fixed right-2 z-40 flex max-w-[calc(100vw-0.5rem)] flex-col items-end sm:right-6"
-      style={{ bottom: 'max(0.75rem, env(safe-area-inset-bottom))' }}
+      className="pointer-events-none fixed bottom-[max(0.75rem,env(safe-area-inset-bottom))] right-2 z-40 flex max-w-[calc(100vw-0.5rem)] flex-col items-end sm:right-6"
     >
       <ChatTeaser
         visible={showTeaser && !open}

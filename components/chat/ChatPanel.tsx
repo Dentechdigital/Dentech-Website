@@ -123,7 +123,7 @@ export default function ChatPanel({
       role="dialog"
       aria-label="Dentech chatbot assistant"
       aria-hidden={isExiting}
-      className={`pointer-events-auto mb-3 flex max-h-[calc(100dvh-6.25rem)] w-[min(23.5rem,calc(100vw-1rem))] flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_22px_52px_rgba(2,6,23,0.28)] sm:max-h-[82vh] dark:border-slate-700 dark:bg-slate-950 ${
+      className={`pointer-events-auto mb-3 flex max-h-[calc(100dvh-7.5rem)] w-[min(23.5rem,calc(100vw-1rem))] flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_22px_52px_rgba(2,6,23,0.28)] sm:max-h-[min(80vh,calc(100dvh-7.5rem))] dark:border-slate-700 dark:bg-slate-950 ${
         isExiting ? 'dchat-panel-exit' : 'dchat-panel-enter'
       }`}
     >

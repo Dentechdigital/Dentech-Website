@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageCircle } from 'lucide-react';
+import { MessageCircle, X } from 'lucide-react';
 
 type Props = {
   open: boolean;
@@ -28,8 +28,8 @@ export default function ChatLauncher({ open, onClick }: Props) {
         decoding="async"
       />
       {open && (
-        <span className="absolute inset-0 grid place-items-center text-xl font-medium text-white">
-          ×
+        <span className="absolute inset-0 grid place-items-center text-white" aria-hidden>
+          <X className="h-8 w-8" strokeWidth={2.5} aria-hidden />
         </span>
       )}
     </button>

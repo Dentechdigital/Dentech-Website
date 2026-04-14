@@ -43,7 +43,7 @@ const Navbar: React.FC = () => {
   }, [location.pathname, location.hash]);
 
   // Determine navbar styling based on scroll state and current page
-  const navClasses = `fixed w-full z-50 top-0 transition-all duration-300 ${
+  const navClasses = `fixed w-full top-0 transition-all duration-300 ${isMobileMenuOpen ? 'z-[70]' : 'z-50'} ${
     scrolled || !isHomePage || isMobileMenuOpen
       ? 'bg-white/60 dark:bg-slate-950/65 backdrop-blur-xl shadow-sm border-b border-gray-200/50 dark:border-slate-800/50 py-2'
       : 'bg-transparent border-b border-transparent py-4'

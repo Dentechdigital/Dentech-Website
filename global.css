@@ -445,6 +445,20 @@ html.dark .dchat-helpdesk-scroll::-webkit-scrollbar-thumb {
   outline-offset: 2px;
 }
 
+/*
+ * Chat widget only: /team/* portraits are stored with very low chroma (near grayscale).
+ * This brings them closer to the full-color founder photo in the same row. Not used on About.
+ */
+.dchat-header-team-avatar {
+  filter: sepia(0.38) saturate(2.05) hue-rotate(328deg) contrast(1.07) brightness(1.03);
+}
+
+@media (prefers-contrast: more) {
+  .dchat-header-team-avatar {
+    filter: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal-motion {
     opacity: 1 !important;

@@ -172,7 +172,9 @@ export default function ChatPanel({
                         aria-hidden
                         width={28}
                         height={28}
-                        className="h-7 w-7 rounded-full border-2 border-white/50 bg-white object-cover"
+                        className={`h-7 w-7 rounded-full border-2 border-white/50 bg-white object-cover${
+                          src.includes('/team/') ? ' dchat-header-team-avatar' : ''
+                        }`}
                         loading="lazy"
                         decoding="async"
                       />

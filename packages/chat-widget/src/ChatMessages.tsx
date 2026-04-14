@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef } from 'react';
-import type { ChatMessage } from '../../types/chatbot';
+import type { ChatMessage } from './types';
 
 const NEAR_BOTTOM_PX = 72;
 

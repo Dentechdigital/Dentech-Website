@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import { ChatProvider, useChat } from './ChatProvider';
+import { useChatConfig } from './chat-config';
+import { useChat } from './ChatProvider';
 import ChatLauncher from './ChatLauncher';
 import ChatPanel from './ChatPanel';
 import ChatTeaser from './ChatTeaser';
-import { trackChatEvent } from './chatbotAnalytics';
 
 function playTeaserSound(audioContext?: AudioContext | null) {
   if (typeof window === 'undefined') return;
@@ -23,15 +22,20 @@ function playTeaserSound(audioContext?: AudioContext | null) {
   oscillator.stop(context.currentTime + 0.08);
 }
 
-function ChatWidgetInner() {
-  const { mode, setMode, messages, loading, suggestedPrompts, conversionStage, leadScore, sendPrompt } =
-    useChat();
+export type ChatWidgetViewProps = {
+  /** When this value changes (e.g. pathname + hash), the panel closes. Omit to disable route-driven close. */
+  routeKey?: string;
+};
+
+export default function ChatWidgetView({ routeKey }: ChatWidgetViewProps) {
+  const config = useChatConfig();
+  const { mode, setMode, messages, loading, suggestedPrompts, conversionStage, leadScore, sendPrompt } = useChat();
   const [open, setOpen] = useState(false);
   const [showTeaser, setShowTeaser] = useState(false);
   const [canPlaySound, setCanPlaySound] = useState(false);
   const audioContextRef = React.useRef<AudioContext | null>(null);
   const teaserSoundPlayedRef = React.useRef(false);
-  const location = useLocation();
+  const teaserDelayMs = config.teaserDelayMs ?? 7000;
 
   useEffect(() => {
     function armSound() {
@@ -58,9 +62,9 @@ function ChatWidgetInner() {
   useEffect(() => {
     const timeout = window.setTimeout(() => {
       setShowTeaser(true);
-    }, 7000);
+    }, teaserDelayMs);
     return () => window.clearTimeout(timeout);
-  }, []);
+  }, [teaserDelayMs]);
 
   useEffect(() => {
     if (!showTeaser || open || !canPlaySound || teaserSoundPlayedRef.current) return;
@@ -72,23 +76,29 @@ function ChatWidgetInner() {
   }, [showTeaser, open, canPlaySound]);
 
   useEffect(() => {
+    if (routeKey === undefined) return;
     setOpen(false);
-  }, [location.pathname, location.hash]);
+  }, [routeKey]);
 
   return (
-    <div
-      className="pointer-events-none fixed bottom-[max(0.75rem,env(safe-area-inset-bottom))] right-2 z-[60] flex max-w-[calc(100vw-0.5rem)] flex-col items-end sm:right-6"
-    >
+    <div className="pointer-events-none fixed bottom-[max(0.75rem,env(safe-area-inset-bottom))] right-2 z-[60] flex max-w-[calc(100vw-0.5rem)] flex-col items-end sm:right-6">
       <ChatTeaser
         visible={showTeaser && !open}
+        title={config.teaserTitle}
+        body={config.teaserBody}
+        statusLine={config.teaserStatusLine}
+        primaryCta={config.teaserPrimaryCta}
+        secondaryCta={config.teaserSecondaryCta}
+        footerNote={config.teaserFooterNote}
+        miniAvatarSrcs={config.headerAvatarSrcs}
         onPrimaryClick={() => {
-          trackChatEvent('chat_teaser_click', { mode });
+          config.onTrack?.('chat_teaser_click', { mode });
           setMode('chat');
           setOpen(true);
           setShowTeaser(false);
         }}
         onSecondaryClick={() => {
-          trackChatEvent('chat_teaser_click', { mode, source: 'helpdesk' });
+          config.onTrack?.('chat_teaser_click', { mode, source: 'helpdesk' });
           setMode('faq');
           setShowTeaser(false);
           setOpen(true);
@@ -101,33 +111,26 @@ function ChatWidgetInner() {
         onModeChange={setMode}
         onSubmit={async (prompt, source = 'input') => {
           if (!open) setOpen(true);
-          if (source === 'prompt') trackChatEvent('chat_prompt_click', { mode });
+          if (source === 'prompt') config.onTrack?.('chat_prompt_click', { mode });
           await sendPrompt(prompt, source);
         }}
         prompts={suggestedPrompts}
         loading={loading}
         messages={messages}
         onClose={() => setOpen(false)}
-        onCtaClick={(to) => trackChatEvent('chat_cta_click', { mode, source: to })}
+        onCtaClick={(to) => config.onTrack?.('chat_cta_click', { mode, source: to })}
         conversionStage={conversionStage}
         leadScore={leadScore}
       />
       <ChatLauncher
         open={open}
+        launcherBadgeSrc={config.launcherBadgeSrc}
         onClick={() => {
           const next = !open;
           setOpen(next);
-          if (next) trackChatEvent('chat_open', { mode });
+          if (next) config.onTrack?.('chat_open', { mode });
         }}
       />
     </div>
-  );
-}
-
-export default function ChatWidget() {
-  return (
-    <ChatProvider>
-      <ChatWidgetInner />
-    </ChatProvider>
   );
 }

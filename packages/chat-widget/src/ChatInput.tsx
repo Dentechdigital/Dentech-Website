@@ -5,9 +5,11 @@ type Props = {
   onSubmit: (value: string) => void;
   disabled?: boolean;
   compact?: boolean;
+  ariaLabel: string;
+  placeholder: string;
 };
 
-export default function ChatInput({ onSubmit, disabled = false, compact = false }: Props) {
+export default function ChatInput({ onSubmit, disabled = false, compact = false, ariaLabel, placeholder }: Props) {
   const [value, setValue] = useState('');
 
   return (
@@ -22,7 +24,7 @@ export default function ChatInput({ onSubmit, disabled = false, compact = false 
       }}
     >
       <label htmlFor="chat-input" className="sr-only">
-        Ask Dentech chatbot
+        {ariaLabel}
       </label>
       <div className="flex items-end gap-2">
         <textarea
@@ -39,7 +41,7 @@ export default function ChatInput({ onSubmit, disabled = false, compact = false 
               setValue('');
             }
           }}
-          placeholder="Compose your message..."
+          placeholder={placeholder}
           className="min-h-[2.2rem] flex-1 resize-none bg-transparent px-2 py-1.5 text-sm text-slate-900 outline-none placeholder:text-slate-400 dark:text-slate-100"
         />
         <div className="mb-1 flex items-center gap-1 text-slate-400">

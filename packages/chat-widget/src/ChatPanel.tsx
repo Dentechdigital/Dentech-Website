@@ -1,26 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { CHATBOT_FAQ } from '../../data/chatbotFaq';
-import type { ChatConversionStage, ChatFaqItem, ChatIntent, ChatMessage, ChatMode } from '../../types/chatbot';
+import { useChatConfig } from './chat-config';
+import type { ChatConversionStage, ChatFaqItem, ChatMessage, ChatMode } from './types';
 import ChatInput from './ChatInput';
 import ChatMessages from './ChatMessages';
 import ChatTabs from './ChatTabs';
 import QuickPrompts from './QuickPrompts';
-
-type HelpdeskCategory = 'pricing' | 'services' | 'timeline' | 'getting-started';
-
-const HELPDESK_CATEGORIES: Array<{
-  id: HelpdeskCategory;
-  label: string;
-  intents: ChatIntent[];
-}> = [
-  { id: 'pricing', label: 'Pricing', intents: ['pricing'] },
-  { id: 'services', label: 'Services', intents: ['services'] },
-  { id: 'timeline', label: 'Timeline', intents: ['timeline'] },
-  { id: 'getting-started', label: 'Getting started', intents: ['booking'] },
-];
-
-const HEADER_AVATARS = ['/mohammed-dahman.webp', '/team/balfoul.webp', '/team/omayma-r.webp'];
 
 type Props = {
   open: boolean;
@@ -58,10 +42,13 @@ export default function ChatPanel({
   conversionStage,
   leadScore,
 }: Props) {
+  const config = useChatConfig();
+  const { LinkComponent } = config;
+  const firstCategoryId = config.helpdeskCategories[0]?.id ?? 'pricing';
   const panelRef = useRef<HTMLDivElement | null>(null);
   const [rendered, setRendered] = useState(open);
   const [isExiting, setIsExiting] = useState(false);
-  const [helpdeskCategory, setHelpdeskCategory] = useState<HelpdeskCategory>('pricing');
+  const [helpdeskCategory, setHelpdeskCategory] = useState<string>(firstCategoryId);
   const [helpdeskScreen, setHelpdeskScreen] = useState<'questions' | 'answer'>('questions');
   const [selectedHelpdeskItem, setSelectedHelpdeskItem] = useState<ChatFaqItem | null>(null);
 
@@ -127,24 +114,27 @@ export default function ChatPanel({
     mode === 'faq'
       ? 'Helpdesk mode'
       : conversionStage === 'ready'
-      ? 'Ready to book'
-      : conversionStage === 'evaluate'
-        ? 'Comparing options'
-        : 'Discovery';
+        ? 'Ready to book'
+        : conversionStage === 'evaluate'
+          ? 'Comparing options'
+          : 'Discovery';
   const stageTone =
     conversionStage === 'ready'
       ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-300'
       : conversionStage === 'evaluate'
         ? 'bg-amber-50 text-amber-700 dark:bg-amber-950/30 dark:text-amber-300'
         : 'bg-blue-50 text-blue-700 dark:bg-blue-950/30 dark:text-blue-300';
-  const activeHelpdeskCategory = HELPDESK_CATEGORIES.find((category) => category.id === helpdeskCategory) ?? HELPDESK_CATEGORIES[0];
-  const filteredFaq = CHATBOT_FAQ.filter((item) => activeHelpdeskCategory.intents.includes(item.intent)).slice(0, 4);
+  const activeHelpdeskCategory =
+    config.helpdeskCategories.find((category) => category.id === helpdeskCategory) ?? config.helpdeskCategories[0];
+  const filteredFaq = activeHelpdeskCategory
+    ? config.faqItems.filter((item) => activeHelpdeskCategory.intents.includes(item.intent)).slice(0, 4)
+    : [];
 
   return (
     <div
       ref={panelRef}
       role="dialog"
-      aria-label="Dentech chatbot assistant"
+      aria-label={config.dialogAriaLabel}
       aria-hidden={isExiting}
       className={`pointer-events-auto mb-3 flex max-h-[calc(100dvh-7.5rem)] w-[min(23.5rem,calc(100vw-1rem))] flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white pb-3 shadow-[0_22px_52px_rgba(2,6,23,0.28)] sm:max-h-[min(80vh,calc(100dvh-7.5rem))] dark:border-slate-700 dark:bg-slate-950 ${
         isExiting ? 'dchat-panel-exit' : 'dchat-panel-enter'
@@ -153,18 +143,17 @@ export default function ChatPanel({
       <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-3 pb-3 pt-2.5 text-white">
         <div className="flex items-start justify-between gap-2">
           <div className="min-w-0 flex-1 pr-1">
-            <ChatTabs mode={mode} onChange={onModeChange} />
+            <ChatTabs mode={mode} onChange={onModeChange} chatLabel={config.tabChatLabel} helpdeskLabel={config.tabHelpdeskLabel} />
             {mode === 'chat' ? (
               <div className="dchat-bubble-enter mt-3 text-left">
                 <h2 className="text-[13px] font-semibold leading-snug text-white sm:text-sm">
-                  Talk with Dentech Team! <span aria-hidden>🙂</span>
+                  {config.chatHeaderTitle}{' '}
+                  {config.chatHeaderEmoji ? <span aria-hidden>{config.chatHeaderEmoji}</span> : null}
                 </h2>
-                <p className="mt-1 text-[12px] leading-snug text-blue-100/95">
-                  Dentech support is online and can guide your next growth step.
-                </p>
+                <p className="mt-1 text-[12px] leading-snug text-blue-100/95">{config.chatHeaderSupportLine}</p>
                 <div className="mt-2 flex items-center gap-2">
                   <div className="flex -space-x-2">
-                    {HEADER_AVATARS.map((src) => (
+                    {config.headerAvatarSrcs.map((src) => (
                       <img
                         key={src}
                         src={src}
@@ -181,17 +170,17 @@ export default function ChatPanel({
                       className="grid h-7 w-7 place-items-center rounded-full border-2 border-white/50 bg-white text-sm text-blue-600"
                       aria-hidden
                     >
-                      💬
+                      {'\u{1F4AC}'}
                     </span>
                   </div>
                   <span className="text-[11px] leading-snug text-blue-100/90">
                     <span className="mr-1 inline-block h-2 w-2 rounded-full bg-emerald-300 align-middle" />
-                    Team replies under 1 hour
+                    {config.chatHeaderStatusLine}
                   </span>
                 </div>
               </div>
             ) : (
-              <p className="mt-3 text-left text-[13px] font-semibold leading-snug text-white sm:text-sm">Popular questions</p>
+              <p className="mt-3 text-left text-[13px] font-semibold leading-snug text-white sm:text-sm">{config.faqTabHeader}</p>
             )}
           </div>
           <button
@@ -217,12 +206,10 @@ export default function ChatPanel({
       <div className="flex min-h-0 flex-1 flex-col overflow-hidden px-3 pt-2">
         {mode === 'faq' ? (
           <div className="dchat-helpdesk-scroll flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-y-contain rounded-xl bg-slate-50 px-3 pb-4 pt-2 dark:bg-slate-900/70">
-            <p className="mb-2 text-xs font-semibold text-slate-700 dark:text-slate-200">Helpdesk quick answers</p>
-            <p className="mb-3 text-xs text-slate-500 dark:text-slate-400">
-              Pick a category, then open a question. Use the Chat tab for a live conversation.
-            </p>
+            <p className="mb-2 text-xs font-semibold text-slate-700 dark:text-slate-200">{config.helpdeskIntroTitle}</p>
+            <p className="mb-3 text-xs text-slate-500 dark:text-slate-400">{config.helpdeskIntroBody}</p>
             <div className="mb-3 grid grid-cols-2 gap-2">
-              {HELPDESK_CATEGORIES.map((category) => {
+              {config.helpdeskCategories.map((category) => {
                 const isActive = category.id === helpdeskCategory;
                 return (
                   <button
@@ -283,14 +270,14 @@ export default function ChatPanel({
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {selectedHelpdeskItem.ctas.map((cta) => (
-                      <Link
+                      <LinkComponent
                         key={cta.to + cta.label}
                         to={cta.to}
                         onClick={() => onCtaClick(cta.to)}
                         className="rounded-md bg-slate-100 px-2.5 py-1.5 text-xs font-medium text-slate-700 transition hover:bg-slate-200 dark:bg-slate-700 dark:text-slate-100 dark:hover:bg-slate-600"
                       >
                         {cta.label}
-                      </Link>
+                      </LinkComponent>
                     ))}
                   </div>
                 </div>
@@ -304,17 +291,26 @@ export default function ChatPanel({
 
       {mode === 'chat' && (
         <div className="px-3 pb-1.5 pt-2">
-          <QuickPrompts prompts={prompts} disabled={loading} onPromptClick={(prompt) => onSubmit(prompt, 'prompt')} />
+          <QuickPrompts
+            prompts={prompts}
+            disabled={loading}
+            onPromptClick={(prompt) => onSubmit(prompt, 'prompt')}
+            sectionLabel={config.quickStartsLabel}
+          />
         </div>
       )}
 
       {mode === 'chat' && (
         <div className="px-3 pb-2 pt-0">
-          <ChatInput onSubmit={(prompt) => onSubmit(prompt, 'input')} disabled={loading} compact />
+          <ChatInput
+            onSubmit={(prompt) => onSubmit(prompt, 'input')}
+            disabled={loading}
+            compact
+            ariaLabel={config.composerAriaLabel}
+            placeholder={config.composerPlaceholder}
+          />
         </div>
       )}
-
-      {/* Chat mode intentionally keeps only conversation + composer UI */}
     </div>
   );
 }

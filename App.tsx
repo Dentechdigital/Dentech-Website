@@ -12,7 +12,7 @@ const ServiceDetail = lazy(() => import('./pages/ServiceDetail'));
 const CaseStudies = lazy(() => import('./pages/CaseStudies'));
 const Contact = lazy(() => import('./pages/Contact'));
 const ClientPortal = lazy(() => import('./pages/ClientPortal'));
-const ChatWidget = lazy(() => import('./components/chat/ChatWidget'));
+const DentechChatWidget = lazy(() => import('./components/chat/DentechChatWidget'));
 
 function RouteScrollManager() {
   const { pathname, hash } = useLocation();
@@ -92,7 +92,7 @@ function DeferredChatMount() {
   if (!ready) return null;
   return (
     <Suspense fallback={null}>
-      <ChatWidget />
+      <DentechChatWidget />
     </Suspense>
   );
 }

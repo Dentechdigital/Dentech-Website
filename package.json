@@ -3,6 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "npm run optimize:images && vite build",
@@ -14,6 +17,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@dentech/chat-widget": "workspace:*",
     "lucide-react": "^0.561.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",

@@ -4,14 +4,13 @@ type Props = {
   prompts: string[];
   onPromptClick: (prompt: string) => void;
   disabled?: boolean;
+  sectionLabel: string;
 };
 
-export default function QuickPrompts({ prompts, onPromptClick, disabled = false }: Props) {
+export default function QuickPrompts({ prompts, onPromptClick, disabled = false, sectionLabel }: Props) {
   return (
     <div className="overflow-hidden">
-      <p className="mb-2 text-[11px] font-medium text-slate-500 dark:text-slate-400">
-        Quick starts
-      </p>
+      <p className="mb-2 text-[11px] font-medium text-slate-500 dark:text-slate-400">{sectionLabel}</p>
       <div className="dchat-scrollbar-none flex gap-2 overflow-x-auto whitespace-nowrap pb-1 pr-1">
         {prompts.slice(0, 6).map((prompt) => (
           <button

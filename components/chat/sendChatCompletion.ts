@@ -1,4 +1,4 @@
-import type { ChatCompletionRequest, ChatCompletionResponse, ChatErrorResponse } from '../../types/chatbot';
+import type { ChatCompletionRequest, ChatCompletionResponse, ChatErrorResponse } from '@dentech/chat-widget';
 
 const CHAT_ENDPOINT = '/.netlify/functions/chat-completions';
 

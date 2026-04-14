@@ -4,9 +4,10 @@ import { MessageCircle, X } from 'lucide-react';
 type Props = {
   open: boolean;
   onClick: () => void;
+  launcherBadgeSrc: string;
 };
 
-export default function ChatLauncher({ open, onClick }: Props) {
+export default function ChatLauncher({ open, onClick, launcherBadgeSrc }: Props) {
   return (
     <button
       type="button"
@@ -18,7 +19,7 @@ export default function ChatLauncher({ open, onClick }: Props) {
     >
       <MessageCircle size={22} className={`transition ${open ? 'opacity-0' : 'opacity-100'}`} />
       <img
-        src="/avatar-80w.webp"
+        src={launcherBadgeSrc}
         alt=""
         aria-hidden
         width={20}

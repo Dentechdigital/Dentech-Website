@@ -1,23 +1,25 @@
 import React from 'react';
 import { MessageCircle, Search } from 'lucide-react';
-import type { ChatMode } from '../../types/chatbot';
+import type { ChatMode } from './types';
 
 type Props = {
   mode: ChatMode;
   onChange: (mode: ChatMode) => void;
+  chatLabel: string;
+  helpdeskLabel: string;
 };
 
-export default function ChatTabs({ mode, onChange }: Props) {
-  const config: Record<ChatMode, { label: string; icon: React.ReactNode }> = {
-    chat: { label: 'Chat', icon: <MessageCircle size={12} /> },
-    faq: { label: 'Helpdesk', icon: <Search size={12} /> },
+export default function ChatTabs({ mode, onChange, chatLabel, helpdeskLabel }: Props) {
+  const tabs: Record<ChatMode, { label: string; icon: React.ReactNode }> = {
+    chat: { label: chatLabel, icon: <MessageCircle size={12} /> },
+    faq: { label: helpdeskLabel, icon: <Search size={12} /> },
   };
 
   return (
     <div className="grid grid-cols-2 gap-1 rounded-xl bg-black/15 p-1" role="tablist" aria-label="Chat modes">
       {(['chat', 'faq'] as ChatMode[]).map((tab) => {
         const active = mode === tab;
-        const item = config[tab];
+        const item = tabs[tab];
         return (
           <button
             key={tab}
@@ -25,9 +27,7 @@ export default function ChatTabs({ mode, onChange }: Props) {
             role="tab"
             aria-selected={active}
             className={`rounded-lg px-3 py-2 text-sm font-semibold transition-colors duration-150 ${
-              active
-                ? 'bg-white text-blue-700 shadow-sm'
-                : 'text-white/90 hover:bg-white/10 hover:text-white'
+              active ? 'bg-white text-blue-700 shadow-sm' : 'text-white/90 hover:bg-white/10 hover:text-white'
             }`}
             onClick={() => onChange(tab)}
           >

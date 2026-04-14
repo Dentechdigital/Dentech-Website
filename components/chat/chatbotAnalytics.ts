@@ -1,17 +1,4 @@
-type ChatEventName =
-  | 'chat_open'
-  | 'chat_teaser_click'
-  | 'chat_prompt_click'
-  | 'chat_send'
-  | 'chat_cta_click'
-  | 'chat_error';
-
-type ChatEventPayload = {
-  mode?: 'faq' | 'chat';
-  intent?: string;
-  source?: string;
-  retryable?: boolean;
-};
+import type { ChatEventName, ChatEventPayload } from '@dentech/chat-widget';
 
 declare global {
   interface Window {

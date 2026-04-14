@@ -1,0 +1,16 @@
+# Used when this folder is the Netlify "Base directory" (recommended: separate site + branch).
+# Astro emits inline script/style for islands; do not reuse the main site's strict CSP here.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

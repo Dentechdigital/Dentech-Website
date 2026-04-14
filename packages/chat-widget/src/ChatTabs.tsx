@@ -16,7 +16,11 @@ export default function ChatTabs({ mode, onChange, chatLabel, helpdeskLabel }: P
   };
 
   return (
-    <div className="grid grid-cols-2 gap-1 rounded-xl bg-black/15 p-1" role="tablist" aria-label="Chat modes">
+    <div
+      className="grid w-full grid-cols-2 gap-1 rounded-xl bg-slate-200/90 p-1 dark:bg-slate-800/90"
+      role="tablist"
+      aria-label="Chat modes"
+    >
       {(['chat', 'faq'] as ChatMode[]).map((tab) => {
         const active = mode === tab;
         const item = tabs[tab];
@@ -27,7 +31,9 @@ export default function ChatTabs({ mode, onChange, chatLabel, helpdeskLabel }: P
             role="tab"
             aria-selected={active}
             className={`rounded-lg px-3 py-2 text-sm font-semibold transition-colors duration-150 ${
-              active ? 'bg-white text-blue-700 shadow-sm' : 'text-white/90 hover:bg-white/10 hover:text-white'
+              active
+                ? 'bg-white text-blue-700 shadow-sm dark:bg-slate-700 dark:text-white'
+                : 'text-slate-600 hover:bg-white/70 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-700/80 dark:hover:text-white'
             }`}
             onClick={() => onChange(tab)}
           >

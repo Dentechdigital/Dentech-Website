@@ -29,7 +29,7 @@ export type ChatWidgetViewProps = {
 
 export default function ChatWidgetView({ routeKey }: ChatWidgetViewProps) {
   const config = useChatConfig();
-  const { mode, setMode, messages, loading, suggestedPrompts, conversionStage, leadScore, sendPrompt } = useChat();
+  const { mode, setMode, messages, loading, suggestedPrompts, sendPrompt } = useChat();
   const [open, setOpen] = useState(false);
   const [showTeaser, setShowTeaser] = useState(false);
   const [canPlaySound, setCanPlaySound] = useState(false);
@@ -119,8 +119,6 @@ export default function ChatWidgetView({ routeKey }: ChatWidgetViewProps) {
         messages={messages}
         onClose={() => setOpen(false)}
         onCtaClick={(to) => config.onTrack?.('chat_cta_click', { mode, source: to })}
-        conversionStage={conversionStage}
-        leadScore={leadScore}
       />
       <ChatLauncher
         open={open}

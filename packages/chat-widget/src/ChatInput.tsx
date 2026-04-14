@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Paperclip, SendHorizontal, Smile } from 'lucide-react';
+import { SendHorizontal } from 'lucide-react';
 
 type Props = {
   onSubmit: (value: string) => void;
@@ -44,13 +44,7 @@ export default function ChatInput({ onSubmit, disabled = false, compact = false,
           placeholder={placeholder}
           className="min-h-[2.2rem] flex-1 resize-none bg-transparent px-2 py-1.5 text-sm text-slate-900 outline-none placeholder:text-slate-400 dark:text-slate-100"
         />
-        <div className="mb-1 flex items-center gap-1 text-slate-400">
-          <button type="button" aria-label="Attach file" className="rounded p-1 transition hover:bg-slate-100 dark:hover:bg-slate-800">
-            <Paperclip size={15} />
-          </button>
-          <button type="button" aria-label="Insert emoji" className="rounded p-1 transition hover:bg-slate-100 dark:hover:bg-slate-800">
-            <Smile size={15} />
-          </button>
+        <div className="mb-1 flex items-center">
           <button
             type="submit"
             aria-label="Send message"

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useChatConfig } from './chat-config';
-import type { ChatConversionStage, ChatFaqItem, ChatMessage, ChatMode } from './types';
+import type { ChatFaqItem, ChatMessage, ChatMode } from './types';
 import ChatInput from './ChatInput';
 import ChatMessages from './ChatMessages';
 import ChatTabs from './ChatTabs';
@@ -16,8 +16,6 @@ type Props = {
   messages: ChatMessage[];
   onClose: () => void;
   onCtaClick: (to: string) => void;
-  conversionStage: ChatConversionStage;
-  leadScore: number;
 };
 
 function getFocusable(container: HTMLDivElement | null) {
@@ -39,8 +37,6 @@ export default function ChatPanel({
   messages,
   onClose,
   onCtaClick,
-  conversionStage,
-  leadScore,
 }: Props) {
   const config = useChatConfig();
   const { LinkComponent } = config;
@@ -110,20 +106,6 @@ export default function ChatPanel({
 
   if (!rendered) return null;
 
-  const stageLabel =
-    mode === 'faq'
-      ? 'Helpdesk mode'
-      : conversionStage === 'ready'
-        ? 'Ready to book'
-        : conversionStage === 'evaluate'
-          ? 'Comparing options'
-          : 'Discovery';
-  const stageTone =
-    conversionStage === 'ready'
-      ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-300'
-      : conversionStage === 'evaluate'
-        ? 'bg-amber-50 text-amber-700 dark:bg-amber-950/30 dark:text-amber-300'
-        : 'bg-blue-50 text-blue-700 dark:bg-blue-950/30 dark:text-blue-300';
   const activeHelpdeskCategory =
     config.helpdeskCategories.find((category) => category.id === helpdeskCategory) ?? config.helpdeskCategories[0];
   const filteredFaq = activeHelpdeskCategory
@@ -140,46 +122,62 @@ export default function ChatPanel({
         isExiting ? 'dchat-panel-exit' : 'dchat-panel-enter'
       }`}
     >
-      <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-3 pb-3 pt-2.5 text-white">
-        <div className="flex items-start justify-between gap-2">
-          <div className="min-w-0 flex-1 pr-1">
-            <ChatTabs mode={mode} onChange={onModeChange} chatLabel={config.tabChatLabel} helpdeskLabel={config.tabHelpdeskLabel} />
+      <div className="border-b border-slate-200 bg-[#FAFAF9] pt-2.5 dark:border-slate-800 dark:bg-slate-900">
+        <div className="relative px-3 pb-3">
+          <button
+            type="button"
+            aria-label="Close chat"
+            onClick={onClose}
+            className="dchat-close-btn absolute right-3 top-0 z-10 flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 transition hover:bg-slate-200/90 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white"
+          >
+            <span className="text-[1.125rem] font-light leading-none" aria-hidden>
+              ×
+            </span>
+          </button>
+          <div className="mx-auto flex w-full justify-center pr-9">
+            <div className="w-full min-w-0 max-w-[16.75rem]">
+              <ChatTabs mode={mode} onChange={onModeChange} chatLabel={config.tabChatLabel} helpdeskLabel={config.tabHelpdeskLabel} />
+            </div>
+          </div>
+          <div className="mt-3 min-w-0">
             {mode === 'chat' ? (
               config.assistantName && config.assistantAvatarSrc ? (
-                <div className="dchat-bubble-enter mt-3 flex gap-3 text-left">
+                <div className="dchat-bubble-enter flex gap-3 text-left">
                   <img
                     src={config.assistantAvatarSrc}
                     alt=""
                     width={44}
                     height={44}
                     title={config.assistantName}
-                    className="h-11 w-11 shrink-0 rounded-full border-2 border-white/55 bg-white object-cover shadow-sm"
+                    className="h-11 w-11 shrink-0 rounded-full border-2 border-slate-200 bg-white object-cover shadow-sm dark:border-slate-600"
                     loading="lazy"
                     decoding="async"
                   />
                   <div className="min-w-0 flex-1">
-                    <p className="text-[10px] font-semibold uppercase tracking-wide text-blue-100/90">
+                    <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
                       {config.assistantRoleBadge ?? 'AI assistant'}
                     </p>
-                    <h2 className="text-sm font-semibold leading-snug text-white sm:text-[15px]">{config.assistantName}</h2>
-                    <p className="mt-1 text-[12px] leading-snug text-blue-100/95">
-                      {config.assistantTagline ?? config.chatHeaderSupportLine}
-                    </p>
+                    <h2 className="dchat-assistant-name-gradient text-sm font-semibold leading-snug sm:text-[15px]">
+                      {config.assistantName}
+                    </h2>
+                    {config.assistantTagline?.trim() ? (
+                      <p className="mt-1 text-[12px] leading-snug text-slate-600 dark:text-slate-300">{config.assistantTagline}</p>
+                    ) : null}
                     <div className="mt-2 flex items-center gap-2">
-                      <span className="text-[11px] leading-snug text-blue-100/90">
-                        <span className="mr-1 inline-block h-2 w-2 rounded-full bg-emerald-300 align-middle" />
+                      <span className="text-[11px] leading-snug text-slate-600 dark:text-slate-400">
+                        <span className="mr-1 inline-block h-2 w-2 rounded-full bg-emerald-500 align-middle dark:bg-emerald-400" />
                         {config.chatHeaderStatusLine}
                       </span>
                     </div>
                   </div>
                 </div>
               ) : (
-                <div className="dchat-bubble-enter mt-3 text-left">
-                  <h2 className="text-[13px] font-semibold leading-snug text-white sm:text-sm">
+                <div className="dchat-bubble-enter text-left">
+                  <h2 className="text-[13px] font-semibold leading-snug text-blue-950 dark:text-white sm:text-sm">
                     {config.chatHeaderTitle}{' '}
                     {config.chatHeaderEmoji ? <span aria-hidden>{config.chatHeaderEmoji}</span> : null}
                   </h2>
-                  <p className="mt-1 text-[12px] leading-snug text-blue-100/95">{config.chatHeaderSupportLine}</p>
+                  <p className="mt-1 text-[12px] leading-snug text-slate-600 dark:text-slate-300">{config.chatHeaderSupportLine}</p>
                   <div className="mt-2 flex items-center gap-2">
                     <div className="flex -space-x-2">
                       {config.headerAvatarSrcs.map((src) => (
@@ -190,46 +188,37 @@ export default function ChatPanel({
                           aria-hidden
                           width={28}
                           height={28}
-                          className="h-7 w-7 rounded-full border-2 border-white/50 bg-white object-cover"
+                          className="h-7 w-7 rounded-full border-2 border-slate-200 bg-white object-cover dark:border-slate-600"
                           loading="lazy"
                           decoding="async"
                         />
                       ))}
                       <span
-                        className="grid h-7 w-7 place-items-center rounded-full border-2 border-white/50 bg-white text-sm text-blue-600"
+                        className="grid h-7 w-7 place-items-center rounded-full border-2 border-slate-200 bg-white text-sm text-blue-600 dark:border-slate-600 dark:bg-slate-800 dark:text-blue-400"
                         aria-hidden
                       >
                         {'\u{1F4AC}'}
                       </span>
                     </div>
-                    <span className="text-[11px] leading-snug text-blue-100/90">
-                      <span className="mr-1 inline-block h-2 w-2 rounded-full bg-emerald-300 align-middle" />
+                    <span className="text-[11px] leading-snug text-slate-600 dark:text-slate-400">
+                      <span className="mr-1 inline-block h-2 w-2 rounded-full bg-emerald-500 align-middle dark:bg-emerald-400" />
                       {config.chatHeaderStatusLine}
                     </span>
                   </div>
                 </div>
               )
             ) : (
-              <p className="mt-3 text-left text-[13px] font-semibold leading-snug text-white sm:text-sm">{config.faqTabHeader}</p>
+              <p className="text-left text-[13px] font-semibold leading-snug text-blue-950 dark:text-white sm:text-sm">
+                {config.faqTabHeader}
+              </p>
             )}
           </div>
-          <button
-            type="button"
-            aria-label="Close chat"
-            onClick={onClose}
-            className="dchat-close-btn flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-white/85 transition hover:bg-white/15 hover:text-white"
-          >
-            <span className="text-[1.125rem] font-light leading-none" aria-hidden>
-              ×
-            </span>
-          </button>
         </div>
       </div>
 
       {mode === 'chat' && (
-        <div className="flex items-center justify-between border-b border-slate-100 px-3 py-1.5 dark:border-slate-800">
-          <span className={`inline-flex rounded-full px-2 py-0.5 text-[10px] font-semibold ${stageTone}`}>{stageLabel}</span>
-          <span className="text-[10px] text-slate-400 dark:text-slate-500">{leadScore >= 8 ? 'High intent' : 'Guided flow'}</span>
+        <div className="border-b border-slate-100 px-3 py-2 text-center dark:border-slate-800">
+          <p className="text-[11px] leading-snug text-slate-500 dark:text-slate-400">{config.chatResponseHintLine}</p>
         </div>
       )}
 
@@ -341,6 +330,22 @@ export default function ChatPanel({
           />
         </div>
       )}
+
+      <div className="mt-auto border-t border-slate-100 px-3 pb-1 pt-2 dark:border-slate-800">
+        {config.poweredByTo ? (
+          <LinkComponent
+            to={config.poweredByTo}
+            onClick={() => onCtaClick(config.poweredByTo!)}
+            className="block text-center text-[10px] font-medium text-slate-400 transition hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300"
+          >
+            {config.poweredByLabel}
+          </LinkComponent>
+        ) : (
+          <p className="text-center text-[10px] font-medium text-slate-400 dark:text-slate-500">
+            {config.poweredByLabel}
+          </p>
+        )}
+      </div>
     </div>
   );
 }

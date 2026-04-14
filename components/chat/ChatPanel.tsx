@@ -154,6 +154,10 @@ export default function ChatPanel({
         : 'bg-blue-50 text-blue-700 dark:bg-blue-950/30 dark:text-blue-300';
   const latestAssistantSummary = [...messages].reverse().find((message) => message.role === 'assistant')?.text;
   const latestUserQuestion = [...messages].reverse().find((message) => message.role === 'user')?.text;
+  const recentAssistantResponses = [...messages]
+    .filter((message) => message.role === 'assistant')
+    .slice(-3)
+    .reverse();
   const primaryCta = ctas[0];
   const secondaryCtas = ctas.slice(1);
   const activeHelpdeskCategory = HELPDESK_CATEGORIES.find((category) => category.id === helpdeskCategory) ?? HELPDESK_CATEGORIES[0];
@@ -207,11 +211,12 @@ export default function ChatPanel({
 
       <div className="min-h-0 flex-1 overflow-hidden px-3 pt-2">
         {mode === 'faq' ? (
-          <div className="dchat-scrollbar-none h-full overflow-y-auto rounded-xl bg-slate-50 p-3 dark:bg-slate-900/70">
+          <div className="h-full overflow-y-auto rounded-xl bg-slate-50 p-3 dark:bg-slate-900/70">
             <p className="mb-2 text-xs font-semibold text-slate-700 dark:text-slate-200">Helpdesk quick answers</p>
-            <p className="mb-3 text-xs text-slate-500 dark:text-slate-400">
+            <p className="mb-2 text-xs text-slate-500 dark:text-slate-400">
               Browse approved answers and helpful pages. Use the Chat tab if you want a live conversation.
             </p>
+            <p className="mb-3 text-[11px] font-medium text-slate-400 dark:text-slate-500">Scroll down to view all responses</p>
             <div className="mb-3 grid grid-cols-2 gap-2">
               {HELPDESK_CATEGORIES.map((category) => {
                 const isActive = category.id === helpdeskCategory;
@@ -258,6 +263,20 @@ export default function ChatPanel({
                   <p className="mt-1 text-[11px] text-blue-800/80 dark:text-blue-200/80">Q: {latestUserQuestion}</p>
                 )}
                 <p className="mt-1 text-xs leading-relaxed text-slate-700 dark:text-slate-100">{latestAssistantSummary}</p>
+              </div>
+            )}
+            {recentAssistantResponses.length > 0 && (
+              <div className="mt-3 rounded-lg border border-slate-200 bg-white p-3 dark:border-slate-700 dark:bg-slate-800">
+                <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                  Recent responses
+                </p>
+                <div className="mt-2 space-y-2">
+                  {recentAssistantResponses.map((message) => (
+                    <p key={message.id} className="rounded-md bg-slate-50 px-2 py-1.5 text-xs text-slate-700 dark:bg-slate-900 dark:text-slate-200">
+                      {message.text}
+                    </p>
+                  ))}
+                </div>
               </div>
             )}
             <div className="mt-4 border-t border-slate-200 pt-3 dark:border-slate-700">

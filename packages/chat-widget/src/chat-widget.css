@@ -77,8 +77,34 @@
     opacity: 0.5;
   }
   40% {
-    transform: translateY(-2px);
+    transform: translateY(-3px);
     opacity: 1;
+  }
+}
+
+@keyframes dchat-typing-breathe {
+  0%,
+  100% {
+    opacity: 0.92;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.015);
+  }
+}
+
+@keyframes dchat-fab-glow {
+  0%,
+  100% {
+    box-shadow:
+      0 10px 28px rgba(37, 99, 235, 0.38),
+      0 0 0 0 rgba(59, 130, 246, 0.22);
+  }
+  50% {
+    box-shadow:
+      0 14px 40px rgba(37, 99, 235, 0.48),
+      0 0 0 10px rgba(59, 130, 246, 0);
   }
 }
 
@@ -120,7 +146,9 @@
 }
 
 .dchat-fab-idle {
-  animation: dchat-fab-breathe 2.8s ease-in-out infinite;
+  animation:
+    dchat-fab-breathe 2.8s ease-in-out infinite,
+    dchat-fab-glow 2.4s ease-in-out infinite;
 }
 
 .dchat-bubble-enter {
@@ -137,6 +165,10 @@
 
 .dchat-dot:nth-child(3) {
   animation-delay: 240ms;
+}
+
+.dchat-typing-bubble {
+  animation: dchat-typing-breathe 1.15s ease-in-out infinite;
 }
 
 .dchat-cta-ready {
@@ -191,7 +223,8 @@ html.dark .dchat-helpdesk-scroll::-webkit-scrollbar-thumb {
   .dchat-fab-idle,
   .dchat-bubble-enter,
   .dchat-dot,
-  .dchat-helpdesk-pane {
+  .dchat-helpdesk-pane,
+  .dchat-typing-bubble {
     animation: none !important;
     transition-duration: 0.01ms !important;
   }

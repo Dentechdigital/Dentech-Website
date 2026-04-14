@@ -81,7 +81,7 @@ export default function ChatWidgetView({ routeKey }: ChatWidgetViewProps) {
   }, [routeKey]);
 
   return (
-    <div className="pointer-events-none fixed bottom-[max(0.75rem,env(safe-area-inset-bottom))] right-2 z-[60] flex max-w-[calc(100vw-0.5rem)] flex-col items-end sm:right-6">
+    <div className="pointer-events-none fixed bottom-[max(1.25rem,env(safe-area-inset-bottom))] right-[max(1.25rem,env(safe-area-inset-right))] z-[60] flex max-w-[calc(100vw-1.5rem)] flex-col items-end gap-2 sm:bottom-6 sm:right-6">
       <ChatTeaser
         visible={showTeaser && !open}
         title={config.teaserTitle}
@@ -125,6 +125,7 @@ export default function ChatWidgetView({ routeKey }: ChatWidgetViewProps) {
       <ChatLauncher
         open={open}
         launcherBadgeSrc={config.launcherBadgeSrc}
+        assistantName={config.assistantName}
         onClick={() => {
           const next = !open;
           setOpen(next);

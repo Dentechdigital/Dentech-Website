@@ -34,6 +34,12 @@ function ensureSessionId(key: string) {
   return newSession;
 }
 
+function sleep(ms: number) {
+  return new Promise<void>((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}
+
 function makeMessage(role: ChatMessage['role'], text: string): ChatMessage {
   return {
     id: `${role}_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
@@ -100,7 +106,17 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
     setMessages((prev) => [...prev, userMessage]);
     setLoading(true);
     setError(null);
+    const startedAt = Date.now();
     config.onTrack?.('chat_send', { mode, source });
+
+    const applyAssistantReplyDelay = async () => {
+      const minDelay =
+        typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+          ? 0
+          : (config.assistantReplyMinDelayMs ?? 600);
+      const elapsed = Date.now() - startedAt;
+      await sleep(Math.max(0, minDelay - elapsed));
+    };
 
     try {
       let result: ChatCompletionResponse | null = null;
@@ -129,6 +145,7 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
         });
       }
 
+      await applyAssistantReplyDelay();
       setMessages((prev) => [...prev, makeMessage('assistant', result!.reply)]);
       const defaultCta = config.defaultContactCta;
       const baseCtas = result!.suggestedCtas.length ? result!.suggestedCtas : [defaultCta];
@@ -152,6 +169,7 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
         setCtaNudgeShown(true);
       }
     } catch {
+      await applyAssistantReplyDelay();
       const fallback = resolveLocalFaq(prompt);
       if (fallback) {
         setError(null);

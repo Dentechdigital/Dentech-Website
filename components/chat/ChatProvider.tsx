@@ -166,16 +166,15 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
         ]);
         setCtaNudgeShown(true);
       }
-    } catch (err) {
-      const message = err instanceof Error ? err.message : 'Something went wrong while sending your message.';
+    } catch {
       const fallback = resolveLocalFaq(prompt);
       if (fallback) {
-        setError('Live AI is temporarily unavailable. Showing approved quick answer.');
+        setError(null);
         setMessages((prev) => [...prev, makeMessage('assistant', fallback.reply)]);
         setSuggestedCtas(fallback.suggestedCtas.length ? fallback.suggestedCtas : [{ label: 'Contact Dentech', to: '/contact' }]);
         setSuggestedPrompts(fallback.suggestedPrompts.length ? fallback.suggestedPrompts : CHATBOT_STARTER_PROMPTS);
       } else {
-        setError(message);
+        setError(null);
         setMessages((prev) => [
           ...prev,
           makeMessage(

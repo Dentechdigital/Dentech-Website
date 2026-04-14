@@ -13,32 +13,11 @@ const HELPDESK_CATEGORIES: Array<{
   id: HelpdeskCategory;
   label: string;
   intents: ChatIntent[];
-  description: string;
 }> = [
-  {
-    id: 'pricing',
-    label: 'Pricing',
-    intents: ['pricing'],
-    description: 'Packages, retainers, scope, and fit by clinic stage.',
-  },
-  {
-    id: 'services',
-    label: 'Services',
-    intents: ['services'],
-    description: 'Channel strategy, priorities, and full-funnel execution.',
-  },
-  {
-    id: 'timeline',
-    label: 'Timeline',
-    intents: ['timeline'],
-    description: 'Expected ramp-up, 30-90 day milestones, and team rhythm.',
-  },
-  {
-    id: 'getting-started',
-    label: 'Getting started',
-    intents: ['booking'],
-    description: 'How to prepare, kickoff steps, and first implementation phase.',
-  },
+  { id: 'pricing', label: 'Pricing', intents: ['pricing'] },
+  { id: 'services', label: 'Services', intents: ['services'] },
+  { id: 'timeline', label: 'Timeline', intents: ['timeline'] },
+  { id: 'getting-started', label: 'Getting started', intents: ['booking'] },
 ];
 
 const HEADER_AVATARS = ['/mohammed-dahman.webp', '/team/balfoul.webp', '/team/omayma-r.webp'];
@@ -51,7 +30,6 @@ type Props = {
   prompts: string[];
   loading: boolean;
   messages: ChatMessage[];
-  error: string | null;
   onClose: () => void;
   onCtaClick: (to: string) => void;
   conversionStage: ChatConversionStage;
@@ -75,7 +53,6 @@ export default function ChatPanel({
   prompts,
   loading,
   messages,
-  error,
   onClose,
   onCtaClick,
   conversionStage,
@@ -160,8 +137,6 @@ export default function ChatPanel({
       : conversionStage === 'evaluate'
         ? 'bg-amber-50 text-amber-700 dark:bg-amber-950/30 dark:text-amber-300'
         : 'bg-blue-50 text-blue-700 dark:bg-blue-950/30 dark:text-blue-300';
-  const latestAssistantSummary = [...messages].reverse().find((message) => message.role === 'assistant')?.text;
-  const latestUserQuestion = [...messages].reverse().find((message) => message.role === 'user')?.text;
   const activeHelpdeskCategory = HELPDESK_CATEGORIES.find((category) => category.id === helpdeskCategory) ?? HELPDESK_CATEGORIES[0];
   const filteredFaq = CHATBOT_FAQ.filter((item) => activeHelpdeskCategory.intents.includes(item.intent)).slice(0, 4);
 
@@ -171,7 +146,7 @@ export default function ChatPanel({
       role="dialog"
       aria-label="Dentech chatbot assistant"
       aria-hidden={isExiting}
-      className={`pointer-events-auto mb-3 flex max-h-[calc(100dvh-7.5rem)] w-[min(23.5rem,calc(100vw-1rem))] flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_22px_52px_rgba(2,6,23,0.28)] sm:max-h-[min(80vh,calc(100dvh-7.5rem))] dark:border-slate-700 dark:bg-slate-950 ${
+      className={`pointer-events-auto mb-3 flex max-h-[calc(100dvh-7.5rem)] w-[min(23.5rem,calc(100vw-1rem))] flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white pb-3 shadow-[0_22px_52px_rgba(2,6,23,0.28)] sm:max-h-[min(80vh,calc(100dvh-7.5rem))] dark:border-slate-700 dark:bg-slate-950 ${
         isExiting ? 'dchat-panel-exit' : 'dchat-panel-enter'
       }`}
     >
@@ -230,12 +205,11 @@ export default function ChatPanel({
 
       <div className="min-h-0 flex-1 overflow-hidden px-3 pt-2">
         {mode === 'faq' ? (
-          <div className="h-full overflow-y-auto rounded-xl bg-slate-50 p-3 dark:bg-slate-900/70">
+          <div className="dchat-helpdesk-scroll flex h-full min-h-0 flex-col overflow-y-auto overscroll-y-contain rounded-xl bg-slate-50 px-3 pb-4 pt-2 dark:bg-slate-900/70">
             <p className="mb-2 text-xs font-semibold text-slate-700 dark:text-slate-200">Helpdesk quick answers</p>
-            <p className="mb-2 text-xs text-slate-500 dark:text-slate-400">
-              Browse approved answers and helpful pages. Use the Chat tab if you want a live conversation.
+            <p className="mb-3 text-xs text-slate-500 dark:text-slate-400">
+              Pick a category, then open a question. Use the Chat tab for a live conversation.
             </p>
-            <p className="mb-3 text-[11px] font-medium text-slate-400 dark:text-slate-500">Choose a category to open common questions</p>
             <div className="mb-3 grid grid-cols-2 gap-2">
               {HELPDESK_CATEGORIES.map((category) => {
                 const isActive = category.id === helpdeskCategory;
@@ -260,40 +234,21 @@ export default function ChatPanel({
               })}
             </div>
             {helpdeskScreen === 'questions' && (
-              <div className="dchat-helpdesk-pane">
-                <div className="mb-3 rounded-lg border border-slate-200 bg-white p-3 dark:border-slate-700 dark:bg-slate-800">
-                  <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-                    {activeHelpdeskCategory.label}
-                  </p>
-                  <p className="mt-1 text-xs text-slate-600 dark:text-slate-300">{activeHelpdeskCategory.description}</p>
-                </div>
-                <div className="space-y-2">
-                  {filteredFaq.map((item) => (
-                    <button
-                      key={item.id}
-                      type="button"
-                      onClick={() => {
-                        setSelectedHelpdeskItem(item);
-                        setHelpdeskScreen('answer');
-                      }}
-                      className="flex w-full items-center justify-between rounded-lg border border-slate-200 bg-white px-3 py-2 text-left text-xs font-medium text-slate-700 transition hover:border-blue-200 hover:bg-blue-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:hover:border-blue-700 dark:hover:bg-blue-950/20"
-                    >
-                      <span>{item.question}</span>
-                      <span className="ml-3 text-slate-400">›</span>
-                    </button>
-                  ))}
-                </div>
-                {latestAssistantSummary && (
-                  <div className="mt-4 rounded-lg border border-blue-100 bg-blue-50/80 p-3 dark:border-blue-900/40 dark:bg-blue-950/25">
-                    <p className="text-[11px] font-semibold uppercase tracking-wide text-blue-700 dark:text-blue-300">
-                      Summary
-                    </p>
-                    {latestUserQuestion && (
-                      <p className="mt-1 text-[11px] text-blue-800/80 dark:text-blue-200/80">Q: {latestUserQuestion}</p>
-                    )}
-                    <p className="mt-1 text-xs leading-relaxed text-slate-700 dark:text-slate-100">{latestAssistantSummary}</p>
-                  </div>
-                )}
+              <div className="dchat-helpdesk-pane space-y-2">
+                {filteredFaq.map((item) => (
+                  <button
+                    key={item.id}
+                    type="button"
+                    onClick={() => {
+                      setSelectedHelpdeskItem(item);
+                      setHelpdeskScreen('answer');
+                    }}
+                    className="flex w-full items-center justify-between rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-left text-xs font-medium text-slate-700 transition hover:border-blue-200 hover:bg-blue-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:hover:border-blue-700 dark:hover:bg-blue-950/20"
+                  >
+                    <span className="pr-2">{item.question}</span>
+                    <span className="shrink-0 text-slate-400">›</span>
+                  </button>
+                ))}
               </div>
             )}
             {helpdeskScreen === 'answer' && selectedHelpdeskItem && (
@@ -311,55 +266,25 @@ export default function ChatPanel({
                 </button>
                 <p className="text-sm font-semibold text-slate-800 dark:text-slate-100">{selectedHelpdeskItem.question}</p>
                 <p className="mt-2 text-xs leading-relaxed text-slate-600 dark:text-slate-300">{selectedHelpdeskItem.answer}</p>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {selectedHelpdeskItem.ctas.map((cta) => (
-                    <Link
-                      key={cta.to + cta.label}
-                      to={cta.to}
-                      onClick={() => onCtaClick(cta.to)}
-                      className="rounded-md bg-slate-100 px-2.5 py-1.5 text-xs font-medium text-slate-700 transition hover:bg-slate-200 dark:bg-slate-700 dark:text-slate-100 dark:hover:bg-slate-600"
-                    >
-                      {cta.label}
-                    </Link>
-                  ))}
+                <div className="mt-4 border-t border-slate-100 pt-3 dark:border-slate-600">
+                  <p className="mb-2 text-[11px] font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                    Next steps
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedHelpdeskItem.ctas.map((cta) => (
+                      <Link
+                        key={cta.to + cta.label}
+                        to={cta.to}
+                        onClick={() => onCtaClick(cta.to)}
+                        className="rounded-md bg-slate-100 px-2.5 py-1.5 text-xs font-medium text-slate-700 transition hover:bg-slate-200 dark:bg-slate-700 dark:text-slate-100 dark:hover:bg-slate-600"
+                      >
+                        {cta.label}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </div>
             )}
-            <div className="mt-4 border-t border-slate-200 pt-3 dark:border-slate-700">
-              <p className="mb-2 text-[11px] font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-                Helpful links
-              </p>
-              <div className="grid grid-cols-2 gap-2">
-                <Link
-                  to="/services"
-                  onClick={() => onCtaClick('/services')}
-                  className="rounded-md bg-white px-2.5 py-2 text-center text-xs font-medium text-slate-700 transition hover:bg-slate-100 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700"
-                >
-                  Services
-                </Link>
-                <Link
-                  to="/#pricing"
-                  onClick={() => onCtaClick('/#pricing')}
-                  className="rounded-md bg-white px-2.5 py-2 text-center text-xs font-medium text-slate-700 transition hover:bg-slate-100 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700"
-                >
-                  Pricing
-                </Link>
-                <Link
-                  to="/case-studies"
-                  onClick={() => onCtaClick('/case-studies')}
-                  className="rounded-md bg-white px-2.5 py-2 text-center text-xs font-medium text-slate-700 transition hover:bg-slate-100 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700"
-                >
-                  Case Studies
-                </Link>
-                <Link
-                  to="/contact"
-                  onClick={() => onCtaClick('/contact')}
-                  className="rounded-md bg-white px-2.5 py-2 text-center text-xs font-medium text-slate-700 transition hover:bg-slate-100 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700"
-                >
-                  Contact
-                </Link>
-              </div>
-            </div>
           </div>
         ) : (
           <ChatMessages messages={messages} loading={loading} />
@@ -367,19 +292,13 @@ export default function ChatPanel({
       </div>
 
       {mode === 'chat' && (
-        <div className="px-3 pt-1.5">
+        <div className="px-3 pb-1.5 pt-2">
           <QuickPrompts prompts={prompts} disabled={loading} onPromptClick={(prompt) => onSubmit(prompt, 'prompt')} />
         </div>
       )}
 
-      {error && (
-        <p className="mx-3 mt-2 rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-800 dark:bg-amber-950/30 dark:text-amber-300">
-          {error}
-        </p>
-      )}
-
       {mode === 'chat' && (
-        <div className="px-3 pt-1">
+        <div className="px-3 pb-2 pt-0">
           <ChatInput onSubmit={(prompt) => onSubmit(prompt, 'input')} disabled={loading} compact />
         </div>
       )}

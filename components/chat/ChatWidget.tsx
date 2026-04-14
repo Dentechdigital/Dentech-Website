@@ -24,7 +24,7 @@ function playTeaserSound(audioContext?: AudioContext | null) {
 }
 
 function ChatWidgetInner() {
-  const { mode, setMode, messages, loading, error, suggestedPrompts, conversionStage, leadScore, sendPrompt } =
+  const { mode, setMode, messages, loading, suggestedPrompts, conversionStage, leadScore, sendPrompt } =
     useChat();
   const [open, setOpen] = useState(false);
   const [showTeaser, setShowTeaser] = useState(false);
@@ -107,7 +107,6 @@ function ChatWidgetInner() {
         prompts={suggestedPrompts}
         loading={loading}
         messages={messages}
-        error={error}
         onClose={() => setOpen(false)}
         onCtaClick={(to) => trackChatEvent('chat_cta_click', { mode, source: to })}
         conversionStage={conversionStage}

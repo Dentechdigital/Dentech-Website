@@ -12,7 +12,7 @@ export default function ChatInput({ onSubmit, disabled = false, compact = false 
 
   return (
     <form
-      className="mt-3 rounded-xl border border-slate-200 bg-white p-2 transition duration-200 focus-within:border-blue-300 focus-within:shadow-[0_0_0_3px_rgba(59,130,246,0.12)] dark:border-slate-700 dark:bg-slate-900 dark:focus-within:border-blue-500"
+      className="mt-0 rounded-xl border border-slate-200 bg-white p-2 transition duration-200 focus-within:border-blue-300 focus-within:shadow-[0_0_0_3px_rgba(59,130,246,0.12)] dark:border-slate-700 dark:bg-slate-900 dark:focus-within:border-blue-500"
       onSubmit={(event) => {
         event.preventDefault();
         const trimmed = value.trim();

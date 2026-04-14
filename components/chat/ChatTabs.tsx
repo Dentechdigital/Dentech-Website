@@ -14,7 +14,7 @@ export default function ChatTabs({ mode, onChange }: Props) {
   };
 
   return (
-    <div className="grid grid-cols-2 rounded-xl bg-black/10 p-1 backdrop-blur-sm" role="tablist" aria-label="Chat modes">
+    <div className="grid grid-cols-2 gap-1 rounded-xl bg-black/15 p-1" role="tablist" aria-label="Chat modes">
       {(['chat', 'faq'] as ChatMode[]).map((tab) => {
         const active = mode === tab;
         const item = config[tab];
@@ -24,10 +24,10 @@ export default function ChatTabs({ mode, onChange }: Props) {
             type="button"
             role="tab"
             aria-selected={active}
-            className={`rounded-lg px-3 py-1.5 text-sm font-semibold transition ${
+            className={`rounded-lg px-3 py-2 text-sm font-semibold transition-colors duration-150 ${
               active
-                ? 'bg-white/16 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]'
-                : 'text-blue-100/90 hover:text-white'
+                ? 'bg-white text-blue-700 shadow-sm'
+                : 'text-white/90 hover:bg-white/10 hover:text-white'
             }`}
             onClick={() => onChange(tab)}
           >

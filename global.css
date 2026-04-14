@@ -417,6 +417,29 @@ html.dark .about-marquee-item {
   height: 0;
 }
 
+/* Helpdesk: visible, slim scrollbar so long content is discoverable */
+.dchat-helpdesk-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.85) transparent;
+}
+
+.dchat-helpdesk-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dchat-helpdesk-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(148, 163, 184, 0.75);
+  border-radius: 999px;
+}
+
+html.dark .dchat-helpdesk-scroll {
+  scrollbar-color: rgba(100, 116, 139, 0.9) transparent;
+}
+
+html.dark .dchat-helpdesk-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 116, 139, 0.85);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal-motion {
     opacity: 1 !important;

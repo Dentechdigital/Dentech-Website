@@ -19,7 +19,10 @@ export type ServicesProps = {
 
 export default function Services({ showSectionHeader = true }: ServicesProps) {
   return (
-    <section className="relative overflow-hidden bg-[#FAFAF9] py-24 transition-colors duration-300 dark:bg-slate-950">
+    <section
+      id="services"
+      className="scroll-mt-24 relative overflow-hidden bg-[#FAFAF9] py-24 transition-colors duration-300 dark:bg-slate-950"
+    >
       <div className="pointer-events-none absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-gray-200 to-transparent dark:via-slate-700" />
       <div className="pointer-events-none absolute -right-40 -top-40 h-96 w-96 rounded-full bg-blue-50 opacity-50 blur-3xl dark:bg-blue-900/20" />
       <div className="pointer-events-none absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-emerald-50 opacity-50 blur-3xl dark:bg-emerald-900/20" />

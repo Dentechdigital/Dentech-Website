@@ -171,7 +171,10 @@ function PricingCard({ item }: { item: PackageItem }) {
 
 export default function PricingPlans() {
   return (
-    <section className="py-24 bg-[#F5F7FB] dark:bg-slate-950 transition-colors duration-300 relative overflow-hidden">
+    <section
+      id="pricing"
+      className="scroll-mt-24 py-24 bg-[#F5F7FB] dark:bg-slate-950 transition-colors duration-300 relative overflow-hidden"
+    >
       <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-blue-200/40 blur-3xl dark:bg-blue-500/20" />
       <div className="pointer-events-none absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-cyan-200/40 blur-3xl dark:bg-cyan-500/20" />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/70 to-transparent dark:from-slate-900/20" />

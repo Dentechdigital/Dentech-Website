@@ -18,7 +18,10 @@ const featuredCaseStudy = {
 
 export default function CaseStudiesPreview() {
   return (
-    <section className="bg-[#FAFAF9] py-24 transition-colors duration-300 dark:bg-slate-950">
+    <section
+      id="case-studies"
+      className="scroll-mt-24 bg-[#FAFAF9] py-24 transition-colors duration-300 dark:bg-slate-950"
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-2xl">

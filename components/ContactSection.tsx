@@ -6,7 +6,7 @@ import { SITE_CONTACT } from '../data/siteContact';
 export default function ContactSection() {
   return (
     <section
-      className="relative overflow-hidden bg-[#FAFAF9] py-24 transition-colors duration-300 dark:bg-slate-950"
+      className="scroll-mt-24 relative overflow-hidden bg-[#FAFAF9] py-24 transition-colors duration-300 dark:bg-slate-950"
       id="contact"
     >
       <div className="pointer-events-none absolute right-0 top-0 h-full w-1/2 -skew-x-12 translate-x-1/4 transform bg-blue-50/50 dark:bg-blue-900/10" />

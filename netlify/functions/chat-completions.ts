@@ -59,26 +59,26 @@ function mapCtas(intent: ChatIntent): SuggestedCta[] {
   switch (intent) {
     case 'pricing':
       return [
-        { label: 'Book Your Strategy Call', to: '/contact' },
+        { label: 'Book Your Strategy Call', to: '/#contact' },
         { label: 'View Pricing', to: '/#pricing' },
       ];
     case 'services':
       return [
-        { label: 'Book Your Strategy Call', to: '/contact' },
-        { label: 'Explore Services', to: '/services' },
-        { label: 'See Case Studies', to: '/case-studies' },
+        { label: 'Book Your Strategy Call', to: '/#contact' },
+        { label: 'Explore Services', to: '/#services' },
+        { label: 'See Case Studies', to: '/#case-studies' },
       ];
     case 'case-studies':
       return [
-        { label: 'Book Strategy Call', to: '/contact' },
-        { label: 'Case Studies', to: '/case-studies' },
+        { label: 'Book Strategy Call', to: '/#contact' },
+        { label: 'Case Studies', to: '/#case-studies' },
       ];
     case 'booking':
-      return [{ label: 'Book Strategy Call', to: '/contact' }];
+      return [{ label: 'Book Strategy Call', to: '/#contact' }];
     default:
       return [
-        { label: 'Book Strategy Call', to: '/contact' },
-        { label: 'Browse Services', to: '/services' },
+        { label: 'Book Strategy Call', to: '/#contact' },
+        { label: 'Browse Services', to: '/#services' },
       ];
   }
 }

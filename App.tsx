@@ -20,13 +20,13 @@ function RouteScrollManager() {
   useEffect(() => {
     if (hash) {
       const id = hash.replace('#', '');
-      // Defer until route content is painted, then scroll to anchored section when explicitly requested.
       requestAnimationFrame(() => {
-        document.getElementById(id)?.scrollIntoView({ behavior: 'auto', block: 'start' });
+        requestAnimationFrame(() => {
+          document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
       });
       return;
     }
-    // Default behavior for cross-page navigation: always start at hero/top.
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [pathname, hash]);
 

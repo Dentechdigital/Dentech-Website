@@ -155,7 +155,7 @@ Reply with plain text only.`;
     : GEMINI_MODEL_FALLBACKS;
 
   const requestBody = JSON.stringify({
-    contents: [{ role: 'user', parts: [{ text: prompt }] }],
+    contents: [{ parts: [{ text: prompt }] }],
     generationConfig: {
       temperature: 0.25,
       topP: 0.9,
@@ -184,12 +184,22 @@ Reply with plain text only.`;
           snippet,
         }),
       );
-      if (response.status === 400 || response.status === 401 || response.status === 403) {
+      const keyOrAuthFailure =
+        response.status === 401 ||
+        response.status === 403 ||
+        (response.status === 400 &&
+          /API_KEY_INVALID|API key not valid|API key expired|invalid API key|PERMISSION_DENIED.*key|API keys are not supported/i.test(
+            snippet,
+          ));
+      if (keyOrAuthFailure) {
         throw new Error('Assistant is temporarily unavailable. Please retry.');
       }
       const maybeWrongModel =
         response.status === 404 ||
-        /not found|is not found|unsupported|invalid.*model|unknown model|was not found/i.test(snippet);
+        response.status === 429 ||
+        /not found|is not found|unsupported|invalid.*model|unknown model|was not found|is not supported for|does not exist|is not enabled/i.test(
+          snippet,
+        );
       if (maybeWrongModel && i < modelList.length - 1) {
         console.error(JSON.stringify({ tag: 'chat_completions_gemini_retry', fromModel: model, detail: 'trying_fallback' }));
         continue;

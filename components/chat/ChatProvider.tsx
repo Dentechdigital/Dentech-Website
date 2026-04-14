@@ -113,9 +113,20 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
 
     try {
       let result: ChatCompletionResponse | null = null;
-      if (mode === 'faq') result = resolveLocalFaq(prompt);
-
-      if (!result) {
+      if (mode === 'faq') {
+        result = resolveLocalFaq(prompt);
+        if (!result) {
+          result = {
+            reply:
+              'I can help with approved quick answers only in Helpdesk mode. Try pricing, services, timeline, or getting started.',
+            intent: 'general',
+            confidence: 0.82,
+            suggestedCtas: [{ label: 'Contact Dentech', to: '/contact' }],
+            suggestedPrompts: CHATBOT_STARTER_PROMPTS,
+            safetyFlags: ['fallback_response'],
+          };
+        }
+      } else {
         if (typeof navigator !== 'undefined' && navigator.onLine === false) {
           throw new Error('You appear offline. Please reconnect and try again.');
         }

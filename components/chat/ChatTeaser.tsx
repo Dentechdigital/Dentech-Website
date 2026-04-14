@@ -8,7 +8,7 @@ type Props = {
   onDismiss: () => void;
 };
 
-const miniAvatars = ['/avatar-80w.webp', '/avatar-160w.webp', '/avatar.webp'];
+const miniAvatars = ['/mohammed-dahman.webp', '/team/balfoul.webp', '/team/omayma-r.webp'];
 
 export default function ChatTeaser({ visible, onPrimaryClick, onSecondaryClick, onDismiss }: Props) {
   const [rendered, setRendered] = useState(visible);

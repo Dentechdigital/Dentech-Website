@@ -22,6 +22,13 @@ export type ChatRuntimeConfig = {
   chatHeaderEmoji?: string;
   chatHeaderSupportLine: string;
   chatHeaderStatusLine: string;
+  /** When set with `assistantAvatarSrc`, the Chat tab header shows this profile (image + name) instead of the legacy team strip. */
+  assistantName?: string;
+  assistantAvatarSrc?: string;
+  /** One line under the name; defaults to `chatHeaderSupportLine` if omitted. */
+  assistantTagline?: string;
+  /** Short label above the name (e.g. “AI admin assistant”). */
+  assistantRoleBadge?: string;
   faqTabHeader: string;
   helpdeskIntroTitle: string;
   helpdeskIntroBody: string;

@@ -145,40 +145,70 @@ export default function ChatPanel({
           <div className="min-w-0 flex-1 pr-1">
             <ChatTabs mode={mode} onChange={onModeChange} chatLabel={config.tabChatLabel} helpdeskLabel={config.tabHelpdeskLabel} />
             {mode === 'chat' ? (
-              <div className="dchat-bubble-enter mt-3 text-left">
-                <h2 className="text-[13px] font-semibold leading-snug text-white sm:text-sm">
-                  {config.chatHeaderTitle}{' '}
-                  {config.chatHeaderEmoji ? <span aria-hidden>{config.chatHeaderEmoji}</span> : null}
-                </h2>
-                <p className="mt-1 text-[12px] leading-snug text-blue-100/95">{config.chatHeaderSupportLine}</p>
-                <div className="mt-2 flex items-center gap-2">
-                  <div className="flex -space-x-2">
-                    {config.headerAvatarSrcs.map((src) => (
-                      <img
-                        key={src}
-                        src={src}
-                        alt=""
+              config.assistantName && config.assistantAvatarSrc ? (
+                <div className="dchat-bubble-enter mt-3 flex gap-3 text-left">
+                  <img
+                    src={config.assistantAvatarSrc}
+                    alt=""
+                    width={44}
+                    height={44}
+                    title={config.assistantName}
+                    className="h-11 w-11 shrink-0 rounded-full border-2 border-white/55 bg-white object-cover shadow-sm"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="min-w-0 flex-1">
+                    <p className="text-[10px] font-semibold uppercase tracking-wide text-blue-100/90">
+                      {config.assistantRoleBadge ?? 'AI assistant'}
+                    </p>
+                    <h2 className="text-sm font-semibold leading-snug text-white sm:text-[15px]">{config.assistantName}</h2>
+                    <p className="mt-1 text-[12px] leading-snug text-blue-100/95">
+                      {config.assistantTagline ?? config.chatHeaderSupportLine}
+                    </p>
+                    <div className="mt-2 flex items-center gap-2">
+                      <span className="text-[11px] leading-snug text-blue-100/90">
+                        <span className="mr-1 inline-block h-2 w-2 rounded-full bg-emerald-300 align-middle" />
+                        {config.chatHeaderStatusLine}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="dchat-bubble-enter mt-3 text-left">
+                  <h2 className="text-[13px] font-semibold leading-snug text-white sm:text-sm">
+                    {config.chatHeaderTitle}{' '}
+                    {config.chatHeaderEmoji ? <span aria-hidden>{config.chatHeaderEmoji}</span> : null}
+                  </h2>
+                  <p className="mt-1 text-[12px] leading-snug text-blue-100/95">{config.chatHeaderSupportLine}</p>
+                  <div className="mt-2 flex items-center gap-2">
+                    <div className="flex -space-x-2">
+                      {config.headerAvatarSrcs.map((src) => (
+                        <img
+                          key={src}
+                          src={src}
+                          alt=""
+                          aria-hidden
+                          width={28}
+                          height={28}
+                          className="h-7 w-7 rounded-full border-2 border-white/50 bg-white object-cover"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      ))}
+                      <span
+                        className="grid h-7 w-7 place-items-center rounded-full border-2 border-white/50 bg-white text-sm text-blue-600"
                         aria-hidden
-                        width={28}
-                        height={28}
-                        className="h-7 w-7 rounded-full border-2 border-white/50 bg-white object-cover"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    ))}
-                    <span
-                      className="grid h-7 w-7 place-items-center rounded-full border-2 border-white/50 bg-white text-sm text-blue-600"
-                      aria-hidden
-                    >
-                      {'\u{1F4AC}'}
+                      >
+                        {'\u{1F4AC}'}
+                      </span>
+                    </div>
+                    <span className="text-[11px] leading-snug text-blue-100/90">
+                      <span className="mr-1 inline-block h-2 w-2 rounded-full bg-emerald-300 align-middle" />
+                      {config.chatHeaderStatusLine}
                     </span>
                   </div>
-                  <span className="text-[11px] leading-snug text-blue-100/90">
-                    <span className="mr-1 inline-block h-2 w-2 rounded-full bg-emerald-300 align-middle" />
-                    {config.chatHeaderStatusLine}
-                  </span>
                 </div>
-              </div>
+              )
             ) : (
               <p className="mt-3 text-left text-[13px] font-semibold leading-snug text-white sm:text-sm">{config.faqTabHeader}</p>
             )}

@@ -1,4 +1,5 @@
 import React, { useCallback, useLayoutEffect, useRef } from 'react';
+import { useChatConfig } from './chat-config';
 import type { ChatMessage } from './types';
 
 const NEAR_BOTTOM_PX = 72;
@@ -9,6 +10,8 @@ type Props = {
 };
 
 export default function ChatMessages({ messages, loading }: Props) {
+  const config = useChatConfig();
+  const assistantLabel = config.assistantName;
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const endRef = useRef<HTMLDivElement | null>(null);
   /** Only updated from onScroll — not after layout grows, or we falsely think the user scrolled up. */
@@ -48,7 +51,7 @@ export default function ChatMessages({ messages, loading }: Props) {
     >
       <div className="mb-2 text-center text-[10px] font-medium uppercase tracking-wide text-slate-400">Today</div>
       <div className="space-y-2.5">
-        {messages.map((message) => (
+               {messages.map((message) => (
           <div key={message.id} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
             <div
               className={`max-w-[84%] rounded-2xl px-3 py-2 text-[13px] leading-relaxed shadow-sm ${
@@ -58,6 +61,11 @@ export default function ChatMessages({ messages, loading }: Props) {
               } dchat-bubble-enter`}
             >
               {message.text}
+              {message.role === 'assistant' && assistantLabel ? (
+                <p className="mt-2 border-t border-slate-100/90 pt-1.5 text-[10px] font-semibold uppercase tracking-wide text-slate-400 dark:border-slate-600 dark:text-slate-500">
+                  {assistantLabel}
+                </p>
+              ) : null}
             </div>
           </div>
         ))}

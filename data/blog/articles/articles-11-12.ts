@@ -12,6 +12,9 @@ export const postCallAnswerTraining: BlogPost = {
     'new patient booking dental clinic',
     'dental call conversion Canada',
   ],
+  heroUnsplashUrl:
+    'https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=2400&q=85',
+  heroImageAlt: 'Desk telephone suggesting patient phone inquiries',
   faq: [
     {
       question: 'How fast should the phone be answered?',
@@ -87,6 +90,9 @@ export const postHiringMarketingAgency: BlogPost = {
     'dental practice marketing RFP',
     'dental advertising compliance',
   ],
+  heroUnsplashUrl:
+    'https://images.unsplash.com/photo-1600880292203-757bb62b4b55?auto=format&fit=crop&w=2400&q=85',
+  heroImageAlt: 'Business colleagues meeting at a table',
   faq: [
     {
       question: 'Should an agency guarantee rankings?',

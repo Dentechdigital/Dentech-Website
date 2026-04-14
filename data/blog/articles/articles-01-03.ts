@@ -12,6 +12,9 @@ export const postLocalSeoCanada: BlogPost = {
     'Google Business Profile dental',
     'dental clinic maps visibility Ottawa',
   ],
+  heroUnsplashUrl:
+    'https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=2400&q=85',
+  heroImageAlt: 'Globe on a desk representing local search and geography',
   faq: [
     {
       question: 'How long does local SEO take for a dental clinic?',
@@ -129,6 +132,9 @@ export const postGeoAiDiscovery: BlogPost = {
     'AI search visibility dental clinic',
     'generative engine optimization Canada',
   ],
+  heroUnsplashUrl:
+    'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=2400&q=85',
+  heroImageAlt: 'Abstract technology and neural network visualization',
   faq: [
     {
       question: 'What is GEO in dental marketing?',
@@ -223,6 +229,9 @@ export const postGoogleAdsVsMeta: BlogPost = {
     'Facebook ads dental practice',
     'dental patient acquisition paid media',
   ],
+  heroUnsplashUrl:
+    'https://images.unsplash.com/photo-1611162617474-5b21e4776dd8?auto=format&fit=crop&w=2400&q=85',
+  heroImageAlt: 'Mobile phones showing social apps for digital advertising',
   faq: [
     {
       question: 'Which platform brings cheaper leads for dentists?',

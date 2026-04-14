@@ -23,6 +23,7 @@ export function buildBlogArticleJsonLd(post: BlogPost): Record<string, unknown> 
     '@id': `${url}#article`,
     headline: post.title,
     description: post.metaDescription,
+    image: post.heroUnsplashUrl,
     datePublished: published,
     dateModified: published,
     author: {

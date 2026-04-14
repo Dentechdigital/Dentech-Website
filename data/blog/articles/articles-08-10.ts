@@ -12,6 +12,9 @@ export const postContentStrategy: BlogPost = {
     'dental service page SEO',
     'dental blog strategy',
   ],
+  heroUnsplashUrl:
+    'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=2400&q=85',
+  heroImageAlt: 'Writing and planning content at a wooden desk',
   faq: [
     {
       question: 'Should we blog weekly?',
@@ -94,6 +97,9 @@ export const postAnalyticsAttribution: BlogPost = {
     'call tracking dental marketing',
     'dental CRM attribution',
   ],
+  heroUnsplashUrl:
+    'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=2400&q=85',
+  heroImageAlt: 'Analytics dashboard on a screen in an office',
   faq: [
     {
       question: 'Do I need call tracking?',
@@ -179,6 +185,9 @@ export const postMarketingCalendar: BlogPost = {
     'hygiene recall marketing',
     'dental emergency SEO',
   ],
+  heroUnsplashUrl:
+    'https://images.unsplash.com/photo-1506784369077-37c7a26e9a8c?auto=format&fit=crop&w=2400&q=85',
+  heroImageAlt: 'Wall calendar and planning for the month ahead',
   faq: [
     {
       question: 'How far ahead should we plan campaigns?',

@@ -62,13 +62,16 @@ const BlogPost: React.FC = () => {
           badge={`Blog · Published ${formatDate(post.publishedAt)}`}
           title={post.title}
           description={post.metaDescription}
+          heroImageSrc={post.heroUnsplashUrl}
+          heroImageAlt={post.heroImageAlt}
+          heroVariant="editorialPhoto"
           breadcrumb={
-            <nav aria-label="Breadcrumb" className="text-sm text-slate-600 dark:text-slate-400">
-              <Link to="/" className="font-medium hover:text-blue-600 dark:hover:text-blue-400">
+            <nav aria-label="Breadcrumb" className="text-sm text-slate-300">
+              <Link to="/" className="font-medium text-slate-200 hover:text-white">
                 Home
               </Link>
-              <span className="mx-2 text-slate-400">/</span>
-              <Link to="/blog" className="font-medium hover:text-blue-600 dark:hover:text-blue-400">
+              <span className="mx-2 text-slate-500">/</span>
+              <Link to="/blog" className="font-medium text-slate-200 hover:text-white">
                 Blog
               </Link>
             </nav>

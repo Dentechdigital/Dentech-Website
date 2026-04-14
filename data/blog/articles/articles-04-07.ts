@@ -12,6 +12,9 @@ export const postWebsiteConversion: BlogPost = {
     'dental booking UX',
     'mobile dental website Canada',
   ],
+  heroUnsplashUrl:
+    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=2400&q=85',
+  heroImageAlt: 'Laptop on a desk with charts representing website performance',
   faq: [
     {
       question: 'What is a good conversion rate for a dental website?',
@@ -107,6 +110,9 @@ export const postMultiLocation: BlogPost = {
     'dental group local landing pages',
     'DSO local SEO Canada',
   ],
+  heroUnsplashUrl:
+    'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=2400&q=85',
+  heroImageAlt: 'City skyline at dusk representing multiple locations',
   faq: [
     {
       question: 'One website or microsites per location?',
@@ -199,6 +205,9 @@ export const postReputationReviews: BlogPost = {
     'Google reviews dental clinic',
     'reputation management dentistry Canada',
   ],
+  heroUnsplashUrl:
+    'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=2400&q=85',
+  heroImageAlt: 'Team collaborating in a bright modern office',
   faq: [
     {
       question: 'Can we ask every patient for a review?',
@@ -284,6 +293,9 @@ export const postPrivacyMarketing: BlogPost = {
     'dental clinic privacy compliance Canada',
     'health marketing consent',
   ],
+  heroUnsplashUrl:
+    'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=2400&q=85',
+  heroImageAlt: 'Hands typing on a laptop with security and privacy in mind',
   faq: [
     {
       question: 'Is this article legal advice?',

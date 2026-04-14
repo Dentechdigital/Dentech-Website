@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { CHATBOT_FAQ } from '../../data/chatbotFaq';
 import type { ChatConversionStage, ChatMessage, ChatMode, SuggestedCta } from '../../types/chatbot';
 import ChatInput from './ChatInput';
 import ChatMessages from './ChatMessages';
@@ -103,7 +104,9 @@ export default function ChatPanel({
   if (!rendered) return null;
 
   const stageLabel =
-    conversionStage === 'ready'
+    mode === 'faq'
+      ? 'Helpdesk mode'
+      : conversionStage === 'ready'
       ? 'Ready to book'
       : conversionStage === 'evaluate'
         ? 'Comparing options'
@@ -164,12 +167,70 @@ export default function ChatPanel({
       </div>
 
       <div className="min-h-0 flex-1 overflow-hidden px-3 pt-2">
-        <ChatMessages messages={messages} loading={loading} />
+        {mode === 'faq' ? (
+          <div className="dchat-scrollbar-none h-full overflow-y-auto rounded-xl bg-slate-50 p-3 dark:bg-slate-900/70">
+            <p className="mb-2 text-xs font-semibold text-slate-700 dark:text-slate-200">Helpdesk quick answers</p>
+            <p className="mb-3 text-xs text-slate-500 dark:text-slate-400">
+              Browse approved answers and helpful pages. Use the Chat tab if you want a live conversation.
+            </p>
+            <div className="space-y-2">
+              {CHATBOT_FAQ.slice(0, 5).map((item) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => onSubmit(item.question, 'helpdesk')}
+                  className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-left text-xs font-medium text-slate-700 transition hover:border-blue-200 hover:bg-blue-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:hover:border-blue-700 dark:hover:bg-blue-950/20"
+                >
+                  {item.question}
+                </button>
+              ))}
+            </div>
+            <div className="mt-4 border-t border-slate-200 pt-3 dark:border-slate-700">
+              <p className="mb-2 text-[11px] font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                Helpful links
+              </p>
+              <div className="grid grid-cols-2 gap-2">
+                <Link
+                  to="/services"
+                  onClick={() => onCtaClick('/services')}
+                  className="rounded-md bg-white px-2.5 py-2 text-center text-xs font-medium text-slate-700 transition hover:bg-slate-100 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700"
+                >
+                  Services
+                </Link>
+                <Link
+                  to="/#pricing"
+                  onClick={() => onCtaClick('/#pricing')}
+                  className="rounded-md bg-white px-2.5 py-2 text-center text-xs font-medium text-slate-700 transition hover:bg-slate-100 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700"
+                >
+                  Pricing
+                </Link>
+                <Link
+                  to="/case-studies"
+                  onClick={() => onCtaClick('/case-studies')}
+                  className="rounded-md bg-white px-2.5 py-2 text-center text-xs font-medium text-slate-700 transition hover:bg-slate-100 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700"
+                >
+                  Case Studies
+                </Link>
+                <Link
+                  to="/contact"
+                  onClick={() => onCtaClick('/contact')}
+                  className="rounded-md bg-white px-2.5 py-2 text-center text-xs font-medium text-slate-700 transition hover:bg-slate-100 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700"
+                >
+                  Contact
+                </Link>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <ChatMessages messages={messages} loading={loading} />
+        )}
       </div>
 
-      <div className="px-3 pt-1.5">
-        <QuickPrompts prompts={prompts} disabled={loading} onPromptClick={(prompt) => onSubmit(prompt, 'prompt')} />
-      </div>
+      {mode === 'chat' && (
+        <div className="px-3 pt-1.5">
+          <QuickPrompts prompts={prompts} disabled={loading} onPromptClick={(prompt) => onSubmit(prompt, 'prompt')} />
+        </div>
+      )}
 
       {error && (
         <p className="mx-3 mt-2 rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-800 dark:bg-amber-950/30 dark:text-amber-300">
@@ -177,9 +238,11 @@ export default function ChatPanel({
         </p>
       )}
 
-      <div className="px-3 pt-1">
-        <ChatInput onSubmit={(prompt) => onSubmit(prompt, 'input')} disabled={loading} compact />
-      </div>
+      {mode === 'chat' && (
+        <div className="px-3 pt-1">
+          <ChatInput onSubmit={(prompt) => onSubmit(prompt, 'input')} disabled={loading} compact />
+        </div>
+      )}
 
       <div className="mx-3 mt-2 border-t border-slate-200 pb-3 pt-2 dark:border-slate-800">
         {primaryCta && (

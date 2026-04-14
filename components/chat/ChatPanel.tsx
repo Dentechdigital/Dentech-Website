@@ -138,6 +138,12 @@ export default function ChatPanel({
     return () => document.removeEventListener('keydown', onKeyDown);
   }, [open, onClose]);
 
+  useEffect(() => {
+    if (mode !== 'faq') return;
+    setHelpdeskScreen('questions');
+    setSelectedHelpdeskItem(null);
+  }, [mode, helpdeskCategory]);
+
   if (!rendered) return null;
 
   const stageLabel =
@@ -158,12 +164,6 @@ export default function ChatPanel({
   const latestUserQuestion = [...messages].reverse().find((message) => message.role === 'user')?.text;
   const activeHelpdeskCategory = HELPDESK_CATEGORIES.find((category) => category.id === helpdeskCategory) ?? HELPDESK_CATEGORIES[0];
   const filteredFaq = CHATBOT_FAQ.filter((item) => activeHelpdeskCategory.intents.includes(item.intent)).slice(0, 4);
-
-  useEffect(() => {
-    if (mode !== 'faq') return;
-    setHelpdeskScreen('questions');
-    setSelectedHelpdeskItem(null);
-  }, [mode, helpdeskCategory]);
 
   return (
     <div

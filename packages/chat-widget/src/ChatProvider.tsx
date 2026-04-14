@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useMemo, useState } from 'react';
+import { findFaqMatchForPrompt } from './faqMatch';
 import { useChatConfig } from './chat-config';
 import type {
   ChatCompletionResponse,
@@ -75,10 +76,7 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
   const sessionId = useMemo(() => ensureSessionId(config.sessionStorageKey), [config.sessionStorageKey]);
 
   function resolveLocalFaq(prompt: string): ChatCompletionResponse | null {
-    const normalized = prompt.toLowerCase();
-    const faq = config.faqItems.find((item) =>
-      [item.question, ...item.prompts].some((text) => normalized.includes(text.toLowerCase().slice(0, 16))),
-    );
+    const faq = findFaqMatchForPrompt(prompt, config.faqItems);
     if (!faq) return null;
     return {
       reply: faq.answer,

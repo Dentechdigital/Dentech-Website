@@ -1,4 +1,5 @@
 import { CHATBOT_FAQ } from '../../data/chatbotFaq';
+import { findFaqMatchForPrompt } from '../../packages/chat-widget/src/faqMatch';
 import { CHATBOT_STARTER_PROMPTS } from '../../data/chatbotPrompts';
 import type { ChatCompletionRequest, ChatCompletionResponse, ChatIntent, SuggestedCta } from '../../types/chatbot';
 
@@ -83,10 +84,7 @@ function mapCtas(intent: ChatIntent): SuggestedCta[] {
 }
 
 function faqFallback(prompt: string): ChatCompletionResponse | null {
-  const normalized = prompt.toLowerCase();
-  const match = CHATBOT_FAQ.find((faq) =>
-    [faq.question, ...faq.prompts].some((seed) => normalized.includes(seed.toLowerCase().slice(0, 14))),
-  );
+  const match = findFaqMatchForPrompt(prompt, CHATBOT_FAQ);
   if (!match) return null;
   return {
     reply: match.answer,
@@ -108,8 +106,10 @@ function detectInjectionRisk(prompt: string): boolean {
   return riskyPatterns.some((pattern) => pattern.test(prompt));
 }
 
+const GEMINI_MODEL_FALLBACKS = ['gemini-2.5-flash', 'gemini-2.0-flash', 'gemini-1.5-flash'];
+
 async function queryGemini(payload: ChatCompletionRequest): Promise<ChatCompletionResponse> {
-  const apiKey = process.env.GEMINI_API_KEY;
+  const apiKey = process.env.GEMINI_API_KEY?.trim();
   if (!apiKey) {
     throw new Error('Chat service is not configured yet.');
   }
@@ -149,55 +149,85 @@ ${userContext}
 
 Reply with plain text only.`;
 
-  const model = process.env.GEMINI_MODEL || 'gemini-2.0-flash';
-  const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
-  const response = await fetch(endpoint, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      contents: [{ role: 'user', parts: [{ text: prompt }] }],
-      generationConfig: {
-        temperature: 0.25,
-        topP: 0.9,
-        maxOutputTokens: 300,
-      },
-    }),
+  const preferred = process.env.GEMINI_MODEL?.trim();
+  const modelList = preferred
+    ? [preferred, ...GEMINI_MODEL_FALLBACKS.filter((m) => m !== preferred)]
+    : GEMINI_MODEL_FALLBACKS;
+
+  const requestBody = JSON.stringify({
+    contents: [{ role: 'user', parts: [{ text: prompt }] }],
+    generationConfig: {
+      temperature: 0.25,
+      topP: 0.9,
+      maxOutputTokens: 300,
+    },
   });
 
-  if (!response.ok) {
-    const snippet = (await response.text()).slice(0, 400).replace(/\s+/g, ' ').trim();
-    console.error(
-      JSON.stringify({
-        tag: 'chat_completions_gemini_http',
-        status: response.status,
-        model,
-        snippet,
-      }),
-    );
-    throw new Error('Assistant is temporarily unavailable. Please retry.');
+  let lastEmptyModel = '';
+
+  for (let i = 0; i < modelList.length; i++) {
+    const model = modelList[i];
+    const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: requestBody,
+    });
+
+    if (!response.ok) {
+      const snippet = (await response.text()).slice(0, 400).replace(/\s+/g, ' ').trim();
+      console.error(
+        JSON.stringify({
+          tag: 'chat_completions_gemini_http',
+          status: response.status,
+          model,
+          snippet,
+        }),
+      );
+      if (response.status === 400 || response.status === 401 || response.status === 403) {
+        throw new Error('Assistant is temporarily unavailable. Please retry.');
+      }
+      const maybeWrongModel =
+        response.status === 404 ||
+        /not found|is not found|unsupported|invalid.*model|unknown model|was not found/i.test(snippet);
+      if (maybeWrongModel && i < modelList.length - 1) {
+        console.error(JSON.stringify({ tag: 'chat_completions_gemini_retry', fromModel: model, detail: 'trying_fallback' }));
+        continue;
+      }
+      throw new Error('Assistant is temporarily unavailable. Please retry.');
+    }
+
+    const data = (await response.json()) as {
+      candidates?: Array<{ content?: { parts?: Array<{ text?: string }> } }>;
+    };
+
+    const reply = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
+    if (!reply) {
+      lastEmptyModel = model;
+      console.error(JSON.stringify({ tag: 'chat_completions_gemini', detail: 'empty_model_output', model }));
+      if (i < modelList.length - 1) {
+        continue;
+      }
+      throw new Error('Empty assistant response.');
+    }
+
+    const safetyFlags = [];
+    if (injectionRisk) safetyFlags.push('prompt_injection_risk' as const, 'policy_guardrail_applied' as const);
+
+    return {
+      reply,
+      intent,
+      confidence: injectionRisk ? 0.55 : 0.8,
+      suggestedCtas: mapCtas(intent),
+      suggestedPrompts: CHATBOT_STARTER_PROMPTS.slice(0, 4),
+      safetyFlags,
+    };
   }
 
-  const data = (await response.json()) as {
-    candidates?: Array<{ content?: { parts?: Array<{ text?: string }> } }>;
-  };
-
-  const reply = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
-  if (!reply) {
-    console.error(JSON.stringify({ tag: 'chat_completions_gemini', detail: 'empty_model_output', model }));
+  if (lastEmptyModel) {
     throw new Error('Empty assistant response.');
   }
-
-  const safetyFlags = [];
-  if (injectionRisk) safetyFlags.push('prompt_injection_risk' as const, 'policy_guardrail_applied' as const);
-
-  return {
-    reply,
-    intent,
-    confidence: injectionRisk ? 0.55 : 0.8,
-    suggestedCtas: mapCtas(intent),
-    suggestedPrompts: CHATBOT_STARTER_PROMPTS.slice(0, 4),
-    safetyFlags,
-  };
+  throw new Error('Assistant is temporarily unavailable. Please retry.');
 }
 
 export async function handler(event: Event): Promise<Result> {

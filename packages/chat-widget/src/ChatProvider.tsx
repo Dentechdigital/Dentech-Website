@@ -62,7 +62,7 @@ function stageFromScore(score: number): ChatConversionStage {
 
 export function ChatProvider({ children }: { children: React.ReactNode }) {
   const config = useChatConfig();
-  const [mode, setMode] = useState<ChatMode>('faq');
+  const [mode, setMode] = useState<ChatMode>('chat');
   const [messages, setMessages] = useState<ChatMessage[]>(() => [
     makeMessage('assistant', config.welcomeMessage),
   ]);

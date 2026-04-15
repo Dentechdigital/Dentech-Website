@@ -4,7 +4,6 @@ import { HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from './components/ThemeProvider';
 import AppErrorBoundary from './components/AppErrorBoundary';
 import Navbar from './components/Navbar';
-import Footer from './components/Footer';
 /** Eager: avoids a second network round-trip on `/` (common cause of long “splash” on cold mobile loads). */
 import Home from './pages/Home';
 
@@ -50,6 +49,7 @@ const CaseStudies = lazyRetry(() => import('./pages/CaseStudies'));
 const Blog = lazyRetry(() => import('./pages/Blog'));
 const BlogPost = lazyRetry(() => import('./pages/BlogPost'));
 const Contact = lazyRetry(() => import('./pages/Contact'));
+const Footer = lazyRetry(() => import('./components/Footer'));
 const DentechChatWidget = lazyRetry(() => import('./components/chat/DentechChatWidget'));
 
 function RouteScrollManager() {
@@ -183,7 +183,9 @@ const App: React.FC = () => {
                 </Suspense>
               </AppErrorBoundary>
             </main>
-            <Footer />
+            <Suspense fallback={null}>
+              <Footer />
+            </Suspense>
             <DeferredChatMount />
           </div>
         </Router>

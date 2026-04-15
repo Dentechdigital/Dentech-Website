@@ -14,6 +14,8 @@ type FaqAccordionProps = {
   heading: string;
   subheading?: string;
   className?: string;
+  /** Tailwind max-width on inner container (default max-w-7xl) */
+  maxWidthClass?: string;
   /**
    * Lighter layout: no section/card fills or decorative background—use inside articles
    * or other already-framed pages.
@@ -107,6 +109,7 @@ export default function FaqAccordion({
   subheading,
   className = '',
   embedded = false,
+  maxWidthClass = 'max-w-7xl',
 }: FaqAccordionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const isLg = useLgBreakpoint();
@@ -134,7 +137,11 @@ export default function FaqAccordion({
         <div className="pointer-events-none absolute -top-20 right-0 h-64 w-64 rounded-full bg-blue-100/50 blur-3xl dark:bg-blue-500/10" />
       ) : null}
 
-      <div className={embedded ? 'relative z-10' : 'relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'}>
+      <div
+        className={
+          embedded ? 'relative z-10' : `relative z-10 mx-auto ${maxWidthClass} px-4 sm:px-6 lg:px-8`
+        }
+      >
         <div
           className={
             embedded

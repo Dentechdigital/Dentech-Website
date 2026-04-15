@@ -234,28 +234,28 @@ export default function DentalMarketingChrome() {
         </div>
       </div>
 
-      <div className="animate-bounce-slow absolute -top-16 right-0 z-30 flex origin-right scale-[0.7] items-center gap-3 rounded-2xl border border-white/60 bg-white/40 p-3 pr-5 shadow-[0_8px_32px_0_rgba(31,38,135,0.15)] backdrop-blur-[30px] sm:top-8 sm:-right-8 sm:scale-100 dark:border-slate-700/60 dark:bg-slate-800/40 md:-right-4 lg:-right-8">
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)] dark:bg-emerald-900/50 dark:text-emerald-400">
-          <Calendar className="h-5 w-5" />
+      <div className="animate-bounce-slow absolute -top-16 right-0 z-30 flex origin-right scale-[0.92] items-center gap-3.5 rounded-2xl border border-white/60 bg-white/40 p-4 pr-5 shadow-[0_8px_32px_0_rgba(31,38,135,0.15)] backdrop-blur-[30px] sm:top-8 sm:-right-8 sm:scale-100 sm:p-3 sm:gap-3 dark:border-slate-700/60 dark:bg-slate-800/40 md:-right-4 lg:-right-8 max-sm:max-w-[min(100%,18rem)]">
+        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)] dark:bg-emerald-900/50 dark:text-emerald-400 sm:h-10 sm:w-10">
+          <Calendar className="h-6 w-6 sm:h-5 sm:w-5" />
         </div>
-        <div>
-          <span className="block text-sm font-bold text-blue-950 dark:text-white">New Patient!</span>
-          <span className="block text-xs font-medium text-gray-500 dark:text-gray-400">Via Google Search</span>
+        <div className="min-w-0">
+          <span className="block text-base font-bold text-blue-950 dark:text-white sm:text-sm">New Patient!</span>
+          <span className="block text-sm font-medium text-gray-500 dark:text-gray-400 sm:text-xs">Via Google Search</span>
         </div>
       </div>
 
       <div
-        className="animate-float absolute top-[35%] right-0 z-30 flex -translate-y-1/2 origin-right scale-[0.75] transform items-center gap-3 rounded-2xl border border-white/60 bg-white/40 p-3 pr-4 shadow-[0_8px_32px_0_rgba(31,38,135,0.15)] backdrop-blur-[30px] sm:top-[40%] sm:-right-8 sm:scale-100 dark:border-slate-700/60 dark:bg-slate-800/40 md:-right-2 lg:-right-4"
+        className="animate-float absolute top-[35%] right-0 z-30 flex -translate-y-1/2 origin-right scale-[0.9] transform items-center gap-3.5 rounded-2xl border border-white/60 bg-white/40 p-4 pr-5 shadow-[0_8px_32px_0_rgba(31,38,135,0.15)] backdrop-blur-[30px] sm:top-[40%] sm:-right-8 sm:scale-100 sm:p-3 sm:gap-3 sm:pr-4 dark:border-slate-700/60 dark:bg-slate-800/40 md:-right-2 lg:-right-4 max-sm:max-w-[min(100%,17rem)]"
         style={{ animationDelay: '0.5s' }}
       >
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-100 text-indigo-600 shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)] dark:bg-indigo-900/50 dark:text-indigo-400">
-          <MessageSquare className="h-5 w-5" />
+        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-indigo-100 text-indigo-600 shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)] dark:bg-indigo-900/50 dark:text-indigo-400 sm:h-10 sm:w-10">
+          <MessageSquare className="h-6 w-6 sm:h-5 sm:w-5" />
         </div>
-        <div>
-          <span className="block text-[10px] font-bold uppercase tracking-wider text-gray-400 dark:text-gray-400">
+        <div className="min-w-0">
+          <span className="block text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 sm:text-[10px]">
             Cost Per Lead
           </span>
-          <span className="block text-sm font-extrabold text-blue-950 dark:text-white">-42% Decrease</span>
+          <span className="block text-base font-extrabold text-blue-950 dark:text-white sm:text-sm">-42% Decrease</span>
         </div>
       </div>
 

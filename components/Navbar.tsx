@@ -62,7 +62,7 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <Link to="/" className="flex-shrink-0 flex items-center">
+            <Link to="/" className="flex-shrink-0 flex items-center" aria-label="Home">
               <img 
                 src={theme === 'dark' ? `${import.meta.env.BASE_URL}logo-dark.svg?v=2` : `${import.meta.env.BASE_URL}logo-light.svg?v=2`} 
                 alt="Dentech Digital" 
@@ -73,9 +73,6 @@ const Navbar: React.FC = () => {
           
           {/* Desktop Menu */}
           <div className="hidden md:flex md:items-center md:space-x-6 lg:space-x-8">
-            <Link to="/" className={`${getTextColor('/')} px-3 py-2 rounded-md text-sm font-semibold tracking-wide transition-colors`}>
-              Home
-            </Link>
             <Link to="/about" className={`${getTextColor('/about')} px-3 py-2 rounded-md text-sm font-semibold tracking-wide transition-colors`}>
               About
             </Link>
@@ -194,7 +191,6 @@ const Navbar: React.FC = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white dark:bg-slate-950 border-t border-gray-100 dark:border-slate-800 shadow-xl absolute w-full">
           <div className="px-4 pt-2 pb-6 space-y-1 sm:px-6">
-            <Link to="/" onClick={closeMobileMenu} className="block px-3 py-3 rounded-lg text-base font-semibold text-blue-950 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors">Home</Link>
             <Link to="/about" onClick={closeMobileMenu} className="block px-3 py-3 rounded-lg text-base font-semibold text-blue-950 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors">About</Link>
             <Link to="/services" onClick={closeMobileMenu} className="block px-3 py-3 rounded-lg text-base font-semibold text-blue-950 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors">Services</Link>
             <div className="pl-4 space-y-1 border-l-2 border-gray-100 dark:border-slate-800 ml-3 my-2">

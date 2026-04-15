@@ -1,11 +1,11 @@
 import React, { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import DentalMarketingGraphic from './DentalMarketingGraphic';
 import { FEATURES } from '../constants';
-
-const DentalMarketingGraphic = lazy(() => import('./DentalMarketingGraphic'));
-const DynamicDots = lazy(() => import('./DynamicDots'));
 import { heroTrustPoints } from '../data/homeComparison';
+
+const DynamicDots = lazy(() => import('./DynamicDots'));
 
 const assetBase = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}`;
 
@@ -204,16 +204,7 @@ const Hero: React.FC = () => {
           {/* Right: dashboard visual */}
           <div className="relative mt-12 flex min-h-[40rem] w-full max-w-[100vw] flex-col items-center justify-center pb-8 pt-12 sm:min-h-[44rem] sm:overflow-visible lg:mt-0 lg:min-h-[42rem] lg:py-0">
             <div className="mx-auto w-full max-w-md origin-center scale-[0.85] sm:scale-100">
-              <Suspense
-                fallback={
-                  <div
-                    className="mx-auto min-h-[280px] w-full max-w-[460px] animate-pulse rounded-2xl bg-slate-200/50 dark:bg-slate-800/50 sm:min-h-[360px]"
-                    aria-hidden
-                  />
-                }
-              >
-                <DentalMarketingGraphic />
-              </Suspense>
+              <DentalMarketingGraphic />
             </div>
           </div>
 

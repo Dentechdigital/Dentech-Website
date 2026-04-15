@@ -1,20 +1,22 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import Hero from '../components/Hero';
-import TrustedBy from '../components/TrustedBy';
-import Services from '../components/Services';
-import HomeProcessSteps from '../components/HomeProcessSteps';
-import AISolutionsCTA from '../components/AISolutionsCTA';
-import WhyChooseUs from '../components/WhyChooseUs';
-import HomeComparisonTable from '../components/HomeComparisonTable';
-import SpecialOfferCTA from '../components/SpecialOfferCTA';
-import CaseStudiesPreview from '../components/CaseStudiesPreview';
-import HomeMidCta from '../components/HomeMidCta';
-import HomeReviewsHighlight from '../components/HomeReviewsHighlight';
-import Testimonials from '../components/Testimonials';
-import PricingPlans from '../components/PricingPlans';
-import HomeFAQ, { homeFaqItems } from '../components/HomeFAQ';
-import ContactSection from '../components/ContactSection';
 import SEO from '../components/SEO';
+import { homeFaqItems } from '../data/homeFaqContent';
+
+const TrustedBy = lazy(() => import('../components/TrustedBy'));
+const Services = lazy(() => import('../components/Services'));
+const HomeProcessSteps = lazy(() => import('../components/HomeProcessSteps'));
+const AISolutionsCTA = lazy(() => import('../components/AISolutionsCTA'));
+const WhyChooseUs = lazy(() => import('../components/WhyChooseUs'));
+const HomeComparisonTable = lazy(() => import('../components/HomeComparisonTable'));
+const SpecialOfferCTA = lazy(() => import('../components/SpecialOfferCTA'));
+const CaseStudiesPreview = lazy(() => import('../components/CaseStudiesPreview'));
+const HomeMidCta = lazy(() => import('../components/HomeMidCta'));
+const HomeReviewsHighlight = lazy(() => import('../components/HomeReviewsHighlight'));
+const Testimonials = lazy(() => import('../components/Testimonials'));
+const PricingPlans = lazy(() => import('../components/PricingPlans'));
+const HomeFAQ = lazy(() => import('../components/HomeFAQ'));
+const ContactSection = lazy(() => import('../components/ContactSection'));
 
 const Home: React.FC = () => {
   return (
@@ -25,20 +27,48 @@ const Home: React.FC = () => {
         faqStructuredData={homeFaqItems}
       />
       <Hero />
-      <TrustedBy />
-      <Services />
-      <HomeProcessSteps />
-      <AISolutionsCTA />
-      <WhyChooseUs />
-      <HomeComparisonTable />
-      <SpecialOfferCTA />
-      <CaseStudiesPreview />
-      <HomeMidCta />
-      <HomeReviewsHighlight />
-      <Testimonials />
-      <PricingPlans />
-      <HomeFAQ />
-      <ContactSection />
+      <Suspense fallback={null}>
+        <TrustedBy />
+      </Suspense>
+      <Suspense fallback={null}>
+        <Services />
+      </Suspense>
+      <Suspense fallback={null}>
+        <HomeProcessSteps />
+      </Suspense>
+      <Suspense fallback={null}>
+        <AISolutionsCTA />
+      </Suspense>
+      <Suspense fallback={null}>
+        <WhyChooseUs />
+      </Suspense>
+      <Suspense fallback={null}>
+        <HomeComparisonTable />
+      </Suspense>
+      <Suspense fallback={null}>
+        <SpecialOfferCTA />
+      </Suspense>
+      <Suspense fallback={null}>
+        <CaseStudiesPreview />
+      </Suspense>
+      <Suspense fallback={null}>
+        <HomeMidCta />
+      </Suspense>
+      <Suspense fallback={null}>
+        <HomeReviewsHighlight />
+      </Suspense>
+      <Suspense fallback={null}>
+        <Testimonials />
+      </Suspense>
+      <Suspense fallback={null}>
+        <PricingPlans />
+      </Suspense>
+      <Suspense fallback={null}>
+        <HomeFAQ />
+      </Suspense>
+      <Suspense fallback={null}>
+        <ContactSection />
+      </Suspense>
     </main>
   );
 };

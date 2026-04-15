@@ -19,8 +19,8 @@ function mediaUrl(src: string): string {
   return `${base}${src.replace(/^\//, '')}`;
 }
 
-/** Same content shell as blog posts (`BlogPost`): aligns with navbar horizontal padding. */
-const article = 'mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8';
+/** Same width and padding as `Navbar` inner shell (`max-w-7xl` + page gutters). */
+const article = 'mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8';
 
 /** Section divider + vertical rhythm */
 function TextSection({

@@ -289,6 +289,15 @@ html.dark .about-marquee-item {
     animation: none;
   }
 
+  .about-trust-marquee-track {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .about-trust-marquee-track .about-trust-marquee-seg:last-child {
+    display: none;
+  }
+
   .about-live-chip {
     animation: none;
   }

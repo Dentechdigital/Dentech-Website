@@ -304,19 +304,23 @@ const ServiceDetail: React.FC = () => {
             </div>
           </section>
 
-          <FaqAccordion
-            idPrefix={`svc-${service.slug}`}
-            heading={service.faqSectionTitle ?? 'Frequently asked questions'}
-            subheading={
-              service.faqSectionSubheading ??
-              `Common questions about ${service.title.toLowerCase()} for dental practices.`
-            }
-            items={service.faq}
-            maxWidthClass="max-w-6xl"
-          />
+          <div
+            className={`border-t border-slate-200/80 py-12 dark:border-slate-800 md:py-16 ${article}`}
+          >
+            <FaqAccordion
+              embedded
+              idPrefix={`svc-${service.slug}`}
+              heading={service.faqSectionTitle ?? 'Frequently asked questions'}
+              subheading={
+                service.faqSectionSubheading ??
+                `Common questions about ${service.title.toLowerCase()} for dental practices.`
+              }
+              items={service.faq}
+            />
+          </div>
 
           <section className="border-t border-slate-200/80 bg-slate-50/80 py-14 dark:border-slate-800 dark:bg-slate-900/40 md:py-16">
-            <div className="mx-auto max-w-2xl px-4 text-center sm:px-6">
+            <div className={`${article} text-center`}>
               <p className="text-xl font-bold tracking-tight text-slate-900 dark:text-white md:text-2xl">
                 Ready to talk specifics?
               </p>

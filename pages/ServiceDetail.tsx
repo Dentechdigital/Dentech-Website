@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
-import { AlertTriangle, ArrowRight, Check, ChevronRight } from 'lucide-react';
+import { ArrowRight, Check, ChevronRight } from 'lucide-react';
 import SEO from '../components/SEO';
 import PageHeroAboutStyle from '../components/PageHeroAboutStyle';
 import FaqAccordion from '../components/FaqAccordion';
@@ -19,32 +19,48 @@ function mediaUrl(src: string): string {
   return `${base}${src.replace(/^\//, '')}`;
 }
 
-function SectionHeader({
+/** Narrow reading column for long-form service copy */
+const article = 'mx-auto max-w-3xl px-4 sm:px-6 lg:px-8';
+
+/** Section divider + vertical rhythm */
+function TextSection({
   id,
   kicker,
   title,
-  description,
-  align = 'left',
+  lead,
+  children,
 }: {
   id: string;
   kicker?: string;
   title: string;
-  description?: string;
-  align?: 'left' | 'center';
+  lead?: string;
+  children: React.ReactNode;
 }) {
-  const wrap = align === 'center' ? 'mx-auto max-w-2xl text-center' : 'max-w-2xl';
   return (
-    <div className={`mb-10 md:mb-14 ${wrap}`}>
-      {kicker ? (
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400">{kicker}</p>
-      ) : null}
-      <h2 id={id} className="mt-3 text-3xl font-bold tracking-tight text-slate-900 dark:text-white md:text-4xl">
-        {title}
-      </h2>
-      {description ? (
-        <p className="mt-4 text-base leading-relaxed text-slate-600 dark:text-slate-400 md:text-lg">{description}</p>
-      ) : null}
-    </div>
+    <section className="border-t border-slate-200/80 py-12 dark:border-slate-800 md:py-14" aria-labelledby={id}>
+      <div className={article}>
+        {kicker ? (
+          <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">{kicker}</p>
+        ) : null}
+        <h2 id={id} className="mt-2 text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
+          {title}
+        </h2>
+        {lead ? (
+          <p className="mt-3 text-base leading-relaxed text-slate-600 dark:text-slate-400">{lead}</p>
+        ) : null}
+        <div className={lead ? 'mt-6' : 'mt-5'}>{children}</div>
+      </div>
+    </section>
+  );
+}
+
+function BulletList({ items }: { items: string[] }) {
+  return (
+    <ul className="list-disc space-y-3 pl-5 text-base leading-relaxed text-slate-700 marker:text-blue-600 dark:text-slate-300 dark:marker:text-blue-400">
+      {items.map((item) => (
+        <li key={item}>{item}</li>
+      ))}
+    </ul>
   );
 }
 
@@ -93,7 +109,7 @@ const ServiceDetail: React.FC = () => {
         structuredData={structuredData}
       />
 
-      <div className="min-h-screen bg-white transition-colors duration-300 dark:bg-slate-950">
+      <div className="min-h-screen bg-[#FAFAF9] transition-colors duration-300 dark:bg-slate-950">
         <PageHeroAboutStyle
           badge="Dental marketing service"
           title={service.h1}
@@ -127,19 +143,25 @@ const ServiceDetail: React.FC = () => {
           }
         />
 
-        <main>
-          <section className="border-b border-slate-100 py-16 dark:border-slate-800 md:py-24" aria-labelledby="overview-heading">
+        <main className="bg-white pb-4 dark:bg-slate-950">
+          {/* Designed: overview + spotlight */}
+          <section className="border-b border-slate-200/80 py-14 dark:border-slate-800 md:py-16" aria-labelledby="overview-heading">
             <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
               <div
                 className={
                   service.spotlight
-                    ? 'grid items-start gap-12 lg:grid-cols-12 lg:gap-16'
-                    : 'grid items-start gap-12'
+                    ? 'grid items-start gap-10 lg:grid-cols-12 lg:gap-12'
+                    : 'grid items-start gap-10'
                 }
               >
-                <div className={service.spotlight ? 'lg:col-span-7' : 'max-w-3xl'}>
-                  <SectionHeader id="overview-heading" kicker="At a glance" title="Overview" />
-                  <p className="max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-300 md:text-lg">
+                <div className={service.spotlight ? 'lg:col-span-7' : ''}>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+                    At a glance
+                  </p>
+                  <h2 id="overview-heading" className="mt-2 text-2xl font-bold tracking-tight text-slate-900 dark:text-white md:text-3xl">
+                    Overview
+                  </h2>
+                  <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-700 dark:text-slate-300">
                     {service.overview}
                   </p>
                 </div>
@@ -152,130 +174,70 @@ const ServiceDetail: React.FC = () => {
             </div>
           </section>
 
-          <section
-            className="border-b border-slate-100 bg-slate-50/80 py-16 dark:border-slate-800 dark:bg-slate-900/40 md:py-24"
-            aria-labelledby="what-it-is-heading"
+          <TextSection id="what-it-is-heading" kicker="Definition" title="What this is">
+            <p className="text-base leading-relaxed text-slate-700 dark:text-slate-300">{service.whatItIs}</p>
+          </TextSection>
+
+          <TextSection
+            id="why-heading"
+            kicker={service.whySectionKicker ?? 'Why it matters'}
+            title={service.whySectionTitle}
+            lead={
+              service.whySectionSubheading ??
+              'Symptoms, risk, and opportunity we hear from growth-focused teams.'
+            }
           >
-            <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-              <SectionHeader id="what-it-is-heading" kicker="Definition" title="What this is" />
-              <p className="max-w-3xl text-base leading-relaxed text-slate-600 dark:text-slate-300 md:text-lg">
-                {service.whatItIs}
-              </p>
-            </div>
-          </section>
+            <BulletList items={service.whyItMatters} />
+          </TextSection>
 
-          <section className="border-b border-slate-100 py-16 dark:border-slate-800 md:py-24" aria-labelledby="why-heading">
-            <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-              <SectionHeader
-                id="why-heading"
-                kicker={service.whySectionKicker ?? 'Why it matters'}
-                title={service.whySectionTitle}
-                description={
-                  service.whySectionSubheading ??
-                  'Symptoms, risk, and opportunity we hear from growth-focused teams.'
-                }
-              />
-              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                {service.whyItMatters.map((line, i) => (
-                  <div
-                    key={line}
-                    className="rounded-2xl bg-slate-50/90 p-6 ring-1 ring-slate-900/[0.04] dark:bg-slate-900/50 dark:ring-white/[0.06]"
-                  >
-                    <span className="font-mono text-xs tabular-nums text-slate-400 dark:text-slate-500">
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
-                    <p className="mt-3 text-sm leading-relaxed text-slate-700 dark:text-slate-200 sm:text-[15px]">{line}</p>
-                  </div>
-                ))}
-              </div>
+          <TextSection id="for-who-heading" kicker="Fit" title="Who this is for">
+            <div className="rounded-lg border border-slate-200/90 bg-slate-50/60 p-6 dark:border-slate-700 dark:bg-slate-900/40">
+              <p className="text-base leading-relaxed text-slate-700 dark:text-slate-300">{service.forWho}</p>
             </div>
-          </section>
-
-          <section className="border-b border-slate-100 py-16 dark:border-slate-800 md:py-24" aria-labelledby="for-who-heading">
-            <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-              <div className="overflow-hidden rounded-3xl bg-slate-900 px-8 py-12 text-white shadow-xl dark:bg-slate-950 sm:px-12 sm:py-14">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-300/90">Fit</p>
-                <h2 id="for-who-heading" className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
-                  Who this is for
-                </h2>
-                <p className="mt-6 max-w-3xl text-base leading-relaxed text-slate-300 md:text-lg">{service.forWho}</p>
-              </div>
-            </div>
-          </section>
+          </TextSection>
 
           {service.prerequisites && service.prerequisites.length > 0 ? (
-            <section
-              className="border-b border-slate-100 bg-slate-50/80 py-16 dark:border-slate-800 dark:bg-slate-900/40 md:py-24"
-              aria-labelledby="prereq-heading"
+            <TextSection
+              id="prereq-heading"
+              kicker="Readiness"
+              title="Before we start"
+              lead="Practical items so the program launches cleanly—nothing here is about selling extras you do not need."
             >
-              <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-                <SectionHeader
-                  id="prereq-heading"
-                  kicker="Readiness"
-                  title="Before we start"
-                  description="Practical items so the program launches cleanly—nothing here is about selling extras you do not need."
-                />
-                <ul className="mt-2 flex flex-wrap gap-2">
-                  {service.prerequisites.map((line) => (
-                    <li
-                      key={line}
-                      className="inline-flex max-w-full items-start gap-2 rounded-full bg-white px-4 py-2.5 text-sm text-slate-700 shadow-sm ring-1 ring-slate-900/[0.06] dark:bg-slate-800 dark:text-slate-200 dark:ring-white/[0.08]"
-                    >
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-blue-600 dark:text-blue-400" strokeWidth={2} />
-                      <span className="leading-snug">{line}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </section>
+              <BulletList items={service.prerequisites} />
+            </TextSection>
           ) : null}
 
-          <section
-            className={`border-b border-slate-100 py-16 dark:border-slate-800 md:py-24 ${
-              service.prerequisites?.length ? 'bg-white dark:bg-slate-950' : 'bg-slate-50/80 dark:bg-slate-900/40'
-            }`}
-            aria-labelledby="included-heading"
+          <TextSection
+            id="included-heading"
+            kicker="Deliverables"
+            title="What&rsquo;s included"
+            lead="Concrete outputs you can expect from an engagement shaped around your market."
           >
-            <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-              <SectionHeader
-                id="included-heading"
-                kicker="Deliverables"
-                title="What&rsquo;s included"
-                description="Concrete outputs you can expect from an engagement shaped around your market."
-              />
-              <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                {service.included.map((item) => (
-                  <li
-                    key={item}
-                    className="flex gap-3 rounded-2xl bg-white p-4 text-sm leading-snug text-slate-700 shadow-sm ring-1 ring-slate-900/[0.05] dark:bg-slate-900/60 dark:text-slate-200 dark:ring-white/[0.08]"
-                  >
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-blue-600 dark:text-blue-400" strokeWidth={2.5} aria-hidden />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </section>
+            <BulletList items={service.included} />
+          </TextSection>
 
-          <section className="border-b border-slate-100 bg-slate-50/80 py-16 dark:border-slate-800 dark:bg-slate-900/40 md:py-24" aria-labelledby="process-heading">
+          {/* Designed: process steps */}
+          <section className="border-t border-slate-200/80 bg-slate-50/70 py-14 dark:border-slate-800 dark:bg-slate-900/35 md:py-16" aria-labelledby="process-heading">
             <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-              <SectionHeader
-                id="process-heading"
-                kicker="Process"
-                title="How we work with you"
-                description="Three beats—discovery, build, and iteration—so expectations stay clear."
-                align="center"
-              />
-              <ol className="mt-4 grid gap-6 md:grid-cols-3">
+              <p className="text-center text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+                Process
+              </p>
+              <h2 id="process-heading" className="mt-2 text-center text-2xl font-bold tracking-tight text-slate-900 dark:text-white md:text-3xl">
+                How we work with you
+              </h2>
+              <p className="mx-auto mt-3 max-w-2xl text-center text-base text-slate-600 dark:text-slate-400">
+                Three beats—discovery, build, and iteration—so expectations stay clear.
+              </p>
+              <ol className="mt-10 grid gap-6 md:grid-cols-3">
                 {service.processSteps.map((step, i) => (
                   <li
                     key={step.title}
-                    className="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-900/[0.05] transition hover:shadow-md dark:bg-slate-900/60 dark:ring-white/[0.08]"
+                    className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900/70 md:p-7"
                   >
-                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-blue-600 text-sm font-bold text-white dark:bg-blue-500">
+                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 text-sm font-bold text-white dark:bg-blue-500">
                       {i + 1}
                     </span>
-                    <h3 className="mt-5 text-lg font-semibold text-slate-900 dark:text-white">{step.title}</h3>
+                    <h3 className="mt-4 text-lg font-semibold text-slate-900 dark:text-white">{step.title}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">{step.body}</p>
                   </li>
                 ))}
@@ -283,146 +245,96 @@ const ServiceDetail: React.FC = () => {
             </div>
           </section>
 
-          <section className="border-b border-slate-100 py-16 dark:border-slate-800 md:py-24" aria-labelledby="technical-heading">
-            <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-              <SectionHeader
-                id="technical-heading"
-                kicker="Depth"
-                title="Under the hood"
-                description="Technical detail in plain language—so you know what we are doing and why it matters for patients and platforms."
-                align="center"
-              />
-              <div className="mt-4 grid gap-6 lg:grid-cols-2">
-                {service.technicalDeepDive.map((block) => (
-                  <div
-                    key={block.heading}
-                    className="rounded-2xl bg-slate-50/90 p-6 ring-1 ring-slate-900/[0.04] dark:bg-slate-900/50 dark:ring-white/[0.06] sm:p-8"
-                  >
-                    <h3 className="text-lg font-semibold text-slate-900 dark:text-white">{block.heading}</h3>
-                    <div className="mt-4 space-y-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-                      {block.paragraphs.map((p, i) => (
-                        <p key={`${block.heading}-${i}`}>{p}</p>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          <section className="border-b border-slate-100 bg-slate-50/80 py-16 dark:border-slate-800 dark:bg-slate-900/40 md:py-24" aria-labelledby="mistakes-heading">
-            <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white shadow-sm ring-1 ring-slate-900/[0.06] dark:bg-slate-800 dark:ring-white/[0.08]">
-                  <AlertTriangle className="h-6 w-6 text-amber-600 dark:text-amber-400" strokeWidth={2} aria-hidden />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <SectionHeader
-                    id="mistakes-heading"
-                    title="Common pitfalls we help you avoid"
-                    description="Patterns we see across dental markets—so you can sidestep them early."
-                  />
-                  <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-                    {service.commonMistakes.map((line) => (
-                      <li
-                        key={line}
-                        className="flex gap-3 rounded-2xl border-l-4 border-amber-400 bg-white py-3 pl-4 pr-4 text-sm leading-relaxed text-slate-700 shadow-sm dark:border-amber-500 dark:bg-slate-900/60 dark:text-slate-200"
-                      >
-                        <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-amber-500" aria-hidden />
-                        <span>{line}</span>
-                      </li>
+          <TextSection
+            id="technical-heading"
+            kicker="Depth"
+            title="Under the hood"
+            lead="Technical detail in plain language—so you know what we are doing and why it matters for patients and platforms."
+          >
+            <div className="space-y-10">
+              {service.technicalDeepDive.map((block) => (
+                <div key={block.heading}>
+                  <h3 className="text-lg font-semibold text-slate-900 dark:text-white">{block.heading}</h3>
+                  <div className="mt-3 space-y-3 text-base leading-relaxed text-slate-700 dark:text-slate-300">
+                    {block.paragraphs.map((p, i) => (
+                      <p key={`${block.heading}-${i}`}>{p}</p>
                     ))}
-                  </ul>
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
-          </section>
+          </TextSection>
 
-          <section className="border-b border-slate-100 py-16 dark:border-slate-800 md:py-24" aria-labelledby="outcomes-heading">
-            <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-              <SectionHeader
-                id="outcomes-heading"
-                kicker="Outcomes"
-                title="What success looks like"
-                description="Plain-language signals we work toward—your market and capacity shape how quickly each shows up."
-              />
-              <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-                {service.outcomes.map((line) => (
-                  <li
-                    key={line}
-                    className="flex gap-4 rounded-2xl bg-slate-50/90 p-5 ring-1 ring-slate-900/[0.04] dark:bg-slate-900/50 dark:ring-white/[0.06]"
-                  >
-                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-blue-600 text-white dark:bg-blue-500">
-                      <Check className="h-4 w-4" strokeWidth={2.5} aria-hidden />
-                    </span>
-                    <span className="pt-1 text-sm font-medium leading-snug text-slate-800 dark:text-slate-100">{line}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </section>
+          <TextSection
+            id="mistakes-heading"
+            title="Common pitfalls we help you avoid"
+            lead="Patterns we see across dental markets—so you can sidestep them early."
+          >
+            <BulletList items={service.commonMistakes} />
+          </TextSection>
 
-          <section className="border-b border-slate-100 bg-slate-50/80 py-16 dark:border-slate-800 dark:bg-slate-900/40 md:py-24" aria-labelledby="metrics-heading">
-            <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-              <SectionHeader
-                id="metrics-heading"
-                kicker="Measurement"
-                title="What we measure with you"
-                description="Leading and lagging indicators agreed upfront—so progress is visible without hype."
-              />
-              <ul className="mt-6 divide-y divide-slate-200 overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-900/[0.05] dark:divide-slate-700 dark:bg-slate-900/60 dark:ring-white/[0.08]">
-                {service.metricsWeWatch.map((line, i) => (
-                  <li key={line} className="flex gap-4 px-5 py-4 text-sm text-slate-700 dark:text-slate-200">
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-xs font-semibold text-slate-600 dark:bg-slate-800 dark:text-slate-300">
-                      {i + 1}
-                    </span>
-                    <span className="pt-1 leading-relaxed">{line}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-10 flex flex-wrap items-center gap-4">
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-400"
-                >
-                  Book a strategy call
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-                <Link
-                  to="/services"
-                  className="text-sm font-semibold text-slate-600 underline-offset-4 hover:text-blue-600 hover:underline dark:text-slate-400 dark:hover:text-blue-400"
-                >
-                  Browse all services
-                </Link>
-              </div>
-            </div>
-          </section>
+          <TextSection
+            id="outcomes-heading"
+            kicker="Outcomes"
+            title="What success looks like"
+            lead="Plain-language signals we work toward—your market and capacity shape how quickly each shows up."
+          >
+            <ul className="space-y-3 text-base leading-relaxed text-slate-700 dark:text-slate-300">
+              {service.outcomes.map((line) => (
+                <li key={line} className="flex gap-3">
+                  <Check className="mt-1 h-4 w-4 shrink-0 text-blue-600 dark:text-blue-400" strokeWidth={2} aria-hidden />
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ul>
+          </TextSection>
 
-          <section className="py-16 dark:border-slate-800 md:py-24" aria-labelledby="related-heading">
-            <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-              <SectionHeader id="related-heading" kicker="Next steps" title="Related services" />
-              <div className="mt-2 grid gap-4 md:grid-cols-2">
+          <TextSection
+            id="metrics-heading"
+            kicker="Measurement"
+            title="What we measure with you"
+            lead="Leading and lagging indicators agreed upfront—so progress is visible without hype."
+          >
+            <ol className="list-decimal space-y-3 pl-5 text-base leading-relaxed text-slate-700 marker:font-semibold dark:text-slate-300">
+              {service.metricsWeWatch.map((line) => (
+                <li key={line} className="pl-1">
+                  {line}
+                </li>
+              ))}
+            </ol>
+            <p className="mt-8 text-sm text-slate-600 dark:text-slate-400">
+              <Link to="/contact" className="font-semibold text-blue-600 hover:underline dark:text-blue-400">
+                Book a strategy call
+              </Link>
+              {' · '}
+              <Link to="/services" className="font-semibold text-blue-600 hover:underline dark:text-blue-400">
+                Browse all services
+              </Link>
+            </p>
+          </TextSection>
+
+          <section className="border-t border-slate-200/80 py-12 dark:border-slate-800 md:py-14" aria-labelledby="related-heading">
+            <div className={article}>
+              <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">Next steps</p>
+              <h2 id="related-heading" className="mt-2 text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
+                Related services
+              </h2>
+              <ul className="mt-6 space-y-3">
                 {related.map((s, i) => (
-                  <Link
-                    key={s.slug}
-                    to={servicePath(s.slug)}
-                    className="group flex flex-col justify-between rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-900/[0.05] transition hover:shadow-md dark:bg-slate-900/60 dark:ring-white/[0.08] md:min-h-[160px]"
-                  >
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
-                        {i === 0 ? 'Often paired first' : 'Also consider'}
-                      </p>
-                      <span className="mt-3 block text-xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400">
-                        {s.title}
+                  <li key={s.slug}>
+                    <Link
+                      to={servicePath(s.slug)}
+                      className="group inline-flex items-center gap-2 text-base font-medium text-slate-800 hover:text-blue-600 dark:text-slate-200 dark:hover:text-blue-400"
+                    >
+                      <span className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-500">
+                        {i === 0 ? 'Often paired · ' : 'Also consider · '}
                       </span>
-                    </div>
-                    <span className="mt-8 inline-flex items-center gap-1 text-sm font-semibold text-blue-600 dark:text-blue-400">
-                      View
-                      <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
-                    </span>
-                  </Link>
+                      {s.title}
+                      <ArrowRight className="h-4 w-4 opacity-70 transition group-hover:translate-x-0.5" aria-hidden />
+                    </Link>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           </section>
 
@@ -437,17 +349,17 @@ const ServiceDetail: React.FC = () => {
             maxWidthClass="max-w-6xl"
           />
 
-          <section className="border-t border-slate-100 bg-slate-50/80 py-16 dark:border-slate-800 dark:bg-slate-900/40 md:py-20">
-            <div className="mx-auto max-w-6xl px-4 text-center sm:px-6 lg:px-8">
-              <p className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white md:text-3xl">
+          <section className="border-t border-slate-200/80 bg-slate-50/80 py-14 dark:border-slate-800 dark:bg-slate-900/40 md:py-16">
+            <div className="mx-auto max-w-2xl px-4 text-center sm:px-6">
+              <p className="text-xl font-bold tracking-tight text-slate-900 dark:text-white md:text-2xl">
                 Ready to talk specifics?
               </p>
-              <p className="mx-auto mt-4 max-w-2xl text-base text-slate-600 dark:text-slate-300">
+              <p className="mt-3 text-base text-slate-600 dark:text-slate-300">
                 Tell us about your market, services, and goals—we&rsquo;ll map a practical next step.
               </p>
               <Link
                 to="/contact"
-                className="mt-10 inline-flex items-center gap-2 rounded-full bg-blue-600 px-8 py-3.5 text-base font-semibold text-white shadow-lg transition hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-400"
+                className="mt-8 inline-flex items-center gap-2 rounded-full bg-blue-600 px-7 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-400"
               >
                 Contact us
                 <ArrowRight className="h-4 w-4" />

@@ -11,86 +11,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'Recoleta';
-  src:
-    url('/fonts/Recoleta-Thin.woff2') format('woff2'),
-    url('/fonts/Recoleta-Thin.woff') format('woff');
-  font-style: normal;
-  font-weight: 100;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Recoleta';
-  src:
-    url('/fonts/Recoleta-Light.woff2') format('woff2'),
-    url('/fonts/Recoleta-Light.woff') format('woff');
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Recoleta';
-  src:
-    url('/fonts/Recoleta-Regular.woff2') format('woff2'),
-    url('/fonts/Recoleta-Regular.woff') format('woff');
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Recoleta';
-  src:
-    url('/fonts/Recoleta-Medium.woff2') format('woff2'),
-    url('/fonts/Recoleta-Medium.woff') format('woff');
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Recoleta';
-  src:
-    url('/fonts/Recoleta-SemiBold.woff2') format('woff2'),
-    url('/fonts/Recoleta-SemiBold.woff') format('woff');
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Recoleta';
-  src:
-    url('/fonts/Recoleta-SemiBold.woff2') format('woff2'),
-    url('/fonts/Recoleta-SemiBold.woff') format('woff');
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Recoleta';
-  src:
-    url('/fonts/Recoleta-SemiBold.woff2') format('woff2'),
-    url('/fonts/Recoleta-SemiBold.woff') format('woff');
-  font-style: normal;
-  font-weight: 900;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Recoleta Alt';
-  src:
-    url('/fonts/RecoletaAlt-Regular.woff2') format('woff2'),
-    url('/fonts/RecoletaAlt-Regular.woff') format('woff');
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-}
-
 .about-display {
   font-family: 'Fraunces Variable', Georgia, 'Times New Roman', serif;
   font-optical-sizing: auto;
@@ -121,7 +41,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Recoleta', Georgia, 'Times New Roman', serif;
+  font-family: 'Fraunces Variable', Georgia, 'Times New Roman', serif;
+  font-optical-sizing: auto;
 }
 
 body {

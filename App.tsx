@@ -1,5 +1,5 @@
 import React, { Suspense, lazy, useEffect, type ComponentType } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from './components/ThemeProvider';
 import AppErrorBoundary from './components/AppErrorBoundary';
@@ -50,7 +50,6 @@ const CaseStudies = lazyRetry(() => import('./pages/CaseStudies'));
 const Blog = lazyRetry(() => import('./pages/Blog'));
 const BlogPost = lazyRetry(() => import('./pages/BlogPost'));
 const Contact = lazyRetry(() => import('./pages/Contact'));
-const ClientPortal = lazyRetry(() => import('./pages/ClientPortal'));
 const DentechChatWidget = lazyRetry(() => import('./components/chat/DentechChatWidget'));
 
 function RouteScrollManager() {
@@ -179,7 +178,7 @@ const App: React.FC = () => {
                     <Route path="/blog" element={<Blog />} />
                     <Route path="/blog/:slug" element={<BlogPost />} />
                     <Route path="/contact" element={<Contact />} />
-                    <Route path="/portal" element={<ClientPortal />} />
+                    <Route path="/portal" element={<Navigate to="/contact#client-portal" replace />} />
                   </Routes>
                 </Suspense>
               </AppErrorBoundary>

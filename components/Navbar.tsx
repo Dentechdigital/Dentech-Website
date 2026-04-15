@@ -140,7 +140,7 @@ const Navbar: React.FC = () => {
             </Link>
             
             <div className={`flex items-center space-x-4 pl-4 border-l ${scrolled || !isHomePage ? 'border-gray-200 dark:border-slate-700' : 'border-gray-300 dark:border-slate-700'} transition-colors`}>
-              <Link to="/portal" className="flex items-center space-x-2 bg-blue-600 text-white hover:bg-blue-700 px-5 py-2.5 rounded-full text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5">
+              <Link to="/contact#client-portal" className="flex items-center space-x-2 bg-blue-600 text-white hover:bg-blue-700 px-5 py-2.5 rounded-full text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5">
                 <UserCircle className="w-4 h-4" />
                 <span>Client Portal</span>
               </Link>
@@ -203,7 +203,7 @@ const Navbar: React.FC = () => {
             <Link to="/blog" onClick={closeMobileMenu} className="block px-3 py-3 rounded-lg text-base font-semibold text-blue-950 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors">Blog</Link>
             <Link to="/case-studies" onClick={closeMobileMenu} className="block px-3 py-3 rounded-lg text-base font-semibold text-blue-950 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors">Case Studies</Link>
             <Link to="/contact" onClick={closeMobileMenu} className="block px-3 py-3 rounded-lg text-base font-semibold text-blue-950 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors">Contact</Link>
-            <Link to="/portal" onClick={closeMobileMenu} className="flex items-center justify-center space-x-2 w-full mt-6 px-4 py-3 rounded-xl text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 shadow-md transition-colors">
+            <Link to="/contact#client-portal" onClick={closeMobileMenu} className="flex items-center justify-center space-x-2 w-full mt-6 px-4 py-3 rounded-xl text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 shadow-md transition-colors">
               <UserCircle className="w-5 h-5" />
               <span>Client Portal Login</span>
             </Link>

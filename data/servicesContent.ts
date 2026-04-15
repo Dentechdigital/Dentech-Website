@@ -119,7 +119,7 @@ export const servicesOrdered: ServiceDefinition[] = [
     h1: 'Local SEO, GEO & Google Maps for dental practices',
     metaTitle: 'Local SEO, GEO & Maps for Dentists | Ottawa & Canada',
     metaDescription:
-      'Dental local SEO, generative engine optimization (GEO), and Google Business Profile for Canadian practices. Maps visibility, traditional rankings, and accurate presence in AI search.',
+      'What dental local SEO and GEO are, why they matter, and how GBP, your site, and citations work together for Canadian practices—technical depth, honest timelines, no ranking guarantees.',
     iconKey: 'map',
     iconGradient: 'from-blue-500 to-cyan-400',
     iconColor: 'text-white',
@@ -237,6 +237,21 @@ export const servicesOrdered: ServiceDefinition[] = [
         answer:
           'When it serves patient questions, local intent, and clearer entity understanding for search and AI, yes. We avoid filler that does not help patients or conversion.',
       },
+      {
+        question: 'Is local SEO the same thing my website company already handles?',
+        answer:
+          'Sometimes there is overlap, but local SEO/GEO is a distinct program: GBP discipline, local keyword strategy, entity and citation consistency, review cadence, and measurement in Search Console and Maps—not only “we launched a site.” If your web partner only ships pages without ongoing local strategy, gaps usually remain.',
+      },
+      {
+        question: 'Do we need a blog for SEO to work?',
+        answer:
+          'Not automatically. Blogs help when they answer real patient questions and strengthen internal linking to core services. If a blog would be thin or duplicate, we prefer stronger service pages, FAQs, and GBP clarity first.',
+      },
+      {
+        question: 'Will you need access to our practice management system?',
+        answer:
+          'Usually not for SEO/GEO. We may request read-only analytics, Search Console, GBP, and call-tracking dashboards. PMS access is more common for paid attribution or automation projects—and only with your explicit approval.',
+      },
     ],
   },
   {
@@ -247,7 +262,7 @@ export const servicesOrdered: ServiceDefinition[] = [
     h1: 'Paid search & social ads for dental clinics',
     metaTitle: 'Dental PPC & Paid Social Agency | Ottawa & Canada',
     metaDescription:
-      'Performance-focused Google and Facebook/Instagram advertising for dental practices in Canada. Landing pages, tracking, creative testing, and transparent reporting.',
+      'Dental PPC and Meta ads for Canada: what paid search is, why tracking and landing pages matter, how budgets learn, and how we report—without vanity metrics or account lock-in.',
     iconKey: 'target',
     iconGradient: 'from-emerald-500 to-teal-400',
     iconColor: 'text-white',
@@ -358,6 +373,21 @@ export const servicesOrdered: ServiceDefinition[] = [
         answer:
           'With tracking verified and creative approved, many builds launch in a few weeks. Rushed launches without tracking usually waste budget.',
       },
+      {
+        question: 'Should we run ads if our website is outdated?',
+        answer:
+          'You can, but weak landing pages raise cost-per-lead and hurt quality score on Google. We often recommend a focused landing refresh or key service pages before scaling spend—sometimes in parallel with a limited test budget so you are not stuck waiting forever.',
+      },
+      {
+        question: 'What happens if we pause ads for a month?',
+        answer:
+          'Auction dynamics and algorithmic history can reset; you may see a learning period when you return. If pause is planned, we document structure and seasonal learnings so re-entry is faster—not starting from zero strategy.',
+      },
+      {
+        question: 'Can you manage Local Services Ads (LSAs) for dentists?',
+        answer:
+          'Where LSAs are available and a fit for your market, we can coordinate with your team on profile, screening, and measurement. LSAs have their own eligibility and compliance rules; we scope realistically alongside Search and Meta.',
+      },
     ],
   },
   {
@@ -368,7 +398,7 @@ export const servicesOrdered: ServiceDefinition[] = [
     h1: 'Custom dental websites that convert',
     metaTitle: 'Dental Website Design Agency | Ottawa & Canada',
     metaDescription:
-      'High-converting dental websites: mobile-first UX, Core Web Vitals, SEO and GEO-friendly structure, and clear calls to book. Custom builds for Canadian clinics.',
+      'Custom dental websites in Canada: UX, speed (Core Web Vitals), SEO/GEO structure, migrations, and analytics—what a practice site must do technically and for patients before marketing scales.',
     iconKey: 'monitor',
     iconGradient: 'from-indigo-500 to-purple-400',
     iconColor: 'text-white',
@@ -478,6 +508,21 @@ export const servicesOrdered: ServiceDefinition[] = [
         answer:
           'Training and documentation can be included; many clients retain us for ongoing updates and growth experiments.',
       },
+      {
+        question: 'Can we keep our current domain and hosting?',
+        answer:
+          'Domains should stay in your control. Hosting depends on the agreed stack—we recommend performance- and SSL-friendly hosting we can support. We document DNS, redirects, and who owns what so you are never hostage to a vendor.',
+      },
+      {
+        question: 'How do website relaunches affect Google rankings?',
+        answer:
+          'Done right, with 301 redirects, sitemap updates, and Search Console monitoring, you protect most equity and fix crawl issues. Done wrong—mass URL changes without mapping—you risk drops. We treat migration as a technical deliverable, not an afterthought.',
+      },
+      {
+        question: 'Do you write the copy or does our team?',
+        answer:
+          'Either or both. Many projects pair our drafts with your clinical accuracy pass. Dentists know their voice and constraints best; we bring structure, SEO/GEO alignment, and conversion editing.',
+      },
     ],
   },
   {
@@ -488,7 +533,7 @@ export const servicesOrdered: ServiceDefinition[] = [
     h1: 'Social media & content for dental practices',
     metaTitle: 'Dental Social Media & Content Agency | Ottawa & Canada',
     metaDescription:
-      'Social media strategy, creative direction, and content for Canadian dental practices. Brand-safe, conversion-aware posting—not generic filler.',
+      'Dental social and content for Canada: strategy, pillars, creative specs, approvals, and measurement—what “content marketing” means for practices and how it supports trust and bookings.',
     iconKey: 'aperture',
     iconGradient: 'from-amber-500 to-orange-400',
     iconColor: 'text-white',
@@ -596,6 +641,21 @@ export const servicesOrdered: ServiceDefinition[] = [
         answer:
           'Engagement quality, saves, profile actions, and downstream leads where tracking exists—reported without vanity-only scoreboards.',
       },
+      {
+        question: 'How much time will our team spend approving posts?',
+        answer:
+          'We batch reviews and set SLAs (e.g. 48-hour turnaround) so production does not stall. Emergency posts for closures or crises get a separate fast path.',
+      },
+      {
+        question: 'What if someone leaves a negative comment on a post or ad?',
+        answer:
+          'We follow a response playbook you approve: acknowledge, take detailed conversation private when appropriate, never argue clinically or about fees in public. Escalation to your office manager or doctor for sensitive cases.',
+      },
+      {
+        question: 'Should social replace investment in our website?',
+        answer:
+          'No—social discovers and nurtures; your site still closes trust, SEO, and booking. The best programs align bios, offers, and UTMs so social traffic lands on pages that match the story.',
+      },
     ],
   },
   {
@@ -606,7 +666,7 @@ export const servicesOrdered: ServiceDefinition[] = [
     h1: 'Print & direct mail for dental practices',
     metaTitle: 'Dental Print Design & Direct Mail | Ottawa & Canada',
     metaDescription:
-      'Print design and direct mail for dental clinics: new mover campaigns, reactivation, grand openings, and office collateral aligned with your digital brand.',
+      'Dental print and direct mail in Canada: formats, Canada Post considerations, list compliance, QR/URL tracking, and when mail complements digital—plain-language planning for clinics.',
     iconKey: 'mail',
     iconGradient: 'from-rose-500 to-pink-400',
     iconColor: 'text-white',
@@ -707,6 +767,21 @@ export const servicesOrdered: ServiceDefinition[] = [
         answer:
           'For many markets, tactile mail plus digital follow-up still works—especially for hyper-local offers and reactivation.',
       },
+      {
+        question: 'Can you use our patient list from the PMS for mail?',
+        answer:
+          'Often yes for house-list campaigns, but data use must follow your privacy program and provincial expectations. We document purpose, consent, and retention; you approve the list export and vendor. We do not buy or append sensitive health data without explicit scope.',
+      },
+      {
+        question: 'How do we know print drove appointments versus word of mouth?',
+        answer:
+          'We design attribution in advance: unique URLs, QR codes, promo codes, or tracked phone numbers per drop. Perfect isolation is rare; we interpret signals honestly alongside front-desk intake questions.',
+      },
+      {
+        question: 'Should we run print before or after digital ads?',
+        answer:
+          'Depends on objective. New movers and grand openings often benefit from coordinated mail + geo-targeted ads. Reactivation may start with mail to a house list while email/SMS run in parallel. We sequence for budget and creative load—not dogma.',
+      },
     ],
   },
   {
@@ -717,7 +792,7 @@ export const servicesOrdered: ServiceDefinition[] = [
     h1: 'AI & automation for dental front desks',
     metaTitle: 'Dental AI Receptionist & Automation | Ottawa & Canada',
     metaDescription:
-      'AI-assisted chat, reminders, and operations automation for dental practices. Canadian privacy awareness, human escalation, and practical workflows.',
+      'Dental AI and automation in Canada: chat, SMS, reminders, guardrails, privacy-aware pilots, and realistic PMS expectations—what to automate, what never should be, and how we measure.',
     iconKey: 'cpu',
     iconGradient: 'from-violet-500 to-fuchsia-400',
     iconColor: 'text-white',
@@ -817,6 +892,21 @@ export const servicesOrdered: ServiceDefinition[] = [
         question: 'Can we start small?',
         answer:
           'Yes—narrow pilots (e.g., missed-call SMS or after-hours chat) often prove value fastest.',
+      },
+      {
+        question: 'What should never be automated in a dental office?',
+        answer:
+          'Clinical triage beyond general information, individualized fee quotes, insurance predetermination storytelling, complaints about care, and anything your college or counsel flags. When in doubt, the system hands off to a human with context.',
+      },
+      {
+        question: 'Will patients know they are talking to AI?',
+        answer:
+          'Transparency is best practice: clear labeling or scripted disclosure where regulations or platform rules require it—and because trust beats surprise. Tone should sound human and calm, not gimmicky.',
+      },
+      {
+        question: 'Who trains our staff on new workflows?',
+        answer:
+          'We run joint QA sessions, provide short playbooks, and record Loom-style walkthroughs where helpful. Your office manager or lead receptionist usually owns day-to-day tweaks after launch; we stay available for tuning windows.',
       },
     ],
   },

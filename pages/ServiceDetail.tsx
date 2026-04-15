@@ -4,6 +4,7 @@ import { AlertTriangle, ArrowRight, Check, ChevronRight } from 'lucide-react';
 import SEO from '../components/SEO';
 import PageHeroAboutStyle from '../components/PageHeroAboutStyle';
 import FaqAccordion from '../components/FaqAccordion';
+import ServiceSpotlight from '../components/ServiceSpotlight';
 import {
   buildServiceDetailStructuredData,
   getServiceBySlug,
@@ -121,6 +122,18 @@ const ServiceDetail: React.FC = () => {
             </div>
           </div>
         </section>
+
+        {service.spotlight ? (
+          <section
+            className="mx-auto max-w-7xl px-4 pb-2 pt-0 sm:px-6 sm:pb-4 lg:px-8"
+            aria-labelledby="spotlight-heading"
+          >
+            <h2 id="spotlight-heading" className="sr-only">
+              Service snapshot
+            </h2>
+            <ServiceSpotlight data={service.spotlight} />
+          </section>
+        ) : null}
 
         <section
           className="relative py-14 dark:border-slate-800 sm:py-16"
@@ -422,8 +435,11 @@ const ServiceDetail: React.FC = () => {
 
         <FaqAccordion
           idPrefix={`svc-${service.slug}`}
-          heading="Frequently asked questions"
-          subheading={`Common questions about ${service.title.toLowerCase()} for dental practices.`}
+          heading={service.faqSectionTitle ?? 'Frequently asked questions'}
+          subheading={
+            service.faqSectionSubheading ??
+            `Common questions about ${service.title.toLowerCase()} for dental practices.`
+          }
           items={service.faq}
         />
 

@@ -14,6 +14,22 @@ export type ServiceTechnicalSection = {
   paragraphs: string[];
 };
 
+/** Unique mid-page block per service—different layout variants, not one template */
+export type ServiceSpotlight =
+  | { variant: 'queryChips'; title: string; queries: string[] }
+  | { variant: 'ledgerLines'; title: string; lines: string[] }
+  | { variant: 'firstScreenChecks'; title: string; checks: string[] }
+  | { variant: 'weekStrip'; title: string; strips: string[] }
+  | { variant: 'journeySteps'; title: string; steps: { label: string; detail: string }[] }
+  | {
+      variant: 'splitLanes';
+      title: string;
+      leftTitle: string;
+      leftItems: string[];
+      rightTitle: string;
+      rightItems: string[];
+    };
+
 export type ServiceDefinition = {
   slug: string;
   title: string;
@@ -46,6 +62,12 @@ export type ServiceDefinition = {
   /** How we judge progress with you */
   metricsWeWatch: string[];
   relatedSlugs: [string, string];
+  /** Override default FAQ section title on the detail page */
+  faqSectionTitle?: string;
+  /** Override default FAQ section subheading */
+  faqSectionSubheading?: string;
+  /** Service-specific spotlight (layout + copy differs by variant) */
+  spotlight?: ServiceSpotlight;
   faq: ServiceFaqItem[];
 };
 
@@ -210,47 +232,56 @@ export const servicesOrdered: ServiceDefinition[] = [
       'Review velocity, rating stability, and qualitative themes in feedback.',
       'Landing page engagement on key service URLs (scroll, time on page where meaningful).',
     ],
+    spotlight: {
+      variant: 'queryChips',
+      title: 'Example searches we plan visibility around',
+      queries: [
+        'dentist near me',
+        'emergency dentist [city]',
+        'Invisalign consultation [neighbourhood]',
+        'dental implants bone graft',
+        'family dentist open Saturday',
+      ],
+    },
     relatedSlugs: ['websites', 'paid-ads'],
+    faqSectionTitle: 'Maps, pack results & AI answers',
+    faqSectionSubheading:
+      'Questions we hear from owners who care about rankings but also about wrong addresses in AI summaries.',
     faq: [
       {
-        question: 'What is GEO vs SEO for my dental practice?',
+        question: 'How is the local map pack different from the organic listings below it?',
         answer:
-          'SEO is about ranking and visibility in traditional search results and Maps. GEO (generative engine optimization) is about being represented accurately when users get answers from AI-powered search and assistants—clear facts, consistent entity information, and authoritative pages matter for both.',
+          'The map pack is driven heavily by Google Business Profile signals, proximity, and relevance to the query; organic results depend more on your website’s authority and page-level relevance. Strong programs align both so the story matches when patients click Maps versus a blue link.',
       },
       {
-        question: 'How long until we see local SEO or GEO traction?',
+        question: 'Can one dentist work at two addresses without confusing Google?',
         answer:
-          'Some GBP and clarity fixes can improve how you appear within weeks; rankings and AI summaries often depend on competitive density and how complete your digital footprint is. We set expectations from your market data, not generic timelines.',
+          'Yes, with clear practitioner markup, correct practitioner–location relationships in GBP, and dedicated location pages where needed. The risk is duplicate or merged listings—we document who works where and keep NAP consistent.',
       },
       {
-        question: 'Do you guarantee #1 on Google or a specific AI answer?',
+        question: 'Should every associate get their own Google Business Profile?',
         answer:
-          'No. We focus on accurate, trustworthy visibility and more qualified actions. Generative surfaces change often; we build durable fundamentals rather than chase guarantees no one can control.',
+          'Usually no—often the practice brand is the entity patients search for. Individual practitioner profiles can help in specific markets, but they can also fragment reviews and categories. We recommend a structure that matches how patients actually look you up.',
       },
       {
-        question: 'What if we have multiple locations?',
+        question: 'How do you handle English and French searches in the same city?',
         answer:
-          'We structure each location with correct GBP logic, landing pages, and internal linking so locations support—not cannibalize—each other—critical for both SEO and GEO consistency.',
+          'We align GBP services and descriptions with both languages where appropriate, mirror key FAQs, and ensure your site does not contradict either language variant. French query volume varies by neighbourhood; we use real Search Console and Ads data where available.',
       },
       {
-        question: 'Do you write blog posts or FAQ content?',
+        question: 'A competitor’s listing looks fake or keyword-stuffed—what is the first step?',
         answer:
-          'When it serves patient questions, local intent, and clearer entity understanding for search and AI, yes. We avoid filler that does not help patients or conversion.',
+          'Document the issue with screenshots, compare against Google’s guidelines, and use the appropriate reporting path—while continuing to strengthen your own entity signals so you are less vulnerable to noise.',
       },
       {
-        question: 'Is local SEO the same thing my website company already handles?',
+        question: 'Do we need a separate landing page for every suburb we want?',
         answer:
-          'Sometimes there is overlap, but local SEO/GEO is a distinct program: GBP discipline, local keyword strategy, entity and citation consistency, review cadence, and measurement in Search Console and Maps—not only “we launched a site.” If your web partner only ships pages without ongoing local strategy, gaps usually remain.',
+          'Only when those pages serve distinct intent and are genuinely useful—not thin “dentist in X” clones. We prefer fewer, stronger location and service pages plus honest service-area signals in GBP.',
       },
       {
-        question: 'Do we need a blog for SEO to work?',
+        question: 'How long until GBP or rankings feel different?',
         answer:
-          'Not automatically. Blogs help when they answer real patient questions and strengthen internal linking to core services. If a blog would be thin or duplicate, we prefer stronger service pages, FAQs, and GBP clarity first.',
-      },
-      {
-        question: 'Will you need access to our practice management system?',
-        answer:
-          'Usually not for SEO/GEO. We may request read-only analytics, Search Console, GBP, and call-tracking dashboards. PMS access is more common for paid attribution or automation projects—and only with your explicit approval.',
+          'Clarity fixes (hours, categories, duplicate suppression) can change how you look within weeks. Competitive rankings and AI summaries depend on market density and completeness of your footprint—we forecast from your data, not a generic “90 days.”',
       },
     ],
   },
@@ -351,42 +382,54 @@ export const servicesOrdered: ServiceDefinition[] = [
       'Return on ad spend (ROAS) only where revenue attribution is honest—not fabricated.',
       'Creative fatigue signals: frequency, CTR drops, rising CPA on Meta.',
     ],
+    spotlight: {
+      variant: 'ledgerLines',
+      title: 'Economics we align before turning spend on',
+      lines: [
+        'Target cost per booked consult—not cost per click.',
+        'Minimum weekly volume so Google and Meta can exit “learning” with real signal.',
+        'Which procedures subsidize acquisition for the next 90 days versus which must break even immediately.',
+      ],
+    },
     relatedSlugs: ['websites', 'local-seo'],
+    faqSectionTitle: 'Budget, auctions & accountability',
+    faqSectionSubheading:
+      'Paid search and paid social each have different rules—here is how we think about them for dental.',
     faq: [
       {
-        question: 'What monthly ad spend do you recommend?',
+        question: 'What is “brand defense” on Google and when is it worth paying for?',
         answer:
-          'Minimums depend on market and specialty. We recommend a spend level that clears learning phases and produces enough conversions to optimize—discussed transparently before launch.',
+          'Competitors can bid on your practice name. Brand campaigns capture high-intent navigational clicks cheaply and control the message above the organic result. We recommend brand defense when we see conquesting in your auction reports or when your organic sitelinks do not cover booking paths.',
       },
       {
-        question: 'Who owns the ad accounts?',
+        question: 'Are dental campaigns subject to Meta special ad category rules?',
         answer:
-          'You should own your Google and Meta assets; we request access and document structure so you retain control.',
+          'Often yes—health-related targeting and creative face restrictions. We build audiences and copy within those rules, use Advantage+ placements only when appropriate, and avoid targeting that would put your account at risk.',
       },
       {
-        question: 'Can you run only Meta or only Google?',
+        question: 'Can we attribute implants to a keyword without recording every phone call?',
         answer:
-          'Yes. We recommend the plan that matches intent and placement hygiene; many practices combine search for intent with social for awareness.',
+          'Sometimes. Options include call extension tracking, dynamic number pools with disclosure, front-desk disposition tags, and CRM exports. What is legal and acceptable varies by province and your policies—we scope with your team, not assumptions.',
       },
       {
-        question: 'How fast can we launch?',
+        question: 'How do you stop ads from showing for “free dental” or job seekers?',
         answer:
-          'With tracking verified and creative approved, many builds launch in a few weeks. Rushed launches without tracking usually waste budget.',
+          'Negative keyword lists, geo exclusions, audience exclusions, and routine search term reviews—especially in the first 30 days after launch when waste patterns appear.',
       },
       {
-        question: 'Should we run ads if our website is outdated?',
+        question: 'Is $2,000/month enough to test implants and emergency at the same time?',
         answer:
-          'You can, but weak landing pages raise cost-per-lead and hurt quality score on Google. We often recommend a focused landing refresh or key service pages before scaling spend—sometimes in parallel with a limited test budget so you are not stuck waiting forever.',
+          'Usually not in competitive cities—splitting budget starves learning. We often sequence: prove emergency or new-patient flow first, then layer high-consideration procedures with dedicated landers once tracking is clean.',
       },
       {
-        question: 'What happens if we pause ads for a month?',
+        question: 'When would you run Meta only and skip Google Search?',
         answer:
-          'Auction dynamics and algorithmic history can reset; you may see a learning period when you return. If pause is planned, we document structure and seasonal learnings so re-entry is faster—not starting from zero strategy.',
+          'When search volume for your goals is thin, when you are promoting visual offers (whitening, smile consults), or when search is temporarily paused for a site rebuild—but we still want a path back to Search once foundations are ready.',
       },
       {
-        question: 'Can you manage Local Services Ads (LSAs) for dentists?',
+        question: 'Who owns the ad accounts if we part ways?',
         answer:
-          'Where LSAs are available and a fit for your market, we can coordinate with your team on profile, screening, and measurement. LSAs have their own eligibility and compliance rules; we scope realistically alongside Search and Meta.',
+          'You should own Google Ads and Meta Business assets; we work as a partner with documented admin roles. You can revoke access anytime; we hand over change logs and naming conventions.',
       },
     ],
   },
@@ -486,42 +529,55 @@ export const servicesOrdered: ServiceDefinition[] = [
       'Scroll depth or engagement on key procedure pages (where tools allow).',
       'Organic and paid landing engagement before/after redesign milestones.',
     ],
+    spotlight: {
+      variant: 'firstScreenChecks',
+      title: 'What the first screen must accomplish on a phone',
+      checks: [
+        'Who you are + neighbourhood credibility in one glance',
+        'Tap-to-call and booking above the fold without hunting',
+        'Primary services linked—not buried in a mega-menu',
+        'Trust cues (team, reviews, college-appropriate language) without clutter',
+      ],
+    },
     relatedSlugs: ['local-seo', 'paid-ads'],
+    faqSectionTitle: 'Build, migration & accessibility',
+    faqSectionSubheading:
+      'Technical and UX decisions that affect every channel downstream.',
     faq: [
       {
-        question: 'Do you use templates?',
+        question: 'Can you embed our existing online booking widget without breaking Core Web Vitals?',
         answer:
-          'We use disciplined systems—not generic dental templates that make every clinic look the same. Structure repeats; brand, photography, and copy do not.',
+          'Often yes—we lazy-load third-party widgets, isolate them from LCP candidates, and test on real devices. If a vendor script is too heavy, we discuss alternatives (deep link to booking app, lighter iframe, or phased load after consent).',
       },
       {
-        question: 'Can you migrate my existing content?',
+        question: 'Separate “mobile menu” experience vs one long homepage—which do you recommend?',
         answer:
-          'Yes, with an audit of what to keep, merge, or retire for SEO, GEO consistency, and clarity.',
+          'Depends on content depth. Deep multi-location sites benefit from clear mobile navigation; smaller practices sometimes convert better with a disciplined single-column scroll. We prototype both in wireframes before locking UI.',
       },
       {
-        question: 'Will my site be fast?',
+        question: 'What happens to old blog URLs if we delete thin posts nobody reads?',
         answer:
-          'Performance is a requirement. We optimize assets, layout stability, and hosting hygiene to support Core Web Vitals and real user experience.',
+          'We map each URL: 301 merge to a stronger parent topic, 410 when truly gone, or refresh when the topic still matters. Bulk deletion without mapping is how sites lose long-tail traffic quietly.',
       },
       {
-        question: 'Who updates the site after launch?',
+        question: 'Do you design toward WCAG 2.1 AA for public-sector or grant-funded clinics?',
         answer:
-          'Training and documentation can be included; many clients retain us for ongoing updates and growth experiments.',
+          'We can align build and QA checklists to WCAG-oriented acceptance criteria—contrast, focus order, labels, motion. Formal VPAT or legal sign-off is outside our scope; your accessibility counsel sets the bar.',
       },
       {
-        question: 'Can we keep our current domain and hosting?',
+        question: 'Webflow vs WordPress vs “headless”—how do you choose?',
         answer:
-          'Domains should stay in your control. Hosting depends on the agreed stack—we recommend performance- and SSL-friendly hosting we can support. We document DNS, redirects, and who owns what so you are never hostage to a vendor.',
+          'Editor experience, who will update content weekly, integration needs, and performance budget. We recommend the smallest stack that your team will actually maintain—fancy architecture that nobody touches ages poorly.',
       },
       {
-        question: 'How do website relaunches affect Google rankings?',
+        question: 'Who owns DNS and can we keep our registrar?',
         answer:
-          'Done right, with 301 redirects, sitemap updates, and Search Console monitoring, you protect most equity and fix crawl issues. Done wrong—mass URL changes without mapping—you risk drops. We treat migration as a technical deliverable, not an afterthought.',
+          'You keep registrar and DNS ownership. We document required records, staging subdomains, and rollback so launches are reversible if something misbehaves.',
       },
       {
-        question: 'Do you write the copy or does our team?',
+        question: 'Do you use reusable layouts or bespoke every page?',
         answer:
-          'Either or both. Many projects pair our drafts with your clinical accuracy pass. Dentists know their voice and constraints best; we bring structure, SEO/GEO alignment, and conversion editing.',
+          'Reusable layout systems with bespoke hero, photography, and copy per location/service—so the site feels custom without reinventing every technical detail.',
       },
     ],
   },
@@ -619,42 +675,55 @@ export const servicesOrdered: ServiceDefinition[] = [
       'DM volume and response time (where measurable).',
       'Downstream booked consults from social-tagged campaigns when UTMs are used.',
     ],
+    spotlight: {
+      variant: 'weekStrip',
+      title: 'Example four-week rhythm (not a rigid contract)',
+      strips: [
+        'Week 1: pillar education + team intro',
+        'Week 2: patient question carousel tied to one service',
+        'Week 3: light seasonal tie-in + CTA to book',
+        'Week 4: proof or FAQ + repurpose best clip to Stories',
+      ],
+    },
     relatedSlugs: ['paid-ads', 'print'],
+    faqSectionTitle: 'Voice, cadence & community',
+    faqSectionSubheading:
+      'Creative and moderation choices that are specific to social—not generic marketing FAQs.',
     faq: [
       {
-        question: 'Do you guarantee viral growth?',
+        question: 'How do you keep “birthday posts” and staff spotlights from feeling off-brand?',
         answer:
-          'No. We build durable brand presence and aligned calls-to-action; chasing virality often clashes with healthcare tone.',
+          'Templates with locked fonts/colours, pre-approved caption starters, and a rule: every human story still ties to a patient value (trust, access, education)—not random personal content.',
       },
       {
-        question: 'Can you work with our in-house photos?',
+        question: 'Reels: 15 seconds or 45 for a procedure explainer?',
         answer:
-          'Often yes—clean lighting and simple briefs dramatically improve results. We can also coordinate photographers where needed.',
+          'Hook in 2 seconds, deliver one idea per reel. For complex treatments we often split into a series of shorter reels rather than one long lecture—completion rate matters for distribution.',
       },
       {
-        question: 'Which platforms do you support?',
+        question: 'Should doctors appear on camera or is voiceover + captions enough?',
         answer:
-          'Typically Instagram, Facebook, and short-form surfaces that match your patients; strategy picks channels, not trends.',
+          'Both work. Camera builds trust faster when doctors are comfortable; voiceover + B-roll works when time is tight. We never pressure on-camera work that feels inauthentic.',
       },
       {
-        question: 'How do you measure success?',
+        question: 'An associate wants to post clinical cases—what guardrails do you set?',
         answer:
-          'Engagement quality, saves, profile actions, and downstream leads where tracking exists—reported without vanity-only scoreboards.',
+          'Consent, college advertising rules, no PHI in captions, and “before/after” policies you approve in writing. Clinical posts go through a slower approval lane.',
       },
       {
-        question: 'How much time will our team spend approving posts?',
+        question: 'How often should we post if we only have one person approving copy?',
         answer:
-          'We batch reviews and set SLAs (e.g. 48-hour turnaround) so production does not stall. Emergency posts for closures or crises get a separate fast path.',
+          'Sustainable cadence beats aspirational calendars. We often start biweekly or three times weekly with batch filming, then scale once approvals stay under SLA.',
       },
       {
-        question: 'What if someone leaves a negative comment on a post or ad?',
+        question: 'Can you manage boosted posts vs ads manager campaigns?',
         answer:
-          'We follow a response playbook you approve: acknowledge, take detailed conversation private when appropriate, never argue clinically or about fees in public. Escalation to your office manager or doctor for sensitive cases.',
+          'Yes—boosting is fine for quick tests; Ads Manager is better for structured audiences, exclusions, and reporting. We document which path we used so results are comparable month to month.',
       },
       {
-        question: 'Should social replace investment in our website?',
+        question: 'What if a patient DMs a clinical question?',
         answer:
-          'No—social discovers and nurtures; your site still closes trust, SEO, and booking. The best programs align bios, offers, and UTMs so social traffic lands on pages that match the story.',
+          'Scripted reply: we cannot diagnose in DMs, here is how to reach the office or book. Never fee quotes or treatment plans in private message threads.',
       },
     ],
   },
@@ -745,42 +814,54 @@ export const servicesOrdered: ServiceDefinition[] = [
       'Reactivation appointments attributed to list segments.',
       'Reprint rate and proof revision counts (operational quality).',
     ],
+    spotlight: {
+      variant: 'journeySteps',
+      title: 'From mailbox to chair',
+      steps: [
+        { label: 'Arrives', detail: 'One headline, one offer, readable arm’s length away' },
+        { label: 'Scans', detail: 'QR or short URL lands on a mobile page that matches the card' },
+        { label: 'Books', detail: 'Front desk knows the promo code and tracks source in PMS notes' },
+      ],
+    },
     relatedSlugs: ['social-content', 'local-seo'],
+    faqSectionTitle: 'Postage, lists & creative format',
+    faqSectionSubheading:
+      'Direct mail has different constraints than pixels—questions we get in kickoff.',
     faq: [
       {
-        question: 'Do you handle postage and mailing lists?',
+        question: 'Saturation mailing vs a targeted list—how do you choose?',
         answer:
-          'We can coordinate with vendors; list strategy and compliance are scoped per campaign. You approve data use.',
+          'Saturation covers every mailbox in a polygon—great for grand openings when you need awareness fast. Targeted lists (new movers, age band, radius) cost more per piece but waste less when the offer is narrow. We model both with your budget.',
       },
       {
-        question: 'Can print match our website?',
+        question: 'Bilingual postcard: English one side, French reverse—does that confuse people?',
         answer:
-          'Yes—that is the point. Visual system, fonts within print constraints, and messaging stay aligned.',
+          'Not if hierarchy is clear: dominant language on the address side with a bold flip cue. We test readability at arm’s length and keep the CTA obvious on both faces.',
       },
       {
-        question: 'What is a typical turnaround?',
+        question: 'Can we mail only apartment buildings near the office?',
         answer:
-          'Creative and proofing often take a few weeks; print and mail add production time. Rush fees may apply with vendors.',
+          'Sometimes, via carrier routes or purchased segments—depends on vendor data quality. We sanity-check against your real patient geography so you do not over-index on renters if your offer fits families in houses.',
       },
       {
-        question: 'Is print still effective?',
+        question: 'What offer tends to work: free whitening vs a paid consult credit?',
         answer:
-          'For many markets, tactile mail plus digital follow-up still works—especially for hyper-local offers and reactivation.',
+          'Depends on positioning and capacity. Free consults can flood hygiene; whitening drives volume for cosmetic positioning. We align the offer with the procedures you want to fill and your team’s phone script.',
       },
       {
-        question: 'Can you use our patient list from the PMS for mail?',
+        question: 'Do you design referral pads or in-office leave-behinds?',
         answer:
-          'Often yes for house-list campaigns, but data use must follow your privacy program and provincial expectations. We document purpose, consent, and retention; you approve the list export and vendor. We do not buy or append sensitive health data without explicit scope.',
+          'Yes—collateral that matches the same visual system as mail and web, with print specs for your local printer.',
       },
       {
-        question: 'How do we know print drove appointments versus word of mouth?',
+        question: 'Who pays Canada Post or the mail house—you or us?',
         answer:
-          'We design attribution in advance: unique URLs, QR codes, promo codes, or tracked phone numbers per drop. Perfect isolation is rare; we interpret signals honestly alongside front-desk intake questions.',
+          'Typically you contract postage and print; we deliver print-ready art and spec sheets. We can introduce vendors we trust, but the commercial relationship stays with your practice.',
       },
       {
-        question: 'Should we run print before or after digital ads?',
+        question: 'How long from approved proof to in-home?',
         answer:
-          'Depends on objective. New movers and grand openings often benefit from coordinated mail + geo-targeted ads. Reactivation may start with mail to a house list while email/SMS run in parallel. We sequence for budget and creative load—not dogma.',
+          'Often 2–5 weeks depending on class of mail, list processing, and plant queue. Rush exists but costs more—we build calendars around your open date or campaign window.',
       },
     ],
   },
@@ -871,42 +952,63 @@ export const servicesOrdered: ServiceDefinition[] = [
       'Patient complaints or negative sentiment themes in escalated chats.',
       'Pilot KPIs agreed before scale (e.g. 30-day window).',
     ],
+    spotlight: {
+      variant: 'splitLanes',
+      title: 'Where automation helps—and where humans stay in charge',
+      leftTitle: 'Keep with a human',
+      leftItems: [
+        'Individualized treatment and fee discussions',
+        'Upset patients and formal complaints',
+        'Insurance predetermination storytelling',
+        'Anything your college flags as advertising or clinical advice',
+      ],
+      rightTitle: 'Often safe to automate',
+      rightItems: [
+        'Hours, parking, and location confirmations',
+        'Missed-call SMS with booking link',
+        'Reminder sequences with clear opt-out',
+        'FAQ-style answers that link to authoritative pages',
+      ],
+    },
     relatedSlugs: ['websites', 'paid-ads'],
+    faqSectionTitle: 'Chat, SMS & PMS reality',
+    faqSectionSubheading:
+      'Automation is as much policy and telecom as it is software—questions we resolve before go-live.',
     faq: [
       {
-        question: 'Will AI replace our front desk?',
+        question: 'If a patient asks “how much is an implant” in chat, what should the bot say?',
         answer:
-          'No—it should reduce repetitive load and after-hours gaps while your team handles nuance, billing questions, and relationship care.',
+          'Never a personalized quote. A safe pattern is: explain that fees vary by case, invite them to book a consult, and offer to connect them with the front desk—then hand off with context.',
       },
       {
-        question: 'How do you think about privacy?',
+        question: 'Missed-call text-back: instant auto-reply vs next business morning?',
         answer:
-          'We align flows with Canadian expectations and your counsel’s guidance; sensitive storytelling never belongs in automated scripts.',
+          'Depends on risk tolerance and provincial expectations around electronic contact. Some practices prefer a delayed template during sleeping hours; others want immediate acknowledgment. We document the policy you choose.',
       },
       {
-        question: 'What platforms do you integrate with?',
+        question: 'Who owns conversation logs if we cancel the vendor?',
         answer:
-          'Depends on your PMS and telephony. We scope realistic integrations versus manual handoff.',
+          'Your contract with the vendor should specify export, retention, and deletion. We advise on what to ask for during procurement; legal review confirms obligations.',
       },
       {
-        question: 'Can we start small?',
+        question: 'Two-way SMS in Canada—do short codes still work everywhere?',
         answer:
-          'Yes—narrow pilots (e.g., missed-call SMS or after-hours chat) often prove value fastest.',
+          'Carrier filtering and toll-free vs long-code rules change. We test deliverability on major Canadian carriers for your use case and adjust registration or templates when messages fail silently.',
       },
       {
-        question: 'What should never be automated in a dental office?',
+        question: 'Can automation write directly into OpenDental, Dentrix, or Eaglesoft?',
         answer:
-          'Clinical triage beyond general information, individualized fee quotes, insurance predetermination storytelling, complaints about care, and anything your college or counsel flags. When in doubt, the system hands off to a human with context.',
+          'Sometimes via official APIs or approved middleware; often the honest answer is partial integration plus human confirmation. We scope what is real for your stack before promising “full sync.”',
       },
       {
-        question: 'Will patients know they are talking to AI?',
+        question: 'Will patients know they are not talking to a person?',
         answer:
-          'Transparency is best practice: clear labeling or scripted disclosure where regulations or platform rules require it—and because trust beats surprise. Tone should sound human and calm, not gimmicky.',
+          'Disclosure and tone matter. We default to clear labeling where appropriate and scripts that sound calm and human—surprise erodes trust faster than automation itself.',
       },
       {
-        question: 'Who trains our staff on new workflows?',
+        question: 'What is the smallest pilot you would recommend?',
         answer:
-          'We run joint QA sessions, provide short playbooks, and record Loom-style walkthroughs where helpful. Your office manager or lead receptionist usually owns day-to-day tweaks after launch; we stay available for tuning windows.',
+          'Often missed-call SMS or after-hours chat with a narrow scope, two-week review window, and explicit escalation metrics—prove containment and satisfaction before expanding.',
       },
     ],
   },

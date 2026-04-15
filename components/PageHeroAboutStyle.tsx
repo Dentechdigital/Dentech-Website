@@ -28,8 +28,6 @@ export type PageHeroAboutStyleProps = {
    * Example: `object-left` when the artboard has a dark/empty left and artwork on the right.
    */
   heroImageClassName?: string;
-  /** Use full width of the max-w-7xl inner area for copy (e.g. service detail pages). */
-  fullWidthCopy?: boolean;
 };
 
 /**
@@ -46,7 +44,6 @@ export default function PageHeroAboutStyle({
   breadcrumb,
   heroImageSrc,
   heroImageClassName,
-  fullWidthCopy = false,
 }: PageHeroAboutStyleProps) {
   const bgSrc = heroImageSrc ?? aboutHeroBgUrl;
   const bgPosition =
@@ -93,7 +90,7 @@ export default function PageHeroAboutStyle({
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {breadcrumb ? <div className="mb-8">{breadcrumb}</div> : null}
 
-        <div className={fullWidthCopy ? 'w-full max-w-none' : 'w-full lg:w-2/3 lg:max-w-none'}>
+        <div className="w-full lg:w-2/3 lg:max-w-none">
           <div className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-3 py-1.5 text-[10px] font-medium uppercase tracking-wide text-gray-500 shadow-sm transition-colors duration-300 dark:border-slate-700 dark:bg-slate-800 dark:text-gray-400">
             <span className="h-2 w-2 shrink-0 animate-pulse rounded-full bg-blue-500" />
             <span>{badge}</span>
@@ -105,11 +102,11 @@ export default function PageHeroAboutStyle({
             </h1>
           </div>
 
-          <div className="mt-6 w-full max-w-none text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+          <div className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-600 dark:text-slate-300">
             {description}
           </div>
 
-          {afterDescription ? <div className="mt-6 w-full max-w-none">{afterDescription}</div> : null}
+          {afterDescription ? <div className="mt-6 max-w-3xl">{afterDescription}</div> : null}
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <Link

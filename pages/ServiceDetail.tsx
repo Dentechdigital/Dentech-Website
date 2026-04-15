@@ -77,16 +77,12 @@ const ServiceDetail: React.FC = () => {
           description={service.heroTagline}
           heroImageSrc={heroCollageUrl}
           heroImageClassName={heroCollageUrl ? serviceHeroImageClass : undefined}
-          fullWidthCopy
           afterDescription={
-            <ul className="mt-2 grid w-full max-w-none gap-3 sm:grid-cols-2">
+            <ul className="flex max-w-3xl flex-col gap-3 sm:gap-2">
               {service.heroBullets.map((b) => (
-                <li
-                  key={b}
-                  className="flex gap-3 rounded-2xl border border-slate-200/80 bg-white/70 px-4 py-3 text-slate-700 shadow-sm backdrop-blur-sm dark:border-slate-600/60 dark:bg-slate-900/40 dark:text-slate-200"
-                >
+                <li key={b} className="flex gap-3 text-slate-700 dark:text-slate-200">
                   <Check className="mt-0.5 h-5 w-5 shrink-0 text-blue-600 dark:text-blue-400" strokeWidth={2} />
-                  <span className="text-sm leading-snug sm:text-[0.9375rem]">{b}</span>
+                  <span>{b}</span>
                 </li>
               ))}
             </ul>

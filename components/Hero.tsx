@@ -1,10 +1,10 @@
 import React, { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import DynamicDots from './DynamicDots';
+import { FEATURES } from '../constants';
 
 const DentalMarketingGraphic = lazy(() => import('./DentalMarketingGraphic'));
-import { FEATURES } from '../constants';
+const DynamicDots = lazy(() => import('./DynamicDots'));
 import { heroTrustPoints } from '../data/homeComparison';
 
 const assetBase = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}`;
@@ -74,11 +74,16 @@ const Hero: React.FC = () => {
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-blue-50/50 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none transition-colors duration-300 dark:hidden" />
 
       {/* Full-width Dynamic Dots Background */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-100 dark:opacity-50 transition-opacity duration-300" style={{
-        maskImage: 'radial-gradient(ellipse at center, black 32%, transparent 92%)',
-        WebkitMaskImage: 'radial-gradient(ellipse at center, black 32%, transparent 92%)'
-      }}>
-        <DynamicDots />
+      <div
+        className="absolute inset-0 z-0 pointer-events-none opacity-100 dark:opacity-50 transition-opacity duration-300"
+        style={{
+          maskImage: 'radial-gradient(ellipse at center, black 32%, transparent 92%)',
+          WebkitMaskImage: 'radial-gradient(ellipse at center, black 32%, transparent 92%)',
+        }}
+      >
+        <Suspense fallback={null}>
+          <DynamicDots />
+        </Suspense>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">

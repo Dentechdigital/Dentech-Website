@@ -168,9 +168,12 @@ const ServiceDetail: React.FC = () => {
             <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
               <SectionHeader
                 id="why-heading"
-                kicker="Why it matters"
-                title="Why practices invest in this"
-                description="Symptoms, risk, and opportunity we hear from growth-focused teams."
+                kicker={service.whySectionKicker ?? 'Why it matters'}
+                title={service.whySectionTitle}
+                description={
+                  service.whySectionSubheading ??
+                  'Symptoms, risk, and opportunity we hear from growth-focused teams.'
+                }
               />
               <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 {service.whyItMatters.map((line, i) => (

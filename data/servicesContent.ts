@@ -48,6 +48,12 @@ export type ServiceDefinition = {
   whatItIs: string;
   /** Why practices invest—symptoms, risk, opportunity */
   whyItMatters: string[];
+  /** Service-specific H2 (e.g. “Why practices invest in paid ads”) */
+  whySectionTitle: string;
+  /** Optional eyebrow above the why heading (default in UI: “Why it matters”) */
+  whySectionKicker?: string;
+  /** Lead sentence under the why heading */
+  whySectionSubheading?: string;
   forWho: string;
   /** Optional: readiness before buying (tracking, site, capacity) */
   prerequisites?: string[];
@@ -184,6 +190,9 @@ export const servicesOrdered: ServiceDefinition[] = [
       'Multi-location groups live or die on whether each location has correct landing pages and GBP logic—otherwise locations compete with each other.',
       'Reviews and recency signals influence both human choice and local ranking; ignoring reputation is effectively choosing invisibility.',
     ],
+    whySectionTitle: 'Why practices invest in local SEO & Maps',
+    whySectionSubheading:
+      'Search, Maps, and AI summaries all pull from the same footprint—here is why nailing local discovery pays off.',
     prerequisites: [
       'Accurate legal business name, address, and phone as you want them shown publicly.',
       'Access to Google Business Profile (owner or manager) and Google Search Console for the website domain.',
@@ -334,6 +343,9 @@ export const servicesOrdered: ServiceDefinition[] = [
       'Slow phone answer or a weak booking page silently burns ad spend; the platform still charges for the click.',
       'Seasonal pushes (whitening, ortho consults, implant seminars) need controlled tests with clear start and end—not vague “always on” spend.',
     ],
+    whySectionTitle: 'Why practices invest in paid ads',
+    whySectionSubheading:
+      'When you need demand now, defend your brand in the auction, and see cost-per-lead—not vanity clicks.',
     prerequisites: [
       'Confirmed booking paths: phone, online scheduling, or forms someone monitors within minutes during business hours.',
       'Rough margin and capacity guardrails for the procedures you want to advertise.',
@@ -482,6 +494,9 @@ export const servicesOrdered: ServiceDefinition[] = [
       'Relaunches go wrong without redirect plans—losing years of link equity and causing confusing AI summaries.',
       'Accessibility is both the right thing and increasingly aligned with good UX: contrast, focus states, readable type.',
     ],
+    whySectionTitle: 'Why practices invest in their website',
+    whySectionSubheading:
+      'Search, ads, and referrals all land here—speed, clarity, and structure decide whether visitors book or bounce.',
     prerequisites: [
       'Brand basics: logo, colours, and any brand guidelines; or willingness to define them as part of the project.',
       'Photo direction: professional photography strongly preferred for trust; we can brief your photographer.',
@@ -630,6 +645,9 @@ export const servicesOrdered: ServiceDefinition[] = [
       'Recall and reactivation campaigns need creative hooks patients recognize in the feed.',
       'Without guardrails, well-meaning staff can post out-of-scope claims or PHI-adjacent content.',
     ],
+    whySectionTitle: 'Why practices invest in social & content',
+    whySectionSubheading:
+      'Trust, recall, and proof in the feed—aligned with the procedures and seasons you want to grow.',
     prerequisites: [
       'Named approvers (doctor + marketing lead) and turnaround expectations for reviews.',
       'Brand voice examples: posts you liked, competitors you do not want to resemble.',
@@ -775,6 +793,9 @@ export const servicesOrdered: ServiceDefinition[] = [
       'Reactivation lists (patients overdue for hygiene or unscheduled treatment) often need a tangible nudge, not only email.',
       'In-office leave-behinds support treatment acceptance when paired with clear next steps.',
     ],
+    whySectionTitle: 'Why practices invest in print & direct mail',
+    whySectionSubheading:
+      'Mailbox and in-office pieces still drive recall and consults when the audience, offer, and tracking are sharp.',
     prerequisites: [
       'Clear offer and audience: radius, new movers, inactive patient list (with compliant data use).',
       'Print vendor or willingness to use one we coordinate with; proof approval workflow.',
@@ -913,6 +934,9 @@ export const servicesOrdered: ServiceDefinition[] = [
       'Multi-location groups need consistent first-touch answers without each office improvising.',
       'Done carefully, automation improves show rates when reminders respect patient preferences and regulations.',
     ],
+    whySectionTitle: 'Why practices invest in AI & automation',
+    whySectionSubheading:
+      'Cover peaks and after-hours without losing the human handoff patients expect on fees and clinical questions.',
     prerequisites: [
       'Written policies on what can and cannot be said by automation (fees, clinical advice, insurance).',
       'Telephony and PMS context: who answers escalations and within what timeframe.',

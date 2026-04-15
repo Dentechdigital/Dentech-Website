@@ -2,10 +2,14 @@ import React from 'react';
 import Hero from '../components/Hero';
 import TrustedBy from '../components/TrustedBy';
 import Services from '../components/Services';
+import HomeProcessSteps from '../components/HomeProcessSteps';
 import AISolutionsCTA from '../components/AISolutionsCTA';
 import WhyChooseUs from '../components/WhyChooseUs';
+import HomeComparisonTable from '../components/HomeComparisonTable';
 import SpecialOfferCTA from '../components/SpecialOfferCTA';
 import CaseStudiesPreview from '../components/CaseStudiesPreview';
+import HomeMidCta from '../components/HomeMidCta';
+import HomeReviewsHighlight from '../components/HomeReviewsHighlight';
 import Testimonials from '../components/Testimonials';
 import PricingPlans from '../components/PricingPlans';
 import HomeFAQ, { homeFaqItems } from '../components/HomeFAQ';
@@ -23,10 +27,14 @@ const Home: React.FC = () => {
       <Hero />
       <TrustedBy />
       <Services />
+      <HomeProcessSteps />
       <AISolutionsCTA />
       <WhyChooseUs />
+      <HomeComparisonTable />
       <SpecialOfferCTA />
       <CaseStudiesPreview />
+      <HomeMidCta />
+      <HomeReviewsHighlight />
       <Testimonials />
       <PricingPlans />
       <HomeFAQ />

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import DentalMarketingGraphic from './DentalMarketingGraphic';
 import DynamicDots from './DynamicDots';
 import { FEATURES } from '../constants';
+import { heroTrustPoints } from '../data/homeComparison';
 
 const assetBase = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}`;
 
@@ -106,22 +107,33 @@ const Hero: React.FC = () => {
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-start gap-4 w-full sm:w-auto mt-8">
-              <Link to="/contact" className="group relative px-8 py-4 bg-blue-600 text-white rounded-full font-medium text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3 overflow-hidden w-full sm:w-auto">
-                <span className="relative z-10">Get Your Free Audit</span>
-                <div className="relative z-10 bg-white/20 rounded-full p-1 group-hover:translate-x-1 transition-transform">
-                  <ArrowRight className="w-4 h-4" />
-                </div>
-                {/* Button shine effect */}
-                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12" />
-              </Link>
-
-              <div className="relative w-full sm:w-auto mt-2 sm:mt-0">
-                <a href="tel:6138693121" className="group relative px-6 py-4 bg-transparent text-blue-950 dark:text-white rounded-full font-medium text-lg transition-all duration-300 flex items-center justify-center gap-3 w-full sm:w-auto">
+            <div className="mt-8 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+                <Link
+                  to="/contact"
+                  className="group relative flex w-full items-center justify-center gap-3 overflow-hidden rounded-full bg-blue-600 px-8 py-4 text-lg font-medium text-white shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl sm:w-auto"
+                >
+                  <span className="relative z-10">Get Your Free Audit</span>
+                  <div className="relative z-10 rounded-full bg-white/20 p-1 transition-transform group-hover:translate-x-1">
+                    <ArrowRight className="h-4 w-4" />
+                  </div>
+                  <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 transition-transform duration-1000 group-hover:translate-x-full" />
+                </Link>
+                <Link
+                  to="/about"
+                  className="flex w-full items-center justify-center rounded-full border border-slate-200/90 bg-white/80 px-6 py-3.5 text-sm font-semibold text-blue-950 shadow-sm backdrop-blur transition hover:border-blue-200 hover:bg-white dark:border-slate-600 dark:bg-slate-800/80 dark:text-white dark:hover:border-blue-500/40 sm:w-auto"
+                >
+                  How we work
+                </Link>
+              </div>
+              <div className="relative w-full sm:mt-0 sm:w-auto">
+                <a
+                  href="tel:6138693121"
+                  className="group relative flex w-full items-center justify-center gap-3 rounded-full bg-transparent px-6 py-4 text-lg font-medium text-blue-950 transition-all duration-300 dark:text-white sm:w-auto"
+                >
                   <span className="relative z-10 flex items-center gap-3">
                     <div className="relative">
-                      {/* Online glow effect behind avatar on hover */}
-                      <div className="absolute inset-0 bg-green-500 rounded-full blur opacity-0 group-hover:opacity-40 group-hover:scale-150 transition-all duration-500"></div>
+                      <div className="absolute inset-0 scale-150 rounded-full bg-green-500 opacity-0 blur transition-all duration-500 group-hover:opacity-40" />
                       <img
                         src={`${assetBase}avatar.webp`}
                         srcSet={`${assetBase}avatar-80w.webp 80w, ${assetBase}avatar-160w.webp 160w`}
@@ -134,14 +146,26 @@ const Hero: React.FC = () => {
                         decoding="async"
                         referrerPolicy="no-referrer"
                       />
-                      <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-[#FAFAF9] dark:border-slate-950 rounded-full z-20 transition-colors duration-300"></span>
+                      <span className="absolute bottom-0 right-0 z-20 h-3 w-3 rounded-full border-2 border-[#FAFAF9] bg-green-500 transition-colors duration-300 dark:border-slate-950" />
                     </div>
-                    <span className="group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors duration-300">Let's talk</span>
+                    <span className="transition-colors duration-300 group-hover:text-green-600 dark:group-hover:text-green-400">
+                      Let&apos;s talk
+                    </span>
                   </span>
                 </a>
-                
               </div>
             </div>
+
+            <ul className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-left" aria-label="Quick facts">
+              {heroTrustPoints.map((label) => (
+                <li
+                  key={label}
+                  className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 sm:text-xs"
+                >
+                  {label}
+                </li>
+              ))}
+            </ul>
 
             {/* Features List */}
             <div className="pt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 w-full border-t border-gray-200/60 dark:border-slate-800 mt-8 transition-colors duration-300">

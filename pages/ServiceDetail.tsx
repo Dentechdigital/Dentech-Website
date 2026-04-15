@@ -144,35 +144,14 @@ const ServiceDetail: React.FC = () => {
         />
 
         <main className="bg-white pb-4 dark:bg-slate-950">
-          {/* Designed: overview + spotlight */}
-          <section className="border-b border-slate-200/80 py-14 dark:border-slate-800 md:py-16" aria-labelledby="overview-heading">
-            <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-              <div
-                className={
-                  service.spotlight
-                    ? 'grid items-start gap-10 lg:grid-cols-12 lg:gap-12'
-                    : 'grid items-start gap-10'
-                }
-              >
-                <div className={service.spotlight ? 'lg:col-span-7' : ''}>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">
-                    At a glance
-                  </p>
-                  <h2 id="overview-heading" className="mt-2 text-2xl font-bold tracking-tight text-slate-900 dark:text-white md:text-3xl">
-                    Overview
-                  </h2>
-                  <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-700 dark:text-slate-300">
-                    {service.overview}
-                  </p>
-                </div>
-                {service.spotlight ? (
-                  <div className="lg:col-span-5" aria-label="Service snapshot">
-                    <ServiceSpotlight data={service.spotlight} />
-                  </div>
-                ) : null}
+          <TextSection id="overview-heading" kicker="At a glance" title="Overview">
+            <p className="text-base leading-relaxed text-slate-700 dark:text-slate-300">{service.overview}</p>
+            {service.spotlight ? (
+              <div className="mt-10 border-t border-slate-200/80 pt-10 dark:border-slate-800" aria-label="Service snapshot">
+                <ServiceSpotlight data={service.spotlight} plain />
               </div>
-            </div>
-          </section>
+            ) : null}
+          </TextSection>
 
           <TextSection id="what-it-is-heading" kicker="Definition" title="What this is">
             <p className="text-base leading-relaxed text-slate-700 dark:text-slate-300">{service.whatItIs}</p>
@@ -216,34 +195,21 @@ const ServiceDetail: React.FC = () => {
             <BulletList items={service.included} />
           </TextSection>
 
-          {/* Designed: process steps */}
-          <section className="border-t border-slate-200/80 bg-slate-50/70 py-14 dark:border-slate-800 dark:bg-slate-900/35 md:py-16" aria-labelledby="process-heading">
-            <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-              <p className="text-center text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">
-                Process
-              </p>
-              <h2 id="process-heading" className="mt-2 text-center text-2xl font-bold tracking-tight text-slate-900 dark:text-white md:text-3xl">
-                How we work with you
-              </h2>
-              <p className="mx-auto mt-3 max-w-2xl text-center text-base text-slate-600 dark:text-slate-400">
-                Three beats—discovery, build, and iteration—so expectations stay clear.
-              </p>
-              <ol className="mt-10 grid gap-6 md:grid-cols-3">
-                {service.processSteps.map((step, i) => (
-                  <li
-                    key={step.title}
-                    className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900/70 md:p-7"
-                  >
-                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 text-sm font-bold text-white dark:bg-blue-500">
-                      {i + 1}
-                    </span>
-                    <h3 className="mt-4 text-lg font-semibold text-slate-900 dark:text-white">{step.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">{step.body}</p>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </section>
+          <TextSection
+            id="process-heading"
+            kicker="Process"
+            title="How we work with you"
+            lead="Three beats—discovery, build, and iteration—so expectations stay clear."
+          >
+            <ol className="list-decimal space-y-6 pl-5 text-base leading-relaxed text-slate-700 marker:font-semibold dark:text-slate-300">
+              {service.processSteps.map((step) => (
+                <li key={step.title} className="pl-2">
+                  <span className="font-semibold text-slate-900 dark:text-white">{step.title}</span>
+                  <p className="mt-2 font-normal text-slate-600 dark:text-slate-400">{step.body}</p>
+                </li>
+              ))}
+            </ol>
+          </TextSection>
 
           <TextSection
             id="technical-heading"

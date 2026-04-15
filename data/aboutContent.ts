@@ -129,6 +129,11 @@ export const aboutTeamMembers: {
   role: string;
   /** File under /public/ — use null for initials-only until a photo exists */
   photo: string | null;
+  /**
+   * When true, the About team card renders this photo in grayscale so it matches B&W portraits.
+   * (Chat/widget can still use the same file in full color via dentechChatConfig.)
+   */
+  rosterPhotoGrayscale?: boolean;
 }[] = [
   { nameDisplay: 'Dahman M.', role: 'Founder', photo: 'team/dahman-m.webp' },
   { nameDisplay: 'Balfoul M.', role: 'Account manager', photo: 'team/balfoul.webp' },
@@ -137,7 +142,7 @@ export const aboutTeamMembers: {
   { nameDisplay: 'Khadir M.', role: 'SEO / GEO specialist', photo: 'team/khadir-m.webp' },
   { nameDisplay: 'Zak A.', role: 'Webflow designer', photo: 'team/zak-a.webp' },
   { nameDisplay: 'Sabri Y.', role: 'Web developer', photo: 'team/sabri-y.webp' },
-  { nameDisplay: 'Maya', role: 'AI admin assistant', photo: 'team/maya.webp' },
+  { nameDisplay: 'Maya', role: 'AI admin assistant', photo: 'team/maya.webp', rosterPhotoGrayscale: true },
 ];
 
 export const testimonialPlaceholder = {

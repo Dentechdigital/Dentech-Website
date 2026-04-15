@@ -18,10 +18,12 @@ function TeamMemberCard({
   nameDisplay,
   role,
   photo,
+  rosterPhotoGrayscale,
 }: {
   nameDisplay: string;
   role: string;
   photo: string | null;
+  rosterPhotoGrayscale?: boolean;
 }) {
   const [imgOk, setImgOk] = useState(!!photo);
   const src = photo ? teamPhotoUrl(photo) : '';
@@ -35,7 +37,7 @@ function TeamMemberCard({
           <img
             src={src}
             alt={nameDisplay}
-            className="h-full w-full object-cover"
+            className={`h-full w-full object-cover ${rosterPhotoGrayscale ? 'grayscale contrast-[1.06]' : ''}`}
             loading="lazy"
             onError={() => setImgOk(false)}
           />
@@ -95,7 +97,13 @@ export default function AboutTeamScrum() {
           </p>
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {aboutTeamMembers.map((m) => (
-              <TeamMemberCard key={m.nameDisplay} nameDisplay={m.nameDisplay} role={m.role} photo={m.photo} />
+              <TeamMemberCard
+                key={m.nameDisplay}
+                nameDisplay={m.nameDisplay}
+                role={m.role}
+                photo={m.photo}
+                rosterPhotoGrayscale={m.rosterPhotoGrayscale}
+              />
             ))}
           </div>
         </div>

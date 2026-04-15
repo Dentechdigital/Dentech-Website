@@ -142,7 +142,8 @@ export const aboutTeamMembers: {
   { nameDisplay: 'Khadir M.', role: 'SEO / GEO specialist', photo: 'team/khadir-m.webp' },
   { nameDisplay: 'Zak A.', role: 'Webflow designer', photo: 'team/zak-a.webp' },
   { nameDisplay: 'Sabri Y.', role: 'Web developer', photo: 'team/sabri-y.webp' },
-  { nameDisplay: 'Maya', role: 'AI admin assistant', photo: 'team/maya.webp', rosterPhotoGrayscale: true },
+  // Roster: high-res B&W maya-roster.webp; chat widget keeps color team/maya.webp (dentechChatConfig).
+  { nameDisplay: 'Maya', role: 'AI admin assistant', photo: 'team/maya-roster.webp' },
 ];
 
 export const testimonialPlaceholder = {

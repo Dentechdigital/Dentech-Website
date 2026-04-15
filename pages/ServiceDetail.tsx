@@ -70,8 +70,9 @@ const ServiceDetail: React.FC = () => {
           description={service.heroTagline}
           heroImageSrc={heroCollageUrl}
           heroImageClassName={heroCollageUrl ? serviceHeroImageClass : undefined}
+          fullWidthCopy
           afterDescription={
-            <ul className="flex max-w-3xl flex-col gap-3 sm:gap-2">
+            <ul className="flex w-full max-w-none flex-col gap-3 sm:gap-2">
               {service.heroBullets.map((b) => (
                 <li key={b} className="flex gap-3 text-slate-700 dark:text-slate-200">
                   <Check className="mt-0.5 h-5 w-5 shrink-0 text-blue-600 dark:text-blue-400" strokeWidth={2} />
@@ -101,7 +102,7 @@ const ServiceDetail: React.FC = () => {
           <h2 id="overview-heading" className="text-xl font-bold text-blue-950 dark:text-white">
             Overview
           </h2>
-          <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-600 dark:text-slate-300">
+          <p className="mt-4 w-full max-w-none text-base leading-relaxed text-slate-600 dark:text-slate-300">
             {service.overview}
           </p>
         </section>
@@ -114,7 +115,7 @@ const ServiceDetail: React.FC = () => {
             <h2 id="what-it-is-heading" className="text-xl font-bold text-blue-950 dark:text-white">
               What this is
             </h2>
-            <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-600 dark:text-slate-300">
+            <p className="mt-4 w-full max-w-none text-base leading-relaxed text-slate-600 dark:text-slate-300">
               {service.whatItIs}
             </p>
           </div>
@@ -124,9 +125,9 @@ const ServiceDetail: React.FC = () => {
           <h2 id="why-heading" className="text-xl font-bold text-blue-950 dark:text-white">
             Why practices invest in this
           </h2>
-          <ul className="mt-6 max-w-3xl space-y-3 text-slate-600 dark:text-slate-300">
+          <ul className="mt-6 grid w-full max-w-none gap-4 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-4">
             {service.whyItMatters.map((line) => (
-              <li key={line} className="flex gap-3">
+              <li key={line} className="flex gap-3 text-slate-600 dark:text-slate-300">
                 <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500" aria-hidden />
                 <span className="leading-relaxed">{line}</span>
               </li>
@@ -142,7 +143,7 @@ const ServiceDetail: React.FC = () => {
             <h2 id="for-who-heading" className="text-xl font-bold text-blue-950 dark:text-white">
               Who this is for
             </h2>
-            <p className="mt-3 max-w-3xl text-slate-600 dark:text-slate-300">{service.forWho}</p>
+            <p className="mt-3 w-full max-w-none text-slate-600 dark:text-slate-300">{service.forWho}</p>
           </div>
         </section>
 
@@ -151,10 +152,10 @@ const ServiceDetail: React.FC = () => {
             <h2 id="prereq-heading" className="text-xl font-bold text-blue-950 dark:text-white">
               Before we start
             </h2>
-            <p className="mt-2 max-w-2xl text-sm text-slate-500 dark:text-slate-400">
+            <p className="mt-2 w-full max-w-none text-sm text-slate-500 dark:text-slate-400">
               Practical readiness items so the program launches cleanly—nothing here is about selling you extras you do not need.
             </p>
-            <ul className="mt-6 max-w-3xl space-y-3">
+            <ul className="mt-6 grid w-full max-w-none gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {service.prerequisites.map((line) => (
                 <li
                   key={line}
@@ -219,12 +220,12 @@ const ServiceDetail: React.FC = () => {
           <h2 id="technical-heading" className="text-xl font-bold text-blue-950 dark:text-white">
             Under the hood
           </h2>
-          <p className="mt-2 max-w-2xl text-sm text-slate-500 dark:text-slate-400">
+          <p className="mt-2 w-full max-w-none text-sm text-slate-500 dark:text-slate-400">
             Technical detail in plain language—so you know what we are doing and why it matters for patients and platforms.
           </p>
-          <div className="mt-10 max-w-3xl space-y-10">
+          <div className="mt-10 grid w-full max-w-none gap-10 lg:grid-cols-2 lg:gap-x-10 lg:gap-y-12">
             {service.technicalDeepDive.map((block) => (
-              <div key={block.heading}>
+              <div key={block.heading} className="min-w-0">
                 <h3 className="text-lg font-semibold text-blue-950 dark:text-white">{block.heading}</h3>
                 <div className="mt-3 space-y-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
                   {block.paragraphs.map((p, i) => (
@@ -244,7 +245,7 @@ const ServiceDetail: React.FC = () => {
             <h2 id="mistakes-heading" className="text-xl font-bold text-blue-950 dark:text-white">
               Common pitfalls we help you avoid
             </h2>
-            <ul className="mt-6 max-w-3xl space-y-3">
+            <ul className="mt-6 grid w-full max-w-none gap-4 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-3">
               {service.commonMistakes.map((line) => (
                 <li key={line} className="flex gap-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
                   <AlertTriangle
@@ -264,7 +265,7 @@ const ServiceDetail: React.FC = () => {
             <h2 id="outcomes-heading" className="text-xl font-bold text-blue-950 dark:text-white">
               What success looks like
             </h2>
-            <p className="mt-2 max-w-2xl text-sm text-slate-600 dark:text-slate-400">
+            <p className="mt-2 w-full max-w-none text-sm text-slate-600 dark:text-slate-400">
               Plain-language signals we work toward—your market and capacity shape how quickly each shows up.
             </p>
             <ul className="mt-6 grid gap-3 sm:grid-cols-2">
@@ -284,7 +285,7 @@ const ServiceDetail: React.FC = () => {
           <h2 id="metrics-heading" className="text-xl font-bold text-blue-950 dark:text-white">
             What we measure with you
           </h2>
-          <p className="mt-2 max-w-2xl text-sm text-slate-500 dark:text-slate-400">
+          <p className="mt-2 w-full max-w-none text-sm text-slate-500 dark:text-slate-400">
             Leading and lagging indicators agreed upfront—so progress is visible without hype.
           </p>
           <ul className="mt-6 grid gap-3 sm:grid-cols-2">
@@ -339,7 +340,7 @@ const ServiceDetail: React.FC = () => {
         <section className="border-t border-slate-200/80 bg-white py-14 dark:border-slate-800 dark:bg-slate-950">
           <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
             <p className="text-lg font-medium text-blue-950 dark:text-white">Ready to talk specifics?</p>
-            <p className="mx-auto mt-2 max-w-xl text-slate-600 dark:text-slate-300">
+            <p className="mx-auto mt-2 w-full max-w-3xl text-slate-600 dark:text-slate-300">
               Tell us about your market, services, and goals—we&rsquo;ll map a practical next step.
             </p>
             <Link

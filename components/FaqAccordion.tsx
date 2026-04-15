@@ -139,7 +139,7 @@ export default function FaqAccordion({
           className={
             embedded
               ? 'mb-8 max-w-none text-left'
-              : 'mx-auto mb-10 max-w-3xl text-center'
+              : 'mx-auto mb-10 w-full max-w-none text-center'
           }
         >
           {!embedded ? (

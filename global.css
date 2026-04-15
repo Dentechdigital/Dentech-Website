@@ -213,6 +213,40 @@ html.dark ::-webkit-scrollbar-thumb {
   will-change: transform;
 }
 
+/* About page trust strip — seamless infinite scroll (two segments, move left / read RTL as “right to left” flow) */
+@keyframes about-trust-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.about-trust-marquee-viewport {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
+}
+
+.about-trust-marquee-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.about-trust-marquee-track {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  width: max-content;
+  animation: about-trust-marquee 36s linear infinite;
+  will-change: transform;
+}
+
 .about-marquee-item {
   display: flex;
   align-items: center;
@@ -289,13 +323,9 @@ html.dark .about-marquee-item {
     animation: none;
   }
 
+  /* Keep trust strip moving; slow the loop instead of disabling (keyframes must not be overridden). */
   .about-trust-marquee-track {
-    animation: none !important;
-    transform: none !important;
-  }
-
-  .about-trust-marquee-track .about-trust-marquee-seg:last-child {
-    display: none;
+    animation-duration: 72s;
   }
 
   .about-live-chip {

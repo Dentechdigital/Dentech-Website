@@ -115,24 +115,16 @@ const Hero: React.FC = () => {
 
             {/* CTAs */}
             <div className="mt-8 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
-                <Link
-                  to="/contact"
-                  className="group relative flex w-full items-center justify-center gap-3 overflow-hidden rounded-full bg-blue-600 px-8 py-4 text-lg font-medium text-white shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl sm:w-auto"
-                >
-                  <span className="relative z-10">Get Your Free Audit</span>
-                  <div className="relative z-10 rounded-full bg-white/20 p-1 transition-transform group-hover:translate-x-1">
-                    <ArrowRight className="h-4 w-4" />
-                  </div>
-                  <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 transition-transform duration-1000 group-hover:translate-x-full" />
-                </Link>
-                <Link
-                  to="/about"
-                  className="flex w-full items-center justify-center rounded-full border border-slate-200/90 bg-white/80 px-6 py-3.5 text-sm font-semibold text-blue-950 shadow-sm backdrop-blur transition hover:border-blue-200 hover:bg-white dark:border-slate-600 dark:bg-slate-800/80 dark:text-white dark:hover:border-blue-500/40 sm:w-auto"
-                >
-                  How we work
-                </Link>
-              </div>
+              <Link
+                to="/contact"
+                className="group relative flex w-full items-center justify-center gap-3 overflow-hidden rounded-full bg-blue-600 px-8 py-4 text-lg font-medium text-white shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl sm:w-auto"
+              >
+                <span className="relative z-10">Get Your Free Audit</span>
+                <div className="relative z-10 rounded-full bg-white/20 p-1 transition-transform group-hover:translate-x-1">
+                  <ArrowRight className="h-4 w-4" />
+                </div>
+                <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 transition-transform duration-1000 group-hover:translate-x-full" />
+              </Link>
               <div className="relative w-full sm:mt-0 sm:w-auto">
                 <a
                   href="tel:6138693121"

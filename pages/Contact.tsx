@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import SEO from '../components/SEO';
 import PageHeroAboutStyle from '../components/PageHeroAboutStyle';
+import { SectionGradientEmphasis } from '../components/SectionGradientEmphasis';
 import ContactTrustBadges from '../components/contact/ContactTrustBadges';
 import LeadInquiryForm from '../components/LeadInquiryForm';
 import {
@@ -90,7 +91,11 @@ const Contact: React.FC = () => {
       <div className="min-h-screen bg-[#FAFAF9] transition-colors duration-300 dark:bg-slate-950">
         <PageHeroAboutStyle
           badge="Ottawa · Hybrid team"
-          title="Let’s build your growth system"
+          title={
+            <>
+              Let’s build your <SectionGradientEmphasis>growth system</SectionGradientEmphasis>
+            </>
+          }
           description={
             <>
               Book a strategy call, send specs, or stop by the Preston studio—whichever fits your week. We reply to every serious inquiry within one business day.
@@ -121,8 +126,8 @@ const Contact: React.FC = () => {
             <div className="grid gap-14 lg:grid-cols-12 lg:items-stretch lg:gap-16">
               <div className="flex flex-col lg:col-span-5">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 dark:text-blue-400">Contact</p>
-                <h2 className="about-display mt-2 text-3xl font-semibold tracking-tight text-blue-950 dark:text-white md:text-4xl">
-                  Every channel, one team
+                <h2 className="about-display mt-2 text-3xl font-bold tracking-tight text-blue-950 dark:text-white md:text-5xl">
+                  Every channel, <SectionGradientEmphasis>one team</SectionGradientEmphasis>
                 </h2>
                 <p className="mt-4 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
                   Call the desk, email deliverables, or plan a visit. Use the step-by-step form when you are ready to share goals and budget—we will match you with the right strategist.
@@ -238,9 +243,9 @@ const Contact: React.FC = () => {
               </div>
               <h2
                 id="client-portal-heading"
-                className="about-display mt-6 text-center text-3xl font-semibold tracking-tight text-blue-950 dark:text-white"
+                className="about-display mt-6 text-center text-3xl font-bold tracking-tight text-blue-950 dark:text-white md:text-5xl"
               >
-                Client portal
+                Client <SectionGradientEmphasis>portal</SectionGradientEmphasis>
               </h2>
               <p className="mt-2 text-center text-sm text-gray-600 dark:text-gray-400">
                 Sign in to access your dashboard and communications.
@@ -322,8 +327,8 @@ const Contact: React.FC = () => {
             <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 dark:text-blue-400">Visit</p>
-                <h2 className="about-display mt-2 text-3xl font-semibold tracking-tight text-blue-950 dark:text-white md:text-4xl">
-                  Preston Street studio
+                <h2 className="about-display mt-2 text-3xl font-bold tracking-tight text-blue-950 dark:text-white md:text-5xl">
+                  Preston Street <SectionGradientEmphasis>studio</SectionGradientEmphasis>
                 </h2>
                 <p className="mt-4 text-lg text-slate-600 dark:text-slate-300">
                   Pan and zoom the live map, then open directions in Google Maps for turn-by-turn routing. Street parking and LRT connections vary by time of day—we will confirm details when we schedule.

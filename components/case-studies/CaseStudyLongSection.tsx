@@ -152,7 +152,7 @@ export default function CaseStudyLongSection({
 
         <h2
           id={`${study.anchorId}-heading`}
-          className="about-display mt-4 max-w-4xl text-3xl font-semibold tracking-tight text-blue-950 dark:text-white md:text-5xl"
+          className="about-display mt-4 max-w-4xl text-3xl font-bold tracking-tight text-blue-950 dark:text-white md:text-5xl"
         >
           {study.clientName}
         </h2>

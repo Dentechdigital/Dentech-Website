@@ -9,7 +9,7 @@ const aboutHeroBgUrl = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}hero-bac
 export type PageHeroAboutStyleProps = {
   /** Small pill text (e.g. Since 2017 · Ottawa) */
   badge: string;
-  title: string;
+  title: React.ReactNode;
   /** Main supporting copy */
   description: React.ReactNode;
   /** Inserted after description, before CTAs (e.g. checklist) */

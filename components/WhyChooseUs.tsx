@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { CheckCircle2, TrendingUp, Users, ShieldCheck, Award, Clock, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { SectionGradientEmphasis } from './SectionGradientEmphasis';
 
 const reasons = [
   {
@@ -82,10 +83,10 @@ export default function WhyChooseUs() {
                 <span className="text-xs font-semibold tracking-wide text-blue-700 dark:text-blue-300 uppercase">The Dentech Advantage</span>
               </div>
               
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-blue-950 dark:text-white mb-6 tracking-tight leading-tight">
+              <h2 className="mb-6 text-3xl font-bold tracking-tight text-blue-950 dark:text-white md:text-5xl lg:text-5xl">
                 Why partner <br className="hidden lg:block" />
                 <span className="whitespace-nowrap">
-                  with <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Dentech?</span>
+                  with <SectionGradientEmphasis>Dentech?</SectionGradientEmphasis>
                 </span>
               </h2>
               

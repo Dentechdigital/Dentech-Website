@@ -1,6 +1,7 @@
 import React from 'react';
 import { ImageIcon } from 'lucide-react';
 import type { ProofOfWorkSlot } from '../../data/caseStudiesContent';
+import { SectionGradientEmphasis } from '../SectionGradientEmphasis';
 
 function mediaUrl(src: string): string {
   if (src.startsWith('http')) return src;
@@ -25,9 +26,9 @@ export default function CaseStudiesProofOfWorkGrid({ slots, id = 'proof-of-work'
           <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">Proof of work</p>
           <h2
             id="proof-of-work-heading"
-            className="about-display mt-2 text-3xl font-semibold tracking-tight text-blue-950 dark:text-white md:text-4xl"
+            className="mt-2 text-3xl font-bold tracking-tight text-blue-950 dark:text-white md:text-5xl"
           >
-            Creative &amp; collateral snapshots
+            Creative &amp; collateral <SectionGradientEmphasis>snapshots</SectionGradientEmphasis>
           </h2>
           <p className="mt-4 text-lg text-slate-600 dark:text-slate-300">
             Representative proof assets across websites, social campaigns, print collateral, and signage.

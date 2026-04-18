@@ -2,6 +2,7 @@ import React from 'react';
 import { Map, Target, MonitorSmartphone, Aperture, MailOpen, Cpu, ArrowRight, TrendingUp, type LucideIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { type ServiceIconKey, servicesOrdered, servicePath } from '../data/servicesContent';
+import { SectionGradientEmphasis } from './SectionGradientEmphasis';
 
 const iconByKey: Record<ServiceIconKey, LucideIcon> = {
   map: Map,
@@ -37,10 +38,7 @@ export default function Services({ showSectionHeader = true }: ServicesProps) {
               </span>
             </div>
             <h2 className="mb-6 text-3xl font-bold tracking-tight text-blue-950 transition-colors duration-300 dark:text-white md:text-5xl">
-              Everything you need to{' '}
-              <span className="bg-gradient-to-r from-blue-600 via-teal-400 to-emerald-500 bg-clip-text text-transparent">
-                grow your practice
-              </span>
+              Everything you need to <SectionGradientEmphasis>grow your practice</SectionGradientEmphasis>
             </h2>
             <p className="text-lg leading-relaxed text-gray-600 transition-colors duration-300 dark:text-gray-300">
               We focus on dental marketing only. Strategy, creative, media, and web execution are aligned to one goal:

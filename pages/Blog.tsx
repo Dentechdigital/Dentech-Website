@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Calendar } from 'lucide-react';
 import SEO from '../components/SEO';
 import PageHeroAboutStyle from '../components/PageHeroAboutStyle';
+import { SectionGradientEmphasis } from '../components/SectionGradientEmphasis';
 import { blogIndexMeta } from '../data/blogStructuredData';
 import { blogPosts } from '../data/blogPosts';
 
@@ -26,7 +27,11 @@ const Blog: React.FC = () => {
       <div className="min-h-screen bg-[#FAFAF9] transition-colors duration-300 dark:bg-slate-950">
         <PageHeroAboutStyle
           badge="Blog · Dental growth"
-          title="Insights for Canadian dental clinics"
+          title={
+            <>
+              Insights for <SectionGradientEmphasis>Canadian dental clinics</SectionGradientEmphasis>
+            </>
+          }
           description={
             <>
               Practical articles on <strong>local SEO</strong>, <strong>GEO</strong>, paid media, websites, and
@@ -41,7 +46,7 @@ const Blog: React.FC = () => {
         <section className="border-t border-slate-200/70 bg-white py-14 dark:border-slate-800 dark:bg-slate-900/35 md:py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-2xl font-semibold tracking-tight text-blue-950 dark:text-white md:text-3xl">
+              <h2 className="text-3xl font-bold tracking-tight text-blue-950 dark:text-white md:text-5xl">
                 Latest articles
               </h2>
               <p className="mt-3 text-slate-600 dark:text-slate-300">

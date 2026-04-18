@@ -1,6 +1,7 @@
 import React from 'react';
 import { Layers, MonitorSmartphone, UsersRound, Target } from 'lucide-react';
 import { capabilityCards, type CapabilityVisualKey } from '../../data/aboutContent';
+import { SectionGradientEmphasis } from '../SectionGradientEmphasis';
 
 const capabilityIcons: Record<CapabilityVisualKey, typeof Layers> = {
   brand: Layers,
@@ -16,9 +17,8 @@ export default function AboutCapabilitiesBento() {
 
       <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <header className="mx-auto mb-14 max-w-3xl text-center">
-          <h2 className="about-display text-3xl font-semibold tracking-tight text-slate-900 dark:text-white md:text-4xl lg:text-[2.5rem] lg:leading-tight">
-            One partner for{' '}
-            <span className="text-blue-600 dark:text-blue-400">every stage</span> of your funnel
+          <h2 className="about-display text-3xl font-bold tracking-tight text-slate-900 dark:text-white md:text-5xl">
+            One partner for <SectionGradientEmphasis>every stage</SectionGradientEmphasis> of your funnel
           </h2>
           <p className="mt-4 text-base leading-relaxed text-slate-600 dark:text-slate-400 md:text-lg">
             From what patients see on the street to the ad they click — brand, digital, community, and media work

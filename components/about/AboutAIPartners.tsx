@@ -13,6 +13,7 @@ import {
   Workflow,
   Users,
 } from 'lucide-react';
+import { SectionGradientEmphasis } from '../SectionGradientEmphasis';
 
 const highlights = [
   {
@@ -90,8 +91,8 @@ export default function AboutAIPartners() {
                 AI & local partners
               </div>
 
-              <h2 className="about-display mt-5 text-3xl font-semibold tracking-tight text-blue-950 dark:text-white md:text-4xl">
-                Custom AI tools for patient experience
+              <h2 className="about-display mt-5 text-3xl font-bold tracking-tight text-blue-950 dark:text-white md:text-5xl">
+                Custom AI tools for <SectionGradientEmphasis>patient experience</SectionGradientEmphasis>
               </h2>
 
               <p className="mt-5 leading-relaxed text-slate-600 dark:text-slate-300">

@@ -1,6 +1,7 @@
 import React from 'react';
 import { CheckCircle2, Sparkles, ArrowRight, Bot, BadgeCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { SectionGradientEmphasis } from './SectionGradientEmphasis';
 
 type PackageItem = {
   category: string;
@@ -184,8 +185,8 @@ export default function PricingPlans() {
             <Sparkles className="w-4 h-4" />
             <span>Clear Pricing</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-blue-950 dark:text-white tracking-tight mb-5">
-            Website & Marketing Pricing
+          <h2 className="mb-5 text-3xl font-bold tracking-tight text-blue-950 dark:text-white md:text-5xl">
+            Website & Marketing <SectionGradientEmphasis>Pricing</SectionGradientEmphasis>
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300">
             Clear pricing built for clinic owners and managers who want predictable execution and accountable growth.

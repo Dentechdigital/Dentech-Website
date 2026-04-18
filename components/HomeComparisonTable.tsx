@@ -1,6 +1,7 @@
 import React from 'react';
 import { Check, Minus, HelpCircle } from 'lucide-react';
 import { homeComparisonRows, type ComparisonTone } from '../data/homeComparison';
+import { SectionGradientEmphasis } from './SectionGradientEmphasis';
 
 function ToneCell({ tone, children }: { tone: ComparisonTone; children: React.ReactNode }) {
   const icon =
@@ -25,8 +26,8 @@ export default function HomeComparisonTable() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto mb-12 max-w-3xl text-center md:mb-16">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400">Compare</p>
-          <h2 id="compare-heading" className="mt-3 text-3xl font-bold tracking-tight text-blue-950 dark:text-white md:text-4xl lg:text-5xl">
-            Generalist agency vs. Dentech
+          <h2 id="compare-heading" className="mt-3 text-3xl font-bold tracking-tight text-blue-950 dark:text-white md:text-5xl">
+            Generalist agency vs. <SectionGradientEmphasis>Dentech</SectionGradientEmphasis>
           </h2>
           <p className="mt-4 text-base leading-relaxed text-slate-600 dark:text-slate-300 md:text-lg">
             When growth has to show up in the schedule—not just the dashboard—you need a partner built for dental markets,

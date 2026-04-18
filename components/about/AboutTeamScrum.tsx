@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Award, Mail, ShieldCheck } from 'lucide-react';
 import { aboutTeamMembers, TEAM_CONTACT_EMAIL } from '../../data/aboutContent';
+import { SectionGradientEmphasis } from '../SectionGradientEmphasis';
 
 function teamPhotoUrl(path: string | null) {
   if (!path) return '';
@@ -66,8 +67,8 @@ export default function AboutTeamScrum() {
   return (
     <section className="bg-[#F5F7FB] py-20 dark:bg-slate-950">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="about-display text-3xl font-semibold tracking-tight text-blue-950 dark:text-white md:text-4xl">
-          Team & how we work
+        <h2 className="about-display text-3xl font-bold tracking-tight text-blue-950 dark:text-white md:text-5xl">
+          Team & how <SectionGradientEmphasis>we work</SectionGradientEmphasis>
         </h2>
         <p className="mt-4 max-w-2xl text-slate-600 dark:text-slate-300">
           A hybrid crew — anchored in Ottawa with senior specialists working remotely. We are{' '}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, TrendingUp, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { SectionGradientEmphasis } from './SectionGradientEmphasis';
 
 const featuredCaseStudy = {
   clinic: 'The Smile Doctors',
@@ -26,8 +27,7 @@ export default function CaseStudiesPreview() {
         <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-2xl">
             <h2 className="mb-6 text-3xl font-bold tracking-tight text-blue-950 dark:text-white md:text-5xl">
-              Real results for <br className="hidden md:block" />
-              <span className="text-blue-600 dark:text-blue-400">real businesses.</span>
+              Real results for <SectionGradientEmphasis>real businesses</SectionGradientEmphasis>.
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300">
               Featured case study: patient growth with a full-stack marketing system.

@@ -4,6 +4,7 @@ import { ArrowRight, Check, Sparkles } from 'lucide-react';
 import SEO from '../components/SEO';
 import PageHeroAboutStyle from '../components/PageHeroAboutStyle';
 import FaqAccordion from '../components/FaqAccordion';
+import { SectionGradientEmphasis } from '../components/SectionGradientEmphasis';
 import CaseStudyLongSection from '../components/case-studies/CaseStudyLongSection';
 import CaseStudiesWorkGallery from '../components/case-studies/CaseStudiesWorkGallery';
 import CaseStudiesProofOfWorkGrid from '../components/case-studies/CaseStudiesProofOfWorkGrid';
@@ -43,7 +44,11 @@ const CaseStudies: React.FC = () => {
       <div className="min-h-screen bg-[#FAFAF9] transition-colors duration-300 dark:bg-slate-950">
         <PageHeroAboutStyle
           badge="Case study · Dental group"
-          title="How The Smile Doctors passed 1300 new bookings in year one"
+          title={
+            <>
+              How The Smile Doctors passed <SectionGradientEmphasis>1300 new bookings</SectionGradientEmphasis> in year one
+            </>
+          }
           description="A full-funnel partnership: custom website, SEO & GEO, Google and Meta ads, social and original content, plus signage, wraps, and print—measured against real booked patients, not vanity metrics."
           heroImageSrc={caseStudiesHeroImageSrc}
           heroImageClassName={caseStudiesHeroImageClassName}
@@ -59,8 +64,8 @@ const CaseStudies: React.FC = () => {
                   <Sparkles className="h-4 w-4" />
                   How we win
                 </p>
-                <h2 className="about-display mt-5 text-3xl font-semibold tracking-tight text-blue-950 dark:text-white md:text-4xl">
-                  Outcomes come from alignment—not one tactic
+                <h2 className="mt-5 text-3xl font-bold tracking-tight text-blue-950 dark:text-white md:text-5xl">
+                  Outcomes come from <SectionGradientEmphasis>alignment</SectionGradientEmphasis>—not one tactic
                 </h2>
                 <p className="mt-4 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
                   One operating system: tight positioning, clean measurement, fast creative iteration, and a single team owning web, discovery, demand capture, and on-location brand presence.
@@ -111,8 +116,8 @@ const CaseStudies: React.FC = () => {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-2xl">
               <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">Trust</p>
-              <h2 className="about-display mt-2 text-3xl font-semibold tracking-tight text-blue-950 dark:text-white md:text-4xl">
-                Long-term operators choose one partner
+              <h2 className="mt-2 text-3xl font-bold tracking-tight text-blue-950 dark:text-white md:text-5xl">
+                Long-term operators choose <SectionGradientEmphasis>one partner</SectionGradientEmphasis>
               </h2>
               <p className="mt-4 text-lg text-slate-600 dark:text-slate-300">
                 Selected platforms and organizations used across our operating stack.
@@ -144,7 +149,11 @@ const CaseStudies: React.FC = () => {
         <section id="faq" className="border-t border-slate-200/70 bg-[#FAFAF9] dark:border-slate-800 dark:bg-slate-950">
           <FaqAccordion
             idPrefix="case-studies-faq"
-            heading="Questions teams ask before committing"
+            heading={
+              <>
+                <SectionGradientEmphasis>Questions</SectionGradientEmphasis> teams ask before committing
+              </>
+            }
             subheading="Measurement, scope, timelines, and what we need from you."
             items={caseStudiesFaq}
             className="!bg-transparent"
@@ -157,7 +166,7 @@ const CaseStudies: React.FC = () => {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid gap-10 rounded-[2.25rem] border border-slate-200/80 bg-gradient-to-br from-[#FAFAF9] to-white p-10 shadow-sm dark:border-slate-700 dark:from-slate-900/60 dark:to-slate-900/20 md:p-14 lg:grid-cols-12 lg:items-center">
               <div className="lg:col-span-8">
-                <h2 className="about-display text-3xl font-semibold tracking-tight text-blue-950 dark:text-white md:text-4xl">
+                <h2 className="text-3xl font-bold tracking-tight text-blue-950 dark:text-white md:text-5xl">
                   Want a similar outcome?
                 </h2>
                 <p className="mt-4 max-w-2xl text-lg text-slate-600 dark:text-slate-300">

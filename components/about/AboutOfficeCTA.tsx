@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, MapPin, PhoneCall } from 'lucide-react';
+import { SectionGradientEmphasis } from '../SectionGradientEmphasis';
 
 const MAPS_URL =
   'https://www.google.com/maps/search/?api=1&query=499+Preston+St+Ottawa+ON+Canada';
@@ -11,7 +12,9 @@ export default function AboutOfficeCTA() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div>
-            <h2 className="about-display text-3xl font-semibold tracking-tight md:text-4xl">Visit us in Ottawa</h2>
+            <h2 className="about-display text-3xl font-bold tracking-tight text-white md:text-5xl">
+              Visit us in <SectionGradientEmphasis>Ottawa</SectionGradientEmphasis>
+            </h2>
             <p className="mt-4 text-lg text-blue-100/90">
               Dentech Digital is headquartered in the heart of Ottawa. Book a call or stop by — we&apos;ll confirm
               availability for in-person meetings.

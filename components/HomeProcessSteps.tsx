@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, MessageCircle, LineChart, Rocket } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { SectionGradientEmphasis } from './SectionGradientEmphasis';
 
 const steps = [
   {
@@ -26,8 +27,8 @@ export default function HomeProcessSteps() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto mb-12 max-w-2xl text-center md:mb-16">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400">How we work</p>
-          <h2 id="process-heading" className="mt-3 text-3xl font-bold tracking-tight text-blue-950 dark:text-white md:text-4xl">
-            From first hello to steady growth
+          <h2 id="process-heading" className="mt-3 text-3xl font-bold tracking-tight text-blue-950 dark:text-white md:text-5xl">
+            From first hello to <SectionGradientEmphasis>steady growth</SectionGradientEmphasis>
           </h2>
           <p className="mt-4 text-base text-slate-600 dark:text-slate-300 md:text-lg">
             Transparent phases so you always know what we are doing, why it matters, and what happens next.

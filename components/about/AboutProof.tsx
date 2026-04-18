@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Quote } from 'lucide-react';
 import { testimonialPlaceholder } from '../../data/aboutContent';
+import { SectionGradientEmphasis } from '../SectionGradientEmphasis';
 
 function PartnerLogo({
   src,
@@ -33,8 +34,8 @@ export default function AboutProof() {
   return (
     <section className="bg-[#F5F7FB] py-20 dark:bg-slate-950">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="about-display text-3xl font-semibold tracking-tight text-blue-950 dark:text-white md:text-4xl">
-          Proof & partnerships
+        <h2 className="about-display text-3xl font-bold tracking-tight text-blue-950 dark:text-white md:text-5xl">
+          Proof & <SectionGradientEmphasis>partnerships</SectionGradientEmphasis>
         </h2>
         <p className="mt-4 max-w-2xl text-slate-600 dark:text-slate-300">
           We are proud to work alongside clinics that expect rigor — and to train continuously with leading platforms.

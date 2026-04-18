@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import type { WorkGalleryCategory, WorkGalleryItem } from '../../data/caseStudiesContent';
+import { SectionGradientEmphasis } from '../SectionGradientEmphasis';
 
 const TABS: { id: WorkGalleryCategory | 'all'; label: string }[] = [
   { id: 'all', label: 'All' },
@@ -33,9 +34,9 @@ export default function CaseStudiesWorkGallery({ items, id = 'our-work' }: Props
             <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">Portfolio</p>
           <h2
             id="our-work-heading"
-            className="about-display mt-2 text-3xl font-semibold tracking-tight text-blue-950 dark:text-white md:text-4xl"
+            className="mt-2 text-3xl font-bold tracking-tight text-blue-950 dark:text-white md:text-5xl"
           >
-            Some of our work
+            Some of <SectionGradientEmphasis>our work</SectionGradientEmphasis>
           </h2>
           <p className="mt-4 text-lg text-slate-600 dark:text-slate-300">
             Selected website, social, and print samples from live delivery formats used in dental growth programs.

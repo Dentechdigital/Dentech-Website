@@ -68,6 +68,8 @@ export type ServiceDefinition = {
   /** How we judge progress with you */
   metricsWeWatch: string[];
   relatedSlugs: [string, string];
+  /** Substring of `h1` to render with the site gradient (must appear exactly once in `h1`) */
+  h1GradientSpan?: string;
   /** Override default FAQ section title on the detail page */
   faqSectionTitle?: string;
   /** Override default FAQ section subheading */
@@ -145,6 +147,7 @@ export const servicesOrdered: ServiceDefinition[] = [
     shortDescription:
       'Classic rankings plus generative visibility: we tune your Google Business Profile, site, and entity signals so patients find you in Search, Maps, and AI-powered answers.',
     h1: 'Local SEO, GEO & Google Maps for dental practices',
+    h1GradientSpan: 'dental practices',
     metaTitle: 'Local SEO, GEO & Maps for Dentists | Ottawa & Canada',
     metaDescription:
       'What dental local SEO and GEO are, why they matter, and how GBP, your site, and citations work together for Canadian practices—technical depth, honest timelines, no ranking guarantees.',
@@ -300,6 +303,7 @@ export const servicesOrdered: ServiceDefinition[] = [
     shortDescription:
       'Google and Meta campaigns built for dental margins—with tracking, creative testing, and clear reporting.',
     h1: 'Paid search & social ads for dental clinics',
+    h1GradientSpan: 'dental clinics',
     metaTitle: 'Dental PPC & Paid Social Agency | Ottawa & Canada',
     metaDescription:
       'Dental PPC and Meta ads for Canada: what paid search is, why tracking and landing pages matter, how budgets learn, and how we report—without vanity metrics or account lock-in.',
@@ -451,6 +455,7 @@ export const servicesOrdered: ServiceDefinition[] = [
     shortDescription:
       'Fast, trustworthy sites that convert—with mobile-first UX, SEO- and GEO-ready structure so search and AI surfaces can understand your practice.',
     h1: 'Custom dental websites that convert',
+    h1GradientSpan: 'that convert',
     metaTitle: 'Dental Website Design Agency | Ottawa & Canada',
     metaDescription:
       'Custom dental websites in Canada: UX, speed (Core Web Vitals), SEO/GEO structure, migrations, and analytics—what a practice site must do technically and for patients before marketing scales.',
@@ -602,6 +607,7 @@ export const servicesOrdered: ServiceDefinition[] = [
     shortDescription:
       'Strategy-first social and content that fits your brand—creative direction aligned with real appointment goals.',
     h1: 'Social media & content for dental practices',
+    h1GradientSpan: 'dental practices',
     metaTitle: 'Dental Social Media & Content Agency | Ottawa & Canada',
     metaDescription:
       'Dental social and content for Canada: strategy, pillars, creative specs, approvals, and measurement—what “content marketing” means for practices and how it supports trust and bookings.',
@@ -751,6 +757,7 @@ export const servicesOrdered: ServiceDefinition[] = [
     shortDescription:
       'Neighborhood presence that matches your digital brand—postcards, flyers, and office collateral with clear CTAs.',
     h1: 'Print & direct mail for dental practices',
+    h1GradientSpan: 'dental practices',
     metaTitle: 'Dental Print Design & Direct Mail | Ottawa & Canada',
     metaDescription:
       'Dental print and direct mail in Canada: formats, Canada Post considerations, list compliance, QR/URL tracking, and when mail complements digital—plain-language planning for clinics.',
@@ -892,6 +899,7 @@ export const servicesOrdered: ServiceDefinition[] = [
     shortDescription:
       'Practical AI: chat, reminders, overflow coverage—implemented with privacy awareness and human oversight.',
     h1: 'AI & automation for dental front desks',
+    h1GradientSpan: 'dental front desks',
     metaTitle: 'Dental AI Receptionist & Automation | Ottawa & Canada',
     metaDescription:
       'Dental AI and automation in Canada: chat, SMS, reminders, guardrails, privacy-aware pilots, and realistic PMS expectations—what to automate, what never should be, and how we measure.',

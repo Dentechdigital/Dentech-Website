@@ -5,6 +5,7 @@ import SEO from '../components/SEO';
 import PageHeroAboutStyle from '../components/PageHeroAboutStyle';
 import ServicesComponent from '../components/Services';
 import FaqAccordion from '../components/FaqAccordion';
+import { SectionGradientEmphasis } from '../components/SectionGradientEmphasis';
 import { buildServicesHubJsonLd, servicesHub, servicesHubFaq } from '../data/servicesContent';
 
 const ServicesPage: React.FC = () => {
@@ -22,7 +23,11 @@ const ServicesPage: React.FC = () => {
       <div className="min-h-screen bg-[#FAFAF9] transition-colors duration-300 dark:bg-slate-950">
         <PageHeroAboutStyle
           badge="Services · Canada-wide"
-          title={servicesHub.h1}
+          title={
+            <>
+              Dental marketing services built for <SectionGradientEmphasis>Canadian practices</SectionGradientEmphasis>
+            </>
+          }
           description={servicesHub.intro}
           primaryCta={{ to: '/contact', label: 'Book a strategy call' }}
           secondaryCta={{ to: '/about', label: 'How we work' }}
@@ -30,7 +35,10 @@ const ServicesPage: React.FC = () => {
 
         <section className="border-b border-slate-200/60 bg-white py-14 dark:border-slate-800 dark:bg-slate-900/35" aria-labelledby="funnel-heading">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 id="funnel-heading" className="text-center text-xl font-bold text-blue-950 dark:text-white md:text-2xl">
+            <h2
+              id="funnel-heading"
+              className="text-center text-3xl font-bold tracking-tight text-blue-950 dark:text-white md:text-5xl"
+            >
               Why work with Dentech across the full funnel
             </h2>
             <div className="mt-10 grid gap-8 md:grid-cols-3">
@@ -51,7 +59,11 @@ const ServicesPage: React.FC = () => {
 
         <FaqAccordion
           idPrefix="services-hub"
-          heading="Services FAQs"
+          heading={
+            <>
+              Services <SectionGradientEmphasis>FAQs</SectionGradientEmphasis>
+            </>
+          }
           subheading="General questions about working with us across SEO, GEO, paid media, web, content, print, and AI."
           items={servicesHubFaq}
         />

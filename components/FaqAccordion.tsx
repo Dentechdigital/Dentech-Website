@@ -11,7 +11,7 @@ type FaqAccordionProps = {
   /** Prefix for stable ids (e.g. "service-seo") */
   idPrefix: string;
   badgeText?: string;
-  heading: string;
+  heading: React.ReactNode;
   subheading?: string;
   className?: string;
   /** Tailwind max-width on inner container (default max-w-7xl) */
@@ -160,7 +160,7 @@ export default function FaqAccordion({
             className={
               embedded
                 ? 'mb-2 text-xl font-semibold tracking-tight text-blue-950 dark:text-white md:text-2xl'
-                : 'mb-3 text-3xl font-bold tracking-tight text-blue-950 dark:text-white md:text-4xl'
+                : 'mb-3 text-3xl font-bold tracking-tight text-blue-950 dark:text-white md:text-5xl'
             }
           >
             {heading}

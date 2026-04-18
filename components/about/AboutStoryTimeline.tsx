@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { SectionGradientEmphasis } from '../SectionGradientEmphasis';
 import { timelineMilestones } from '../../data/aboutContent';
 
 /** Viewport Y (px) used to pick which milestone is "current" — below sticky header on mobile. */
@@ -76,8 +77,8 @@ export default function AboutStoryTimeline() {
   return (
     <section className="bg-white py-20 dark:bg-slate-950">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="about-display text-center text-3xl font-semibold tracking-tight text-blue-950 dark:text-white md:text-4xl">
-          Our story
+        <h2 className="about-display text-center text-3xl font-bold tracking-tight text-blue-950 dark:text-white md:text-5xl">
+          Our <SectionGradientEmphasis>story</SectionGradientEmphasis>
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-center text-slate-600 dark:text-slate-300">
           Dentech Digital is a dental and medical marketing agency headquartered in Ottawa, Ontario — shaped by years of

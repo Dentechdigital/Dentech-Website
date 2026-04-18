@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ChevronDown, HelpCircle } from 'lucide-react';
 import { homeFaqItems, type HomeFaqItem } from '../data/homeFaqContent';
+import { SectionGradientEmphasis } from './SectionGradientEmphasis';
 
 export type { HomeFaqItem };
 
@@ -108,9 +109,9 @@ export default function HomeFAQ() {
           </div>
           <h2
             id="home-faq-heading"
-            className="text-3xl md:text-4xl font-bold text-blue-950 dark:text-white tracking-tight mb-4"
+            className="mb-4 text-3xl font-bold tracking-tight text-blue-950 dark:text-white md:text-5xl"
           >
-            Dental marketing questions
+            Dental marketing <SectionGradientEmphasis>questions</SectionGradientEmphasis>
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300">
             Straight answers on local SEO, GEO, channels, timelines, reputation, and how we support Canadian dental

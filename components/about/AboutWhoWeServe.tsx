@@ -1,6 +1,7 @@
 import React from 'react';
 import { CheckCircle2, Target } from 'lucide-react';
 import { differentiators, whoWeServe } from '../../data/aboutContent';
+import { SectionGradientEmphasis } from '../SectionGradientEmphasis';
 
 export default function AboutWhoWeServe() {
   return (
@@ -12,8 +13,8 @@ export default function AboutWhoWeServe() {
               <Target className="h-3.5 w-3.5" />
               Who we serve
             </div>
-            <h2 className="about-display mt-4 text-3xl font-semibold tracking-tight text-blue-950 dark:text-white md:text-4xl">
-              Built for practices that want clarity, not chaos
+            <h2 className="about-display mt-4 text-3xl font-bold tracking-tight text-blue-950 dark:text-white md:text-5xl">
+              Built for practices that want <SectionGradientEmphasis>clarity</SectionGradientEmphasis>, not chaos
             </h2>
             <ul className="mt-8 space-y-4">
               {whoWeServe.map((line) => (

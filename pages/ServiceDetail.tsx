@@ -4,6 +4,7 @@ import { ArrowRight, Check, ChevronRight } from 'lucide-react';
 import SEO from '../components/SEO';
 import PageHeroAboutStyle from '../components/PageHeroAboutStyle';
 import FaqAccordion from '../components/FaqAccordion';
+import { SectionGradientEmphasis } from '../components/SectionGradientEmphasis';
 import ServiceSpotlight from '../components/ServiceSpotlight';
 import {
   buildServiceDetailStructuredData,
@@ -11,7 +12,22 @@ import {
   serviceHeroCollagePublicPath,
   servicePath,
   servicesBySlug,
+  type ServiceDefinition,
 } from '../data/servicesContent';
+
+function serviceHeroTitle(service: ServiceDefinition): React.ReactNode {
+  const { h1, h1GradientSpan } = service;
+  if (!h1GradientSpan) return h1;
+  const idx = h1.indexOf(h1GradientSpan);
+  if (idx === -1) return h1;
+  return (
+    <>
+      {h1.slice(0, idx)}
+      <SectionGradientEmphasis>{h1GradientSpan}</SectionGradientEmphasis>
+      {h1.slice(idx + h1GradientSpan.length)}
+    </>
+  );
+}
 
 function mediaUrl(src: string): string {
   if (src.startsWith('http')) return src;
@@ -42,7 +58,7 @@ function TextSection({
         {kicker ? (
           <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">{kicker}</p>
         ) : null}
-        <h2 id={id} className="mt-2 text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
+        <h2 id={id} className="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-white md:text-5xl">
           {title}
         </h2>
         {lead ? (
@@ -112,7 +128,7 @@ const ServiceDetail: React.FC = () => {
       <div className="min-h-screen bg-[#FAFAF9] transition-colors duration-300 dark:bg-slate-950">
         <PageHeroAboutStyle
           badge="Dental marketing service"
-          title={service.h1}
+          title={serviceHeroTitle(service)}
           description={service.heroTagline}
           heroImageSrc={heroCollageUrl}
           heroImageClassName={heroCollageUrl ? serviceHeroImageClass : undefined}
@@ -282,7 +298,10 @@ const ServiceDetail: React.FC = () => {
           <section className="border-t border-slate-200/80 py-12 dark:border-slate-800 md:py-14" aria-labelledby="related-heading">
             <div className={article}>
               <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">Next steps</p>
-              <h2 id="related-heading" className="mt-2 text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
+              <h2
+                id="related-heading"
+                className="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-white md:text-5xl"
+              >
                 Related services
               </h2>
               <ul className="mt-6 space-y-3">
@@ -310,7 +329,15 @@ const ServiceDetail: React.FC = () => {
             <FaqAccordion
               embedded
               idPrefix={`svc-${service.slug}`}
-              heading={service.faqSectionTitle ?? 'Frequently asked questions'}
+              heading={
+                service.faqSectionTitle ? (
+                  service.faqSectionTitle
+                ) : (
+                  <>
+                    Frequently asked <SectionGradientEmphasis>questions</SectionGradientEmphasis>
+                  </>
+                )
+              }
               subheading={
                 service.faqSectionSubheading ??
                 `Common questions about ${service.title.toLowerCase()} for dental practices.`

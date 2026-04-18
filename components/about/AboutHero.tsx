@@ -1,5 +1,6 @@
 import React from 'react';
 import PageHeroAboutStyle from '../PageHeroAboutStyle';
+import { SectionGradientEmphasis } from '../SectionGradientEmphasis';
 import { ABOUT_PAGE_HERO_IMAGE_CLASS, ABOUT_PAGE_HERO_PATH } from '../../data/aboutContent';
 
 function mediaUrl(src: string): string {
@@ -12,7 +13,12 @@ export default function AboutHero() {
   return (
     <PageHeroAboutStyle
       badge="Since 2017 · Ottawa, Canada"
-      title="The dental growth partner behind your website, ads, and patient experience."
+      title={
+        <>
+          The dental growth partner behind your website, ads, and{' '}
+          <SectionGradientEmphasis>patient experience</SectionGradientEmphasis>.
+        </>
+      }
       description={
         <>
           If your team is stretched thin between the front desk and Facebook, you need a senior crew that treats marketing

@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, Check } from 'lucide-react';
 import SEO from '../components/SEO';
 import PageHeroAboutStyle from '../components/PageHeroAboutStyle';
 import FaqAccordion from '../components/FaqAccordion';
+import { SectionGradientEmphasis } from '../components/SectionGradientEmphasis';
 import BlogMarkdown from '../components/BlogMarkdown';
 import { buildBlogArticleJsonLd } from '../data/blogStructuredData';
 import { getBlogPostBySlug } from '../data/blogPosts';
@@ -104,7 +105,11 @@ const BlogPost: React.FC = () => {
             <div className="mt-12">
               <FaqAccordion
                 idPrefix={`blog-${post.slug}`}
-                heading="Frequently asked questions"
+                heading={
+                  <>
+                    Frequently asked <SectionGradientEmphasis>questions</SectionGradientEmphasis>
+                  </>
+                }
                 subheading="Quick answers related to this topic."
                 items={post.faq}
                 embedded

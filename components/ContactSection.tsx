@@ -2,6 +2,7 @@ import React from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import LeadInquiryForm from './LeadInquiryForm';
 import { SITE_CONTACT } from '../data/siteContact';
+import { SectionGradientEmphasis } from './SectionGradientEmphasis';
 
 export default function ContactSection() {
   return (
@@ -15,8 +16,7 @@ export default function ContactSection() {
         <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
           <div>
             <h2 className="mb-6 text-3xl font-bold tracking-tight text-blue-950 dark:text-white md:text-5xl">
-              Ready to grow your <br />
-              <span className="text-blue-600 dark:text-blue-400">patient base?</span>
+              Ready to grow your <SectionGradientEmphasis>patient base</SectionGradientEmphasis>?
             </h2>
             <p className="mb-10 max-w-lg text-lg text-gray-600 dark:text-gray-300">
               Share your current growth goals and constraints. We will map a practical action plan designed to increase qualified patient inquiries and improve conversion consistency.

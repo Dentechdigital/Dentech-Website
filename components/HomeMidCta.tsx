@@ -1,12 +1,15 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { SectionGradientEmphasis } from './SectionGradientEmphasis';
 
 export default function HomeMidCta() {
   return (
     <section className="bg-gradient-to-br from-blue-950 via-slate-900 to-slate-950 py-16 text-white md:py-20" aria-label="Get started">
       <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
-        <h2 className="text-2xl font-bold tracking-tight md:text-3xl">Ready for a clearer growth plan?</h2>
+        <h2 className="text-3xl font-bold tracking-tight text-white md:text-5xl">
+          Ready for a <SectionGradientEmphasis>clearer growth plan</SectionGradientEmphasis>?
+        </h2>
         <p className="mt-4 text-base leading-relaxed text-slate-300 md:text-lg">
           Share your goals and constraints—we will map what to fix first and how channels should work together for your
           market.

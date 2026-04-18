@@ -74,6 +74,10 @@ export type ChatEventPayload = {
   intent?: string;
   source?: string;
   retryable?: boolean;
+  /** Present on `chat_send` for logging / CRM (truncate at source if needed). */
+  sessionId?: string;
+  message?: string;
+  pagePath?: string;
 };
 
 export type ChatHelpdeskCategory = {

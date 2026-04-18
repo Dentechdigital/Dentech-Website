@@ -36,6 +36,17 @@
       <input name="budgetRange" />
       <textarea name="notes"></textarea>
     </form>
+    <form name="maya-chat-submission" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" hidden aria-hidden="true">
+      <input type="hidden" name="form-name" value="maya-chat-submission" />
+      <p class="hidden">
+        <label>Do not fill: <input name="bot-field" autocomplete="off" tabindex="-1" /></label>
+      </p>
+      <input name="mode" />
+      <input name="source" />
+      <input name="sessionId" />
+      <input name="pagePath" />
+      <textarea name="message"></textarea>
+    </form>
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
     <script>

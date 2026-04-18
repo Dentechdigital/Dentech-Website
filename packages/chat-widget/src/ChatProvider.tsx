@@ -114,7 +114,13 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
       setError(null);
     });
     const startedAt = Date.now();
-    config.onTrack?.('chat_send', { mode, source });
+    config.onTrack?.('chat_send', {
+      mode,
+      source,
+      sessionId,
+      message: prompt,
+      pagePath: config.getPageContext(),
+    });
 
     const motionReduce =
       typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;

@@ -5,6 +5,6 @@ export function getSiteUrl(): string {
 
 /** Main Dentech marketing site (footer, thank-you). */
 export function getMainSiteUrl(): string {
-  const raw = import.meta.env.VITE_MAIN_SITE_URL || 'https://dentechdigital.com';
+  const raw = import.meta.env.VITE_MAIN_SITE_URL || 'https://dentechdigital.ca';
   return raw.replace(/\/+$/, '');
 }

@@ -28,5 +28,13 @@
     },
     "allowImportingTsExtensions": true,
     "noEmit": true
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "landings",
+    "experiments",
+    ".tmp",
+    ".claude"
+  ]
 }

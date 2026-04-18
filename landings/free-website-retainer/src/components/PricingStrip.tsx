@@ -1,0 +1,62 @@
+export default function PricingStrip() {
+  return (
+    <section id="pricing" className="scroll-mt-24 bg-[#fafaf9] px-4 py-16 sm:px-6 sm:py-20">
+      <div className="mx-auto max-w-6xl">
+        <h2 className="text-3xl font-semibold tracking-tight text-blue-950 sm:text-4xl">What you pay — in plain terms</h2>
+        <p className="mt-3 max-w-2xl text-slate-600">
+          The website build is not billed separately when you qualify and sign the six-month retainer. Ongoing hosting
+          and maintenance is a fixed monthly line item after launch.
+        </p>
+
+        <div className="mt-10 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+          <table className="w-full text-left text-sm">
+            <caption className="border-b border-slate-100 px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-500">
+              Summary (details confirmed on your agreement)
+            </caption>
+            <thead className="bg-slate-50 text-xs font-semibold uppercase tracking-wide text-slate-600">
+              <tr>
+                <th scope="col" className="px-4 py-3 sm:px-6">
+                  Item
+                </th>
+                <th scope="col" className="px-4 py-3 sm:px-6">
+                  During setup + retainer
+                </th>
+                <th scope="col" className="px-4 py-3 sm:px-6">
+                  After launch (monthly)
+                </th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100 text-slate-700">
+              <tr>
+                <th scope="row" className="px-4 py-4 font-medium text-blue-950 sm:px-6">
+                  Starter clinic site (up to 5 pages + booking request)
+                </th>
+                <td className="px-4 py-4 sm:px-6">Included with signed 6-month retainer — no separate build fee</td>
+                <td className="px-4 py-4 sm:px-6">—</td>
+              </tr>
+              <tr className="bg-blue-50/50">
+                <th scope="row" className="px-4 py-4 font-medium text-blue-950 sm:px-6">
+                  Hosting &amp; maintenance
+                </th>
+                <td className="px-4 py-4 sm:px-6">From go-live</td>
+                <td className="px-4 py-4 font-semibold text-blue-900 sm:px-6">
+                  $50 / month
+                  <span className="mt-1 block text-xs font-normal text-slate-600">
+                    Hosting, backups, platform updates, and reasonable content tweaks within plan limits.
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" className="px-4 py-4 font-medium text-blue-950 sm:px-6">
+                  Growth marketing retainer
+                </th>
+                <td className="px-4 py-4 sm:px-6">Per your signed agreement (6-month commitment)</td>
+                <td className="px-4 py-4 sm:px-6">Renewal or new agreement after term — discussed before renewal</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  );
+}

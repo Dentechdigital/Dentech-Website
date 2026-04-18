@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32" />
+    <title>Free practice website with 6-month marketing | Dentech Digital</title>
+    <meta
+      name="description"
+      content="New clinic offer: professional 5-page website included with a 6-month growth marketing retainer. Hosting and maintenance from $50/mo. Ottawa-based Dentech Digital."
+    />
+    <!-- Netlify discovers this form at deploy; React submits the same field names via fetch. -->
+    <form name="free-website-retainer-lead" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" hidden aria-hidden="true">
+      <input type="hidden" name="form-name" value="free-website-retainer-lead" />
+      <p class="hidden">
+        <label>Do not fill: <input name="bot-field" autocomplete="off" tabindex="-1" /></label>
+      </p>
+      <input name="fullName" />
+      <input name="clinicName" />
+      <input name="city" />
+      <input name="email" />
+      <input name="phone" />
+      <input name="timeline" />
+      <input name="budgetRange" />
+      <input name="consent" />
+    </form>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

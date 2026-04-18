@@ -6,6 +6,7 @@
 import path from 'path';
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
+import { VitePWA } from 'vite-plugin-pwa';
 import { visualizer } from 'rollup-plugin-visualizer';
 
 export default defineConfig(({ mode }) => {
@@ -19,6 +20,40 @@ export default defineConfig(({ mode }) => {
       },
       plugins: [
         react(),
+        VitePWA({
+          registerType: 'autoUpdate',
+          injectRegister: 'auto',
+          includeAssets: ['favicon.png'],
+          manifest: {
+            name: 'Dentech Digital',
+            short_name: 'Dentech',
+            description: 'Ottawa dental marketing agency',
+            theme_color: '#fafaf9',
+            background_color: '#fafaf9',
+            display: 'browser',
+            start_url: '/',
+            scope: '/',
+            icons: [{ src: 'favicon.png', sizes: '32x32', type: 'image/png', purpose: 'any' }],
+          },
+          workbox: {
+            // Keep precache small for faster first SW install on mobile; images use runtime cache below.
+            globPatterns: ['**/*.{js,css,html,ico,woff2}'],
+            maximumFileSizeToCacheInBytes: 6 * 1024 * 1024,
+            navigateFallback: '/index.html',
+            navigateFallbackDenylist: [/^\/\.netlify\//, /\.[a-z0-9]+$/i],
+            runtimeCaching: [
+              {
+                urlPattern: ({ request, url }) =>
+                  request.destination === 'image' && url.origin === self.location.origin,
+                handler: 'StaleWhileRevalidate',
+                options: {
+                  cacheName: 'dentech-images',
+                  expiration: { maxEntries: 64, maxAgeSeconds: 60 * 60 * 24 * 30 },
+                },
+              },
+            ],
+          },
+        }),
         analyze &&
           visualizer({
             filename: 'dist/stats.html',

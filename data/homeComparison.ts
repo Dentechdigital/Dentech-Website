@@ -1,12 +1,5 @@
 /** Homepage comparison table: Dentech vs typical digital / generalist agencies (SolGuruz-style clarity, no video). */
 
-export const heroTrustPoints = [
-  'Serving practices since 2017',
-  'Ottawa HQ · Canada-wide',
-  'Dental & medical focus',
-  'Hybrid senior-led team',
-] as const;
-
 export type ComparisonTone = 'weak' | 'mixed' | 'strong';
 
 export type HomeComparisonRow = {

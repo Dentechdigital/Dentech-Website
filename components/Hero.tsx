@@ -3,7 +3,6 @@ import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import HeroDentistCutout from './HeroDentistCutout';
 import { FEATURES } from '../constants';
-import { heroTrustPoints } from '../data/homeComparison';
 
 const DynamicDots = lazy(() => import('./DynamicDots'));
 const DentalMarketingChrome = lazy(() => import('./DentalMarketingChrome'));
@@ -154,17 +153,6 @@ const Hero: React.FC = () => {
                 </a>
               </div>
             </div>
-
-            <ul className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-left" aria-label="Quick facts">
-              {heroTrustPoints.map((label) => (
-                <li
-                  key={label}
-                  className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 sm:text-xs"
-                >
-                  {label}
-                </li>
-              ))}
-            </ul>
 
             {/* Features List */}
             <div className="pt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 w-full border-t border-gray-200/60 dark:border-slate-800 mt-8 transition-colors duration-300">

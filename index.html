@@ -17,6 +17,25 @@
     </style>
   </head>
   <body>
+    <!-- Netlify parses this at build for Forms; React submits the same field names via fetch. -->
+    <form name="lead-inquiry" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" hidden aria-hidden="true">
+      <input type="hidden" name="form-name" value="lead-inquiry" />
+      <p class="hidden">
+        <label>Do not fill: <input name="bot-field" autocomplete="off" tabindex="-1" /></label>
+      </p>
+      <input name="fullName" />
+      <input name="clinicName" />
+      <input name="email" />
+      <input name="phone" />
+      <input name="clinicType" />
+      <input name="monthlyNewPatients" />
+      <input name="growthGoal" />
+      <input name="primaryChallenge" />
+      <input name="interestedServices" />
+      <input name="timeline" />
+      <input name="budgetRange" />
+      <textarea name="notes"></textarea>
+    </form>
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
     <script>

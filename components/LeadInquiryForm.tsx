@@ -1,6 +1,18 @@
 import React, { useMemo, useState } from 'react';
 import { Send, CheckCircle2, ChevronLeft, ChevronRight } from 'lucide-react';
 
+const NETLIFY_FORM_NAME = 'lead-inquiry';
+
+function getFormAction(): string {
+  const base = import.meta.env.BASE_URL || '/';
+  if (base === '/') return '/';
+  return base.endsWith('/') ? base : `${base}/`;
+}
+
+function encodeNetlifyBody(data: Record<string, string>): string {
+  return new URLSearchParams(data).toString();
+}
+
 type LeadFormData = {
   fullName: string;
   clinicName: string;
@@ -65,6 +77,8 @@ export default function LeadInquiryForm({
 }: LeadInquiryFormProps) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [botField, setBotField] = useState('');
   const [currentStep, setCurrentStep] = useState(0);
   const [formData, setFormData] = useState<LeadFormData>(initialFormData);
 
@@ -114,14 +128,45 @@ export default function LeadInquiryForm({
     setCurrentStep((prev) => Math.max(0, prev - 1));
   };
 
-  const handleFinalSubmit = (e: React.FormEvent) => {
+  const handleFinalSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!canGoNext) return;
+    if (botField.trim()) return;
+
+    setSubmitError(null);
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
+    const body = encodeNetlifyBody({
+      'form-name': NETLIFY_FORM_NAME,
+      'bot-field': '',
+      fullName: formData.fullName.trim(),
+      clinicName: formData.clinicName.trim(),
+      email: formData.email.trim(),
+      phone: formData.phone.trim(),
+      clinicType: formData.clinicType,
+      monthlyNewPatients: formData.monthlyNewPatients,
+      growthGoal: formData.growthGoal.trim(),
+      primaryChallenge: formData.primaryChallenge,
+      interestedServices: formData.interestedServices.join('; '),
+      timeline: formData.timeline,
+      budgetRange: formData.budgetRange,
+      notes: formData.notes.trim(),
+    });
+
+    try {
+      const res = await fetch(getFormAction(), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body,
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
       setIsSubmitted(true);
-    }, 900);
+    } catch {
+      setSubmitError(
+        'We could not send your message. Please try again in a moment, call us, or email hello@dentech.digital.',
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const cardClass =
@@ -142,8 +187,10 @@ export default function LeadInquiryForm({
                   type="button"
                   onClick={() => {
                     setIsSubmitted(false);
+                    setSubmitError(null);
                     setCurrentStep(0);
                     setFormData(initialFormData());
+                    setBotField('');
                   }}
                   className="mt-8 text-blue-600 dark:text-blue-400 font-semibold hover:underline"
                 >
@@ -151,7 +198,19 @@ export default function LeadInquiryForm({
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleFinalSubmit} className="flex min-h-0 flex-1 flex-col">
+              <form onSubmit={handleFinalSubmit} className="flex min-h-0 flex-1 flex-col" noValidate>
+                <p className="sr-only" aria-hidden="true">
+                  <label htmlFor="lead-inquiry-bot">Leave blank</label>
+                  <input
+                    id="lead-inquiry-bot"
+                    name="bot-field"
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={botField}
+                    onChange={(ev) => setBotField(ev.target.value)}
+                  />
+                </p>
                 <div className="shrink-0">
                   <div className="mb-2 flex items-center justify-between">
                     <h3 className="text-2xl font-bold text-blue-950 dark:text-white">{formTitle}</h3>
@@ -381,6 +440,12 @@ export default function LeadInquiryForm({
                   </div>
                 )}
                 </div>
+
+                {submitError ? (
+                  <p className="mt-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800 dark:border-red-900/50 dark:bg-red-950/40 dark:text-red-200" role="alert">
+                    {submitError}
+                  </p>
+                ) : null}
 
                 <div className="mt-auto flex shrink-0 items-center justify-between gap-3 border-t border-gray-100 pt-6 dark:border-slate-700/80">
                   <button

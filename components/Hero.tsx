@@ -131,7 +131,9 @@ const Hero: React.FC = () => {
                 >
                   <span className="relative z-10 flex items-center gap-3">
                     <div className="relative">
-                      <div className="absolute inset-0 scale-150 rounded-full bg-green-500 opacity-0 blur transition-all duration-500 group-hover:opacity-40" />
+                      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden rounded-full" aria-hidden>
+                        <div className="absolute inset-0 scale-150 rounded-full bg-green-500 opacity-0 blur transition-all duration-500 group-hover:opacity-40" />
+                      </div>
                       <img
                         src={`${assetBase}avatar.webp`}
                         srcSet={`${assetBase}avatar-80w.webp 80w, ${assetBase}avatar-160w.webp 160w`}

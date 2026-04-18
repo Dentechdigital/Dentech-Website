@@ -178,7 +178,7 @@ const App: React.FC = () => {
                     <Route path="/blog" element={<Blog />} />
                     <Route path="/blog/:slug" element={<BlogPost />} />
                     <Route path="/contact" element={<Contact />} />
-                    <Route path="/portal" element={<Navigate to="/contact#client-portal" replace />} />
+                    <Route path="/portal" element={<Navigate to="/contact" replace />} />
                   </Routes>
                 </Suspense>
               </AppErrorBoundary>

@@ -6,8 +6,6 @@ import PageHeroAboutStyle from '../components/PageHeroAboutStyle';
 import FaqAccordion from '../components/FaqAccordion';
 import { SectionGradientEmphasis } from '../components/SectionGradientEmphasis';
 import CaseStudyLongSection from '../components/case-studies/CaseStudyLongSection';
-import CaseStudiesWorkGallery from '../components/case-studies/CaseStudiesWorkGallery';
-import CaseStudiesProofOfWorkGrid from '../components/case-studies/CaseStudiesProofOfWorkGrid';
 import {
   buildCaseStudiesPageJsonLd,
   caseStudiesFaq,
@@ -15,10 +13,8 @@ import {
   caseStudiesHeroImageClassName,
   caseStudiesPageMeta,
   caseStudiesProofAtGlance,
-  caseStudiesProofOfWorkSlots,
   caseStudiesScopeBadges,
   caseStudiesTrustLogos,
-  caseStudiesWorkGallery,
   smileDoctorsCaseStudy,
 } from '../data/caseStudiesContent';
 
@@ -110,8 +106,6 @@ const CaseStudies: React.FC = () => {
 
         <CaseStudyLongSection study={smileDoctorsCaseStudy} showSideImage={false} tone="tinted" />
 
-        <CaseStudiesWorkGallery items={caseStudiesWorkGallery} />
-
         <section id="trust" className="border-t border-slate-200/70 bg-white py-16 dark:border-slate-800 dark:bg-slate-900/35 md:py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-2xl">
@@ -159,8 +153,6 @@ const CaseStudies: React.FC = () => {
             className="!bg-transparent"
           />
         </section>
-
-        <CaseStudiesProofOfWorkGrid slots={caseStudiesProofOfWorkSlots} />
 
         <section id="cta" className="border-t border-slate-200/80 bg-white py-16 dark:border-slate-800 dark:bg-slate-900/40 md:py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

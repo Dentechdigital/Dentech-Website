@@ -4,7 +4,6 @@ import {
   Clock,
   Copy,
   ExternalLink,
-  Lock,
   Mail,
   MapPin,
   Navigation,
@@ -224,96 +223,6 @@ const Contact: React.FC = () => {
 
               <div className="flex h-full min-h-0 lg:col-span-7">
                 <LeadInquiryForm className="h-full min-h-0 w-full" formTitle="Request a free audit" />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section
-          id="client-portal"
-          className="scroll-mt-28 border-t border-slate-200/70 bg-gray-50 py-16 dark:border-slate-800 dark:bg-slate-950 md:py-20"
-          aria-labelledby="client-portal-heading"
-        >
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="mx-auto max-w-md">
-              <div className="flex justify-center">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900/50">
-                  <Lock className="h-6 w-6 text-blue-600 dark:text-blue-400" aria-hidden />
-                </div>
-              </div>
-              <h2
-                id="client-portal-heading"
-                className="about-display mt-6 text-center text-3xl font-bold tracking-tight text-blue-950 dark:text-white md:text-5xl"
-              >
-                Client <SectionGradientEmphasis>portal</SectionGradientEmphasis>
-              </h2>
-              <p className="mt-2 text-center text-sm text-gray-600 dark:text-gray-400">
-                Sign in to access your dashboard and communications.
-              </p>
-
-              <div className="mt-8 rounded-lg border border-transparent bg-white py-8 px-4 shadow sm:px-10 dark:border-slate-700 dark:bg-slate-800">
-                <form className="space-y-6">
-                  <div>
-                    <label htmlFor="portal-email" className="block text-sm font-medium text-blue-950 dark:text-gray-300">
-                      Email address
-                    </label>
-                    <div className="mt-1">
-                      <input
-                        id="portal-email"
-                        name="email"
-                        type="email"
-                        autoComplete="email"
-                        required
-                        className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 shadow-sm placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-700 dark:text-white dark:placeholder-gray-400 sm:text-sm"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="portal-password" className="block text-sm font-medium text-blue-950 dark:text-gray-300">
-                      Password
-                    </label>
-                    <div className="mt-1">
-                      <input
-                        id="portal-password"
-                        name="password"
-                        type="password"
-                        autoComplete="current-password"
-                        required
-                        className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 shadow-sm placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-700 dark:text-white dark:placeholder-gray-400 sm:text-sm"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center">
-                      <input
-                        id="portal-remember"
-                        name="remember-me"
-                        type="checkbox"
-                        className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-700"
-                      />
-                      <label htmlFor="portal-remember" className="ml-2 block text-sm text-blue-950 dark:text-gray-300">
-                        Remember me
-                      </label>
-                    </div>
-
-                    <div className="text-sm">
-                      <a href="#" className="font-medium text-blue-600 hover:text-blue-500 dark:text-blue-400">
-                        Forgot your password?
-                      </a>
-                    </div>
-                  </div>
-
-                  <div>
-                    <button
-                      type="button"
-                      className="flex w-full justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                    >
-                      Sign in
-                    </button>
-                  </div>
-                </form>
               </div>
             </div>
           </div>

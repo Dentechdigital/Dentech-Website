@@ -41,6 +41,8 @@ export type ChatRuntimeConfig = {
   dialogAriaLabel: string;
   tabChatLabel: string;
   tabHelpdeskLabel: string;
+  /** When false, quick-start chips stay hidden and are never filled from starters, qualification prompts, or the API. */
+  showQuickStarts?: boolean;
   quickStartsLabel: string;
   composerAriaLabel: string;
   composerPlaceholder: string;

@@ -1,6 +1,5 @@
 import type { ChatRuntimeConfig } from '@dentech/chat-widget';
 import { CHATBOT_FAQ } from '../../data/chatbotFaq';
-import { CHATBOT_QUALIFICATION_PROMPTS, CHATBOT_STARTER_PROMPTS } from '../../data/chatbotPrompts';
 import { trackChatEvent } from './chatbotAnalytics';
 import ChatRouterLink from './ChatRouterLink';
 import { sendChatCompletion } from './sendChatCompletion';
@@ -32,12 +31,13 @@ export const dentechChatRuntimeConfig: ChatRuntimeConfig = {
   dialogAriaLabel: 'Maya, Dentech Digital admin assistant',
   tabChatLabel: 'Chat',
   tabHelpdeskLabel: 'Helpdesk',
+  showQuickStarts: false,
   quickStartsLabel: 'Quick starts',
   composerAriaLabel: 'Message Maya',
   composerPlaceholder: 'Message Maya…',
   faqItems: CHATBOT_FAQ,
-  starterPrompts: CHATBOT_STARTER_PROMPTS,
-  qualificationPrompts: CHATBOT_QUALIFICATION_PROMPTS,
+  starterPrompts: [],
+  qualificationPrompts: [],
   helpdeskCategories: [
     { id: 'pricing', label: 'Pricing', intents: ['pricing'] },
     { id: 'services', label: 'Services', intents: ['services'] },

@@ -333,7 +333,7 @@ export default function ChatPanel({
         )}
       </div>
 
-      {mode === 'chat' && (
+      {mode === 'chat' && prompts.length > 0 && (
         <div className="px-3 pb-1.5 pt-2">
           <QuickPrompts
             prompts={prompts}

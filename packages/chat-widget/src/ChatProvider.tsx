@@ -76,7 +76,10 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [suggestedCtas, setSuggestedCtas] = useState<SuggestedCta[]>([config.defaultContactCta]);
-  const [suggestedPrompts, setSuggestedPrompts] = useState<string[]>(config.starterPrompts);
+  const quickStartsOn = config.showQuickStarts !== false;
+  const [suggestedPrompts, setSuggestedPrompts] = useState<string[]>(() =>
+    quickStartsOn ? config.starterPrompts : [],
+  );
   const [leadScore, setLeadScore] = useState(0);
   const [conversionStage, setConversionStage] = useState<ChatConversionStage>('explore');
   const [ctaNudgeShown, setCtaNudgeShown] = useState(false);
@@ -98,6 +101,7 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
   const sendPrompt = async (text: string, source = 'input') => {
     const prompt = text.trim();
     if (!prompt || loading) return;
+    const allowQuick = config.showQuickStarts !== false;
     const nextScore = leadScore + estimateLeadScore(prompt);
     const nextStage = stageFromScore(nextScore);
     setLeadScore(nextScore);
@@ -164,11 +168,15 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
           : baseCtas.slice(0, 3);
       setSuggestedCtas(ctas);
 
-      const prompts =
-        nextStage === 'explore'
-          ? [...result!.suggestedPrompts, ...config.qualificationPrompts].slice(0, 6)
-          : result!.suggestedPrompts.slice(0, 6);
-      setSuggestedPrompts(prompts.length ? prompts : config.starterPrompts);
+      if (allowQuick) {
+        const prompts =
+          nextStage === 'explore'
+            ? [...result!.suggestedPrompts, ...config.qualificationPrompts].slice(0, 6)
+            : result!.suggestedPrompts.slice(0, 6);
+        setSuggestedPrompts(prompts.length ? prompts : config.starterPrompts);
+      } else {
+        setSuggestedPrompts([]);
+      }
 
       if (nextStage === 'ready' && !ctaNudgeShown) {
         setMessages((prev) => [...prev, makeMessage('assistant', config.ctaNudgeMessage)]);
@@ -181,10 +189,17 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
         setError(null);
         setMessages((prev) => [...prev, makeMessage('assistant', fallback.reply)]);
         setSuggestedCtas(fallback.suggestedCtas.length ? fallback.suggestedCtas : [config.defaultContactCta]);
-        setSuggestedPrompts(fallback.suggestedPrompts.length ? fallback.suggestedPrompts : config.starterPrompts);
+        if (allowQuick) {
+          setSuggestedPrompts(
+            fallback.suggestedPrompts.length ? fallback.suggestedPrompts : config.starterPrompts,
+          );
+        } else {
+          setSuggestedPrompts([]);
+        }
       } else {
         setError(null);
         setMessages((prev) => [...prev, makeMessage('assistant', config.liveAssistantUnavailableMessage)]);
+        if (!allowQuick) setSuggestedPrompts([]);
       }
       config.onTrack?.('chat_error', { mode, source, retryable: true });
     } finally {

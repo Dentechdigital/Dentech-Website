@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, Gift, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { SectionGradientEmphasis } from './SectionGradientEmphasis';
 
 export default function SpecialOfferCTA() {
   return (
@@ -20,7 +21,7 @@ export default function SpecialOfferCTA() {
             <h2 className="mb-5 text-3xl font-bold leading-tight text-slate-900 dark:text-white md:text-5xl">
               <span className="block">Get a Premium Practice</span>
               <span className="block">
-                Website <span className="text-blue-600 dark:text-blue-300">for FREE</span>
+                <SectionGradientEmphasis>Website for FREE</SectionGradientEmphasis>
               </span>
             </h2>
 

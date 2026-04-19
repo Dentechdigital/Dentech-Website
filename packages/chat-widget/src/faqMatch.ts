@@ -37,6 +37,10 @@ const FAQ_WORD_STOP = new Set([
   'who',
   'whom',
   'whose',
+  'how',
+  'why',
+  'can',
+  'may',
   'that',
   'this',
   'these',
@@ -125,6 +129,16 @@ function seedTexts(faq: ChatFaqItem): string[] {
   return [faq.question, ...faq.prompts];
 }
 
+/** Single-word prompts like "what" or "why" must not match via substring-in-seed (too many false positives). */
+function isSingleGenericToken(normalized: string): boolean {
+  const tokens = normalized
+    .split(/\s+/)
+    .map((w) => w.replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, ''))
+    .filter(Boolean);
+  if (tokens.length !== 1) return false;
+  return FAQ_WORD_STOP.has(tokens[0]!.toLowerCase());
+}
+
 /**
  * Match user text to an FAQ item (used by Netlify function and chat widget).
  * Supports short prompts (e.g. "pricing") and long natural questions.
@@ -145,7 +159,14 @@ export function findFaqMatchForPrompt(prompt: string, faqs: ChatFaqItem[]): Chat
         const s = seed.toLowerCase();
         const prefix = s.slice(0, 14);
         if (prefix.length >= 4 && normalized.includes(prefix)) return true;
-        if (normalized.length >= 4 && normalized.length <= 80 && s.includes(normalized)) return true;
+        if (
+          normalized.length >= 4 &&
+          normalized.length <= 80 &&
+          s.includes(normalized) &&
+          !isSingleGenericToken(normalized)
+        ) {
+          return true;
+        }
         const words = normalized
           .split(/\s+/)
           .map((w) => w.replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, ''))

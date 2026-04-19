@@ -289,8 +289,9 @@ export async function handler(event: Event): Promise<Result> {
 
   try {
     const latestPrompt = payload.messages[payload.messages.length - 1]?.text ?? '';
-    // Prefer curated FAQ answers whenever they match (including Chat tab quick starts), so replies stay accurate and complete.
-    const curated = faqFallback(latestPrompt);
+    // Live Chat tab should always use the model (FAQ copy is still injected into the Gemini system prompt).
+    // Curated FAQ short-circuit is reserved for explicit `faq` mode so short words like "what" do not hijack replies.
+    const curated = payload.mode === 'faq' ? faqFallback(latestPrompt) : null;
     const result = curated ?? (await queryGemini(payload));
     return json(200, result);
   } catch (err) {

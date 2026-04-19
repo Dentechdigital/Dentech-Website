@@ -1,5 +1,4 @@
 import { CHATBOT_FAQ } from '../../data/chatbotFaq';
-import { findFaqMatchForPrompt } from '../../packages/chat-widget/src/faqMatch';
 import { CHATBOT_STARTER_PROMPTS } from '../../data/chatbotPrompts';
 import type { ChatCompletionRequest, ChatCompletionResponse, ChatIntent, SuggestedCta } from '../../types/chatbot';
 
@@ -81,19 +80,6 @@ function mapCtas(intent: ChatIntent): SuggestedCta[] {
         { label: 'Browse Services', to: '/#services' },
       ];
   }
-}
-
-function faqFallback(prompt: string): ChatCompletionResponse | null {
-  const match = findFaqMatchForPrompt(prompt, CHATBOT_FAQ);
-  if (!match) return null;
-  return {
-    reply: match.answer,
-    intent: match.intent,
-    confidence: 0.94,
-    suggestedCtas: match.ctas,
-    suggestedPrompts: match.prompts,
-    safetyFlags: [],
-  };
 }
 
 function detectInjectionRisk(prompt: string): boolean {
@@ -288,11 +274,7 @@ export async function handler(event: Event): Promise<Result> {
   }
 
   try {
-    const latestPrompt = payload.messages[payload.messages.length - 1]?.text ?? '';
-    // Live Chat tab should always use the model (FAQ copy is still injected into the Gemini system prompt).
-    // Curated FAQ short-circuit is reserved for explicit `faq` mode so short words like "what" do not hijack replies.
-    const curated = payload.mode === 'faq' ? faqFallback(latestPrompt) : null;
-    const result = curated ?? (await queryGemini(payload));
+    const result = await queryGemini(payload);
     return json(200, result);
   } catch (err) {
     const msg = err instanceof Error ? err.message : String(err);

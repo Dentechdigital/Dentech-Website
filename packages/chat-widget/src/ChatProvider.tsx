@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useMemo, useState } from 'react';
 import { flushSync } from 'react-dom';
-import { findFaqMatchForPrompt } from './faqMatch';
 import { useChatConfig } from './chat-config';
 import type {
   ChatCompletionResponse,
@@ -85,19 +84,6 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
   const [ctaNudgeShown, setCtaNudgeShown] = useState(false);
   const sessionId = useMemo(() => ensureSessionId(config.sessionStorageKey), [config.sessionStorageKey]);
 
-  function resolveLocalFaq(prompt: string): ChatCompletionResponse | null {
-    const faq = findFaqMatchForPrompt(prompt, config.faqItems);
-    if (!faq) return null;
-    return {
-      reply: faq.answer,
-      intent: faq.intent,
-      confidence: 0.9,
-      suggestedCtas: faq.ctas,
-      suggestedPrompts: faq.prompts,
-      safetyFlags: [],
-    };
-  }
-
   const sendPrompt = async (text: string, source = 'input') => {
     const prompt = text.trim();
     if (!prompt || loading) return;
@@ -135,31 +121,16 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
     };
 
     try {
-      let result: ChatCompletionResponse | null = null;
-      if (mode === 'faq') {
-        result = resolveLocalFaq(prompt);
-        if (!result) {
-          result = {
-            reply: config.faqModeNoMatchReply,
-            intent: 'general',
-            confidence: 0.82,
-            suggestedCtas: config.faqModeNoMatchSuggestedCtas,
-            suggestedPrompts: config.starterPrompts,
-            safetyFlags: ['fallback_response'],
-          };
-        }
-      } else {
-        if (typeof navigator !== 'undefined' && navigator.onLine === false) {
-          throw new Error(config.offlineErrorMessage);
-        }
-        result = await config.sendChatCompletion({
-          sessionId,
-          mode,
-          locale: config.locale,
-          pageContext: config.getPageContext(),
-          messages: [...messages, userMessage].slice(-10),
-        });
+      if (typeof navigator !== 'undefined' && navigator.onLine === false) {
+        throw new Error(config.offlineErrorMessage);
       }
+      const result = await config.sendChatCompletion({
+        sessionId,
+        mode,
+        locale: config.locale,
+        pageContext: config.getPageContext(),
+        messages: [...messages, userMessage].slice(-10),
+      });
 
       await waitUntilMinTypingShown();
       setMessages((prev) => [...prev, makeMessage('assistant', result!.reply)]);
@@ -190,23 +161,9 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
       }
     } catch {
       await waitUntilMinTypingShown();
-      const fallback = resolveLocalFaq(prompt);
-      if (fallback) {
-        setError(null);
-        setMessages((prev) => [...prev, makeMessage('assistant', fallback.reply)]);
-        setSuggestedCtas(fallback.suggestedCtas.length ? fallback.suggestedCtas : [config.defaultContactCta]);
-        if (allowQuick) {
-          setSuggestedPrompts(
-            fallback.suggestedPrompts.length ? fallback.suggestedPrompts : config.starterPrompts,
-          );
-        } else {
-          setSuggestedPrompts([]);
-        }
-      } else {
-        setError(null);
-        setMessages((prev) => [...prev, makeMessage('assistant', config.liveAssistantUnavailableMessage)]);
-        if (!allowQuick) setSuggestedPrompts([]);
-      }
+      setError(null);
+      setMessages((prev) => [...prev, makeMessage('assistant', config.liveAssistantUnavailableMessage)]);
+      if (!allowQuick) setSuggestedPrompts([]);
       config.onTrack?.('chat_error', { mode, source, retryable: true });
     } finally {
       setLoading(false);

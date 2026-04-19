@@ -11,6 +11,9 @@ export type ChatMessage = {
   createdAt: number;
 };
 
+/** Slim message shape for analytics / transcript export (no message `id`). */
+export type ChatTranscriptMessage = Pick<ChatMessage, 'role' | 'text' | 'createdAt'>;
+
 export type ChatIntent =
   | 'pricing'
   | 'services'

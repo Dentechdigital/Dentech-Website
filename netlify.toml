@@ -2,7 +2,7 @@
   command = "npm run build"
   publish = "dist"
 
-# Netlify Forms: `lead-inquiry` (index.html + LeadInquiryForm), `maya-chat-submission` (index.html + chatbotAnalytics).
+# Netlify Forms: `lead-inquiry` (index.html + LeadInquiryForm), `maya-chat-submission` (full transcript after ~3 min idle or on tab close; see VITE_CHAT_TRANSCRIPT_IDLE_MS).
 # After deploy, enable notifications in the Netlify UI (e.g. hello@dentech.digital).
 
 # Local full stack: serves Vite + Netlify Functions (live chat needs GEMINI_API_KEY in .env).

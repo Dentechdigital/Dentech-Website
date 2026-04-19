@@ -22,6 +22,7 @@ export type {
   ChatMode,
   ChatRole,
   ChatSafetyFlag,
+  ChatTranscriptMessage,
   SuggestedCta,
 } from './types';
 

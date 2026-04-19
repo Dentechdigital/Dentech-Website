@@ -1,6 +1,6 @@
 import type { ChatRuntimeConfig } from '@dentech/chat-widget';
 import { CHATBOT_FAQ } from '../../data/chatbotFaq';
-import { trackChatEvent } from './chatbotAnalytics';
+import { recordChatConversationForNetlify, trackChatEvent } from './chatbotAnalytics';
 import ChatRouterLink from './ChatRouterLink';
 import { sendChatCompletion } from './sendChatCompletion';
 
@@ -60,6 +60,7 @@ export const dentechChatRuntimeConfig: ChatRuntimeConfig = {
   getPageContext: () => (typeof window === 'undefined' ? '/' : window.location.pathname),
   sendChatCompletion,
   onTrack: trackChatEvent,
+  onConversationUpdate: recordChatConversationForNetlify,
   LinkComponent: ChatRouterLink,
   teaserDelayMs: 7000,
   assistantTypingLeadInMs: 550,

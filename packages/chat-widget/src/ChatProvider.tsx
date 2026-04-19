@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useMemo, useState } from 'react';
+import React, { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import { flushSync } from 'react-dom';
 import { useChatConfig } from './chat-config';
 import type {
@@ -83,6 +83,15 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
   const [conversionStage, setConversionStage] = useState<ChatConversionStage>('explore');
   const [ctaNudgeShown, setCtaNudgeShown] = useState(false);
   const sessionId = useMemo(() => ensureSessionId(config.sessionStorageKey), [config.sessionStorageKey]);
+
+  useEffect(() => {
+    config.onConversationUpdate?.({
+      sessionId,
+      mode,
+      pagePath: config.getPageContext(),
+      messages: messages.map(({ role, text, createdAt }) => ({ role, text, createdAt })),
+    });
+  }, [messages, mode, sessionId, config]);
 
   const sendPrompt = async (text: string, source = 'input') => {
     const prompt = text.trim();

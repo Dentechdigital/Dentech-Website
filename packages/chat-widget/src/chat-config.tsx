@@ -7,6 +7,8 @@ import type {
   ChatFaqItem,
   ChatHelpdeskCategory,
   ChatLinkComponent,
+  ChatMode,
+  ChatTranscriptMessage,
 } from './types';
 
 export type ChatRuntimeConfig = {
@@ -63,6 +65,16 @@ export type ChatRuntimeConfig = {
   getPageContext: () => string;
   sendChatCompletion: (request: ChatCompletionRequest) => Promise<ChatCompletionResponse>;
   onTrack?: (event: ChatEventName, payload?: ChatEventPayload) => void;
+  /**
+   * Called whenever the in-widget conversation updates (including assistant replies).
+   * Host apps can debounce and submit full transcripts (e.g. Netlify Forms) instead of per-message pings.
+   */
+  onConversationUpdate?: (args: {
+    sessionId: string;
+    mode: ChatMode;
+    pagePath: string;
+    messages: ChatTranscriptMessage[];
+  }) => void;
   LinkComponent: ChatLinkComponent;
   teaserDelayMs?: number;
   /**

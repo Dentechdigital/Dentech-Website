@@ -9,17 +9,18 @@ function OfferBadge() {
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-x-hidden border-b border-slate-200/60 bg-gradient-to-br from-slate-50 via-white to-blue-50/70 pb-0 pt-10 sm:pt-14">
+    <section className="relative overflow-x-hidden border-b border-slate-200/60 bg-gradient-to-br from-slate-50 via-white to-blue-50/70 pt-10 sm:pt-14">
       <div className="pointer-events-none absolute -left-20 top-0 h-64 w-64 rounded-full bg-blue-200/40 blur-3xl" aria-hidden />
       <div className="pointer-events-none absolute -right-16 bottom-0 h-72 w-72 rounded-full bg-indigo-200/30 blur-3xl" aria-hidden />
 
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="grid gap-10 sm:gap-12 lg:grid-cols-[1.05fr_1.05fr] lg:items-stretch lg:gap-10">
-          <div className="flex flex-col pb-16 sm:pb-20">
-            <div className="mb-4">
-              <OfferBadge />
-            </div>
-            <h1 className="text-[2.1rem] font-semibold leading-[1.1] tracking-tight text-blue-950 sm:text-5xl sm:leading-tight">
+        <div className="mb-6 sm:mb-8">
+          <OfferBadge />
+        </div>
+
+        <div className="grid gap-10 pb-14 sm:gap-12 sm:pb-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-start lg:gap-10 lg:pb-20">
+          <div className="flex min-w-0 flex-col">
+            <h1 className="text-[2.1rem] font-semibold leading-[1.12] tracking-tight text-blue-950 sm:text-5xl sm:leading-tight">
               Your practice website included — when you commit to{' '}
               <span className="bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent">
                 6 months of growth marketing
@@ -49,23 +50,17 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Phantom badge keeps image column top aligned with h1; flex-1 + object-bottom fills to hero bottom */}
-          <div className="flex min-h-[260px] flex-col sm:min-h-[320px] lg:min-h-0">
-            <div className="mb-4 hidden select-none lg:invisible lg:block" aria-hidden>
-              <OfferBadge />
-            </div>
-            <div className="relative flex min-h-[220px] flex-1 flex-col justify-end sm:min-h-[280px] lg:min-h-0">
-              <img
-                src="/hero-mockup.webp"
-                alt="Website preview on desktop and phone"
-                width={960}
-                height={720}
-                className="relative z-10 w-full max-w-none object-contain object-bottom drop-shadow-2xl max-h-[min(88vh,680px)] sm:max-h-[min(85vh,720px)] lg:h-full lg:max-h-none lg:w-auto lg:max-w-[min(960px,calc(100%+1.5rem))] lg:self-end xl:max-w-[1000px]"
-                loading="eager"
-                fetchPriority="high"
-                decoding="async"
-              />
-            </div>
+          <div className="flex min-w-0 justify-center lg:justify-end lg:pt-0">
+            <img
+              src="/hero-mockup.webp"
+              alt="Website preview on desktop and phone"
+              width={960}
+              height={720}
+              className="w-full max-w-[min(100%,520px)] object-contain drop-shadow-[0_24px_48px_rgba(15,23,42,0.14)] sm:max-w-[560px] lg:max-h-[min(640px,calc(100dvh-10rem))] lg:max-w-[min(720px,100%)]"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+            />
           </div>
         </div>
       </div>

@@ -51,8 +51,6 @@ export default function LeadForm() {
     e.preventDefault();
     setSubmitError(null);
     if (!validate()) return;
-    if (botField) return;
-
     if (botField.trim()) return;
 
     setSubmitting(true);
@@ -208,7 +206,7 @@ export default function LeadForm() {
             autoComplete="tel"
             value={phone}
             onChange={(ev) => setPhone(ev.target.value)}
-            className="mt-1 w-full max-w-md rounded-lg border border-slate-300 px-3 py-2.5 text-slate-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30"
+            className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2.5 text-slate-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30"
             aria-invalid={Boolean(errors.phone)}
             aria-describedby={errors.phone ? 'phone-err' : undefined}
           />

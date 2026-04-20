@@ -26,10 +26,14 @@ export default function HeroSection() {
       <div className="relative z-10 lp-shell pt-10 sm:pt-14">
         <div className="grid gap-10 pb-12 sm:gap-12 sm:pb-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-start lg:gap-10 lg:pb-16">
           <div className="flex min-w-0 flex-col">
-            <h1 className="text-[2.1rem] font-semibold leading-[1.12] tracking-tight text-blue-950 sm:text-5xl sm:leading-tight">
-              Your practice website included — when you commit to{' '}
+            <h1 className="text-[2.05rem] font-semibold leading-[1.14] tracking-tight text-blue-950 sm:text-[2.75rem] sm:leading-[1.08] md:text-5xl">
               <span className="bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent">
-                6 months of growth marketing
+                Website included for your practice
+              </span>
+              <span className="text-blue-950"> — no separate build fee</span>
+              <span className="block pt-1.5 text-blue-950 sm:pt-2">
+                when you commit to{' '}
+                <span className="font-semibold text-blue-950">6 months of growth marketing</span>.
               </span>
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-600">

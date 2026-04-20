@@ -32,6 +32,8 @@
 | Meta description (`index.html`) | **Echo** — SEO one-liner. |
 | Footer | **None** — legal disclaimer only (no fee repeat). |
 
+**Offer tier:** The website bundle on this LP is **Signature Marketing only** at **$2,500/mo** for six months (`WEBSITE_OFFER_TIER_LABEL` / `WEBSITE_OFFER_MONTHLY` in `marketingRetainerContent.ts`). Starter and Elite appear for comparison only.
+
 ## Phase 2 — Information architecture (current `App.tsx` order)
 
 1. **Hero** — Value prop, CTAs, blue bridge bar (badge, chips, capacity scarcity).  

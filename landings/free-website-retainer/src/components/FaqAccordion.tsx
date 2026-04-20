@@ -1,5 +1,6 @@
 import { useId, useState } from 'react';
 import { getMainSiteUrl } from '../config';
+import MidPageEligibilityCta from './MidPageEligibilityCta';
 
 type Item = { question: string; answer: string };
 
@@ -12,7 +13,7 @@ const faqItems: Item[] = [
   {
     question: 'We only have a logo and photos — how does content work?',
     answer:
-      'That’s enough to start. We help structure services, headlines, and trust copy from interviews and your inputs. You approve everything before launch; deeper copywriting layers are available at higher marketing tiers where scoped.',
+      'That is enough to start. We help structure services, headlines, and trust copy from interviews and your inputs. You approve everything before launch; deeper copywriting layers are available at higher marketing tiers where scoped.',
   },
   {
     question: 'What does “live” mean for this starter package?',
@@ -137,6 +138,9 @@ export default function FaqAccordion() {
             );
           })}
         </div>
+
+        <MidPageEligibilityCta variant="after-faq" />
+
         <p className="mt-8 text-center text-sm text-slate-500">
           Looking for something beyond this starter package?{' '}
           <a

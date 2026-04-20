@@ -1,3 +1,5 @@
+import MidPageEligibilityCta from './MidPageEligibilityCta';
+
 export default function PricingStrip() {
   return (
     <section
@@ -66,6 +68,8 @@ export default function PricingStrip() {
             </tbody>
           </table>
         </div>
+
+        <MidPageEligibilityCta variant="after-pricing" />
       </div>
     </section>
   );

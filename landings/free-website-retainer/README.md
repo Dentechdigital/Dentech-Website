@@ -33,6 +33,8 @@ Output: `dist/`.
 9. **FAQ** (`#faq`) — Objections for new owners.
 10. **Apply** (`#apply`) — Form + phone/email aside.
 
+**Mid-page CTAs:** After **Pricing** and after **FAQ**, a calm “Check eligibility” strip (`MidPageEligibilityCta.tsx`) repeats the primary action without competing copy.
+
 Skip link: first focusable control in `index.html` → `#main-content` on `<main>`.
 
 **QA log:** See [`QA_REPORT.md`](QA_REPORT.md) for the pre-launch checklist summary.

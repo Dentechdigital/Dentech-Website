@@ -1,32 +1,69 @@
 # Landing page QA report — `free-website-retainer` (production pass)
 
-**Date:** 2026-04-17  
-**Scope:** Pre-launch quality gate + IA/content/UX refresh for new dental clinic owners.
+**Last validated:** 2026-04-17 (re-run: typecheck, build, `npm run qa`)  
+**ICP:** New dental clinic owners (early-stage / opening soon / recently opened).  
+**Principles:** Trustworthy copy, no spammy urgency; scarcity only via honest capacity framing (`offerScarcity.ts`).
 
 ## Phase 1 — Quality gate
 
 | Check | Result | Notes |
 | --- | --- | --- |
-| Build & types (`npm run typecheck && npm run build`) | **Pass** | Clean before changes; re-run after edits. |
-| One H1, heading hierarchy | **Fixed** | Single H1 in hero; section H2s; FAQ uses H2 + H3 per item. |
-| Skip link | **Fixed** | Added “Skip to main content” → `#main-content`. |
-| Form labels / errors / focus | **Pass** | Enhanced with `aria-describedby` for timeline & budget hints. |
-| FAQ keyboard | **Pass** | Buttons toggle panels; focus outline on buttons. |
-| Contrast (dark strip, amber) | **Pass** | Trust section white on blue-950; amber on stone text. |
-| Sticky mobile CTA vs footer | **Pass** | `pb-28` on main preserves space; spot-check on narrow viewports. |
-| Hero performance | **Pass** | Hero image `eager` + `fetchPriority="high"`; below-fold assets lazy where applicable. |
-| Trust / scarcity copy | **Pass** | Cohort cap in `offerScarcity.ts`; no fake timers. |
-| Consent / Netlify | **Pass** | Hidden static form + React `fetch` POST; consent references main site. |
-| Env / `mainSiteAsset` | **Pass** | `VITE_MAIN_SITE_URL` defaults to production domain in `config.ts`. |
-| Content redundancy ($150/mo) | **Addressed** | Primary explanation: **Pricing** table + **Offer** third card; hero amber removed; form uses short “before you submit”; footer legal only. |
+| Build & types (`npm run typecheck && npm run build`) | **Pass** | Re-run after each change. |
+| `npm run qa` (postbuild Netlify form verify) | **Pass** | Confirms hidden form in `dist/index.html`. |
+| One H1, heading hierarchy | **Pass** | H1 in `HeroSection`; sections use H2; FAQ accordion headers use H3 + `button`. |
+| Skip link | **Pass** | `index.html` → `#main-content`; styles in `global.css`. |
+| Form labels / errors / focus | **Pass** | `LeadForm` + `aria-describedby` on timeline/budget; focus rings on CTAs. |
+| FAQ keyboard | **Pass** | `button` + `aria-expanded` / `aria-controls`; panel content when open only. |
+| Contrast (dark trust strip, amber, blue bridge) | **Pass** | Trust + hero bridge: light text on blue; form amber on stone. |
+| Sticky mobile CTA vs footer | **Pass** | `main` uses `pb-28 md:pb-0`. |
+| Hero performance | **Pass** | Hero image `eager` + `fetchPriority="high"`; trust/partner images `loading="lazy"`. |
+| Trust / scarcity | **Pass** | Cohort cap disclosed; no countdown/stock gimmicks. |
+| Consent / Netlify | **Pass** | Hidden form + React POST; honeypot `bot-field`; consent checkbox. |
+| Env / `mainSiteAsset()` | **Pass** | `VITE_MAIN_SITE_URL` in `config.ts` (default `https://dentechdigital.ca`). |
+
+### Content redundancy — `$150/mo` hosting / maintenance
+
+| Location | Role |
+| --- | --- |
+| **Pricing table** (`PricingStrip`) | **Primary** — full row + subtext. |
+| Offer third card (`OfferSnapshot`) | **Secondary** — bundled retainer framing. |
+| FAQ (“monthly fee if included?”) | **Echo** — objection handler. |
+| Form amber banner (`LeadForm`) | **Echo** — short + link to `#pricing`. |
+| Meta description (`index.html`) | **Echo** — SEO one-liner. |
+| Footer | **None** — legal disclaimer only (no fee repeat). |
+
+## Phase 2 — Information architecture (current `App.tsx` order)
+
+1. **Hero** — Value prop, CTAs, blue bridge bar (badge, chips, capacity scarcity).  
+2. **Offer** `#offer` — What the bundle is + availability callout.  
+3. **Fit** `#fit` — Good fit / not a fit.  
+4. **Site** `#included` — Five pages + extras.  
+5. **Retainer** `#retainer` — Tiers + what to expect.  
+6. **Pricing** `#pricing` — Plain-English table + **mid-page eligibility CTA**.  
+7. **Process** `#process` — Four steps + what to prepare.  
+8. **Trust** `#trust` — Logos (panel) + testimonials (separate block).  
+9. **FAQ** `#faq` — Objections + **mid-page eligibility CTA** + Growth Build link.  
+10. **Apply** `#apply` — Form + `ApplyAside` (phone/email/address).  
+11. **Footer** — Links + disclaimer.
+
+**Header nav:** Offer, Pricing, FAQ + primary **Check eligibility** (not every anchor).
+
+**CTA discipline:** Single primary label **Check eligibility** — hero, header, sticky mobile, mid-page strips (after pricing & FAQ), form submit wording distinct (“Submit eligibility request”) to avoid duplicate control labels.
+
+## Phases 3–4 — Content / UX (summary)
+
+- ICP jobs-to-be-done reflected in hero, fit, process “what to prepare,” and FAQ (pre-opening, thin assets, Wix, outgrow, ownership).  
+- Voice lines: hero bridge + fit section + apply intro.  
+- `marketingRetainerContent.ts` aligned with main site `PricingPlans` marketing tiers.
+
+## Phase 5 — Definition of done
+
+- [x] QA table current; redundancy documented.  
+- [x] Build + `npm run qa` green.  
+- [x] No contradictory pricing claims (tiers vs $150 hosting clearly scoped).  
+- [ ] Lighthouse / cross-browser: manual on deploy URL (waived in CI).  
 
 ## Waived / manual
 
-- **Lighthouse CI:** Run locally or in deploy pipeline when convenient (`npm run qa` if configured).
-- **Cross-browser:** Manual smoke on Safari/Chrome recommended before paid traffic.
-
-## Definition of done
-
-- [x] IA: fit section, pricing after retainer tiers, trust split logos/reviews.
-- [x] Copy aligned with ICP (new clinic owners).
-- [x] Single primary CTA label: **Check eligibility** (header, hero, mobile bar).
+- Lighthouse scores after production deploy.  
+- Safari iOS + Chrome Android smoke (sticky CTA, FAQ, form).

@@ -3,6 +3,7 @@ import { getMainSiteUrl } from '../config';
 const nav = [
   { href: '#offer', label: 'Offer' },
   { href: '#included', label: "What's included" },
+  { href: '#retainer', label: 'Retainer' },
   { href: '#process', label: 'How it works' },
   { href: '#pricing', label: 'Pricing' },
   { href: '#faq', label: 'FAQ' },

@@ -6,6 +6,7 @@ import InclusionGrid from './components/InclusionGrid';
 import LandingFooter from './components/LandingFooter';
 import LandingHeader from './components/LandingHeader';
 import LeadForm from './components/LeadForm';
+import MarketingRetainerSection from './components/MarketingRetainerSection';
 import OfferSnapshot from './components/OfferSnapshot';
 import PricingStrip from './components/PricingStrip';
 import ProcessSteps from './components/ProcessSteps';
@@ -21,6 +22,7 @@ export default function App() {
         <HeroSection />
         <OfferSnapshot />
         <InclusionGrid />
+        <MarketingRetainerSection />
         <ProcessSteps />
         <CredibilityStrip />
         <PricingStrip />

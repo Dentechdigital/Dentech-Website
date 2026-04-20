@@ -25,7 +25,7 @@ export default function HeroSection() {
 
       <div className="relative z-10 lp-shell pt-10 sm:pt-14">
         <div className="grid gap-10 pb-0 sm:gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-stretch lg:gap-10">
-          <div className="flex min-w-0 flex-col">
+          <div className="flex min-h-0 min-w-0 flex-col self-stretch lg:justify-center">
             <h1 className="text-balance text-[1.95rem] font-semibold leading-[1.14] tracking-tight text-blue-950 sm:text-[2.35rem] sm:leading-[1.1] md:text-5xl md:leading-[1.05] lg:text-[2.85rem]">
               We&apos;ll Build Your{' '}
               <span className="inline">

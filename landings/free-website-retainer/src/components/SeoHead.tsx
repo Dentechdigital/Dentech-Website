@@ -1,9 +1,9 @@
 import { Helmet } from 'react-helmet-async';
 import { getSiteUrl } from '../config';
 
-const TITLE = 'Free practice website with Signature Marketing ($2,500/mo) | Dentech Digital';
+const TITLE = "We'll Build Your $3,000 Website for Free | Dentech Digital";
 const DESCRIPTION =
-  '5-page clinic website included at no build fee with a 6-month Signature Marketing retainer ($2,500/mo). Booking requests, mobile-first. Hosting & maintenance ($150/mo) included in the retainer. Ottawa-based.';
+  'Starter practice website at no separate build fee—focus your budget on patient demand—with 6-month Signature Marketing ($2,500/mo). 5 pages, mobile-first. Hosting & maintenance ($150/mo) included in the retainer. Ottawa-based.';
 
 export default function SeoHead() {
   const siteUrl = getSiteUrl();

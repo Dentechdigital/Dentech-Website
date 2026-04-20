@@ -26,21 +26,19 @@ export default function HeroSection() {
       <div className="relative z-10 lp-shell pt-10 sm:pt-14">
         <div className="grid gap-10 pb-12 sm:gap-12 sm:pb-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-start lg:gap-10 lg:pb-16">
           <div className="flex min-w-0 flex-col">
-            <h1 className="text-[2.05rem] font-semibold leading-[1.14] tracking-tight text-blue-950 sm:text-[2.75rem] sm:leading-[1.08] md:text-5xl">
+            <h1 className="text-balance text-[1.7rem] font-semibold leading-[1.16] tracking-tight text-blue-950 sm:text-4xl sm:leading-[1.12] md:text-[2.65rem] md:leading-[1.06]">
+              We&apos;ll Build Your{' '}
               <span className="bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent">
-                Website included for your practice
-              </span>
-              <span className="text-blue-950"> — no separate build fee</span>
-              <span className="block pt-1.5 text-blue-950 sm:pt-2">
-                when you commit to{' '}
-                <span className="font-semibold text-blue-950">6 months of growth marketing</span>.
-              </span>
+                $3,000 Website
+              </span>{' '}
+              for Free—You Just Pay for the Patients.
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-600">
-              Professional starter site on our stack —{' '}
-              <strong className="font-medium text-slate-800">no separate build fee</strong> — when you commit to six
-              months of <strong className="font-medium text-slate-800">Signature Marketing at $2,500/mo</strong>.
-              Hosting and maintenance from go-live are in your agreement (
+              A professional starter site on our stack—think <strong className="font-medium text-slate-800">~$3,000</strong>{' '}
+              of build value bundled in, <strong className="font-medium text-slate-800">no separate site invoice</strong>
+              —when you commit to six months of{' '}
+              <strong className="font-medium text-slate-800">Signature Marketing at $2,500/mo</strong> so you&apos;re
+              paying for demand, not a one-off build. Hosting and maintenance from go-live are in your agreement (
               <a href="#pricing" className="font-medium text-blue-700 underline-offset-2 hover:underline">
                 summary
               </a>

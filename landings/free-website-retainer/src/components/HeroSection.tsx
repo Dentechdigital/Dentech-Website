@@ -17,7 +17,7 @@ function OfferBadgeDark() {
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-x-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50/70">
+    <section id="hero" className="relative overflow-x-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50/70">
       <div className="lp-dots lp-dots-fade-b pointer-events-none absolute inset-0 opacity-50" aria-hidden />
       <div className="pointer-events-none absolute -left-20 top-0 h-64 w-64 rounded-full bg-blue-200/40 blur-3xl" aria-hidden />
       <div className="pointer-events-none absolute -right-16 bottom-32 h-72 w-72 rounded-full bg-indigo-200/30 blur-3xl" aria-hidden />
@@ -107,6 +107,8 @@ export default function HeroSection() {
           </p>
         </div>
       </div>
+      {/* Sentinel: when this passes above the viewport, hero (including bridge) is fully off-screen — show mobile sticky CTA */}
+      <div id="hero-scroll-end" className="h-0 w-full shrink-0" aria-hidden />
     </section>
   );
 }

@@ -11,7 +11,7 @@ export default function LandingHeader() {
   const main = getMainSiteUrl();
 
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-[#fafaf9]/95 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-slate-200/50 bg-[#fafaf9]/65 shadow-sm shadow-slate-900/5 backdrop-blur-xl supports-[backdrop-filter]:bg-[#fafaf9]/55">
       <div className="lp-shell flex items-center justify-between gap-4 py-3">
         <a
           href={main}

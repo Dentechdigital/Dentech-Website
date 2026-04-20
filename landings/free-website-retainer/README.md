@@ -35,6 +35,8 @@ Output: `dist/`.
 
 **Mid-page CTAs:** After **Pricing** and after **FAQ**, a calm “Check eligibility” strip (`MidPageEligibilityCta.tsx`) repeats the primary action without competing copy.
 
+**Mobile sticky CTA:** Hidden until the **hero** (including the blue bridge bar) has fully scrolled off-screen — see `#hero-scroll-end` in `HeroSection.tsx` and `StickyMobileCta.tsx`. Bar uses a light gradient + subtle blur under a single floating button; header uses matching glass (`backdrop-blur-xl`).
+
 Skip link: first focusable control in `index.html` → `#main-content` on `<main>`.
 
 **QA log:** See [`QA_REPORT.md`](QA_REPORT.md) for the pre-launch checklist summary.

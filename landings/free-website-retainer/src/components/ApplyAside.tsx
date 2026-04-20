@@ -10,7 +10,7 @@ export default function ApplyAside() {
   const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${mapsQuery}`;
 
   return (
-    <aside className="flex flex-col gap-6 rounded-2xl border border-slate-200/90 bg-white/90 p-6 shadow-sm backdrop-blur-sm sm:p-8 lg:sticky lg:top-28">
+    <aside className="flex h-full min-h-0 w-full flex-col gap-8 text-slate-800">
       <div>
         <p className="text-xs font-semibold uppercase tracking-wider text-blue-700">Prefer to talk first?</p>
         <p className="mt-2 text-sm leading-relaxed text-slate-600">
@@ -27,7 +27,7 @@ export default function ApplyAside() {
         <p className="mt-1 text-xs text-slate-500">{SITE_CONTACT.hoursShort}</p>
       </div>
 
-      <div className="border-t border-slate-100 pt-6">
+      <div>
         <p className="text-xs font-semibold uppercase tracking-wider text-blue-700">Email</p>
         <a
           href={`mailto:${SITE_CONTACT.email}?subject=Free%20website%20%2B%206-month%20retainer%20offer`}
@@ -38,7 +38,7 @@ export default function ApplyAside() {
         </a>
       </div>
 
-      <div className="border-t border-slate-100 pt-6">
+      <div>
         <p className="text-xs font-semibold uppercase tracking-wider text-blue-700">Visit / mail</p>
         <a
           href={mapsUrl}
@@ -62,7 +62,7 @@ export default function ApplyAside() {
         </p>
       </div>
 
-      <div className="border-t border-slate-100 pt-6">
+      <div className="mt-auto pt-2">
         <p className="text-xs font-semibold uppercase tracking-wider text-blue-700">Where we work</p>
         <p className="mt-2 text-sm leading-relaxed text-slate-600">
           We are <strong className="font-medium text-blue-950">headquartered in Ottawa</strong> and partner with clinics

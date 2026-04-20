@@ -16,7 +16,11 @@ function getFormAction(): string {
   return base.endsWith('/') ? base : `${base}/`;
 }
 
-export default function LeadForm() {
+type LeadFormProps = {
+  className?: string;
+};
+
+export default function LeadForm({ className = '' }: LeadFormProps) {
   const mainSite = getMainSiteUrl();
   const [fullName, setFullName] = useState('');
   const [clinicName, setClinicName] = useState('');
@@ -84,7 +88,9 @@ export default function LeadForm() {
 
   if (submitted) {
     return (
-      <div className="rounded-2xl border border-emerald-200 bg-emerald-50/90 p-8 text-center shadow-sm">
+      <div
+        className={`flex h-full min-h-0 flex-col justify-center rounded-2xl border border-emerald-200 bg-emerald-50/90 p-8 text-center shadow-sm ${className}`.trim()}
+      >
         <p className="text-lg font-semibold text-emerald-900">Thank you — we received your request.</p>
         <p className="mt-3 text-sm leading-relaxed text-emerald-800">
           We aim to reply within <strong>one business day</strong>. If your timeline is urgent, reach us through the main
@@ -103,7 +109,11 @@ export default function LeadForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8" noValidate>
+    <form
+      onSubmit={handleSubmit}
+      className={`flex h-full min-h-0 flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8 ${className}`.trim()}
+      noValidate
+    >
       <p className="rounded-xl border border-amber-200 bg-amber-50/90 px-4 py-3 text-sm text-amber-950">
         <strong>Before you submit:</strong> you are requesting the <strong>6-month retainer + included 5-page starter site</strong>.
         <strong>Hosting and maintenance ($150/mo)</strong> is included in your six-month retainer from go-live — not a

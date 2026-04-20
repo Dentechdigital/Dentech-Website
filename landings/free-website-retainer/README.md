@@ -20,6 +20,23 @@ npm run build
 
 Output: `dist/`.
 
+## Page structure (section order)
+
+1. **Hero** — Value prop for new clinic owners, offer chips, scarcity (capacity-framed), primary CTA **Check eligibility**.
+2. **Offer** (`#offer`) — Three pillars: retainer, site included, hosting in retainer.
+3. **Fit** (`#fit`) — Good fit / not a fit.
+4. **Site** (`#included`) — Five pages + extras.
+5. **Retainer** (`#retainer`) — Starter / Signature / Elite tiers + what to expect.
+6. **Pricing** (`#pricing`) — Plain-English table (primary place for **$150/mo** hosting detail).
+7. **Process** (`#process`) — Four steps + what to prepare.
+8. **Trust** (`#trust`) — Logos and testimonials (separate visual groups).
+9. **FAQ** (`#faq`) — Objections for new owners.
+10. **Apply** (`#apply`) — Form + phone/email aside.
+
+Skip link: first focusable control in `index.html` → `#main-content` on `<main>`.
+
+**QA log:** See [`QA_REPORT.md`](QA_REPORT.md) for the pre-launch checklist summary.
+
 ## Environment
 
 Copy `.env.example` to `.env` and set:
@@ -98,6 +115,7 @@ Suggested targets: Performance ≥ 85 (mobile often lower), Accessibility ≥ 90
 
 ### Accessibility (manual)
 
+- From page load, press **Tab** once: **Skip to main content** should appear and move focus into the page.
 - Tab through header nav, FAQ accordions (focus visible), form fields, sticky mobile CTA.
 - Run **axe DevTools** in Chrome on `/` after deploy.
 - Confirm FAQ uses `button` + `aria-expanded` + `aria-controls` (implemented in `FaqAccordion.tsx`).

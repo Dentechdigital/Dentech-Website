@@ -8,10 +8,11 @@ export default function PricingStrip() {
       <div className="pointer-events-none absolute right-0 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-indigo-100/50 blur-3xl" aria-hidden />
       <div className="relative z-10 lp-shell">
         <h2 className="text-3xl font-semibold tracking-tight text-blue-950 sm:text-4xl">What you pay — in plain terms</h2>
-        <p className="mt-3 max-w-2xl text-slate-600">
-          The website build is not billed separately when you qualify and sign the six-month retainer. Hosting and
-          maintenance at <strong className="text-blue-950">$150/mo</strong> is included in that agreement for the full
-          six-month term from go-live.
+        <p className="mt-3 max-w-3xl text-slate-600">
+          <strong className="font-medium text-blue-950">Primary reference for fees:</strong> the website build is not
+          billed separately when you qualify and sign the six-month retainer. Hosting and maintenance at{' '}
+          <strong className="text-blue-950">$150/mo</strong> is included in that agreement for the full six-month term from
+          go-live. Marketing retainer level (Starter / Signature / Elite) is set in your contract.
         </p>
 
         <div className="mt-10 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">

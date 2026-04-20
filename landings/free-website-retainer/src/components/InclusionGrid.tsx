@@ -18,10 +18,11 @@ export default function InclusionGrid() {
       <div className="pointer-events-none absolute left-1/2 top-0 h-56 w-56 -translate-x-1/2 rounded-full bg-cyan-200/25 blur-3xl" aria-hidden />
       <div className="pointer-events-none absolute bottom-0 right-0 h-64 w-64 rounded-full bg-blue-200/20 blur-3xl" aria-hidden />
       <div className="relative z-10 lp-shell">
-        <h2 className="text-3xl font-semibold tracking-tight text-blue-950 sm:text-4xl">What&apos;s included in your site</h2>
-        <p className="mt-3 max-w-2xl text-slate-600">
-          Up to <strong className="text-blue-950">five pages</strong> on our managed clinic platform — we design and build;
-          you get an editor-friendly site without naming underlying technology.
+        <h2 className="text-3xl font-semibold tracking-tight text-blue-950 sm:text-4xl">What&apos;s included in your starter site</h2>
+        <p className="mt-3 max-w-3xl text-slate-600">
+          Up to <strong className="text-blue-950">five pages</strong> on our managed clinic platform — structured for new
+          practices that need trust and clarity fast. We design and build; you get an editor-friendly site without naming
+          underlying technology.
         </p>
 
         <div className="mt-10 grid gap-10 lg:grid-cols-2">

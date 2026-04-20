@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { getMainSiteUrl } from '../config';
+import { SITE_CONTACT } from '../siteContact';
 
 const FORM_NAME = 'free-website-retainer-lead';
 
@@ -93,8 +94,11 @@ export default function LeadForm({ className = '' }: LeadFormProps) {
       >
         <p className="text-lg font-semibold text-emerald-900">Thank you — we received your request.</p>
         <p className="mt-3 text-sm leading-relaxed text-emerald-800">
-          We aim to reply within <strong>one business day</strong>. If your timeline is urgent, reach us through the main
-          site contact page.
+          We aim to reply within <strong>one business day</strong>. If your opening date is soon, call{' '}
+          <a href={`tel:+1${SITE_CONTACT.phoneTel}`} className="font-semibold text-emerald-900 underline-offset-2 hover:underline">
+            {SITE_CONTACT.phoneDisplay}
+          </a>{' '}
+          during {SITE_CONTACT.hoursShort.toLowerCase()}.
         </p>
         <a
           href={`${mainSite}/contact`}
@@ -115,9 +119,12 @@ export default function LeadForm({ className = '' }: LeadFormProps) {
       noValidate
     >
       <p className="rounded-xl border border-amber-200 bg-amber-50/90 px-4 py-3 text-sm text-amber-950">
-        <strong>Before you submit:</strong> you are requesting the <strong>6-month retainer + included 5-page starter site</strong>.
-        <strong>Hosting and maintenance ($150/mo)</strong> is included in your six-month retainer from go-live — not a
-        separate add-on fee.
+        <strong>Before you submit:</strong> you are requesting the <strong>6-month retainer + 5-page starter site</strong>.
+        Hosting and maintenance (<strong>$150/mo</strong>) is part of your retainer from go-live — see the{' '}
+        <a href="#pricing" className="font-medium text-amber-950 underline-offset-2 hover:underline">
+          pricing summary
+        </a>
+        .
       </p>
 
       <div className="mt-8 grid gap-5 sm:grid-cols-2">
@@ -230,6 +237,9 @@ export default function LeadForm({ className = '' }: LeadFormProps) {
           <label htmlFor="timeline" className="block text-sm font-medium text-slate-700">
             Start timeline <span className="text-red-600">*</span>
           </label>
+          <p id="timeline-help" className="mt-1 text-xs text-slate-500">
+            Helps us sequence build and marketing — including if you are not open yet.
+          </p>
           <select
             id="timeline"
             name="timeline"
@@ -237,7 +247,9 @@ export default function LeadForm({ className = '' }: LeadFormProps) {
             onChange={(ev) => setTimeline(ev.target.value)}
             className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-slate-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30"
             aria-invalid={Boolean(errors.timeline)}
-            aria-describedby={errors.timeline ? 'timeline-err' : undefined}
+            aria-describedby={
+              [errors.timeline ? 'timeline-err' : '', 'timeline-help'].filter(Boolean).join(' ') || undefined
+            }
           >
             <option value="">Select…</option>
             {timelineOptions.map((o) => (
@@ -256,6 +268,9 @@ export default function LeadForm({ className = '' }: LeadFormProps) {
           <label htmlFor="budgetRange" className="block text-sm font-medium text-slate-700">
             Monthly marketing budget (target band) <span className="text-red-600">*</span>
           </label>
+          <p id="budget-help" className="mt-1 text-xs text-slate-500">
+            Aligns with Starter / Signature / Elite bands on our main site — not a binding quote.
+          </p>
           <select
             id="budgetRange"
             name="budgetRange"
@@ -263,7 +278,9 @@ export default function LeadForm({ className = '' }: LeadFormProps) {
             onChange={(ev) => setBudgetRange(ev.target.value)}
             className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-slate-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30"
             aria-invalid={Boolean(errors.budgetRange)}
-            aria-describedby={errors.budgetRange ? 'budgetRange-err' : undefined}
+            aria-describedby={
+              [errors.budgetRange ? 'budgetRange-err' : '', 'budget-help'].filter(Boolean).join(' ') || undefined
+            }
           >
             <option value="">Select…</option>
             {budgetOptions.map((o) => (
@@ -322,7 +339,7 @@ export default function LeadForm({ className = '' }: LeadFormProps) {
         disabled={submitting}
         className="mt-8 w-full rounded-full bg-blue-600 px-8 py-4 text-base font-semibold text-white shadow-lg transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
       >
-        {submitting ? 'Sending…' : 'Submit application'}
+        {submitting ? 'Sending…' : 'Submit eligibility request'}
       </button>
     </form>
   );

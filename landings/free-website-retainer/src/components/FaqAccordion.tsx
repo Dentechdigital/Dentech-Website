@@ -5,24 +5,44 @@ type Item = { question: string; answer: string };
 
 const faqItems: Item[] = [
   {
-    question: 'Why is there a monthly fee if the website is included?',
+    question: 'We are not open yet — can we start? What is the timeline?',
     answer:
-      'The site build is bundled into the six-month retainer offer — not billed as a separate website proposal. Hosting, backups, platform updates, and reasonable maintenance are included at $150/mo for the full six-month term from go-live so your site stays fast, secure, and editable.',
+      'Yes. Many new owners begin before opening. We align content and go-live to your launch window during onboarding. Timeline depends on asset readiness and review rounds — we give you a realistic schedule on the qualification call.',
+  },
+  {
+    question: 'We only have a logo and photos — how does content work?',
+    answer:
+      'That’s enough to start. We help structure services, headlines, and trust copy from interviews and your inputs. You approve everything before launch; deeper copywriting layers are available at higher marketing tiers where scoped.',
+  },
+  {
+    question: 'What does “live” mean for this starter package?',
+    answer:
+      'A professional multi-page site (up to five) on our managed platform, with a contact flow that includes an appointment or callback request — not necessarily live two-way calendar sync, which may be a higher tier. Exact behavior is confirmed before launch.',
+  },
+  {
+    question: 'Why is there a monthly fee if the website is “included”?',
+    answer:
+      'The site build is bundled into the six-month retainer — not billed as a separate website proposal. Hosting, backups, platform updates, and reasonable maintenance are included at $150/mo for the full six-month term from go-live so your site stays fast, secure, and editable.',
   },
   {
     question: 'What does the 6-month retainer cover?',
     answer:
-      'A scoped growth marketing program agreed at signup — typically channels like SEO/GEO, paid media, conversion improvements, and reporting. Exact deliverables and fees are spelled out in your contract before you commit.',
+      'A scoped growth marketing program agreed at signup — channels like SEO/GEO, social consistency, paid media (by tier), conversion improvements, and reporting. Exact deliverables and fees are spelled out in your contract before you commit.',
+  },
+  {
+    question: 'How is this different from Wix or a cheap template?',
+    answer:
+      'You get a dental-focused build, managed hosting and updates, and ongoing marketing execution tied to your goals — not a generic template you maintain alone. Strategy, reporting, and channel work are part of the retainer, not an extra.',
+  },
+  {
+    question: 'What if we outgrow the five-page starter site?',
+    answer:
+      'We can scope additional pages, languages, or a larger build as a change request or a different engagement. We quote clearly before any extra work — many practices graduate to a Growth Build or expanded retainer.',
   },
   {
     question: 'Who owns the domain and the content?',
     answer:
-      'Ownership and licensing for domain, copy, and imagery are defined in your agreement. We align to common practice: you own your brand content; platform and hosting terms are disclosed before signature.',
-  },
-  {
-    question: 'What if I need more than five pages or a second language?',
-    answer:
-      'This offer covers the starter five-page, single-language package. Additional pages or languages can be scoped as a change request or a different engagement — we will quote clearly before any extra work begins.',
+      'Ownership and licensing for domain, copy, and imagery are defined in your agreement. Common practice: you own your brand content; platform and hosting terms are disclosed before signature.',
   },
   {
     question: 'What happens after six months?',
@@ -32,7 +52,7 @@ const faqItems: Item[] = [
   {
     question: 'Is every clinic a fit?',
     answer:
-      'We prioritize new and early-stage practices that match our channel stack and compliance comfort. Large multi-location rollouts or heavy custom data integrations may need a different approach — we will tell you honestly on the qualification call.',
+      'We prioritize new and early-stage practices that match our channel stack. Large multi-location rollouts or heavy custom data integrations may need a different approach — we will tell you honestly on the qualification call.',
   },
   {
     question: 'I need a fully custom marketing site with advanced integrations.',
@@ -41,7 +61,19 @@ const faqItems: Item[] = [
   },
 ];
 
-function FaqRow({ item, isOpen, onToggle, panelId, buttonId }: { item: Item; isOpen: boolean; onToggle: () => void; panelId: string; buttonId: string }) {
+function FaqRow({
+  item,
+  isOpen,
+  onToggle,
+  panelId,
+  buttonId,
+}: {
+  item: Item;
+  isOpen: boolean;
+  onToggle: () => void;
+  panelId: string;
+  buttonId: string;
+}) {
   return (
     <div className="border-b border-slate-200 last:border-0">
       <h3 className="m-0 text-base font-semibold text-blue-950">
@@ -66,7 +98,7 @@ function FaqRow({ item, isOpen, onToggle, panelId, buttonId }: { item: Item; isO
         hidden={!isOpen}
         className="pb-4 text-sm leading-relaxed text-slate-600"
       >
-        {item.answer}
+        {isOpen ? item.answer : null}
       </div>
     </div>
   );
@@ -85,7 +117,9 @@ export default function FaqAccordion() {
       <div className="pointer-events-none absolute -left-24 bottom-0 h-64 w-64 rounded-full bg-blue-100/60 blur-3xl" aria-hidden />
       <div className="relative z-10 lp-shell">
         <h2 className="text-3xl font-semibold tracking-tight text-blue-950 sm:text-4xl">Frequently asked questions</h2>
-        <p className="mt-3 text-slate-600">Straight answers before you apply. Final terms are always in your written agreement.</p>
+        <p className="mt-3 max-w-3xl text-slate-600">
+          Straight answers for new clinic owners. Final terms are always in your written agreement.
+        </p>
         <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50/50 px-4 sm:px-6">
           {faqItems.map((item, index) => {
             const isOpen = openIndex === index;

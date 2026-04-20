@@ -9,7 +9,7 @@ export default function StickyMobileCta() {
           href="#apply"
           className="block w-full rounded-full bg-blue-600 py-3.5 text-center text-sm font-semibold text-white shadow-md transition hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
         >
-          Request this offer
+          Check eligibility
         </a>
       </div>
     </div>

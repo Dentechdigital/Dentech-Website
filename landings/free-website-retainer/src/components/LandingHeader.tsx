@@ -2,10 +2,12 @@ import { getMainSiteUrl } from '../config';
 
 const nav = [
   { href: '#offer', label: 'Offer' },
-  { href: '#included', label: "What's included" },
+  { href: '#fit', label: 'Fit' },
+  { href: '#included', label: 'Site' },
   { href: '#retainer', label: 'Retainer' },
-  { href: '#process', label: 'How it works' },
   { href: '#pricing', label: 'Pricing' },
+  { href: '#process', label: 'Process' },
+  { href: '#trust', label: 'Trust' },
   { href: '#faq', label: 'FAQ' },
   { href: '#apply', label: 'Apply' },
 ];
@@ -31,12 +33,12 @@ export default function LandingHeader() {
             className="h-10 w-auto sm:h-12"
           />
         </a>
-        <nav className="hidden items-center gap-1 text-sm font-medium text-slate-600 md:flex" aria-label="Page sections">
+        <nav className="hidden items-center gap-0.5 text-sm font-medium text-slate-600 lg:flex" aria-label="Page sections">
           {nav.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="rounded-full px-3 py-1.5 transition hover:bg-slate-100 hover:text-blue-950"
+              className="rounded-full px-2.5 py-1.5 transition hover:bg-slate-100 hover:text-blue-950"
             >
               {item.label}
             </a>

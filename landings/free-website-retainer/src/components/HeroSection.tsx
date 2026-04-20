@@ -1,5 +1,7 @@
 import { scarcityHeroSupporting, scarcityShortLabel } from '../offerScarcity';
 
+const chips = ['No separate site build fee', '6-month growth marketing', 'Starter 5-page clinic site'];
+
 function OfferBadge() {
   return (
     <p className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-blue-800">
@@ -12,10 +14,7 @@ function OfferBadge() {
 export default function HeroSection() {
   return (
     <section className="relative overflow-x-hidden border-b border-slate-200/60 bg-gradient-to-br from-slate-50 via-white to-blue-50/70 pt-10 sm:pt-14">
-      <div
-        className="lp-dots lp-dots-fade-b pointer-events-none absolute inset-0 opacity-50"
-        aria-hidden
-      />
+      <div className="lp-dots lp-dots-fade-b pointer-events-none absolute inset-0 opacity-50" aria-hidden />
       <div className="pointer-events-none absolute -left-20 top-0 h-64 w-64 rounded-full bg-blue-200/40 blur-3xl" aria-hidden />
       <div className="pointer-events-none absolute -right-16 bottom-0 h-72 w-72 rounded-full bg-indigo-200/30 blur-3xl" aria-hidden />
       <div className="pointer-events-none absolute right-0 top-1/3 h-48 w-48 rounded-full bg-teal-200/25 blur-3xl" aria-hidden />
@@ -23,6 +22,19 @@ export default function HeroSection() {
       <div className="relative z-10 lp-shell">
         <div className="mb-6 sm:mb-8">
           <OfferBadge />
+          <p className="mt-4 max-w-2xl text-sm font-medium leading-relaxed text-blue-950/90">
+            Built for new practices that need to look established online on day one.
+          </p>
+          <ul className="mt-4 flex max-w-2xl flex-wrap gap-2" aria-label="Offer highlights">
+            {chips.map((c) => (
+              <li
+                key={c}
+                className="rounded-full border border-slate-200/90 bg-white/90 px-3 py-1.5 text-xs font-medium text-slate-700 shadow-sm"
+              >
+                {c}
+              </li>
+            ))}
+          </ul>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-600">{scarcityHeroSupporting}</p>
         </div>
 
@@ -35,25 +47,26 @@ export default function HeroSection() {
               </span>
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-600">
-              We design and launch a professional, mobile-first clinic site on our managed platform — no separate website
-              build invoice. You sign a 6-month marketing retainer; we handle strategy, build, and go-live.
-            </p>
-            <p className="mt-4 max-w-xl rounded-xl border border-amber-200/80 bg-amber-50/90 px-4 py-3 text-sm font-medium text-amber-950">
-              <span className="font-semibold">Hosting &amp; maintenance: $150/mo</span> is included in your six-month
-              retainer from go-live — hosting, backups, platform updates, and reasonable content tweaks within your plan.
+              Look legitimate before and right after you open: we design and launch a professional, mobile-first clinic
+              site on our managed platform — no separate website invoice. One partner for strategy, build, and go-live.
+              Hosting and maintenance are covered in your agreement from go-live (see{' '}
+              <a href="#pricing" className="font-medium text-blue-700 underline-offset-2 hover:underline">
+                pricing summary
+              </a>
+              ).
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
               <a
                 href="#apply"
                 className="inline-flex items-center justify-center rounded-full bg-blue-600 px-8 py-4 text-center text-base font-semibold text-white shadow-lg transition hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
               >
-                Request this offer
+                Check eligibility
               </a>
               <a
-                href="#included"
+                href="#offer"
                 className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3.5 text-center text-sm font-semibold text-blue-950 shadow-sm transition hover:border-blue-200 hover:bg-slate-50"
               >
-                See what&apos;s included
+                See the offer
               </a>
             </div>
           </div>

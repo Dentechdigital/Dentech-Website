@@ -3,16 +3,16 @@ import { scarcityOfferCallout } from '../offerScarcity';
 export default function OfferSnapshot() {
   const items = [
     {
-      title: '6-month retainer',
-      body: 'Growth marketing partnership focused on qualified patient demand — SEO, GEO, paid media, and conversion paths aligned to your clinic.',
+      title: '6-month marketing retainer',
+      body: 'Growth marketing focused on qualified patient demand — SEO/GEO, social consistency, paid media (by tier), and conversion paths aligned to your clinic. Not “set and forget”: we execute and report monthly.',
     },
     {
-      title: 'Website build included',
-      body: 'No separate design/build fee for the starter clinic package described below — we scope, design, and launch your site as part of onboarding.',
+      title: 'Starter website included',
+      body: 'No separate design/build fee for the five-page clinic package — we scope, design, and launch your site during onboarding. Custom UI/UX, mobile-first performance, and an appointment request flow on contact.',
     },
     {
-      title: '$150/mo hosting & maintenance (included)',
-      body: 'From go-live through your six-month term, hosting, backups, security updates, and reasonable content updates are covered at $150/mo as part of your retainer — not billed separately.',
+      title: 'Hosting & maintenance in your retainer',
+      body: 'From go-live through your six-month term, hosting, backups, security updates, and reasonable content tweaks are covered at $150/mo as part of the retainer — not a surprise add-on. Details in your agreement.',
     },
   ];
 
@@ -25,12 +25,16 @@ export default function OfferSnapshot() {
       <div className="pointer-events-none absolute -right-32 top-0 h-72 w-72 rounded-full bg-blue-100/80 blur-3xl" aria-hidden />
       <div className="pointer-events-none absolute -left-24 bottom-0 h-64 w-64 rounded-full bg-indigo-100/70 blur-3xl" aria-hidden />
       <div className="relative z-10 lp-shell">
-        <h2 className="text-3xl font-semibold tracking-tight text-blue-950 sm:text-4xl">Offer at a glance</h2>
-        <p className="mt-3 max-w-2xl text-slate-600">
-          Built for new and early-stage practices that need a credible web presence fast — without paying a standalone
-          website proposal upfront.
+        <h2 className="text-3xl font-semibold tracking-tight text-blue-950 sm:text-4xl">What this offer is</h2>
+        <p className="mt-3 max-w-3xl text-slate-600">
+          A bundled path for <strong className="font-medium text-blue-950">new and early-stage practices</strong>: a
+          credible web presence plus six months of coordinated growth work — without a standalone website proposal upfront.
         </p>
-        <p className="mt-5 max-w-2xl rounded-xl border border-slate-200/90 bg-slate-50/90 px-4 py-3 text-sm leading-relaxed text-slate-700">
+        <p className="mt-4 max-w-3xl text-sm italic text-slate-600">
+          We&apos;ll tell you honestly if this isn&apos;t the right fit — before paperwork. Deliverables and fees are in
+          writing before you commit.
+        </p>
+        <p className="mt-5 max-w-3xl rounded-xl border border-slate-200/90 bg-slate-50/90 px-4 py-3 text-sm leading-relaxed text-slate-700">
           <span className="font-semibold text-blue-950">Availability. </span>
           {scarcityOfferCallout}
         </p>

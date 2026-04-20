@@ -1,6 +1,7 @@
 import ApplyAside from './components/ApplyAside';
 import CredibilityStrip from './components/CredibilityStrip';
 import FaqAccordion from './components/FaqAccordion';
+import FitSection from './components/FitSection';
 import HeroSection from './components/HeroSection';
 import InclusionGrid from './components/InclusionGrid';
 import LandingFooter from './components/LandingFooter';
@@ -19,14 +20,15 @@ export default function App() {
     <>
       <SeoHead />
       <LandingHeader />
-      <main className="pb-28 md:pb-0">
+      <main id="main-content" tabIndex={-1} className="outline-none pb-28 md:pb-0">
         <HeroSection />
         <OfferSnapshot />
+        <FitSection />
         <InclusionGrid />
         <MarketingRetainerSection />
+        <PricingStrip />
         <ProcessSteps />
         <CredibilityStrip />
-        <PricingStrip />
         <FaqAccordion />
         <section
           id="apply"
@@ -37,8 +39,11 @@ export default function App() {
           <div className="relative z-10 lp-shell">
             <h2 className="text-3xl font-semibold tracking-tight text-blue-950 sm:text-4xl">Check eligibility</h2>
             <p className="mt-3 max-w-3xl text-slate-600">
-              Tell us about your practice. We will confirm fit, answer questions, and share the written agreement path if
-              there is a match.
+              Tell us about your practice. We&apos;ll confirm fit, answer questions, and share the written agreement path
+              if there is a match — no pressure on this step.
+            </p>
+            <p className="mt-2 max-w-3xl text-sm font-medium text-blue-950/90">
+              Deliverables and fees are always confirmed in writing before you commit.
             </p>
             <p className="mt-2 max-w-3xl text-sm text-slate-600">{scarcityApplyNote}</p>
 

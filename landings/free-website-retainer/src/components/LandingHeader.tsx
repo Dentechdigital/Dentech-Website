@@ -23,9 +23,9 @@ export default function LandingHeader() {
           <img
             src="/logo-light.svg?v=2"
             alt="Dentech Digital"
-            width={180}
-            height={72}
-            className="h-10 w-auto sm:h-12"
+            width={220}
+            height={88}
+            className="h-12 w-auto sm:h-14 md:h-16"
           />
         </a>
         <nav className="hidden items-center gap-1 text-sm font-medium text-slate-600 md:flex" aria-label="Page sections">

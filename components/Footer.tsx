@@ -39,7 +39,7 @@ export default function Footer() {
                 <img
                   src={theme === 'dark' ? `${import.meta.env.BASE_URL}logo-dark.svg?v=2` : `${import.meta.env.BASE_URL}logo-light.svg?v=2`}
                   alt="Dentech Digital"
-                  className="h-16 w-auto"
+                  className="h-[4.5rem] w-auto md:h-20"
                 />
               </Link>
               <p className="mt-4 max-w-md text-sm leading-relaxed text-slate-600 dark:text-slate-300">

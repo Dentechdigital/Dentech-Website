@@ -11,7 +11,7 @@ export default function LandingFooter() {
       <div className="relative z-10 lp-shell flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <a href={main} className="inline-block no-underline" target="_blank" rel="noopener noreferrer" aria-label="Dentech Digital — main website">
-            <img src="/logo-light.svg?v=2" alt="Dentech Digital" width={200} height={80} className="h-11 w-auto sm:h-12" />
+            <img src="/logo-light.svg?v=2" alt="Dentech Digital" width={240} height={96} className="h-12 w-auto sm:h-14 md:h-16" />
           </a>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-slate-600">
             Ottawa-based dental growth partner — websites, SEO/GEO, paid media, and reputation systems.

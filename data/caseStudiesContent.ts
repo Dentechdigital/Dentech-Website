@@ -306,10 +306,9 @@ export const caseStudiesProofOfWorkSlots: ProofOfWorkSlot[] = [
 ];
 
 export const caseStudiesTrustLogos: TrustLogo[] = [
-  { name: 'The Smile Doctors' },
+  { name: 'Webflow' },
   { name: 'Google Ads' },
   { name: 'Meta Business' },
-  { name: 'Webflow' },
 ];
 
 export const caseStudiesFaq: FaqAccordionItem[] = [

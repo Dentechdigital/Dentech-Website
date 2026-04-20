@@ -145,8 +145,9 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
       setMessages((prev) => [...prev, makeMessage('assistant', result!.reply)]);
       const defaultCta = config.defaultContactCta;
       const baseCtas = result!.suggestedCtas.length ? result!.suggestedCtas : [defaultCta];
+      const isExistingClient = result!.intent === 'existing-client';
       const ctas =
-        nextStage === 'ready'
+        nextStage === 'ready' && !isExistingClient
           ? [
               config.bookStrategyCallCta,
               ...baseCtas.filter((cta) => cta.to !== defaultCta.to),
@@ -164,7 +165,7 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
         setSuggestedPrompts([]);
       }
 
-      if (nextStage === 'ready' && !ctaNudgeShown) {
+      if (nextStage === 'ready' && !ctaNudgeShown && !isExistingClient) {
         setMessages((prev) => [...prev, makeMessage('assistant', config.ctaNudgeMessage)]);
         setCtaNudgeShown(true);
       }

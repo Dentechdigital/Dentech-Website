@@ -211,4 +211,16 @@ export const CHATBOT_FAQ: ChatFaqItem[] = [
       { label: 'View Case Studies', to: '/#case-studies' },
     ],
   },
+  {
+    id: 'existing-client-contact',
+    question: 'We already work with Dentech — how do we reach the team?',
+    answer:
+      'Use the Contact section on this site or reply on your existing Dentech thread if you have one. For campaign updates, billing, or service changes, a human on the team will route you to the right person—Maya cannot change live campaigns or account settings.',
+    prompts: ['I am a current client', 'Who do I email?', 'Change our ads / website request'],
+    intent: 'existing-client',
+    ctas: [
+      { label: 'Contact Team', to: '/#contact' },
+      { label: 'View Services', to: '/#services' },
+    ],
+  },
 ];

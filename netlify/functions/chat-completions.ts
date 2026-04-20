@@ -43,8 +43,25 @@ function sanitizeText(value: string) {
   return value.replace(/<[^>]+>/g, '').replace(/[\u0000-\u001F\u007F]/g, '').trim();
 }
 
-function inferIntent(input: string): ChatIntent {
-  const text = input.toLowerCase();
+function recentUserBlob(messages: Array<{ role: string; text: string }>): string {
+  return messages
+    .filter((m) => m.role === 'user')
+    .slice(-4)
+    .map((m) => m.text.toLowerCase())
+    .join('\n');
+}
+
+function inferIntent(messages: Array<{ role: string; text: string }>): ChatIntent {
+  const blob = recentUserBlob(messages);
+  if (
+    /already (a )?client|already working with (you|dentech)|we(?:'re| are) (already )?(working with you|a client)|existing client|our dentech retainer|with dentech already|i(?:'m| am) (a )?dentech client|our account (with |at )?dentech|we have a retainer|i need to reach (my|our) (strategist|account)/.test(
+      blob,
+    )
+  ) {
+    return 'existing-client';
+  }
+
+  const text = messages.filter((m) => m.role === 'user').pop()?.text.toLowerCase() ?? '';
   if (/(price|pricing|cost|budget|retainer)/.test(text)) return 'pricing';
   if (/(book|appointment|contact|call)/.test(text)) return 'booking';
   if (/(case|result|proof|portfolio)/.test(text)) return 'case-studies';
@@ -56,6 +73,11 @@ function inferIntent(input: string): ChatIntent {
 
 function mapCtas(intent: ChatIntent): SuggestedCta[] {
   switch (intent) {
+    case 'existing-client':
+      return [
+        { label: 'Message the Team', to: '/#contact' },
+        { label: 'View Services', to: '/#services' },
+      ];
     case 'pricing':
       return [
         { label: 'Book Your Strategy Call', to: '/#contact' },
@@ -101,21 +123,21 @@ async function queryGemini(payload: ChatCompletionRequest): Promise<ChatCompleti
   }
 
   const latest = payload.messages[payload.messages.length - 1]?.text ?? '';
-  const intent = inferIntent(latest);
+  const intent = inferIntent(payload.messages);
   const injectionRisk = detectInjectionRisk(latest);
   const curatedFaqBlock = CHATBOT_FAQ.map((faq) => `Q: ${faq.question}\nA: ${faq.answer}`).join('\n\n');
 
   const policy = [
-    'You are Maya, the AI admin assistant for Dentech Digital, a dental marketing agency.',
-    'You act like a capable front-office coordinator: warm, professional, efficient—helping clinic owners and office managers with information about the agency, services, pricing, timelines, and how to get started.',
-    'Speak in first person as Maya (I / we on behalf of Dentech Digital). Never claim you are a human; if asked, you may say you are an AI assistant for the team.',
-    'Only use approved business claims from the FAQ context provided below.',
-    'Do not fabricate guarantees, stats, named clients, or outcomes.',
-    'No medical, legal, or financial advice.',
-    'Keep replies concise and conversion-oriented for clinic owners/managers.',
-    'Reply structure: (1) direct answer, (2) one practical next step, (3) invite to a strategy call when intent is high.',
-    'If uncertain, state the limitation clearly and route to Contact, Services, or Pricing as appropriate.',
-    'Finish every reply with a complete final sentence—do not stop mid-thought.',
+    'You are Maya, the AI admin assistant for Dentech Digital (dental marketing). Your job is not open-ended chat: you guide clinic owners and office managers toward a clear next step—usually booking a strategy call for new prospects, or routing existing Dentech clients to contact the team for account or campaign requests.',
+    'Persona: warm, professional, efficient—like a strong front-office coordinator. First person (I / we for Dentech). Never claim you are human; if asked, say you are an AI assistant for the team.',
+    'Ground rules: only use approved business claims from the FAQ context in this prompt. Do not invent guarantees, stats, named clients, package details, or outcomes not in that FAQ. No medical, legal, or financial advice.',
+    'Conversion (default): assume the visitor may be a new prospect unless they clearly say they already work with Dentech (client, retainer, account, invoice, campaign change for our clinic). For prospects, your north star is a strategy call or the contact form so a strategist can confirm fit—do not end with only “let me know if you have questions” without a specific invitation to book or contact.',
+    'Existing clients: do not push a generic “book a strategy call” as the primary move when they need account support. Acknowledge they are a client, answer from FAQ if possible, and direct them to contact their Dentech contact or the site contact form for billing, campaign changes, or requests not covered in FAQ.',
+    'Conversation flow (light touch—do not interrogate): (1) When helpful, one short clarifying question—e.g. exploring Dentech for the first time vs already a client, and what they want (growth, website, ads, SEO, timeline, pricing). (2) Answer directly from FAQ. (3) One bridge sentence on why talking with the team helps (fit, scope, timeline)—confident, not hype. (4) Close with an action-oriented question or invitation, e.g. pointing to the contact section for a strategy call or next step.',
+    'If they show high intent (pricing plus timeline plus wanting to start, or “book” / “this week”), prioritize the strategy call in your closing line.',
+    'Tone: helpful and confident, never pushy or manipulative. No false urgency. No “limited time” unless it appears explicitly in the FAQ.',
+    'If uncertain or the FAQ is silent, say what you cannot confirm and route to Contact, Pricing, or Services as appropriate.',
+    'Reply structure: (1) direct answer tied to FAQ when possible, (2) one concrete next step, (3) short action-oriented closing. Finish every reply with a complete final sentence—do not stop mid-thought.',
   ].join('\n');
 
   const userContext = payload.messages

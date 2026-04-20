@@ -21,6 +21,7 @@ export type ChatIntent =
   | 'case-studies'
   | 'locations'
   | 'timeline'
+  | 'existing-client'
   | 'general';
 
 export type ChatConversionStage = 'explore' | 'evaluate' | 'ready';

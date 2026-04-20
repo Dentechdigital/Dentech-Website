@@ -26,10 +26,16 @@ export default function HeroSection() {
       <div className="relative z-10 lp-shell pt-10 sm:pt-14">
         <div className="grid gap-10 pb-0 sm:gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-stretch lg:gap-10">
           <div className="flex min-w-0 flex-col">
-            <h1 className="text-balance text-[1.7rem] font-semibold leading-[1.16] tracking-tight text-blue-950 sm:text-4xl sm:leading-[1.12] md:text-[2.65rem] md:leading-[1.06]">
+            <h1 className="text-balance text-[1.95rem] font-semibold leading-[1.14] tracking-tight text-blue-950 sm:text-[2.35rem] sm:leading-[1.1] md:text-5xl md:leading-[1.05] lg:text-[2.85rem]">
               We&apos;ll Build Your{' '}
-              <span className="bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent">
-                $3,000 Website
+              <span className="inline">
+                <span className="text-blue-600 line-through decoration-blue-500 decoration-2 [text-decoration-thickness:0.075em] [text-underline-offset:0.12em]">
+                  $3,000
+                </span>
+                <span className="bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent">
+                  {' '}
+                  Website
+                </span>
               </span>{' '}
               for Free—You Just Pay for the Patients.
             </h1>

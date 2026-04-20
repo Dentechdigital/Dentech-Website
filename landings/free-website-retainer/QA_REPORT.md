@@ -26,36 +26,32 @@
 | Location | Role |
 | --- | --- |
 | **Pricing table** (`PricingStrip`) | **Primary** — full row + subtext. |
-| Offer third card (`OfferSnapshot`) | **Secondary** — bundled retainer framing. |
+| **Offer** (`OfferSnapshot` intro + Signature list) | **Secondary** — bundle framing + feature list. |
 | FAQ (“monthly fee if included?”) | **Echo** — objection handler. |
 | Form amber banner (`LeadForm`) | **Echo** — short + link to `#pricing`. |
 | Meta description (`index.html`) | **Echo** — SEO one-liner. |
 | Footer | **None** — legal disclaimer only (no fee repeat). |
 
-**Offer tier:** The website bundle on this LP is **Signature Marketing only** at **$2,500/mo** for six months (`WEBSITE_OFFER_TIER_LABEL` / `WEBSITE_OFFER_MONTHLY` in `marketingRetainerContent.ts`). Starter and Elite appear for comparison only.
+**Offer tier:** The website bundle on this LP is **Signature Marketing only** at **$2,500/mo** for six months (`WEBSITE_OFFER_TIER_LABEL` / `WEBSITE_OFFER_MONTHLY` in `marketingRetainerContent.ts`). Starter and Elite remain in `MARKETING_RETAINER_TIERS` for main-site parity; the LP links to main-site contact for other tiers.
 
 ## Phase 2 — Information architecture (current `App.tsx` order)
 
 1. **Hero** — Value prop, CTAs, blue bridge bar (badge, chips, capacity scarcity).  
-2. **Offer** `#offer` — What the bundle is + availability callout.  
-3. **Fit** `#fit` — Good fit / not a fit.  
-4. **Site** `#included` — Five pages + extras.  
-5. **Retainer** `#retainer` — Tiers + what to expect.  
-6. **Pricing** `#pricing` — Plain-English table + **mid-page eligibility CTA**.  
-7. **Process** `#process` — Four steps + what to prepare.  
-8. **Trust** `#trust` — Logos (panel) + testimonials (separate block).  
-9. **FAQ** `#faq` — Objections + **mid-page eligibility CTA** + Growth Build link.  
-10. **Apply** `#apply` — Form + `ApplyAside` (phone/email/address).  
-11. **Footer** — Links + disclaimer.
+2. **Offer** `#offer` — Site bullets, Signature features, 3-step flow, availability, CTA to `#apply`.  
+3. **Pricing** `#pricing` — Plain-English table (no mid-page CTA).  
+4. **Trust** `#trust` — Logos + two testimonials.  
+5. **FAQ** `#faq` — Five questions + main-site contact link.  
+6. **Apply** `#apply` — Form + `ApplyAside` (phone/email/address).  
+7. **Footer** — Links + disclaimer.
 
 **Header nav:** Offer, Pricing, FAQ + primary **Check eligibility** (not every anchor).
 
-**CTA discipline:** Single primary label **Check eligibility** — hero, header, sticky mobile, mid-page strips (after pricing & FAQ), form submit wording distinct (“Submit eligibility request”) to avoid duplicate control labels.
+**CTA discipline:** Primary label **Check eligibility** — hero, header, sticky mobile, offer block, and form submit wording distinct (“Submit eligibility request”) to avoid duplicate control labels.
 
 ## Phases 3–4 — Content / UX (summary)
 
-- ICP jobs-to-be-done reflected in hero, fit, process “what to prepare,” and FAQ (pre-opening, thin assets, Wix, outgrow, ownership).  
-- Voice lines: hero bridge + fit section + apply intro.  
+- ICP jobs-to-be-done reflected in hero, offer, pricing table, and FAQ (pre-opening, Wix comparison, ownership, fees).  
+- Voice lines: hero bridge + offer steps + apply intro.  
 - `marketingRetainerContent.ts` aligned with main site `PricingPlans` marketing tiers.
 
 ## Phase 5 — Definition of done

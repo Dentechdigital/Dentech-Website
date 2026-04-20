@@ -62,12 +62,3 @@ export const MARKETING_RETAINER_TIERS: readonly RetainerTier[] = [
     websiteBundleEligible: false,
   },
 ] as const;
-
-/** Expectations framed like LP process + main site retainer language — not a duplicate of FAQ answers. */
-export const RETAINER_WHAT_TO_EXPECT: readonly string[] = [
-  `The starter website bundle on this page is available only with a six-month ${WEBSITE_OFFER_TIER_LABEL} agreement at ${WEBSITE_OFFER_MONTHLY} (plus included hosting as described). Other tiers on the main site do not use this LP bundle — we will confirm scope in writing before kickoff.`,
-  'We start with qualification and onboarding: goals, brand inputs, content collection, and first-sprint channel priorities so both sides are aligned.',
-  'Your site is designed, reviewed, and launched on our managed platform; then we execute Signature-tier marketing for the remainder of the term with regular performance reporting.',
-  'Signature includes PPC, expanded SEO, authority content, and monthly strategy sessions — see the feature list on the Signature card above.',
-  'Before the six months end, we review results and renewal options with you; hosting and maintenance terms continue per your agreement after launch.',
-] as const;

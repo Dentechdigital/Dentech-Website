@@ -22,18 +22,14 @@ Output: `dist/`.
 
 ## Page structure (section order)
 
-1. **Hero** — Value prop for new clinic owners, offer chips, scarcity (capacity-framed), primary CTA **Check eligibility**.
-2. **Offer** (`#offer`) — Three pillars: retainer, site included, hosting in retainer.
-3. **Fit** (`#fit`) — Good fit / not a fit.
-4. **Site** (`#included`) — Five pages + extras.
-5. **Retainer** (`#retainer`) — Starter / Signature / Elite tiers + what to expect.
-6. **Pricing** (`#pricing`) — Plain-English table (primary place for **$150/mo** hosting detail).
-7. **Process** (`#process`) — Four steps + what to prepare.
-8. **Trust** (`#trust`) — Logos and testimonials (separate visual groups).
-9. **FAQ** (`#faq`) — Objections for new owners.
-10. **Apply** (`#apply`) — Form + phone/email aside.
+1. **Hero** — Value prop, offer chips, scarcity (capacity-framed), primary CTA **Check eligibility**.
+2. **Offer** (`#offer`) — Site bullets, Signature feature list, 3-step flow, single availability note, CTA to apply.
+3. **Pricing** (`#pricing`) — Plain-English table (**$150/mo** hosting in retainer from go-live).
+4. **Trust** (`#trust`) — Partner logos + two testimonial cards (main-site assets).
+5. **FAQ** (`#faq`) — Five high-signal questions.
+6. **Apply** (`#apply`) — Form + phone/email aside.
 
-**Mid-page CTAs:** After **Pricing** and after **FAQ**, a calm “Check eligibility” strip (`MidPageEligibilityCta.tsx`) repeats the primary action without competing copy.
+Mid-page duplicate CTAs were removed so the hero, offer block, and apply section carry conversion.
 
 **Mobile sticky CTA:** Hidden until the **hero** (including the blue bridge bar) has fully scrolled off-screen — see `#hero-scroll-end` in `HeroSection.tsx` and `StickyMobileCta.tsx`. Bar uses a light gradient + subtle blur under a single floating button; header uses matching glass (`backdrop-blur-xl`).
 

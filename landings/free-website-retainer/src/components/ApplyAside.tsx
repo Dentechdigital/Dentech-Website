@@ -14,8 +14,7 @@ export default function ApplyAside() {
       <div>
         <p className="text-xs font-semibold uppercase tracking-wider text-blue-700">Prefer to talk first?</p>
         <p className="mt-2 text-sm leading-relaxed text-slate-600">
-          If you are ready to move quickly, call us during business hours and mention this offer — we will route you to the
-          right strategist.
+          Call during business hours and mention this offer — we will route you to the right strategist.
         </p>
         <a
           href={`tel:+1${SITE_CONTACT.phoneTel}`}
@@ -65,9 +64,8 @@ export default function ApplyAside() {
       <div className="mt-auto pt-2">
         <p className="text-xs font-semibold uppercase tracking-wider text-blue-700">Where we work</p>
         <p className="mt-2 text-sm leading-relaxed text-slate-600">
-          We are <strong className="font-medium text-blue-950">headquartered in Ottawa</strong> and partner with clinics
-          across <strong className="font-medium text-blue-950">Canada</strong>. We also support select practices in other
-          countries when there is a strong fit — scope and compliance are confirmed before kickoff.
+          <strong className="font-medium text-blue-950">Ottawa HQ</strong>, clinics across{' '}
+          <strong className="font-medium text-blue-950">Canada</strong>; select international fits by agreement.
         </p>
       </div>
     </aside>

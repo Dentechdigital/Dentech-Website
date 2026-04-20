@@ -33,13 +33,12 @@ export default function HeroSection() {
               </span>
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-600">
-              Look legitimate before and right after you open: we design and launch a professional, mobile-first clinic
-              site on our managed platform — no separate website invoice — when you take this page&apos;s{' '}
-              <strong className="font-medium text-slate-800">Signature Marketing</strong> path at{' '}
-              <strong className="font-medium text-slate-800">$2,500/mo</strong> for six months. Hosting and maintenance are
-              covered in your agreement from go-live (see{' '}
+              Professional starter site on our stack —{' '}
+              <strong className="font-medium text-slate-800">no separate build fee</strong> — when you commit to six
+              months of <strong className="font-medium text-slate-800">Signature Marketing at $2,500/mo</strong>.
+              Hosting and maintenance from go-live are in your agreement (
               <a href="#pricing" className="font-medium text-blue-700 underline-offset-2 hover:underline">
-                pricing summary
+                summary
               </a>
               ).
             </p>

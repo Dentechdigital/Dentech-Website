@@ -1,31 +1,26 @@
 import { WEBSITE_OFFER_MONTHLY, WEBSITE_OFFER_TIER_LABEL } from '../marketingRetainerContent';
-import MidPageEligibilityCta from './MidPageEligibilityCta';
 
 export default function PricingStrip() {
   return (
     <section
       id="pricing"
-      className="relative scroll-mt-24 overflow-hidden bg-gradient-to-b from-[#fafaf9] to-white py-16 sm:py-20"
+      className="relative scroll-mt-24 overflow-hidden bg-gradient-to-b from-[#fafaf9] to-white py-14 sm:py-16"
     >
       <div className="lp-dots pointer-events-none absolute inset-0 opacity-[0.35]" aria-hidden />
       <div className="pointer-events-none absolute right-0 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-indigo-100/50 blur-3xl" aria-hidden />
       <div className="relative z-10 lp-shell">
-        <h2 className="text-3xl font-semibold tracking-tight text-blue-950 sm:text-4xl">What you pay — in plain terms</h2>
+        <h2 className="text-3xl font-semibold tracking-tight text-blue-950 sm:text-4xl">Pricing summary</h2>
         <p className="mt-3 max-w-3xl text-slate-600">
-          <strong className="font-medium text-blue-950">Primary reference for fees:</strong> the website build is not
-          billed separately when you qualify and sign the six-month retainer at{' '}
-          <strong className="text-blue-950">
-            {WEBSITE_OFFER_TIER_LABEL} ({WEBSITE_OFFER_MONTHLY})
-          </strong>{' '}
-          — the only tier for this landing-page bundle. Hosting and maintenance at{' '}
-          <strong className="text-blue-950">$150/mo</strong> is included in that agreement for the full six-month term from
-          go-live. Final fees are confirmed in your written agreement.
+          Six months of <strong className="text-blue-950">{WEBSITE_OFFER_TIER_LABEL}</strong> at{' '}
+          <strong className="text-blue-950">{WEBSITE_OFFER_MONTHLY}</strong> — starter site included (no separate build
+          fee). Hosting and maintenance (<strong className="text-blue-950">$150/mo</strong>) is in the agreement from
+          go-live for that term. Exact line items are in your contract.
         </p>
 
-        <div className="mt-10 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <div className="mt-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
           <table className="w-full text-left text-sm">
             <caption className="border-b border-slate-100 px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-500">
-              Summary (details confirmed on your agreement)
+              At a glance
             </caption>
             <thead className="bg-slate-50 text-xs font-semibold uppercase tracking-wide text-slate-600">
               <tr>
@@ -76,8 +71,6 @@ export default function PricingStrip() {
             </tbody>
           </table>
         </div>
-
-        <MidPageEligibilityCta variant="after-pricing" />
       </div>
     </section>
   );

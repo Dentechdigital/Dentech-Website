@@ -1,3 +1,4 @@
+import { WEBSITE_OFFER_MONTHLY, WEBSITE_OFFER_TIER_LABEL } from '../marketingRetainerContent';
 import MidPageEligibilityCta from './MidPageEligibilityCta';
 
 export default function PricingStrip() {
@@ -12,9 +13,13 @@ export default function PricingStrip() {
         <h2 className="text-3xl font-semibold tracking-tight text-blue-950 sm:text-4xl">What you pay — in plain terms</h2>
         <p className="mt-3 max-w-3xl text-slate-600">
           <strong className="font-medium text-blue-950">Primary reference for fees:</strong> the website build is not
-          billed separately when you qualify and sign the six-month retainer. Hosting and maintenance at{' '}
+          billed separately when you qualify and sign the six-month retainer at{' '}
+          <strong className="text-blue-950">
+            {WEBSITE_OFFER_TIER_LABEL} ({WEBSITE_OFFER_MONTHLY})
+          </strong>{' '}
+          — the only tier for this landing-page bundle. Hosting and maintenance at{' '}
           <strong className="text-blue-950">$150/mo</strong> is included in that agreement for the full six-month term from
-          go-live. Marketing retainer level (Starter / Signature / Elite) is set in your contract.
+          go-live. Final fees are confirmed in your written agreement.
         </p>
 
         <div className="mt-10 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
@@ -62,7 +67,10 @@ export default function PricingStrip() {
                 <th scope="row" className="px-4 py-4 font-medium text-blue-950 sm:px-6">
                   Growth marketing retainer
                 </th>
-                <td className="px-4 py-4 sm:px-6">Per your signed agreement (6-month commitment)</td>
+                <td className="px-4 py-4 sm:px-6">
+                  <strong className="font-medium text-blue-950">This offer:</strong> {WEBSITE_OFFER_TIER_LABEL} at{' '}
+                  {WEBSITE_OFFER_MONTHLY} for 6 months (details in agreement). Other tiers are outside this LP bundle.
+                </td>
                 <td className="px-4 py-4 sm:px-6">Renewal or new agreement after term — discussed before renewal</td>
               </tr>
             </tbody>

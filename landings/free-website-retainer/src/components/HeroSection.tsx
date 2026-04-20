@@ -1,6 +1,10 @@
 import { scarcityHeroSupporting, scarcityShortLabel } from '../offerScarcity';
 
-const chips = ['No separate site build fee', '6-month growth marketing', 'Starter 5-page clinic site'];
+const chips = [
+  'No separate site build fee',
+  'Signature Marketing ($2,500/mo)',
+  'Starter 5-page clinic site',
+];
 
 function OfferBadgeDark() {
   return (
@@ -30,8 +34,10 @@ export default function HeroSection() {
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-600">
               Look legitimate before and right after you open: we design and launch a professional, mobile-first clinic
-              site on our managed platform — no separate website invoice. One partner for strategy, build, and go-live.
-              Hosting and maintenance are covered in your agreement from go-live (see{' '}
+              site on our managed platform — no separate website invoice — when you take this page&apos;s{' '}
+              <strong className="font-medium text-slate-800">Signature Marketing</strong> path at{' '}
+              <strong className="font-medium text-slate-800">$2,500/mo</strong> for six months. Hosting and maintenance are
+              covered in your agreement from go-live (see{' '}
               <a href="#pricing" className="font-medium text-blue-700 underline-offset-2 hover:underline">
                 pricing summary
               </a>

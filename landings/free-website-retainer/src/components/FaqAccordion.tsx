@@ -26,9 +26,14 @@ const faqItems: Item[] = [
       'The site build is bundled into the six-month retainer — not billed as a separate website proposal. Hosting, backups, platform updates, and reasonable maintenance are included at $150/mo for the full six-month term from go-live so your site stays fast, secure, and editable.',
   },
   {
+    question: 'Does the included website apply to every marketing tier?',
+    answer:
+      'On this landing page, no — the starter site bundle is only available with Signature Marketing at $2,500/mo for six months. Starter and Elite are shown for comparison; if you need a different tier or custom scope, contact us on the main site and we will recommend the right path.',
+  },
+  {
     question: 'What does the 6-month retainer cover?',
     answer:
-      'A scoped growth marketing program agreed at signup — channels like SEO/GEO, social consistency, paid media (by tier), conversion improvements, and reporting. Exact deliverables and fees are spelled out in your contract before you commit.',
+      'For this offer: Signature Marketing — SEO/GEO, social consistency, PPC management, expanded SEO, authority content, monthly strategy sessions, reporting, and conversion improvements aligned to your clinic. Exact deliverables and fees are spelled out in your contract before you commit.',
   },
   {
     question: 'How is this different from Wix or a cheap template?',

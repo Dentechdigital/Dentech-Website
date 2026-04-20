@@ -2,7 +2,7 @@ import { CheckCircle2, XCircle } from 'lucide-react';
 
 const goodFit = [
   'Opening soon or recently opened — you need a credible, mobile-first site fast, not a generic DIY look.',
-  'Ready to invest in patient demand for six months (SEO/GEO, social cadence, paid media depending on tier) — not “website only.”',
+  'Ready to invest in six months of Signature Marketing at $2,500/mo (this page\'s website bundle) — not website-only.',
   'You want one growth partner for your site and marketing direction (your clinical tools stay separate).',
   'Comfortable starting with up to five pages in English; you can expand scope later if needed.',
 ];

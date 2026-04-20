@@ -1,10 +1,11 @@
 import { scarcityOfferCallout } from '../offerScarcity';
+import { WEBSITE_OFFER_MONTHLY, WEBSITE_OFFER_TIER_LABEL } from '../marketingRetainerContent';
 
 export default function OfferSnapshot() {
   const items = [
     {
-      title: '6-month marketing retainer',
-      body: 'Growth marketing focused on qualified patient demand — SEO/GEO, social consistency, paid media (by tier), and conversion paths aligned to your clinic. Not “set and forget”: we execute and report monthly.',
+      title: '6-month Signature retainer',
+      body: `This page's bundle is valid only with ${WEBSITE_OFFER_TIER_LABEL} at ${WEBSITE_OFFER_MONTHLY} — our most popular tier: deeper SEO, PPC management, authority content, and monthly strategy sessions. We execute and report monthly; exact scope is in your agreement.`,
     },
     {
       title: 'Starter website included',
@@ -28,7 +29,16 @@ export default function OfferSnapshot() {
         <h2 className="text-3xl font-semibold tracking-tight text-blue-950 sm:text-4xl">What this offer is</h2>
         <p className="mt-3 max-w-3xl text-slate-600">
           A bundled path for <strong className="font-medium text-blue-950">new and early-stage practices</strong>: a
-          credible web presence plus six months of coordinated growth work — without a standalone website proposal upfront.
+          credible web presence plus six months of{' '}
+          <strong className="font-medium text-blue-950">
+            {WEBSITE_OFFER_TIER_LABEL} ({WEBSITE_OFFER_MONTHLY})
+          </strong>{' '}
+          — without a standalone website proposal upfront. Starter and Elite tiers are not part of this specific offer.
+        </p>
+        <p className="mt-4 max-w-3xl rounded-xl border border-blue-200 bg-blue-50/90 px-4 py-3 text-sm font-medium leading-relaxed text-blue-950">
+          <span className="font-semibold">Eligibility:</span> included starter site + this LP pricing path applies only when
+          you commit to <strong>{WEBSITE_OFFER_TIER_LABEL}</strong> at <strong>{WEBSITE_OFFER_MONTHLY}</strong> for six
+          months (hosting/maintenance from go-live per the pricing section).
         </p>
         <p className="mt-4 max-w-3xl text-sm italic text-slate-600">
           We&apos;ll tell you honestly if this isn&apos;t the right fit — before paperwork. Deliverables and fees are in

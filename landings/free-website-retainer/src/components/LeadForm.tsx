@@ -5,7 +5,13 @@ import { SITE_CONTACT } from '../siteContact';
 const FORM_NAME = 'free-website-retainer-lead';
 
 const timelineOptions = ['Immediately', 'Within 30 days', '1–3 months', 'Exploring options'];
-const budgetOptions = ['< $1,500/mo', '$1,500–$2,500/mo', '$2,500–$5,000/mo', '$5,000+/mo', 'Prefer to discuss'];
+const budgetOptions = [
+  '$2,500/mo (Signature — this page offer)',
+  '$1,500–$2,500/mo',
+  '$2,500–$5,000/mo',
+  '$5,000+/mo',
+  'Prefer to discuss',
+];
 
 function encodeBody(data: Record<string, string>): string {
   return new URLSearchParams(data).toString();
@@ -119,8 +125,9 @@ export default function LeadForm({ className = '' }: LeadFormProps) {
       noValidate
     >
       <p className="rounded-xl border border-amber-200 bg-amber-50/90 px-4 py-3 text-sm text-amber-950">
-        <strong>Before you submit:</strong> you are requesting the <strong>6-month retainer + 5-page starter site</strong>.
-        Hosting and maintenance (<strong>$150/mo</strong>) is part of your retainer from go-live — see the{' '}
+        <strong>Before you submit:</strong> this page&apos;s bundle is the <strong>5-page starter site + 6-month Signature
+        Marketing retainer ($2,500/mo)</strong>. Hosting and maintenance (<strong>$150/mo</strong>) is part of your retainer
+        from go-live — see the{' '}
         <a href="#pricing" className="font-medium text-amber-950 underline-offset-2 hover:underline">
           pricing summary
         </a>
@@ -269,7 +276,8 @@ export default function LeadForm({ className = '' }: LeadFormProps) {
             Monthly marketing budget (target band) <span className="text-red-600">*</span>
           </label>
           <p id="budget-help" className="mt-1 text-xs text-slate-500">
-            Aligns with Starter / Signature / Elite bands on our main site — not a binding quote.
+            This offer requires <strong className="font-medium text-slate-700">Signature at ~$2,500/mo</strong>. Choose the
+            Signature line above if that is your plan; otherwise tell us under Prefer to discuss — not a binding quote.
           </p>
           <select
             id="budgetRange"

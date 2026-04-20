@@ -15,8 +15,14 @@ export default function OfferSnapshot() {
   ];
 
   return (
-    <section id="offer" className="scroll-mt-24 border-b border-slate-200/60 bg-white px-4 py-16 sm:px-6 sm:py-20">
-      <div className="mx-auto max-w-6xl">
+    <section
+      id="offer"
+      className="relative scroll-mt-24 overflow-hidden border-b border-slate-200/60 bg-gradient-to-b from-white via-white to-slate-50/80 py-16 sm:py-20"
+    >
+      <div className="lp-dots pointer-events-none absolute inset-0 opacity-[0.35]" aria-hidden />
+      <div className="pointer-events-none absolute -right-32 top-0 h-72 w-72 rounded-full bg-blue-100/80 blur-3xl" aria-hidden />
+      <div className="pointer-events-none absolute -left-24 bottom-0 h-64 w-64 rounded-full bg-indigo-100/70 blur-3xl" aria-hidden />
+      <div className="relative z-10 lp-shell">
         <h2 className="text-3xl font-semibold tracking-tight text-blue-950 sm:text-4xl">Offer at a glance</h2>
         <p className="mt-3 max-w-2xl text-slate-600">
           Built for new and early-stage practices that need a credible web presence fast — without paying a standalone

@@ -10,8 +10,14 @@ const extras = [
 
 export default function InclusionGrid() {
   return (
-    <section id="included" className="scroll-mt-24 bg-[#fafaf9] px-4 py-16 sm:px-6 sm:py-20">
-      <div className="mx-auto max-w-6xl">
+    <section
+      id="included"
+      className="relative scroll-mt-24 overflow-hidden bg-gradient-to-b from-[#fafaf9] via-[#fafaf9] to-blue-50/30 py-16 sm:py-20"
+    >
+      <div className="lp-dots pointer-events-none absolute inset-0 opacity-[0.4]" aria-hidden />
+      <div className="pointer-events-none absolute left-1/2 top-0 h-56 w-56 -translate-x-1/2 rounded-full bg-cyan-200/25 blur-3xl" aria-hidden />
+      <div className="pointer-events-none absolute bottom-0 right-0 h-64 w-64 rounded-full bg-blue-200/20 blur-3xl" aria-hidden />
+      <div className="relative z-10 lp-shell">
         <h2 className="text-3xl font-semibold tracking-tight text-blue-950 sm:text-4xl">What&apos;s included in your site</h2>
         <p className="mt-3 max-w-2xl text-slate-600">
           Up to <strong className="text-blue-950">five pages</strong> on our managed clinic platform — we design and build;

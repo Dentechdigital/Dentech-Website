@@ -77,8 +77,13 @@ export default function FaqAccordion() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="scroll-mt-24 border-b border-slate-200/60 bg-white px-4 py-16 sm:px-6 sm:py-20">
-      <div className="mx-auto max-w-3xl">
+    <section
+      id="faq"
+      className="relative scroll-mt-24 overflow-hidden border-b border-slate-200/60 bg-gradient-to-b from-white to-slate-50/60 py-16 sm:py-20"
+    >
+      <div className="lp-dots pointer-events-none absolute inset-0 opacity-[0.25]" aria-hidden />
+      <div className="pointer-events-none absolute -left-24 bottom-0 h-64 w-64 rounded-full bg-blue-100/60 blur-3xl" aria-hidden />
+      <div className="relative z-10 lp-shell">
         <h2 className="text-3xl font-semibold tracking-tight text-blue-950 sm:text-4xl">Frequently asked questions</h2>
         <p className="mt-3 text-slate-600">Straight answers before you apply. Final terms are always in your written agreement.</p>
         <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50/50 px-4 sm:px-6">

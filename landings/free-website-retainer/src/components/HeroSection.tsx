@@ -10,10 +10,15 @@ function OfferBadge() {
 export default function HeroSection() {
   return (
     <section className="relative overflow-x-hidden border-b border-slate-200/60 bg-gradient-to-br from-slate-50 via-white to-blue-50/70 pt-10 sm:pt-14">
+      <div
+        className="lp-dots lp-dots-fade-b pointer-events-none absolute inset-0 opacity-50"
+        aria-hidden
+      />
       <div className="pointer-events-none absolute -left-20 top-0 h-64 w-64 rounded-full bg-blue-200/40 blur-3xl" aria-hidden />
       <div className="pointer-events-none absolute -right-16 bottom-0 h-72 w-72 rounded-full bg-indigo-200/30 blur-3xl" aria-hidden />
+      <div className="pointer-events-none absolute right-0 top-1/3 h-48 w-48 rounded-full bg-teal-200/25 blur-3xl" aria-hidden />
 
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="relative z-10 lp-shell">
         <div className="mb-6 sm:mb-8">
           <OfferBadge />
         </div>

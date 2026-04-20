@@ -36,3 +36,28 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+/* Shared horizontal rhythm with the sticky header (no extra assets or JS). */
+@layer components {
+  .lp-shell {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6;
+  }
+
+  /**
+   * Subtle dot grid + soft gradient orbs — pure CSS, matches main-site feel without images.
+   */
+  .lp-dots {
+    background-image: radial-gradient(circle, rgba(37, 99, 235, 0.11) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  .lp-dots-fade-b {
+    mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 100%);
+  }
+
+  .lp-dots-dark {
+    background-image: radial-gradient(circle, rgba(147, 197, 253, 0.14) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+}

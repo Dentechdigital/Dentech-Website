@@ -14,7 +14,7 @@ export default function LandingHeader() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-[#fafaf9]/95 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
+      <div className="lp-shell flex items-center justify-between gap-4 py-3">
         <a
           href={main}
           className="flex shrink-0 items-center no-underline"

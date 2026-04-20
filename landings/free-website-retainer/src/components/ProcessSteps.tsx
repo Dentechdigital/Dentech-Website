@@ -23,8 +23,13 @@ const steps = [
 
 export default function ProcessSteps() {
   return (
-    <section id="process" className="scroll-mt-24 border-b border-slate-200/60 bg-white px-4 py-16 sm:px-6 sm:py-20">
-      <div className="mx-auto max-w-6xl">
+    <section
+      id="process"
+      className="relative scroll-mt-24 overflow-hidden border-b border-slate-200/60 bg-gradient-to-br from-white via-slate-50/40 to-blue-50/50 py-16 sm:py-20"
+    >
+      <div className="lp-dots lp-dots-fade-b pointer-events-none absolute inset-0 opacity-40" aria-hidden />
+      <div className="pointer-events-none absolute -left-20 top-1/4 h-72 w-72 rounded-full bg-blue-200/30 blur-3xl" aria-hidden />
+      <div className="relative z-10 lp-shell">
         <h2 className="text-3xl font-semibold tracking-tight text-blue-950 sm:text-4xl">How it works</h2>
         <p className="mt-3 max-w-2xl text-slate-600">Four clear phases from application to live site and active marketing.</p>
         <ol className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

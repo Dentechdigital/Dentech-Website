@@ -7,7 +7,7 @@ const faqItems: Item[] = [
   {
     question: 'Why is there a monthly fee if the website is included?',
     answer:
-      'The site build is bundled into the six-month retainer offer — not billed as a separate website proposal. After launch, hosting, backups, platform updates, and reasonable maintenance are covered at $50/mo so your site stays fast, secure, and editable.',
+      'The site build is bundled into the six-month retainer offer — not billed as a separate website proposal. Hosting, backups, platform updates, and reasonable maintenance are included at $150/mo for the full six-month term from go-live so your site stays fast, secure, and editable.',
   },
   {
     question: 'What does the 6-month retainer cover?',
@@ -27,7 +27,7 @@ const faqItems: Item[] = [
   {
     question: 'What happens after six months?',
     answer:
-      'We review results and options with you before renewal. Marketing can continue on a renewed retainer; hosting and maintenance can remain on the $50/mo plan unless you choose to migrate (subject to contract terms).',
+      'We review results and options with you before renewal. Marketing can continue on a renewed retainer; hosting and maintenance typically continues at $150/mo unless you choose a different arrangement or migrate (subject to contract terms).',
   },
   {
     question: 'Is every clinic a fit?',

@@ -3,7 +3,7 @@ import { getSiteUrl } from '../config';
 
 const TITLE = 'Free practice website with 6-month marketing retainer | Dentech Digital';
 const DESCRIPTION =
-  'Professional 5-page clinic website included at no build fee with a 6-month growth marketing retainer. Single-language site, booking requests, mobile-first. Hosting & maintenance from $50/mo. Ottawa-based.';
+  'Professional 5-page clinic website included at no build fee with a 6-month growth marketing retainer. Single-language site, booking requests, mobile-first. Hosting & maintenance ($150/mo) included in the retainer. Ottawa-based.';
 
 export default function SeoHead() {
   const siteUrl = getSiteUrl();

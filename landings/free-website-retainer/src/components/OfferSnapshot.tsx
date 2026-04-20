@@ -9,8 +9,8 @@ export default function OfferSnapshot() {
       body: 'No separate design/build fee for the starter clinic package described below — we scope, design, and launch your site as part of onboarding.',
     },
     {
-      title: '$50/mo hosting & maintenance',
-      body: 'After go-live, ongoing hosting, backups, security updates, and reasonable content updates stay predictable at fifty dollars per month.',
+      title: '$150/mo hosting & maintenance (included)',
+      body: 'From go-live through your six-month term, hosting, backups, security updates, and reasonable content updates are covered at $150/mo as part of your retainer — not billed separately.',
     },
   ];
 

@@ -108,7 +108,8 @@ export default function LeadForm() {
     <form onSubmit={handleSubmit} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8" noValidate>
       <p className="rounded-xl border border-amber-200 bg-amber-50/90 px-4 py-3 text-sm text-amber-950">
         <strong>Before you submit:</strong> you are requesting the <strong>6-month retainer + included 5-page starter site</strong>.
-        Ongoing <strong>hosting and maintenance is $50/mo</strong> after launch, separate from retainer fees.
+        <strong>Hosting and maintenance ($150/mo)</strong> is included in your six-month retainer from go-live — not a
+        separate add-on fee.
       </p>
 
       <div className="mt-8 grid gap-5 sm:grid-cols-2">

@@ -30,8 +30,8 @@ export default function HeroSection() {
               build invoice. You sign a 6-month marketing retainer; we handle strategy, build, and go-live.
             </p>
             <p className="mt-4 max-w-xl rounded-xl border border-amber-200/80 bg-amber-50/90 px-4 py-3 text-sm font-medium text-amber-950">
-              <span className="font-semibold">Hosting &amp; maintenance: $50/mo</span> after launch (hosting, backups,
-              platform updates, and reasonable content tweaks within your plan).
+              <span className="font-semibold">Hosting &amp; maintenance: $150/mo</span> is included in your six-month
+              retainer from go-live — hosting, backups, platform updates, and reasonable content tweaks within your plan.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
               <a

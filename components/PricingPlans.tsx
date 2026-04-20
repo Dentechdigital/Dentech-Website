@@ -196,7 +196,8 @@ export default function PricingPlans() {
         <div className="mb-10 rounded-2xl border border-emerald-200 bg-emerald-50/70 dark:border-emerald-500/30 dark:bg-emerald-500/10 px-5 py-4 md:px-6 md:py-5">
           <p className="text-base md:text-lg font-semibold text-emerald-800 dark:text-emerald-300">
             Current Offer: Get a free website design (<span className="font-bold">$3,000 value</span>) when you sign a 6-month{' '}
-            <span className="font-bold">Signature Marketing plan ($2,500/mo)</span>.
+            <span className="font-bold">Signature Marketing plan ($2,500/mo)</span>. Hosting and maintenance (
+            <span className="font-bold">$150/mo</span>) is included in that agreement for the full six-month term from go-live.
           </p>
         </div>
 

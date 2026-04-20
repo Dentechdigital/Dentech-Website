@@ -26,7 +26,8 @@ export default function SpecialOfferCTA() {
             </h2>
 
             <p className="mb-7 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg dark:text-slate-300">
-              Sign a 6-month growth marketing contract and our team will design and launch a custom, high-converting website for your clinic at zero build cost.
+              Sign a 6-month growth marketing contract and our team will design and launch a custom, high-converting website
+              for your clinic at zero build cost. Hosting and maintenance (<span className="font-semibold text-slate-800 dark:text-slate-200">$150/mo</span>) is included in that retainer for the full six-month term from go-live.
             </p>
 
             <div className="mb-6 inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700 dark:border-blue-400/30 dark:bg-blue-500/10 dark:text-blue-300">

@@ -4,8 +4,9 @@ export default function PricingStrip() {
       <div className="mx-auto max-w-6xl">
         <h2 className="text-3xl font-semibold tracking-tight text-blue-950 sm:text-4xl">What you pay — in plain terms</h2>
         <p className="mt-3 max-w-2xl text-slate-600">
-          The website build is not billed separately when you qualify and sign the six-month retainer. Ongoing hosting
-          and maintenance is a fixed monthly line item after launch.
+          The website build is not billed separately when you qualify and sign the six-month retainer. Hosting and
+          maintenance at <strong className="text-blue-950">$150/mo</strong> is included in that agreement for the full
+          six-month term from go-live.
         </p>
 
         <div className="mt-10 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
@@ -38,12 +39,15 @@ export default function PricingStrip() {
                 <th scope="row" className="px-4 py-4 font-medium text-blue-950 sm:px-6">
                   Hosting &amp; maintenance
                 </th>
-                <td className="px-4 py-4 sm:px-6">From go-live</td>
-                <td className="px-4 py-4 font-semibold text-blue-900 sm:px-6">
-                  $50 / month
+                <td className="px-4 py-4 sm:px-6">
+                  $150 / month — included in your 6-month retainer from go-live
                   <span className="mt-1 block text-xs font-normal text-slate-600">
                     Hosting, backups, platform updates, and reasonable content tweaks within plan limits.
                   </span>
+                </td>
+                <td className="px-4 py-4 text-slate-700 sm:px-6">
+                  After the initial term, continues monthly per your renewal agreement (typically $150/mo unless
+                  updated).
                 </td>
               </tr>
               <tr>

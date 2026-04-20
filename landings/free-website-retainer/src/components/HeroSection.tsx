@@ -1,8 +1,10 @@
+import { scarcityHeroSupporting, scarcityShortLabel } from '../offerScarcity';
+
 function OfferBadge() {
   return (
     <p className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-blue-800">
-      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-blue-500" aria-hidden />
-      New clinic offer
+      <span className="h-1.5 w-1.5 rounded-full bg-blue-500" aria-hidden />
+      New clinic offer · {scarcityShortLabel}
     </p>
   );
 }
@@ -21,6 +23,7 @@ export default function HeroSection() {
       <div className="relative z-10 lp-shell">
         <div className="mb-6 sm:mb-8">
           <OfferBadge />
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-600">{scarcityHeroSupporting}</p>
         </div>
 
         <div className="grid gap-10 pb-14 sm:gap-12 sm:pb-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-start lg:gap-10 lg:pb-20">

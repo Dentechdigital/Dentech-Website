@@ -1,3 +1,5 @@
+import { scarcityOfferCallout } from '../offerScarcity';
+
 export default function OfferSnapshot() {
   const items = [
     {
@@ -27,6 +29,10 @@ export default function OfferSnapshot() {
         <p className="mt-3 max-w-2xl text-slate-600">
           Built for new and early-stage practices that need a credible web presence fast — without paying a standalone
           website proposal upfront.
+        </p>
+        <p className="mt-5 max-w-2xl rounded-xl border border-slate-200/90 bg-slate-50/90 px-4 py-3 text-sm leading-relaxed text-slate-700">
+          <span className="font-semibold text-blue-950">Availability. </span>
+          {scarcityOfferCallout}
         </p>
         <ul className="mt-10 grid gap-6 sm:grid-cols-3">
           {items.map((item) => (

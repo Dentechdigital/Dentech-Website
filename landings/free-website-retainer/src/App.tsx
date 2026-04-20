@@ -7,6 +7,7 @@ import LandingFooter from './components/LandingFooter';
 import LandingHeader from './components/LandingHeader';
 import LeadForm from './components/LeadForm';
 import MarketingRetainerSection from './components/MarketingRetainerSection';
+import { scarcityApplyNote } from './offerScarcity';
 import OfferSnapshot from './components/OfferSnapshot';
 import PricingStrip from './components/PricingStrip';
 import ProcessSteps from './components/ProcessSteps';
@@ -41,6 +42,7 @@ export default function App() {
                   Tell us about your practice. We will confirm fit, answer questions, and share the written agreement path
                   if there is a match.
                 </p>
+                <p className="mt-2 max-w-2xl text-sm text-slate-600">{scarcityApplyNote}</p>
                 <div className="mt-8">
                   <LeadForm />
                 </div>

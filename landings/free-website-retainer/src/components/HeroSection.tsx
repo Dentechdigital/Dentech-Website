@@ -24,7 +24,7 @@ export default function HeroSection() {
       <div className="pointer-events-none absolute right-0 top-1/3 h-48 w-48 rounded-full bg-teal-200/25 blur-3xl" aria-hidden />
 
       <div className="relative z-10 lp-shell pt-10 sm:pt-14">
-        <div className="grid gap-10 pb-12 sm:gap-12 sm:pb-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-start lg:gap-10 lg:pb-16">
+        <div className="grid gap-10 pb-0 sm:gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-stretch lg:gap-10">
           <div className="flex min-w-0 flex-col">
             <h1 className="text-balance text-[1.7rem] font-semibold leading-[1.16] tracking-tight text-blue-950 sm:text-4xl sm:leading-[1.12] md:text-[2.65rem] md:leading-[1.06]">
               We&apos;ll Build Your{' '}
@@ -60,13 +60,13 @@ export default function HeroSection() {
             </div>
           </div>
 
-          <div className="flex min-w-0 justify-center lg:justify-end lg:pt-0">
+          <div className="flex min-h-0 min-w-0 flex-col items-center justify-end lg:items-end">
             <img
               src="/hero-mockup.webp"
               alt="Website preview on desktop and phone"
               width={960}
               height={720}
-              className="w-full max-w-[min(100%,520px)] object-contain drop-shadow-[0_24px_48px_rgba(15,23,42,0.14)] sm:max-w-[560px] lg:max-h-[min(640px,calc(100dvh-10rem))] lg:max-w-[min(720px,100%)]"
+              className="block w-full max-w-[min(100%,520px)] object-contain object-bottom drop-shadow-[0_24px_48px_rgba(15,23,42,0.14)] sm:max-w-[560px] lg:max-h-[min(640px,calc(100dvh-10rem))] lg:max-w-[min(720px,100%)]"
               loading="eager"
               fetchPriority="high"
               decoding="async"

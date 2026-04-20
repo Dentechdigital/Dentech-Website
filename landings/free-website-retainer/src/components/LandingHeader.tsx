@@ -17,14 +17,18 @@ export default function LandingHeader() {
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
         <a
           href={main}
-          className="flex items-center gap-2 text-blue-950 no-underline"
+          className="flex shrink-0 items-center no-underline"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Dentech Digital — main website"
         >
-          <img src="/favicon.png" alt="" width={28} height={28} className="rounded-md" />
-          <span className="font-semibold tracking-tight text-blue-950" style={{ fontFamily: 'Fraunces Variable, Georgia, serif' }}>
-            Dentech Digital
-          </span>
+          <img
+            src="/logo-light.svg?v=2"
+            alt="Dentech Digital"
+            width={180}
+            height={72}
+            className="h-10 w-auto sm:h-12"
+          />
         </a>
         <nav className="hidden items-center gap-1 text-sm font-medium text-slate-600 md:flex" aria-label="Page sections">
           {nav.map((item) => (

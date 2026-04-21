@@ -89,10 +89,25 @@ export default function Testimonials() {
   return (
     <section className="py-24 bg-white dark:bg-slate-950 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="mb-6 text-3xl font-bold tracking-tight text-blue-950 dark:text-white md:text-5xl">
+        <div className="mx-auto mb-12 max-w-3xl text-center md:mb-14">
+          <h2 className="text-3xl font-bold tracking-tight text-blue-950 dark:text-white md:text-5xl">
             Trusted by dental teams focused on <SectionGradientEmphasis>measurable growth</SectionGradientEmphasis>.
           </h2>
+        </div>
+
+        <div className="mx-auto mb-16 flex max-w-4xl flex-col items-center text-center">
+          <div className="flex items-center gap-1 text-amber-500" aria-hidden>
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Star key={i} className="h-6 w-6 fill-current" strokeWidth={0} />
+            ))}
+          </div>
+          <p className="mt-4 text-lg font-semibold text-blue-950 dark:text-white md:text-xl">
+            Five-star feedback from teams we work with
+          </p>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
+            Practice owners and managers describe us as proactive, clear, and focused on real growth—see the full quotes in
+            the stories below.
+          </p>
         </div>
 
         <div className="relative">

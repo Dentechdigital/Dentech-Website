@@ -12,7 +12,6 @@ const HomeComparisonTable = lazy(() => import('../components/HomeComparisonTable
 const SpecialOfferCTA = lazy(() => import('../components/SpecialOfferCTA'));
 const CaseStudiesPreview = lazy(() => import('../components/CaseStudiesPreview'));
 const HomeMidCta = lazy(() => import('../components/HomeMidCta'));
-const HomeReviewsHighlight = lazy(() => import('../components/HomeReviewsHighlight'));
 const Testimonials = lazy(() => import('../components/Testimonials'));
 const PricingPlans = lazy(() => import('../components/PricingPlans'));
 const HomeFAQ = lazy(() => import('../components/HomeFAQ'));
@@ -53,9 +52,6 @@ const Home: React.FC = () => {
       </Suspense>
       <Suspense fallback={null}>
         <HomeMidCta />
-      </Suspense>
-      <Suspense fallback={null}>
-        <HomeReviewsHighlight />
       </Suspense>
       <Suspense fallback={null}>
         <Testimonials />

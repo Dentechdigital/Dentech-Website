@@ -66,7 +66,7 @@ export default function ChatTeaser({
           className="dchat-close-btn flex h-11 w-11 min-h-[44px] min-w-[44px] shrink-0 items-center justify-center rounded-xl text-slate-500 transition hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-white/10 dark:hover:text-white sm:h-9 sm:w-9 sm:min-h-0 sm:min-w-0 sm:rounded-lg"
           onClick={onDismiss}
         >
-          <span className="text-[1.5rem] font-light leading-none sm:text-[1.125rem]" aria-hidden>
+          <span className="text-[1.5rem] font-normal leading-none sm:text-[1.125rem]" aria-hidden>
             ×
           </span>
         </button>

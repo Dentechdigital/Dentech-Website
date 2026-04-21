@@ -161,7 +161,7 @@ export default function ChatPanel({
               onClick={onClose}
               className="dchat-close-btn flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-white/85 transition hover:bg-white/15 hover:text-white"
             >
-              <span className="text-[1.125rem] font-light leading-none" aria-hidden>
+              <span className="text-[1.125rem] font-normal leading-none" aria-hidden>
                 ×
               </span>
             </button>

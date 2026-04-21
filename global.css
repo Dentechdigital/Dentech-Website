@@ -1,11 +1,9 @@
-/* Latin subset — smaller than full @fontsource/inter */
-@import '@fontsource/inter/latin-300.css';
+/* Latin subset — skip 300 + Fraunces italic to cut mobile bytes & main-thread font work (TBT/LCP). */
 @import '@fontsource/inter/latin-400.css';
 @import '@fontsource/inter/latin-500.css';
 @import '@fontsource/inter/latin-600.css';
 @import '@fontsource/inter/latin-700.css';
 @import '@fontsource-variable/fraunces/opsz.css';
-@import '@fontsource-variable/fraunces/opsz-italic.css';
 
 @tailwind base;
 @tailwind components;

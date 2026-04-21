@@ -115,7 +115,7 @@ export default function Testimonials() {
                       ))}
                     </div>
                     
-                    <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6 relative z-10 italic flex-grow">
+                    <p className="relative z-10 mb-6 flex-grow text-lg leading-relaxed text-gray-700 dark:text-gray-300">
                       "{testimonial.text}"
                     </p>
                     

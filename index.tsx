@@ -4,7 +4,25 @@ import { registerSW } from 'virtual:pwa-register';
 import './global.css';
 import App from './App';
 
-registerSW({ immediate: true });
+/** Defer SW install until after load + idle so first paint / hydration stay responsive (mobile TBT). */
+if (typeof window !== 'undefined') {
+  window.addEventListener(
+    'load',
+    () => {
+      const w = window as Window & {
+        requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+        cancelIdleCallback?: (id: number) => void;
+      };
+      const run = () => registerSW({ immediate: true });
+      if (w.requestIdleCallback) {
+        w.requestIdleCallback(run, { timeout: 6000 });
+      } else {
+        window.setTimeout(run, 3000);
+      }
+    },
+    { once: true },
+  );
+}
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {

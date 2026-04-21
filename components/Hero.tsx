@@ -11,7 +11,28 @@ const assetBase = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}`;
 
 const Hero: React.FC = () => {
   const [visibleFeatures, setVisibleFeatures] = useState<number[]>([]);
+  const [showHeroEnhancements, setShowHeroEnhancements] = useState(false);
   const featuresRef = useRef<(HTMLAnchorElement | null)[]>([]);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const w = window as Window & {
+      requestIdleCallback?: (cb: () => void, opts?: IdleRequestOptions) => number;
+      cancelIdleCallback?: (id: number) => void;
+    };
+    const enable = () => setShowHeroEnhancements(true);
+    let idleId: number | undefined;
+    let timeoutId: number | undefined;
+    if (w.requestIdleCallback) {
+      idleId = w.requestIdleCallback(enable, { timeout: 4000 });
+    } else {
+      timeoutId = window.setTimeout(enable, 1600);
+    }
+    return () => {
+      if (idleId !== undefined && w.cancelIdleCallback) w.cancelIdleCallback(idleId);
+      if (timeoutId !== undefined) window.clearTimeout(timeoutId);
+    };
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -81,9 +102,11 @@ const Hero: React.FC = () => {
           WebkitMaskImage: 'radial-gradient(ellipse at center, black 32%, transparent 92%)',
         }}
       >
-        <Suspense fallback={null}>
-          <DynamicDots />
-        </Suspense>
+        {showHeroEnhancements ? (
+          <Suspense fallback={null}>
+            <DynamicDots />
+          </Suspense>
+        ) : null}
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
@@ -107,7 +130,7 @@ const Hero: React.FC = () => {
                   </span>
                 </span>
               </h1>
-              <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 font-light leading-relaxed max-w-lg mx-auto lg:mx-0 transition-colors duration-300">
+              <p className="mx-auto max-w-lg text-lg font-normal leading-relaxed text-gray-600 transition-colors duration-300 sm:text-xl dark:text-gray-300 lg:mx-0">
                 Dentech helps Ottawa dental practices and Canadian groups generate qualified patient demand through SEO, GEO, paid media, conversion-focused websites, and reputation systems.
               </p>
             </div>
@@ -189,9 +212,11 @@ const Hero: React.FC = () => {
             <div className="mx-auto w-full max-w-md origin-center scale-[0.85] sm:scale-100">
               <div className="relative z-10 mx-auto flex min-h-[540px] w-full max-w-[460px] flex-col justify-between perspective-[1000px]">
                 <HeroDentistCutout />
-                <Suspense fallback={null}>
-                  <DentalMarketingChrome />
-                </Suspense>
+                {showHeroEnhancements ? (
+                  <Suspense fallback={null}>
+                    <DentalMarketingChrome />
+                  </Suspense>
+                ) : null}
               </div>
             </div>
           </div>

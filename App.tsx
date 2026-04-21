@@ -4,6 +4,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from './components/ThemeProvider';
 import AppErrorBoundary from './components/AppErrorBoundary';
 import Navbar from './components/Navbar';
+import FreeWebsiteOfferPopup from './components/FreeWebsiteOfferPopup';
 /** Eager: avoids a second network round-trip on `/` (common cause of long “splash” on cold mobile loads). */
 import Home from './pages/Home';
 
@@ -187,6 +188,7 @@ const App: React.FC = () => {
               <Footer />
             </Suspense>
             <DeferredChatMount />
+            <FreeWebsiteOfferPopup />
           </div>
         </Router>
       </HelmetProvider>

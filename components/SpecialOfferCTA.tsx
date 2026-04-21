@@ -5,7 +5,7 @@ import { SectionGradientEmphasis } from './SectionGradientEmphasis';
 
 export default function SpecialOfferCTA() {
   return (
-    <section className="relative overflow-hidden py-20">
+    <section id="free-website-offer" className="relative scroll-mt-24 overflow-hidden py-20">
       <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/70 dark:from-slate-950 dark:via-slate-950 dark:to-slate-900/35" />
       <div className="pointer-events-none absolute -top-28 left-1/4 h-72 w-72 rounded-full bg-blue-200/40 blur-3xl dark:bg-blue-500/12" />
       <div className="pointer-events-none absolute -right-24 bottom-10 h-80 w-80 rounded-full bg-indigo-200/30 blur-3xl dark:bg-indigo-500/12" />

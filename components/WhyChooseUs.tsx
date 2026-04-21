@@ -71,13 +71,12 @@ export default function WhyChooseUs() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 bg-white dark:bg-slate-950 relative overflow-hidden transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
-          
-          {/* Left Column - Sticky */}
-          <div className="lg:w-1/3">
-            <div className="sticky top-32">
+    <section ref={sectionRef} className="relative bg-white py-24 transition-colors duration-300 dark:bg-slate-950">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-x-24 lg:gap-y-0">
+          {/* Sticky needs no overflow-hidden on section; grid row height follows cards column */}
+          <div className="lg:col-span-4">
+            <div className="lg:sticky lg:top-28 lg:z-10 xl:top-32">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800 mb-6 transition-colors duration-300">
                 <ShieldCheck className="w-4 h-4 text-blue-600 dark:text-blue-400" />
                 <span className="text-xs font-semibold tracking-wide text-blue-700 dark:text-blue-300 uppercase">The Dentech Advantage</span>
@@ -101,8 +100,8 @@ export default function WhyChooseUs() {
             </div>
           </div>
 
-          {/* Right Column - Scrolling Cards */}
-          <div className="lg:w-2/3">
+          {/* Right column — scrolls; left sticky block tracks this height */}
+          <div className="lg:col-span-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {reasons.map((reason, index) => (
                 <div 

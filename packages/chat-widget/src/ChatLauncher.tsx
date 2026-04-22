@@ -17,8 +17,8 @@ export default function ChatLauncher({ open, onClick, launcherBadgeSrc, assistan
       type="button"
       aria-label={open ? `Close chat with ${label}` : `Open chat with ${label}`}
       onClick={onClick}
-      className={`pointer-events-auto relative h-14 w-14 shrink-0 overflow-visible rounded-full border-[3px] border-white bg-slate-100 shadow-[0_10px_32px_rgba(37,99,235,0.42)] transition duration-300 ease-out hover:scale-[1.06] hover:shadow-[0_14px_40px_rgba(37,99,235,0.5)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 dark:border-slate-800 dark:bg-slate-800 dark:shadow-[0_10px_32px_rgba(15,23,42,0.65)] ${
-        open ? 'scale-[1.02] ring-2 ring-blue-500/45 ring-offset-2 ring-offset-white dark:ring-offset-slate-950' : 'dchat-fab-idle'
+      className={`pointer-events-auto relative h-14 w-14 shrink-0 overflow-visible rounded-full border-[3px] border-white bg-slate-100 shadow-[0_10px_28px_rgba(37,99,235,0.38)] transition duration-300 ease-out hover:scale-[1.06] hover:shadow-[0_14px_36px_rgba(37,99,235,0.46)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-0 dark:border-slate-800 dark:bg-slate-800 dark:shadow-[0_10px_28px_rgba(15,23,42,0.6)] ${
+        open ? 'scale-[1.02] shadow-[0_0_0_2px_rgba(59,130,246,0.45),0_10px_28px_rgba(37,99,235,0.35)] dark:shadow-[0_0_0_2px_rgba(96,165,250,0.4),0_10px_28px_rgba(15,23,42,0.55)]' : 'dchat-fab-idle'
       }`}
     >
       <span className="absolute inset-0 z-0 overflow-hidden rounded-full">

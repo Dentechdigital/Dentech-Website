@@ -32,7 +32,7 @@ export default function Footer() {
       <div className="pointer-events-none absolute -bottom-24 right-0 h-72 w-72 rounded-full bg-cyan-300/20 blur-3xl dark:bg-cyan-500/10" />
 
       <div className="relative mx-auto max-w-7xl px-4 pb-8 pt-16 sm:px-6 lg:px-8">
-        <div className="rounded-3xl border border-white/70 bg-white/85 p-6 shadow-xl shadow-blue-100/40 backdrop-blur md:p-10 dark:border-slate-700/70 dark:bg-slate-950/75 dark:shadow-blue-900/20">
+        <div className="relative isolate overflow-hidden rounded-3xl border border-white/70 bg-white/95 p-6 shadow-xl shadow-blue-100/35 backdrop-blur-sm md:p-10 dark:border-slate-700/70 dark:bg-slate-950/95 dark:shadow-blue-900/18">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
             <div className="lg:col-span-5">
               <Link to="/" className="inline-flex items-center">
@@ -56,7 +56,7 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 gap-10 sm:grid-cols-3 lg:col-span-7 lg:gap-8">
+            <div className="grid grid-cols-1 gap-10 min-[480px]:grid-cols-2 lg:grid-cols-3 lg:col-span-7 lg:gap-8">
               <div>
                 <h4 className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
                   Explore
@@ -93,7 +93,7 @@ export default function Footer() {
                 </ul>
               </div>
 
-              <div>
+              <div className="min-[480px]:col-span-2 lg:col-span-1">
                 <h4 className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
                   Contact
                 </h4>
@@ -129,7 +129,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="mt-10 flex flex-col gap-4 rounded-2xl border border-slate-200/80 bg-white/80 p-4 md:flex-row md:items-center md:justify-between dark:border-slate-700 dark:bg-slate-950/75">
+          <div className="mt-10 flex flex-col gap-4 overflow-hidden rounded-2xl border border-slate-200/80 bg-white/80 p-4 md:flex-row md:items-center md:justify-between dark:border-slate-700 dark:bg-slate-950/75">
             <div>
               <p className="text-base font-semibold text-slate-900 dark:text-white">Ready to scale your clinic with a predictable growth system?</p>
               <p className="text-sm text-slate-600 dark:text-slate-300">Book a strategy call and get a tailored growth roadmap for your market.</p>

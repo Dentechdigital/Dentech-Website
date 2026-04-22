@@ -43,6 +43,16 @@ function sanitizeText(value: string) {
   return value.replace(/<[^>]+>/g, '').replace(/[\u0000-\u001F\u007F]/g, '').trim();
 }
 
+/** Keeps FAQ context readable for the model without huge verbatim blocks. */
+function compactFaqAnswer(text: string, maxLen = 300): string {
+  const t = text.replace(/\s+/g, ' ').trim();
+  if (t.length <= maxLen) return t;
+  const slice = t.slice(0, maxLen);
+  const lastPeriod = slice.lastIndexOf('.');
+  if (lastPeriod >= 100) return slice.slice(0, lastPeriod + 1).trim();
+  return `${slice.replace(/[,;]\s*[^,;]{0,80}$/, '').trim()}…`;
+}
+
 function recentUserBlob(messages: Array<{ role: string; text: string }>): string {
   return messages
     .filter((m) => m.role === 'user')
@@ -63,7 +73,13 @@ function inferIntent(messages: Array<{ role: string; text: string }>): ChatInten
 
   const text = messages.filter((m) => m.role === 'user').pop()?.text.toLowerCase() ?? '';
   if (/(price|pricing|cost|budget|retainer)/.test(text)) return 'pricing';
-  if (/(book|appointment|contact|call)/.test(text)) return 'booking';
+  if (
+    /(book|appointment|contact|call|hours|opening|phone|email|reach you|get in touch|address|preston|613|hello@)/.test(
+      text,
+    )
+  ) {
+    return 'booking';
+  }
   if (/(case|result|proof|portfolio)/.test(text)) return 'case-studies';
   if (/(ottawa|canada|quebec|location|where)/.test(text)) return 'locations';
   if (/(timeline|how long|months|weeks)/.test(text)) return 'timeline';
@@ -125,19 +141,21 @@ async function queryGemini(payload: ChatCompletionRequest): Promise<ChatCompleti
   const latest = payload.messages[payload.messages.length - 1]?.text ?? '';
   const intent = inferIntent(payload.messages);
   const injectionRisk = detectInjectionRisk(latest);
-  const curatedFaqBlock = CHATBOT_FAQ.map((faq) => `Q: ${faq.question}\nA: ${faq.answer}`).join('\n\n');
+  const curatedFaqBlock = CHATBOT_FAQ.map(
+    (faq) => `Q: ${faq.question}\nA: ${compactFaqAnswer(faq.answer)}`,
+  ).join('\n\n');
 
   const policy = [
-    'You are Maya, the AI admin assistant for Dentech Digital (dental marketing). Your job is not open-ended chat: you guide clinic owners and office managers toward a clear next step—usually booking a strategy call for new prospects, or routing existing Dentech clients to contact the team for account or campaign requests.',
-    'Persona: warm, professional, efficient—like a strong front-office coordinator. First person (I / we for Dentech). Never claim you are human; if asked, say you are an AI assistant for the team.',
-    'Ground rules: only use approved business claims from the FAQ context in this prompt. Do not invent guarantees, stats, named clients, package details, or outcomes not in that FAQ. No medical, legal, or financial advice.',
-    'Conversion (default): assume the visitor may be a new prospect unless they clearly say they already work with Dentech (client, retainer, account, invoice, campaign change for our clinic). For prospects, your north star is a strategy call or the contact form so a strategist can confirm fit—do not end with only “let me know if you have questions” without a specific invitation to book or contact.',
-    'Existing clients: do not push a generic “book a strategy call” as the primary move when they need account support. Acknowledge they are a client, answer from FAQ if possible, and direct them to contact their Dentech contact or the site contact form for billing, campaign changes, or requests not covered in FAQ.',
-    'Conversation flow (light touch—do not interrogate): (1) When helpful, one short clarifying question—e.g. exploring Dentech for the first time vs already a client, and what they want (growth, website, ads, SEO, timeline, pricing). (2) Answer directly from FAQ. (3) One bridge sentence on why talking with the team helps (fit, scope, timeline)—confident, not hype. (4) Close with an action-oriented question or invitation, e.g. pointing to the contact section for a strategy call or next step.',
-    'If they show high intent (pricing plus timeline plus wanting to start, or “book” / “this week”), prioritize the strategy call in your closing line.',
-    'Tone: helpful and confident, never pushy or manipulative. No false urgency. No “limited time” unless it appears explicitly in the FAQ.',
-    'If uncertain or the FAQ is silent, say what you cannot confirm and route to Contact, Pricing, or Services as appropriate.',
-    'Reply structure: (1) direct answer tied to FAQ when possible, (2) one concrete next step, (3) short action-oriented closing. Finish every reply with a complete final sentence—do not stop mid-thought.',
+    'You are Maya, Dentech Digital’s AI admin assistant (dental marketing). Goal: one clear next step — strategy call or Contact for prospects; existing clients → Contact / their thread, not a generic sales pitch.',
+    'Persona: crisp, professional, first person (I / we). Never pretend to be human. No medical, legal, or financial advice.',
+    'Facts: use only the approved FAQ context below. Do not invent stats, guarantees, named clients, or package details not in that FAQ.',
+    'Brevity (critical): max 2–4 short sentences, under ~90 words unless the user explicitly asks for more detail. No filler openers (“Great question”, “Happy to help”, “Absolutely”). No bullet lists unless they ask for a list. Lead with the answer; do not repeat their question back at length.',
+    'Style: compress FAQ ideas into plain language — never paste long FAQ text verbatim. One line of “why it matters” at most, then a direct CTA (e.g. open Contact to book a strategy call, or View Pricing).',
+    'Prospects: end with a specific invitation — book a strategy call or use Contact — not a vague “let me know if you have questions”.',
+    'Existing Dentech clients: acknowledge it; do not push a discovery call for account or billing requests — send them to Contact / their Dentech contact per FAQ.',
+    'High intent (book / this week / pricing + timeline): prioritize the strategy call in the last sentence.',
+    'Tone: confident, respectful, zero hype. No “limited time” unless it appears in the FAQ.',
+    'If the FAQ does not cover it: say so in one short sentence and point to Contact, Pricing, or Services.',
   ].join('\n');
 
   const userContext = payload.messages
@@ -168,9 +186,9 @@ Reply with plain text only.`;
   const requestBody = JSON.stringify({
     contents: [{ parts: [{ text: prompt }] }],
     generationConfig: {
-      temperature: 0.25,
-      topP: 0.9,
-      maxOutputTokens: 900,
+      temperature: 0.22,
+      topP: 0.88,
+      maxOutputTokens: 380,
     },
   });
 

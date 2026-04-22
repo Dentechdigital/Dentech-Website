@@ -8,7 +8,7 @@ import { sendChatCompletion } from './sendChatCompletion';
 export const dentechChatRuntimeConfig: ChatRuntimeConfig = {
   sessionStorageKey: 'dentech-chat-session',
   welcomeMessage:
-    "Hi — I'm Maya. Tell me if you're exploring Dentech for the first time or already a client, and what you want to achieve — I'll get you to the right next step (often a quick strategy call for new practices).",
+    "Hi — I'm Maya. One line: new to Dentech or already a client? What do you need (call, pricing, services, hours)? I'll route you fast.",
   teaserTitle: 'Plan your next step?',
   teaserBody: 'Maya routes you to answers and a strategy call or contact — not endless back-and-forth.',
   teaserStatusLine: 'Online now',
@@ -16,8 +16,7 @@ export const dentechChatRuntimeConfig: ChatRuntimeConfig = {
   teaserSecondaryCta: 'Browse quick answers',
   teaserFooterNote: 'No personal data required',
   chatHeaderTitle: 'Chat with Maya',
-  chatHeaderSupportLine:
-    'I answer from our FAQs and nudge you toward a strategy call (new clients) or the right contact path (current clients).',
+  chatHeaderSupportLine: 'Short answers from our FAQs — then a clear next step (call or contact).',
   chatHeaderStatusLine: 'Online now',
   assistantName: 'Maya',
   assistantAvatarSrc: '/team/maya.webp',
@@ -35,7 +34,7 @@ export const dentechChatRuntimeConfig: ChatRuntimeConfig = {
   showQuickStarts: true,
   quickStartsLabel: 'Quick starts',
   composerAriaLabel: 'Message Maya',
-  composerPlaceholder: 'e.g. New clinic in Toronto — need website + leads…',
+  composerPlaceholder: 'e.g. Book a call, pricing, hours…',
   faqItems: CHATBOT_FAQ,
   starterPrompts: CHATBOT_STARTER_PROMPTS,
   qualificationPrompts: CHATBOT_QUALIFICATION_PROMPTS,
@@ -51,13 +50,12 @@ export const dentechChatRuntimeConfig: ChatRuntimeConfig = {
   defaultContactCta: { label: 'Contact Dentech', to: '/#contact' },
   bookStrategyCallCta: { label: 'Book Your Strategy Call', to: '/#contact' },
   faqModeNoMatchReply:
-    'In Helpdesk mode I can only share curated answers. Try pricing, services, timeline, or getting started—or switch to Chat to talk with me (Maya) live.',
+    'Helpdesk mode: curated answers only. Try Pricing, Services, Timeline, or Getting started — or open Chat for Maya.',
   faqModeNoMatchSuggestedCtas: [{ label: 'Contact Dentech', to: '/#contact' }],
   offlineErrorMessage: 'You appear offline. Please reconnect and try again.',
   liveAssistantUnavailableMessage:
     "I'm temporarily unable to reach the AI service. You can still use Contact, Pricing, or Services on the site.",
-  ctaNudgeMessage:
-    'You sound ready for a concrete plan — the fastest path is a strategy call via Contact so our team can confirm fit and priorities. Want me to point you there?',
+  ctaNudgeMessage: 'Ready for a concrete plan? Fastest next step: book a strategy call via Contact.',
   locale: 'en-CA',
   getPageContext: () => (typeof window === 'undefined' ? '/' : window.location.pathname),
   sendChatCompletion,

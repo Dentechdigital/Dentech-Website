@@ -1,6 +1,18 @@
 import type { ChatFaqItem } from '../types/chatbot';
+import { SITE_CONTACT } from './siteContact';
 
 export const CHATBOT_FAQ: ChatFaqItem[] = [
+  {
+    id: 'contact-hours-info',
+    question: 'How do I reach you — phone, email, and hours?',
+    answer: `${SITE_CONTACT.phoneDisplay} · ${SITE_CONTACT.email} · ${SITE_CONTACT.hoursShort}. ${SITE_CONTACT.availabilityNote} Use Contact on the site to book or message the team.`,
+    prompts: ['Opening hours', 'Business hours', 'Contact info', 'Phone number', 'Email'],
+    intent: 'booking',
+    ctas: [
+      { label: 'Contact', to: '/#contact' },
+      { label: 'Book call', to: '/#contact' },
+    ],
+  },
   {
     id: 'pricing-show-options',
     question: 'How do I view Dentech pricing?',

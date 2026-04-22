@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Send, CheckCircle2, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const NETLIFY_FORM_NAME = 'lead-inquiry';
@@ -75,12 +75,18 @@ export default function LeadInquiryForm({
   formTitle = 'Request a Free Audit',
   className = '',
 }: LeadInquiryFormProps) {
+  const stepScrollRef = useRef<HTMLDivElement>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [botField, setBotField] = useState('');
   const [currentStep, setCurrentStep] = useState(0);
   const [formData, setFormData] = useState<LeadFormData>(initialFormData);
+
+  useEffect(() => {
+    const el = stepScrollRef.current;
+    if (el) el.scrollTop = 0;
+  }, [currentStep]);
 
   const progressPercent = useMemo(
     () => ((currentStep + 1) / stepTitles.length) * 100,
@@ -170,12 +176,12 @@ export default function LeadInquiryForm({
   };
 
   const cardClass =
-    `relative flex h-full min-h-[28rem] flex-col rounded-3xl border border-gray-100 bg-white p-8 shadow-xl dark:border-slate-700 dark:bg-slate-800 md:min-h-[32rem] md:p-10 ${className}`.trim();
+    `relative flex h-full min-h-0 w-full min-w-0 max-h-[min(90dvh,52rem)] flex-col overflow-hidden rounded-3xl border border-gray-100 bg-white p-4 shadow-xl dark:border-slate-700 dark:bg-slate-800 sm:max-h-none sm:min-h-[28rem] sm:p-8 md:min-h-[32rem] md:p-10 ${className}`.trim();
 
   return (
     <div className={cardClass}>
             {isSubmitted ? (
-              <div className="flex min-h-[24rem] flex-1 flex-col items-center justify-center text-center animate-in fade-in zoom-in duration-500 md:min-h-[28rem]">
+              <div className="flex min-h-[18rem] flex-1 flex-col items-center justify-center px-1 py-8 text-center animate-in fade-in zoom-in duration-500 sm:min-h-[24rem] md:min-h-[28rem]">
                 <div className="w-20 h-20 bg-emerald-100 dark:bg-emerald-900/30 rounded-full flex items-center justify-center mb-6">
                   <CheckCircle2 className="w-10 h-10 text-emerald-600 dark:text-emerald-400" />
                 </div>
@@ -198,7 +204,7 @@ export default function LeadInquiryForm({
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleFinalSubmit} className="flex min-h-0 flex-1 flex-col" noValidate>
+              <form onSubmit={handleFinalSubmit} className="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden" noValidate>
                 <p className="sr-only" aria-hidden="true">
                   <label htmlFor="lead-inquiry-bot">Leave blank</label>
                   <input
@@ -212,9 +218,9 @@ export default function LeadInquiryForm({
                   />
                 </p>
                 <div className="shrink-0">
-                  <div className="mb-2 flex items-center justify-between">
-                    <h3 className="text-2xl font-bold text-blue-950 dark:text-white">{formTitle}</h3>
-                    <span className="text-xs font-semibold uppercase tracking-wide text-blue-600 dark:text-blue-300">
+                  <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-3">
+                    <h3 className="text-xl font-bold leading-tight text-blue-950 dark:text-white sm:text-2xl">{formTitle}</h3>
+                    <span className="shrink-0 text-xs font-semibold uppercase tracking-wide text-blue-600 dark:text-blue-300">
                       Step {currentStep + 1} / {stepTitles.length}
                     </span>
                   </div>
@@ -227,7 +233,10 @@ export default function LeadInquiryForm({
                   </div>
                 </div>
 
-                <div className="mt-6 min-h-0 flex-1 space-y-6">
+                <div
+                  ref={stepScrollRef}
+                  className="mt-4 min-h-0 flex-1 space-y-6 overflow-y-auto overscroll-y-contain pb-1 [-webkit-overflow-scrolling:touch] sm:mt-6"
+                >
                 {currentStep === 0 && (
                   <div className="space-y-6">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -291,13 +300,13 @@ export default function LeadInquiryForm({
                             key={option}
                             type="button"
                             onClick={() => updateField('clinicType', option)}
-                            className={`text-left px-4 py-3 rounded-xl border transition-all ${
+                            className={`min-w-0 text-left px-4 py-3 rounded-xl border transition-all ${
                               formData.clinicType === option
                                 ? 'border-blue-500 bg-blue-50 dark:border-blue-400 dark:bg-blue-500/10'
                                 : 'border-gray-200 bg-white dark:border-slate-700 dark:bg-slate-800/50'
                             }`}
                           >
-                            <span className="text-sm font-medium text-blue-950 dark:text-white">{option}</span>
+                            <span className="break-words text-sm font-medium text-blue-950 dark:text-white">{option}</span>
                           </button>
                         ))}
                       </div>
@@ -305,13 +314,13 @@ export default function LeadInquiryForm({
 
                     <div>
                       <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">What is your new-patient growth target?</p>
-                      <div className="grid grid-cols-2 gap-3">
+                      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                         {patientGoalOptions.map((option) => (
                           <button
                             key={option}
                             type="button"
                             onClick={() => updateField('monthlyNewPatients', option)}
-                            className={`px-4 py-3 rounded-xl border text-sm font-medium transition-all ${
+                            className={`min-w-0 px-4 py-3 rounded-xl border text-sm font-medium transition-all ${
                               formData.monthlyNewPatients === option
                                 ? 'border-blue-500 bg-blue-50 text-blue-700 dark:border-blue-400 dark:bg-blue-500/10 dark:text-blue-200'
                                 : 'border-gray-200 bg-white text-gray-700 dark:border-slate-700 dark:bg-slate-800/50 dark:text-gray-200'
@@ -388,13 +397,13 @@ export default function LeadInquiryForm({
                   <div className="space-y-6">
                     <div>
                       <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">When do you want to start?</p>
-                      <div className="grid grid-cols-2 gap-3">
+                      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                         {timelineOptions.map((option) => (
                           <button
                             key={option}
                             type="button"
                             onClick={() => updateField('timeline', option)}
-                            className={`px-4 py-3 rounded-xl border text-sm font-medium transition-all ${
+                            className={`min-w-0 px-4 py-3 rounded-xl border text-sm font-medium transition-all ${
                               formData.timeline === option
                                 ? 'border-blue-500 bg-blue-50 text-blue-700 dark:border-blue-400 dark:bg-blue-500/10 dark:text-blue-200'
                                 : 'border-gray-200 bg-white text-gray-700 dark:border-slate-700 dark:bg-slate-800/50 dark:text-gray-200'
@@ -408,13 +417,13 @@ export default function LeadInquiryForm({
 
                     <div>
                       <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Monthly growth budget range</p>
-                      <div className="grid grid-cols-2 gap-3">
+                      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                         {budgetOptions.map((option) => (
                           <button
                             key={option}
                             type="button"
                             onClick={() => updateField('budgetRange', option)}
-                            className={`px-4 py-3 rounded-xl border text-sm font-medium transition-all ${
+                            className={`min-w-0 px-4 py-3 rounded-xl border text-sm font-medium transition-all ${
                               formData.budgetRange === option
                                 ? 'border-blue-500 bg-blue-50 text-blue-700 dark:border-blue-400 dark:bg-blue-500/10 dark:text-blue-200'
                                 : 'border-gray-200 bg-white text-gray-700 dark:border-slate-700 dark:bg-slate-800/50 dark:text-gray-200'
@@ -447,12 +456,12 @@ export default function LeadInquiryForm({
                   </p>
                 ) : null}
 
-                <div className="mt-auto flex shrink-0 items-center justify-between gap-3 border-t border-gray-100 pt-6 dark:border-slate-700/80">
+                <div className="mt-4 flex shrink-0 flex-col-reverse gap-3 border-t border-gray-100 pt-4 dark:border-slate-700/80 sm:mt-auto sm:flex-row sm:items-center sm:justify-between sm:pt-6">
                   <button
                     type="button"
                     onClick={prevStep}
                     disabled={currentStep === 0}
-                    className="inline-flex items-center gap-1.5 rounded-xl border border-gray-200 px-4 py-2.5 text-gray-600 transition-colors hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-40 dark:border-slate-700 dark:text-gray-300 dark:hover:bg-slate-700/50"
+                    className="inline-flex w-full items-center justify-center gap-1.5 rounded-xl border border-gray-200 px-4 py-2.5 text-gray-600 transition-colors hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-40 dark:border-slate-700 dark:text-gray-300 dark:hover:bg-slate-700/50 sm:w-auto"
                   >
                     <ChevronLeft className="h-4 w-4" />
                     <span>Back</span>
@@ -463,7 +472,7 @@ export default function LeadInquiryForm({
                       type="button"
                       onClick={nextStep}
                       disabled={!canGoNext}
-                      className="inline-flex items-center gap-1.5 rounded-xl bg-blue-600 px-5 py-2.5 font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
+                      className="inline-flex w-full items-center justify-center gap-1.5 rounded-xl bg-blue-600 px-5 py-2.5 font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
                     >
                       <span>Next</span>
                       <ChevronRight className="h-4 w-4" />
@@ -472,7 +481,7 @@ export default function LeadInquiryForm({
                     <button
                       type="submit"
                       disabled={!canGoNext || isSubmitting}
-                      className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-2.5 font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
+                      className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-2.5 font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
                     >
                       <span>{isSubmitting ? 'Sending...' : 'Send Request'}</span>
                       <Send className="h-4 w-4" />

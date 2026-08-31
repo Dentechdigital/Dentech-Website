@@ -29,7 +29,7 @@ export const CHATBOT_FAQ: ChatFaqItem[] = [
     id: 'pricing-monthly-retainers',
     question: 'Do you offer monthly retainers?',
     answer:
-      'Yes. Growth partnerships run on monthly retainers covering SEO/GEO, paid media, content, GHL automation, and optimization—often with a complimentary Webflow site on a 6-month agreement. Exact scope is set before kickoff.',
+      'Yes. Growth partnerships run on monthly retainers covering SEO/GEO, paid media, content, Dentech portal automation, and optimization—often with a complimentary Webflow site on a 6-month agreement. Exact scope is set before kickoff.',
     prompts: ['Do you offer monthly retainers?', 'Monthly marketing retainer', 'Retainer billing model'],
     intent: 'pricing',
     ctas: [
@@ -41,7 +41,7 @@ export const CHATBOT_FAQ: ChatFaqItem[] = [
     id: 'pricing-best-package-stage',
     question: 'What is the best package for my clinic stage?',
     answer:
-      'Core Patient Engine fits steady high-value lead flow. Brand Dominance adds social, video, and review engines. Practice Expansion covers multi-location GHL, Webflow architecture, and launch campaigns. A strategy call maps the right tier to your market and capacity.',
+      'Core Patient Engine fits steady high-value lead flow. Brand Dominance adds social, video, and review engines. Practice Expansion covers multi-location Dentech portal setup, Webflow architecture, and launch campaigns. A strategy call maps the right tier to your market and capacity.',
     prompts: [
       'What is the best package for my clinic stage?',
       'Which package should we start with?',
@@ -73,7 +73,7 @@ export const CHATBOT_FAQ: ChatFaqItem[] = [
     id: 'pricing-single-vs-multi',
     question: 'What is the difference between single-clinic and multi-location packages?',
     answer:
-      'Single-clinic packages focus on local demand capture, CallRail attribution, and GHL lead automation. Multi-location Expansion adds centralized dashboards, per-location pages, and coordinated launch or signage support.',
+      'Single-clinic packages focus on local demand capture, Dentech portal attribution, and automated lead follow-up. Multi-location Expansion adds centralized dashboards, per-location pages, and coordinated launch or signage support.',
     prompts: ['Single clinic pricing', 'Multi-location pricing model', 'How do retainers scale by locations?'],
     intent: 'pricing',
     ctas: [
@@ -85,7 +85,7 @@ export const CHATBOT_FAQ: ChatFaqItem[] = [
     id: 'pricing-what-included',
     question: 'What is usually included in a monthly retainer?',
     answer:
-      'Retainers include channel strategy, campaign execution, CallRail tracking, GHL workflows, and optimization cadence—scoped to demand generation, conversion, or market dominance depending on tier.',
+      'Retainers include channel strategy, campaign execution, Dentech portal tracking & workflows, and optimization cadence—scoped to demand generation, conversion, or market dominance depending on tier.',
     prompts: ['Retainer scope example', 'What is included in monthly management?', 'Can we start with one channel only?'],
     intent: 'pricing',
     ctas: [

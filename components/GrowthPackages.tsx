@@ -36,7 +36,7 @@ type PackageTier = {
 
 const priorities: { id: PriorityId; label: string; hint: string }[] = [
   { id: 'leads', label: 'High-Margin Leads', hint: 'Core Patient Engine' },
-  { id: 'brand', label: 'Brand Dominance', hint: 'Social + Dentech Software' },
+  { id: 'brand', label: 'Brand Dominance', hint: 'Social + Dentech portal' },
   { id: 'multi', label: 'Multi-Location', hint: 'Expansion & Re-Launch' },
 ];
 
@@ -51,15 +51,15 @@ const packageTiers: PackageTier[] = [
     essentialBullets: [
       'Google PPC & Meta funnels for high-margin procedures in your catchment',
       'Google Business Profile & Local Maps SEO for top local packs',
-      'CallRail call tracking with RCDSO/ODQ-compliant ad copy',
+      'Dentech portal lead tracking with RCDSO/ODQ-compliant ad copy',
     ],
     highlight: 'Complimentary custom Webflow website with any 6-month growth partnership.',
     detailedFeatures: [
       'High-intent Google PPC campaigns for implants, aligners, emergency, and cosmetic searches',
       'Localized Facebook & Instagram lead funnels for family and cosmetic care',
       'Systematic GBP & Maps ranking optimization',
-      'CallRail dynamic tracking & call recordings for reception QA',
-      'GoHighLevel lead engine: missed-call text-back, reminders, centralized CRM',
+      'Dentech portal call tracking & recordings for reception QA',
+      'Dentech portal & app: missed-call text-back, reminders, centralized lead inbox',
       'Pre-audited landing pages for Ontario & Quebec dental marketing rules',
     ],
   },
@@ -77,11 +77,11 @@ const packageTiers: PackageTier[] = [
     ],
     highlight: 'Full content production layered on our paid + local SEO growth engine.',
     dentechSoftware: {
-      title: 'Dentech Software integration',
+      title: 'Dentech portal & app',
       items: [
-        'Missed-call instant text-back so leads don’t call the next clinic',
+        'Missed-call instant text-back via the Dentech app so leads don’t call the next clinic',
         'Automated post-visit review engine for authentic 5-star Google reviews',
-        'Centralized lead CRM—every inquiry in one GoHighLevel pipeline',
+        'Centralized lead CRM—every inquiry in one Dentech portal pipeline',
       ],
     },
     detailedFeatures: [
@@ -89,7 +89,7 @@ const packageTiers: PackageTier[] = [
       'Complimentary Webflow site with interactive booking & mobile optimization',
       'Community engagement & content scheduling across platforms',
       'Patient procedure guides & FAQ highlight reels',
-      'GHL post-appointment SMS workflows for review generation',
+      'Dentech app post-appointment SMS workflows for review generation',
     ],
   },
   {
@@ -101,7 +101,7 @@ const packageTiers: PackageTier[] = [
       'Multi-location groups, acquisitions, or grand openings needing digital + physical alignment.',
     essentialBullets: [
       'Everything in Brand Dominance',
-      'Multi-location GHL dashboard—leads tracked per branch',
+      'Multi-location Dentech portal dashboard—leads tracked per branch',
       'Grand opening & local event campaign playbooks',
     ],
     highlight: 'Multi-site Webflow architecture plus signage & print vendor coordination.',
@@ -125,14 +125,16 @@ const valueProps = [
   },
   {
     title: '100% call attribution',
-    description: 'CallRail recordings show exactly which marketing drives booked consultations.',
+    description:
+      'The Dentech portal shows which campaigns drive booked consultations—with call history in one place.',
     icon: Phone,
     color: 'text-emerald-600 dark:text-emerald-300',
     bg: 'bg-emerald-50 dark:bg-emerald-500/10',
   },
   {
     title: 'Automated front desk',
-    description: 'Missed calls get an immediate text-back so prospects stay in your pipeline.',
+    description:
+      'The Dentech app texts back missed calls immediately so prospects stay in your pipeline.',
     icon: Zap,
     color: 'text-indigo-600 dark:text-indigo-300',
     bg: 'bg-indigo-50 dark:bg-indigo-500/10',
@@ -313,7 +315,7 @@ export default function GrowthPackages() {
             <SectionGradientEmphasis>Booked Appointments</SectionGradientEmphasis>
           </h2>
           <p className="text-base leading-relaxed text-gray-600 dark:text-gray-300 md:text-lg">
-            Compliant growth systems for Ontario & Quebec clinics—GHL automation and CallRail tracking built in.
+            Compliant growth systems for Ontario & Quebec clinics—lead follow-up and reporting in the Dentech portal.
           </p>
         </div>
 

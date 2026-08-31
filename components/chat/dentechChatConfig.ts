@@ -39,7 +39,7 @@ export const dentechChatRuntimeConfig: ChatRuntimeConfig = {
   starterPrompts: CHATBOT_STARTER_PROMPTS,
   qualificationPrompts: CHATBOT_QUALIFICATION_PROMPTS,
   helpdeskCategories: [
-    { id: 'pricing', label: 'Pricing', intents: ['pricing'] },
+    { id: 'packages', label: 'Packages', intents: ['pricing'] },
     { id: 'services', label: 'Services', intents: ['services'] },
     { id: 'timeline', label: 'Timeline', intents: ['timeline'] },
     { id: 'getting-started', label: 'Getting started', intents: ['booking'] },
@@ -50,11 +50,11 @@ export const dentechChatRuntimeConfig: ChatRuntimeConfig = {
   defaultContactCta: { label: 'Contact Dentech', to: '/#contact' },
   bookStrategyCallCta: { label: 'Book Your Strategy Call', to: '/#contact' },
   faqModeNoMatchReply:
-    'Helpdesk mode: curated answers only. Try Pricing, Services, Timeline, or Getting started — or open Chat for Maya.',
+    'Helpdesk mode: curated answers only. Try Packages, Services, Timeline, or Getting started — or open Chat for Maya.',
   faqModeNoMatchSuggestedCtas: [{ label: 'Contact Dentech', to: '/#contact' }],
   offlineErrorMessage: 'You appear offline. Please reconnect and try again.',
   liveAssistantUnavailableMessage:
-    "I'm temporarily unable to reach the AI service. You can still use Contact, Pricing, or Services on the site.",
+    "I'm temporarily unable to reach the AI service. You can still use Contact, Packages, or Services on the site.",
   ctaNudgeMessage: 'Ready for a concrete plan? Fastest next step: book a strategy call via Contact.',
   locale: 'en-CA',
   getPageContext: () => (typeof window === 'undefined' ? '/' : window.location.pathname),

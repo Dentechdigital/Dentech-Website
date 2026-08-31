@@ -97,7 +97,7 @@ function mapCtas(intent: ChatIntent): SuggestedCta[] {
     case 'pricing':
       return [
         { label: 'Book Your Strategy Call', to: '/#contact' },
-        { label: 'View Pricing', to: '/#pricing' },
+        { label: 'View Packages', to: '/#packages' },
       ];
     case 'services':
       return [
@@ -150,12 +150,12 @@ async function queryGemini(payload: ChatCompletionRequest): Promise<ChatCompleti
     'Persona: crisp, professional, first person (I / we). Never pretend to be human. No medical, legal, or financial advice.',
     'Facts: use only the approved FAQ context below. Do not invent stats, guarantees, named clients, or package details not in that FAQ.',
     'Brevity (critical): max 2–4 short sentences, under ~90 words unless the user explicitly asks for more detail. No filler openers (“Great question”, “Happy to help”, “Absolutely”). No bullet lists unless they ask for a list. Lead with the answer; do not repeat their question back at length.',
-    'Style: compress FAQ ideas into plain language — never paste long FAQ text verbatim. One line of “why it matters” at most, then a direct CTA (e.g. open Contact to book a strategy call, or View Pricing).',
+    'Style: compress FAQ ideas into plain language — never paste long FAQ text verbatim. One line of “why it matters” at most, then a direct CTA (e.g. open Contact to book a strategy call, or View Packages).',
     'Prospects: end with a specific invitation — book a strategy call or use Contact — not a vague “let me know if you have questions”.',
     'Existing Dentech clients: acknowledge it; do not push a discovery call for account or billing requests — send them to Contact / their Dentech contact per FAQ.',
     'High intent (book / this week / pricing + timeline): prioritize the strategy call in the last sentence.',
     'Tone: confident, respectful, zero hype. No “limited time” unless it appears in the FAQ.',
-    'If the FAQ does not cover it: say so in one short sentence and point to Contact, Pricing, or Services.',
+    'If the FAQ does not cover it: say so in one short sentence and point to Contact, Packages, or Services.',
   ].join('\n');
 
   const userContext = payload.messages

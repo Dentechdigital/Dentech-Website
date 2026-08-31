@@ -14,14 +14,14 @@ export const CHATBOT_FAQ: ChatFaqItem[] = [
     ],
   },
   {
-    id: 'pricing-show-options',
-    question: 'How do I view Dentech pricing?',
+    id: 'packages-show-options',
+    question: 'What growth packages do you offer?',
     answer:
-      'You will find website and marketing packages summarized on our home page in the Pricing section—website tiers, signature marketing retainers, and how offers like the current promotion are framed. Open Pricing below for line items; if you want a mix matched to your market and capacity, a short strategy call is the fastest way to lock the right starting scope.',
-    prompts: ['Show pricing options', 'Where is your pricing?', 'See pricing details'],
+      'Our home page Packages section outlines three tiers: Core Patient Engine (local search and paid acquisition), Brand Dominance & Social Engine (organic plus paid dominance), and Practice Expansion & Re-Launch (multi-site and grand openings). Scope is confirmed on a strategy call.',
+    prompts: ['Show packages', 'What packages do you offer?', 'Growth packages'],
     intent: 'pricing',
     ctas: [
-      { label: 'View Pricing', to: '/#pricing' },
+      { label: 'View Packages', to: '/#packages' },
       { label: 'Talk to a Strategist', to: '/#contact' },
     ],
   },
@@ -29,11 +29,11 @@ export const CHATBOT_FAQ: ChatFaqItem[] = [
     id: 'pricing-monthly-retainers',
     question: 'Do you offer monthly retainers?',
     answer:
-      'Yes. Monthly marketing retainers are a core model for ongoing SEO/GEO, paid media, content, and optimization—often after a website launch or alongside one. Scope is aligned to your growth objective (demand, conversion, or authority) and spelled out before kickoff so deliverables and rhythm stay predictable.',
+      'Yes. Growth partnerships run on monthly retainers covering SEO/GEO, paid media, content, GHL automation, and optimization—often with a complimentary Webflow site on a 6-month agreement. Exact scope is set before kickoff.',
     prompts: ['Do you offer monthly retainers?', 'Monthly marketing retainer', 'Retainer billing model'],
     intent: 'pricing',
     ctas: [
-      { label: 'View Pricing', to: '/#pricing' },
+      { label: 'View Packages', to: '/#packages' },
       { label: 'Talk to a Strategist', to: '/#contact' },
     ],
   },
@@ -41,7 +41,7 @@ export const CHATBOT_FAQ: ChatFaqItem[] = [
     id: 'pricing-best-package-stage',
     question: 'What is the best package for my clinic stage?',
     answer:
-      'It depends on your bottleneck and capacity. If you need more qualified demand, we often pair a conversion-ready site with local SEO/GEO or disciplined paid. If traffic exists but bookings lag, we prioritize tracking, offer clarity, and nurture. Multi-location groups add governance and location-level reporting. A strategy call is the quickest way to map the right first package to your stage.',
+      'Core Patient Engine fits steady high-value lead flow. Brand Dominance adds social, video, and review engines. Practice Expansion covers multi-location GHL, Webflow architecture, and launch campaigns. A strategy call maps the right tier to your market and capacity.',
     prompts: [
       'What is the best package for my clinic stage?',
       'Which package should we start with?',
@@ -49,7 +49,7 @@ export const CHATBOT_FAQ: ChatFaqItem[] = [
     ],
     intent: 'pricing',
     ctas: [
-      { label: 'View Pricing', to: '/#pricing' },
+      { label: 'View Packages', to: '/#packages' },
       { label: 'Book a Strategy Call', to: '/#contact' },
     ],
   },
@@ -57,7 +57,7 @@ export const CHATBOT_FAQ: ChatFaqItem[] = [
     id: 'pricing-overview',
     question: 'How much does it cost to work with Dentech?',
     answer:
-      'Most engagements start with website packages or monthly marketing retainers, depending on your growth stage and channel mix. We can recommend the best-fit starting point after a quick strategy call.',
+      'Packages are scoped to clinic stage—not one-size-fits-all list pricing on the site. Core, Brand Dominance, and Expansion tiers differ by channels, locations, and production. Book a strategy call for a tailored quote.',
     prompts: [
       'What package fits a single clinic?',
       'How much does dental marketing cost',
@@ -65,19 +65,19 @@ export const CHATBOT_FAQ: ChatFaqItem[] = [
     ],
     intent: 'pricing',
     ctas: [
-      { label: 'View Pricing', to: '/#pricing' },
+      { label: 'View Packages', to: '/#packages' },
       { label: 'Talk to a Strategist', to: '/#contact' },
     ],
   },
   {
     id: 'pricing-single-vs-multi',
-    question: 'What is the difference between single-clinic and multi-location pricing?',
+    question: 'What is the difference between single-clinic and multi-location packages?',
     answer:
-      'Single-clinic plans focus on local demand capture and appointment flow. Multi-location plans add governance, shared standards, and location-level reporting so each clinic can grow without losing brand consistency.',
+      'Single-clinic packages focus on local demand capture, CallRail attribution, and GHL lead automation. Multi-location Expansion adds centralized dashboards, per-location pages, and coordinated launch or signage support.',
     prompts: ['Single clinic pricing', 'Multi-location pricing model', 'How do retainers scale by locations?'],
     intent: 'pricing',
     ctas: [
-      { label: 'View Pricing', to: '/#pricing' },
+      { label: 'View Packages', to: '/#packages' },
       { label: 'Book Strategy Call', to: '/#contact' },
     ],
   },
@@ -85,7 +85,7 @@ export const CHATBOT_FAQ: ChatFaqItem[] = [
     id: 'pricing-what-included',
     question: 'What is usually included in a monthly retainer?',
     answer:
-      'Most retainers include channel strategy, campaign execution, tracking, and optimization cadence. Scope is selected by growth objective: demand generation, conversion improvement, or authority building in local search.',
+      'Retainers include channel strategy, campaign execution, CallRail tracking, GHL workflows, and optimization cadence—scoped to demand generation, conversion, or market dominance depending on tier.',
     prompts: ['Retainer scope example', 'What is included in monthly management?', 'Can we start with one channel only?'],
     intent: 'pricing',
     ctas: [

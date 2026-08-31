@@ -13,7 +13,7 @@ const SpecialOfferCTA = lazy(() => import('../components/SpecialOfferCTA'));
 const CaseStudiesPreview = lazy(() => import('../components/CaseStudiesPreview'));
 const HomeMidCta = lazy(() => import('../components/HomeMidCta'));
 const Testimonials = lazy(() => import('../components/Testimonials'));
-const PricingPlans = lazy(() => import('../components/PricingPlans'));
+const GrowthPackages = lazy(() => import('../components/GrowthPackages'));
 const HomeFAQ = lazy(() => import('../components/HomeFAQ'));
 const ContactSection = lazy(() => import('../components/ContactSection'));
 
@@ -57,7 +57,7 @@ const Home: React.FC = () => {
         <Testimonials />
       </Suspense>
       <Suspense fallback={null}>
-        <PricingPlans />
+        <GrowthPackages />
       </Suspense>
       <Suspense fallback={null}>
         <HomeFAQ />

@@ -1,6 +1,6 @@
 export const CHATBOT_STARTER_PROMPTS: string[] = [
   'Book a strategy call',
-  'Pricing',
+  'Packages',
   'Services',
   'Hours & contact',
 ];
@@ -13,7 +13,7 @@ export const CHATBOT_QUALIFICATION_PROMPTS: string[] = [
 ];
 
 export const CHATBOT_INTENT_SHORTCUTS: { label: string; prompt: string }[] = [
-  { label: 'Pricing', prompt: 'Pricing' },
+  { label: 'Packages', prompt: 'Packages' },
   { label: 'Services', prompt: 'Services' },
   { label: 'Book call', prompt: 'Book a strategy call' },
   { label: 'Case studies', prompt: 'Case studies' },

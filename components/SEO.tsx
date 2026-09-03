@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
 import { SITE_ORIGIN } from '../data/aboutContent';
+import { DEFAULT_OG_IMAGE } from '../data/seoDefaults';
 
 export type FaqStructuredItem = {
   question: string;
@@ -16,11 +17,28 @@ interface SEOProps {
   structuredData?: Record<string, unknown> | null;
   /** Optional override for canonical URL. */
   canonicalUrl?: string;
+  /** Absolute or site-root image for Open Graph / Twitter. */
+  ogImage?: string;
 }
 
-const SEO: React.FC<SEOProps> = ({ title, description, faqStructuredData, structuredData, canonicalUrl }) => {
+function documentTitle(pageTitle: string): string {
+  const trimmed = pageTitle.trim();
+  if (/dentech digital/i.test(trimmed)) return trimmed;
+  return `${trimmed} | Dentech Digital`;
+}
+
+const SEO: React.FC<SEOProps> = ({
+  title,
+  description,
+  faqStructuredData,
+  structuredData,
+  canonicalUrl,
+  ogImage,
+}) => {
   const location = useLocation();
   const canonical = canonicalUrl ?? `${SITE_ORIGIN}${location.pathname}`;
+  const fullTitle = documentTitle(title);
+  const shareImage = ogImage ?? DEFAULT_OG_IMAGE;
 
   const faqJsonLd = useMemo(() => {
     if (!faqStructuredData?.length) return null;
@@ -40,12 +58,19 @@ const SEO: React.FC<SEOProps> = ({ title, description, faqStructuredData, struct
 
   return (
     <Helmet>
-      <title>{title} | Dentech Digital</title>
+      <title>{fullTitle}</title>
       <link rel="canonical" href={canonical} />
       <meta name="description" content={description} />
-      <meta property="og:title" content={`${title} | Dentech Digital`} />
+      <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={canonical} />
+      <meta property="og:site_name" content="Dentech Digital" />
+      <meta property="og:image" content={shareImage} />
       <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={fullTitle} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={shareImage} />
       {faqJsonLd ? (
         <script
           type="application/ld+json"

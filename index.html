@@ -1,13 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-CA">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dentech Digital | Ottawa Dental Marketing Agency</title>
+    <meta
+      name="description"
+      content="Ottawa dental marketing agency for Canadian clinics: local SEO, GEO, high-converting websites, paid media, and reputation systems that drive qualified bookings."
+    />
+    <link rel="canonical" href="https://dentech.digital/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Dentech Digital" />
+    <meta property="og:title" content="Dentech Digital | Ottawa Dental Marketing Agency" />
+    <meta
+      property="og:description"
+      content="Ottawa dental marketing agency for Canadian clinics: local SEO, GEO, high-converting websites, paid media, and reputation systems that drive qualified bookings."
+    />
+    <meta property="og:url" content="https://dentech.digital/" />
+    <meta property="og:image" content="https://dentech.digital/dentist-cutout-800w.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Dentech Digital | Ottawa Dental Marketing Agency" />
+    <meta
+      name="twitter:description"
+      content="Ottawa dental marketing agency for Canadian clinics: local SEO, GEO, high-converting websites, paid media, and reputation systems that drive qualified bookings."
+    />
+    <meta name="twitter:image" content="https://dentech.digital/dentist-cutout-800w.webp" />
     <link rel="preload" as="image" href="%BASE_URL%dentist-cutout-480w.webp" media="(max-width: 640px)" fetchpriority="high" />
     <link rel="preload" as="image" href="%BASE_URL%dentist-cutout-640w.webp" media="(min-width: 641px)" fetchpriority="high" />
     <link rel="icon" type="image/png" href="%BASE_URL%favicon.png" sizes="32x32" />
     <link rel="apple-touch-icon" href="%BASE_URL%favicon.png" />
-    <title>Dentech | Ottawa Dental Marketing Agency</title>
     <style>
       html,
       body {
@@ -17,12 +38,10 @@
     </style>
   </head>
   <body>
-    <!-- Netlify parses this at build for Forms; React submits the same field names via fetch. -->
+    <!-- Netlify Forms discovery only. No crawlable label text (Google was indexing “Do not fill”). -->
     <form name="lead-inquiry" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" hidden aria-hidden="true">
       <input type="hidden" name="form-name" value="lead-inquiry" />
-      <p class="hidden">
-        <label>Do not fill: <input name="bot-field" autocomplete="off" tabindex="-1" /></label>
-      </p>
+      <input name="bot-field" type="text" autocomplete="off" tabindex="-1" />
       <input name="fullName" />
       <input name="clinicName" />
       <input name="email" />
@@ -38,9 +57,7 @@
     </form>
     <form name="maya-chat-submission" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" hidden aria-hidden="true">
       <input type="hidden" name="form-name" value="maya-chat-submission" />
-      <p class="hidden">
-        <label>Do not fill: <input name="bot-field" autocomplete="off" tabindex="-1" /></label>
-      </p>
+      <input name="bot-field" type="text" autocomplete="off" tabindex="-1" />
       <input name="sessionId" />
       <input name="pagePath" />
       <input name="mode" />
@@ -49,9 +66,7 @@
     </form>
     <form name="free-website-offer-popup" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" hidden aria-hidden="true">
       <input type="hidden" name="form-name" value="free-website-offer-popup" />
-      <p class="hidden">
-        <label>Do not fill: <input name="bot-field" autocomplete="off" tabindex="-1" /></label>
-      </p>
+      <input name="bot-field" type="text" autocomplete="off" tabindex="-1" />
       <input name="fullName" />
       <input name="email" />
       <input name="clinicName" />
@@ -59,6 +74,12 @@
       <textarea name="message"></textarea>
     </form>
     <div id="root"></div>
+    <noscript>
+      <p>
+        Dentech Digital is an Ottawa dental marketing agency for Canadian clinics — local SEO, GEO, websites, paid
+        media, and reputation systems that drive booked patients.
+      </p>
+    </noscript>
     <script type="module" src="/index.tsx"></script>
     <script>
       window.addEventListener(

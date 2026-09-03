@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import Hero from '../components/Hero';
 import SEO from '../components/SEO';
 import { homeFaqItems } from '../data/homeFaqContent';
+import { DEFAULT_DOCUMENT_TITLE, DEFAULT_META_DESCRIPTION } from '../data/seoDefaults';
 
 const TrustedBy = lazy(() => import('../components/TrustedBy'));
 const Services = lazy(() => import('../components/Services'));
@@ -21,8 +22,8 @@ const Home: React.FC = () => {
   return (
     <main className="w-full min-h-screen bg-[#FAFAF9] dark:bg-slate-950 transition-colors duration-300">
       <SEO
-        title="Dental Marketing Agency Ottawa | SEO, GEO, Web & Ads"
-        description="Ottawa dental marketing agency for Canadian clinics: local SEO, GEO, high-converting websites, paid media, and reputation systems that drive qualified bookings."
+        title={DEFAULT_DOCUMENT_TITLE}
+        description={DEFAULT_META_DESCRIPTION}
         faqStructuredData={homeFaqItems}
       />
       <Hero />

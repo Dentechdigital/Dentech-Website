@@ -49,3 +49,22 @@ export const blogIndexMeta = {
   metaDescription:
     'Practical guides on local SEO, GEO, paid media, websites, and growth for dental practices in Ottawa and across Canada—from Dentech Digital.',
 } as const;
+
+export function buildBlogIndexJsonLd(posts: BlogPost[]): Record<string, unknown> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: blogIndexMeta.metaTitle,
+    description: blogIndexMeta.metaDescription,
+    url: `${SITE_ORIGIN}/blog`,
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: posts.map((post, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        url: `${SITE_ORIGIN}${blogPostPath(post.slug)}`,
+        name: post.title,
+      })),
+    },
+  };
+}

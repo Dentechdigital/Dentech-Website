@@ -50,6 +50,8 @@ const CaseStudies = lazyRetry(() => import('./pages/CaseStudies'));
 const Blog = lazyRetry(() => import('./pages/Blog'));
 const BlogPost = lazyRetry(() => import('./pages/BlogPost'));
 const Contact = lazyRetry(() => import('./pages/Contact'));
+const Packages = lazyRetry(() => import('./pages/Packages'));
+const NotFound = lazyRetry(() => import('./pages/NotFound'));
 const Footer = lazyRetry(() => import('./components/Footer'));
 const DentechChatWidget = lazyRetry(() => import('./components/chat/DentechChatWidget'));
 
@@ -179,7 +181,9 @@ const App: React.FC = () => {
                     <Route path="/blog" element={<Blog />} />
                     <Route path="/blog/:slug" element={<BlogPost />} />
                     <Route path="/contact" element={<Contact />} />
+                    <Route path="/packages" element={<Packages />} />
                     <Route path="/portal" element={<Navigate to="/contact" replace />} />
+                    <Route path="*" element={<NotFound />} />
                   </Routes>
                 </Suspense>
               </AppErrorBoundary>

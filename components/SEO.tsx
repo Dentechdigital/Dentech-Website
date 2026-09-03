@@ -19,6 +19,8 @@ interface SEOProps {
   canonicalUrl?: string;
   /** Absolute or site-root image for Open Graph / Twitter. */
   ogImage?: string;
+  /** Soft-404 and utility pages should not be indexed. */
+  noIndex?: boolean;
 }
 
 function documentTitle(pageTitle: string): string {
@@ -34,6 +36,7 @@ const SEO: React.FC<SEOProps> = ({
   structuredData,
   canonicalUrl,
   ogImage,
+  noIndex = false,
 }) => {
   const location = useLocation();
   const canonical = canonicalUrl ?? `${SITE_ORIGIN}${location.pathname}`;
@@ -60,6 +63,7 @@ const SEO: React.FC<SEOProps> = ({
     <Helmet>
       <title>{fullTitle}</title>
       <link rel="canonical" href={canonical} />
+      {noIndex ? <meta name="robots" content="noindex, nofollow" /> : null}
       <meta name="description" content={description} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />

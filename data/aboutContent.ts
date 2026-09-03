@@ -192,6 +192,7 @@ export function buildAboutStructuredData() {
         areaServed: [
           { '@type': 'City', name: 'Ottawa' },
           { '@type': 'AdministrativeArea', name: 'Ontario' },
+          { '@type': 'AdministrativeArea', name: 'Quebec' },
           { '@type': 'Country', name: 'Canada' },
         ],
         founder: {

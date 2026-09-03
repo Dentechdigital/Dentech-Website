@@ -1,3 +1,5 @@
+import { SITE_ORIGIN } from './aboutContent';
+
 /** Full-bleed hero art on `/contact` (person right, negative space left for copy) */
 export const CONTACT_PAGE_HERO_PATH = '/contact/hero-contact.webp';
 
@@ -34,4 +36,41 @@ export function googleMapsEmbedUrl(): string {
 
 export function googleMapsExternalUrl(): string {
   return `https://www.google.com/maps/search/?api=1&query=${mapsQueryEncoded()}`;
+}
+
+export function buildContactStructuredData(): Record<string, unknown> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': `${SITE_ORIGIN}/contact#localbusiness`,
+    name: 'Dentech Digital',
+    url: `${SITE_ORIGIN}/contact`,
+    image: `${SITE_ORIGIN}/dentist-cutout-800w.webp`,
+    email: SITE_CONTACT.email,
+    telephone: '+1-613-869-3121',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: SITE_CONTACT.addressLine1,
+      addressLocality: 'Ottawa',
+      addressRegion: 'ON',
+      addressCountry: 'CA',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 45.401,
+      longitude: -75.698,
+    },
+    openingHoursSpecification: {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '09:00',
+      closes: '18:00',
+    },
+    areaServed: [
+      { '@type': 'City', name: 'Ottawa' },
+      { '@type': 'AdministrativeArea', name: 'Ontario' },
+      { '@type': 'AdministrativeArea', name: 'Quebec' },
+      { '@type': 'Country', name: 'Canada' },
+    ],
+  };
 }

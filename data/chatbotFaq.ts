@@ -9,8 +9,8 @@ export const CHATBOT_FAQ: ChatFaqItem[] = [
     prompts: ['Opening hours', 'Business hours', 'Contact info', 'Phone number', 'Email'],
     intent: 'booking',
     ctas: [
-      { label: 'Contact', to: '/#contact' },
-      { label: 'Book call', to: '/#contact' },
+      { label: 'Contact', to: '/contact' },
+      { label: 'Book call', to: '/contact' },
     ],
   },
   {
@@ -21,8 +21,8 @@ export const CHATBOT_FAQ: ChatFaqItem[] = [
     prompts: ['Show packages', 'What packages do you offer?', 'Growth packages'],
     intent: 'pricing',
     ctas: [
-      { label: 'View Packages', to: '/#packages' },
-      { label: 'Talk to a Strategist', to: '/#contact' },
+      { label: 'View Packages', to: '/packages' },
+      { label: 'Talk to a Strategist', to: '/contact' },
     ],
   },
   {
@@ -33,8 +33,8 @@ export const CHATBOT_FAQ: ChatFaqItem[] = [
     prompts: ['Do you offer monthly retainers?', 'Monthly marketing retainer', 'Retainer billing model'],
     intent: 'pricing',
     ctas: [
-      { label: 'View Packages', to: '/#packages' },
-      { label: 'Talk to a Strategist', to: '/#contact' },
+      { label: 'View Packages', to: '/packages' },
+      { label: 'Talk to a Strategist', to: '/contact' },
     ],
   },
   {
@@ -49,8 +49,8 @@ export const CHATBOT_FAQ: ChatFaqItem[] = [
     ],
     intent: 'pricing',
     ctas: [
-      { label: 'View Packages', to: '/#packages' },
-      { label: 'Book a Strategy Call', to: '/#contact' },
+      { label: 'View Packages', to: '/packages' },
+      { label: 'Book a Strategy Call', to: '/contact' },
     ],
   },
   {
@@ -65,8 +65,8 @@ export const CHATBOT_FAQ: ChatFaqItem[] = [
     ],
     intent: 'pricing',
     ctas: [
-      { label: 'View Packages', to: '/#packages' },
-      { label: 'Talk to a Strategist', to: '/#contact' },
+      { label: 'View Packages', to: '/packages' },
+      { label: 'Talk to a Strategist', to: '/contact' },
     ],
   },
   {
@@ -77,8 +77,8 @@ export const CHATBOT_FAQ: ChatFaqItem[] = [
     prompts: ['Single clinic pricing', 'Multi-location pricing model', 'How do retainers scale by locations?'],
     intent: 'pricing',
     ctas: [
-      { label: 'View Packages', to: '/#packages' },
-      { label: 'Book Strategy Call', to: '/#contact' },
+      { label: 'View Packages', to: '/packages' },
+      { label: 'Book Strategy Call', to: '/contact' },
     ],
   },
   {
@@ -89,8 +89,8 @@ export const CHATBOT_FAQ: ChatFaqItem[] = [
     prompts: ['Retainer scope example', 'What is included in monthly management?', 'Can we start with one channel only?'],
     intent: 'pricing',
     ctas: [
-      { label: 'Talk to a Strategist', to: '/#contact' },
-      { label: 'Explore Services', to: '/#services' },
+      { label: 'Talk to a Strategist', to: '/contact' },
+      { label: 'Explore Services', to: '/services' },
     ],
   },
   {
@@ -101,7 +101,7 @@ export const CHATBOT_FAQ: ChatFaqItem[] = [
     prompts: ['Explore services', 'Do you handle SEO and ads together?', 'Do you build websites too?'],
     intent: 'services',
     ctas: [
-      { label: 'Explore Services', to: '/#services' },
+      { label: 'Explore Services', to: '/services' },
       { label: 'See Case Studies', to: '/#case-studies' },
     ],
   },
@@ -113,8 +113,8 @@ export const CHATBOT_FAQ: ChatFaqItem[] = [
     prompts: ['How to choose first service', 'What if we need fast bookings?', 'What if website traffic is low?'],
     intent: 'services',
     ctas: [
-      { label: 'Explore Services', to: '/#services' },
-      { label: 'Book a Strategy Call', to: '/#contact' },
+      { label: 'Explore Services', to: '/services' },
+      { label: 'Book a Strategy Call', to: '/contact' },
     ],
   },
   {
@@ -126,7 +126,7 @@ export const CHATBOT_FAQ: ChatFaqItem[] = [
     intent: 'services',
     ctas: [
       { label: 'See Case Studies', to: '/#case-studies' },
-      { label: 'Contact Team', to: '/#contact' },
+      { label: 'Contact Team', to: '/contact' },
     ],
   },
   {
@@ -137,8 +137,8 @@ export const CHATBOT_FAQ: ChatFaqItem[] = [
     prompts: ['What happens in first 30 days?', 'How long does SEO take?', 'Can we start with ads first?'],
     intent: 'timeline',
     ctas: [
-      { label: 'Book a Strategy Call', to: '/#contact' },
-      { label: 'View Services', to: '/#services' },
+      { label: 'Book a Strategy Call', to: '/contact' },
+      { label: 'View Services', to: '/services' },
     ],
   },
   {
@@ -154,8 +154,8 @@ export const CHATBOT_FAQ: ChatFaqItem[] = [
     ],
     intent: 'timeline',
     ctas: [
-      { label: 'Book a Strategy Call', to: '/#contact' },
-      { label: 'View Services', to: '/#services' },
+      { label: 'Book a Strategy Call', to: '/contact' },
+      { label: 'View Services', to: '/services' },
     ],
   },
   {
@@ -166,7 +166,7 @@ export const CHATBOT_FAQ: ChatFaqItem[] = [
     prompts: ['How much internal time is needed?', 'Who should join meetings?', 'How often are approvals needed?'],
     intent: 'timeline',
     ctas: [
-      { label: 'Contact Team', to: '/#contact' },
+      { label: 'Contact Team', to: '/contact' },
       { label: 'About Dentech', to: '/about' },
     ],
   },
@@ -179,7 +179,7 @@ export const CHATBOT_FAQ: ChatFaqItem[] = [
     intent: 'locations',
     ctas: [
       { label: 'About Dentech', to: '/about' },
-      { label: 'Contact Team', to: '/#contact' },
+      { label: 'Contact Team', to: '/contact' },
     ],
   },
   {
@@ -195,7 +195,7 @@ export const CHATBOT_FAQ: ChatFaqItem[] = [
     ],
     intent: 'booking',
     ctas: [
-      { label: 'Start the Contact Form', to: '/#contact' },
+      { label: 'Start the Contact Form', to: '/contact' },
       { label: 'View Case Studies', to: '/#case-studies' },
     ],
   },
@@ -207,8 +207,8 @@ export const CHATBOT_FAQ: ChatFaqItem[] = [
     prompts: ['How to prepare for strategy call?', 'What data should we share?', 'What happens after the first call?'],
     intent: 'booking',
     ctas: [
-      { label: 'Start the Contact Form', to: '/#contact' },
-      { label: 'Book a Strategy Call', to: '/#contact' },
+      { label: 'Start the Contact Form', to: '/contact' },
+      { label: 'Book a Strategy Call', to: '/contact' },
     ],
   },
   {
@@ -219,7 +219,7 @@ export const CHATBOT_FAQ: ChatFaqItem[] = [
     prompts: ['What is onboarding process?', 'How quickly can we launch?', 'What is the first milestone?'],
     intent: 'booking',
     ctas: [
-      { label: 'Book Strategy Call', to: '/#contact' },
+      { label: 'Book Strategy Call', to: '/contact' },
       { label: 'View Case Studies', to: '/#case-studies' },
     ],
   },
@@ -231,8 +231,8 @@ export const CHATBOT_FAQ: ChatFaqItem[] = [
     prompts: ['I am a current client', 'Who do I email?', 'Change our ads / website request'],
     intent: 'existing-client',
     ctas: [
-      { label: 'Contact Team', to: '/#contact' },
-      { label: 'View Services', to: '/#services' },
+      { label: 'Contact Team', to: '/contact' },
+      { label: 'View Services', to: '/services' },
     ],
   },
 ];

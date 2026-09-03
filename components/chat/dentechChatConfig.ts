@@ -47,11 +47,11 @@ export const dentechChatRuntimeConfig: ChatRuntimeConfig = {
   ],
   headerAvatarSrcs: ['/team/maya.webp'],
   launcherBadgeSrc: '/team/maya.webp',
-  defaultContactCta: { label: 'Contact Dentech', to: '/#contact' },
-  bookStrategyCallCta: { label: 'Book Your Strategy Call', to: '/#contact' },
+  defaultContactCta: { label: 'Contact Dentech', to: '/contact' },
+  bookStrategyCallCta: { label: 'Book Your Strategy Call', to: '/contact' },
   faqModeNoMatchReply:
     'Helpdesk mode: curated answers only. Try Packages, Services, Timeline, or Getting started — or open Chat for Maya.',
-  faqModeNoMatchSuggestedCtas: [{ label: 'Contact Dentech', to: '/#contact' }],
+  faqModeNoMatchSuggestedCtas: [{ label: 'Contact Dentech', to: '/contact' }],
   offlineErrorMessage: 'You appear offline. Please reconnect and try again.',
   liveAssistantUnavailableMessage:
     "I'm temporarily unable to reach the AI service. You can still use Contact, Packages, or Services on the site.",

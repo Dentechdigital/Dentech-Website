@@ -125,6 +125,12 @@ const Navbar: React.FC = () => {
             </div>
 
             <Link
+              to="/packages"
+              className={`${getTextColor('/packages')} px-3 py-2 rounded-md text-sm font-semibold tracking-wide transition-colors`}
+            >
+              Packages
+            </Link>
+            <Link
               to="/blog"
               className={`${
                 isBlogActive ? 'text-blue-600 dark:text-blue-400' : getTextColor('/blog')
@@ -204,6 +210,7 @@ const Navbar: React.FC = () => {
                 </Link>
               ))}
             </div>
+            <Link to="/packages" onClick={closeMobileMenu} className="block px-3 py-3 rounded-lg text-base font-semibold text-blue-950 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors">Packages</Link>
             <Link to="/blog" onClick={closeMobileMenu} className="block px-3 py-3 rounded-lg text-base font-semibold text-blue-950 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors">Blog</Link>
             <Link to="/case-studies" onClick={closeMobileMenu} className="block px-3 py-3 rounded-lg text-base font-semibold text-blue-950 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors">Case Studies</Link>
             <Link to="/contact" onClick={closeMobileMenu} className="block px-3 py-3 rounded-lg text-base font-semibold text-blue-950 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors">Contact</Link>

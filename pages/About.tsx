@@ -20,7 +20,7 @@ const About: React.FC = () => {
   return (
     <>
       <SEO
-        title="About Dentech Digital | Ottawa Dental Marketing Agency"
+        title="About — Ottawa dental marketing team since 2017"
         description="Meet Dentech Digital, an Ottawa dental marketing agency serving clinics since 2017, with founder-led experience since 2006 across strategy, web, SEO/GEO, and paid media."
         structuredData={aboutStructuredData}
       />

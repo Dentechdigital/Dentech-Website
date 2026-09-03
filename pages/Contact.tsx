@@ -19,6 +19,7 @@ import {
   CONTACT_PAGE_HERO_IMAGE_CLASS,
   CONTACT_PAGE_HERO_PATH,
   SITE_CONTACT,
+  buildContactStructuredData,
   googleMapsEmbedUrl,
   googleMapsExternalUrl,
 } from '../data/siteContact';
@@ -83,8 +84,9 @@ const Contact: React.FC = () => {
   return (
     <>
       <SEO
-        title="Contact Dentech Digital | Ottawa Dental Marketing Team"
+        title="Contact — Book a dental marketing strategy call (Ottawa)"
         description="Contact our Ottawa dental marketing team to discuss your growth goals. Book a strategy call, share project scope, or visit our Preston Street studio."
+        structuredData={buildContactStructuredData()}
       />
 
       <div className="min-h-screen bg-[#FAFAF9] transition-colors duration-300 dark:bg-slate-950">

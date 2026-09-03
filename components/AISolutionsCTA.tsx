@@ -47,6 +47,12 @@ export default function AISolutionsCTA() {
                   <span>Book a Quick AI Demo</span>
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                 </Link>
+                <Link
+                  to="/services/ai-automation"
+                  className="mt-2 inline-flex w-full items-center justify-center text-xs font-semibold text-white/90 underline-offset-2 hover:underline"
+                >
+                  See AI & automation
+                </Link>
                 <div className="mt-4 space-y-2.5 text-white/95">
                   <div className="flex items-center gap-2 text-xs font-medium">
                     <ShieldCheck className="h-3.5 w-3.5 text-cyan-100" />

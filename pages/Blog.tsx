@@ -4,7 +4,7 @@ import { ArrowRight, Calendar } from 'lucide-react';
 import SEO from '../components/SEO';
 import PageHeroAboutStyle from '../components/PageHeroAboutStyle';
 import { SectionGradientEmphasis } from '../components/SectionGradientEmphasis';
-import { blogIndexMeta } from '../data/blogStructuredData';
+import { blogIndexMeta, buildBlogIndexJsonLd } from '../data/blogStructuredData';
 import { blogPosts } from '../data/blogPosts';
 
 function formatDate(iso: string): string {
@@ -22,7 +22,11 @@ function formatDate(iso: string): string {
 const Blog: React.FC = () => {
   return (
     <>
-      <SEO title={blogIndexMeta.metaTitle} description={blogIndexMeta.metaDescription} />
+      <SEO
+        title={blogIndexMeta.metaTitle}
+        description={blogIndexMeta.metaDescription}
+        structuredData={buildBlogIndexJsonLd(blogPosts)}
+      />
 
       <div className="min-h-screen bg-[#FAFAF9] transition-colors duration-300 dark:bg-slate-950">
         <PageHeroAboutStyle

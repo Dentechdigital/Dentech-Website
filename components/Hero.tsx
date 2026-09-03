@@ -123,10 +123,10 @@ const Hero: React.FC = () => {
             {/* Headlines */}
             <div className="space-y-6">
               <h1 className="text-[2.8rem] leading-[1.08] sm:text-5xl sm:leading-[1.1] md:text-6xl lg:text-7xl font-semibold tracking-tighter text-blue-950 dark:text-white transition-colors duration-300 max-sm:tracking-tight">
-              Scale your clinic with&nbsp;
+                Dental marketing that turns Ottawa searches into{' '}
                 <span className="relative inline">
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-teal-400 to-indigo-600 animate-text-shine pr-2">
-                  confidence and excellence.
+                  <span className="pr-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-teal-400 to-indigo-600 animate-text-shine">
+                    booked patients.
                   </span>
                 </span>
               </h1>
@@ -161,7 +161,7 @@ const Hero: React.FC = () => {
                         src={`${assetBase}avatar.webp`}
                         srcSet={`${assetBase}avatar-80w.webp 80w, ${assetBase}avatar-160w.webp 160w`}
                         sizes="40px"
-                        alt="Expert"
+                        alt="Dentech strategist"
                         width={40}
                         height={40}
                         className="relative z-10 h-10 w-10 rounded-full border border-gray-200 object-cover shadow-sm transition-colors duration-300 dark:border-slate-700 group-hover:border-green-400"
@@ -180,7 +180,7 @@ const Hero: React.FC = () => {
             </div>
 
             {/* Features List */}
-            <div className="pt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 w-full border-t border-gray-200/60 dark:border-slate-800 mt-8 transition-colors duration-300">
+            <div className="mt-8 grid w-full grid-cols-1 gap-6 border-t border-gray-200/60 pt-8 transition-colors duration-300 sm:grid-cols-2 lg:grid-cols-3 dark:border-slate-800">
               {FEATURES.map((feature, index) => (
                 <Link 
                   to={feature.link || '/services'}

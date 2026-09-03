@@ -17,7 +17,7 @@ export const CHATBOT_FAQ: ChatFaqItem[] = [
     id: 'packages-show-options',
     question: 'What growth packages do you offer?',
     answer:
-      'Our home page Packages section outlines three tiers: Core Patient Engine (local search and paid acquisition), Brand Dominance & Social Engine (organic plus paid dominance), and Practice Expansion & Re-Launch (multi-site and grand openings). Scope is confirmed on a strategy call.',
+      'Our Packages page outlines three tiers: Core Patient Engine (local search and paid acquisition), Brand Dominance & Social Engine (organic plus paid dominance), and Practice Expansion & Re-Launch (multi-site and grand openings). Scope is confirmed on a strategy call.',
     prompts: ['Show packages', 'What packages do you offer?', 'Growth packages'],
     intent: 'pricing',
     ctas: [

@@ -35,6 +35,7 @@ const Navbar: React.FC = () => {
   const isActive = (path: string) => location.pathname === path;
   const isServicesActive = location.pathname === '/services' || location.pathname.startsWith('/services/');
   const isBlogActive = location.pathname.startsWith('/blog');
+  const isPackagesActive = location.pathname === '/packages';
   const isHomePage = location.pathname === '/';
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
@@ -47,7 +48,7 @@ const Navbar: React.FC = () => {
   const navClasses = `fixed w-full top-0 transition-all duration-300 ${isMobileMenuOpen ? 'z-[70]' : 'z-50'} ${
     scrolled || !isHomePage || isMobileMenuOpen
       ? 'bg-white/60 dark:bg-slate-950/65 backdrop-blur-xl shadow-sm border-b border-gray-200/50 dark:border-slate-800/50 py-2'
-      : 'bg-transparent border-b border-transparent py-4'
+      : 'bg-transparent border-b border-transparent py-2'
   }`;
 
   // Determine text color based on scroll state and theme
@@ -60,20 +61,20 @@ const Navbar: React.FC = () => {
   return (
     <nav className={navClasses}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex min-h-[4.25rem] items-center justify-between md:min-h-[5rem]">
+        <div className="flex min-h-[3.5rem] items-center justify-between lg:min-h-[3.75rem]">
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0 flex items-center" aria-label="Home">
               <img 
                 src={theme === 'dark' ? `${import.meta.env.BASE_URL}logo-dark.svg?v=2` : `${import.meta.env.BASE_URL}logo-light.svg?v=2`} 
                 alt="Dentech Digital" 
-                className="h-16 w-auto transition-all duration-300 md:h-20"
+                className="h-10 w-auto transition-all duration-300 lg:h-11"
               />
             </Link>
           </div>
           
-          {/* Desktop Menu */}
-          <div className="hidden md:flex md:items-center md:space-x-6 lg:space-x-8">
-            <Link to="/about" className={`${getTextColor('/about')} px-3 py-2 rounded-md text-sm font-semibold tracking-wide transition-colors`}>
+          {/* Desktop Menu — lg+ so links stay on one row at laptop widths */}
+          <div className="hidden lg:flex lg:items-center lg:gap-1 xl:gap-2">
+            <Link to="/about" className={`${getTextColor('/about')} rounded-md px-2 py-2 text-sm font-semibold tracking-wide transition-colors xl:px-2.5`}>
               About
             </Link>
             
@@ -89,7 +90,7 @@ const Navbar: React.FC = () => {
                   isServicesActive
                     ? 'text-blue-600 dark:text-blue-400'
                     : getTextColor('/services')
-                } px-3 py-2 rounded-md text-sm font-semibold tracking-wide transition-colors`}
+                } rounded-md px-2 py-2 text-sm font-semibold tracking-wide transition-colors xl:px-2.5`}
               >
                 Services
               </Link>
@@ -126,7 +127,9 @@ const Navbar: React.FC = () => {
 
             <Link
               to="/packages"
-              className={`${getTextColor('/packages')} px-3 py-2 rounded-md text-sm font-semibold tracking-wide transition-colors`}
+              className={`${
+                isPackagesActive ? 'text-blue-600 dark:text-blue-400' : getTextColor('/packages')
+              } rounded-md px-2 py-2 text-sm font-semibold tracking-wide transition-colors xl:px-2.5`}
             >
               Packages
             </Link>
@@ -134,25 +137,25 @@ const Navbar: React.FC = () => {
               to="/blog"
               className={`${
                 isBlogActive ? 'text-blue-600 dark:text-blue-400' : getTextColor('/blog')
-              } px-3 py-2 rounded-md text-sm font-semibold tracking-wide transition-colors`}
+              } rounded-md px-2 py-2 text-sm font-semibold tracking-wide transition-colors xl:px-2.5`}
             >
               Blog
             </Link>
-            <Link to="/case-studies" className={`${getTextColor('/case-studies')} px-3 py-2 rounded-md text-sm font-semibold tracking-wide transition-colors`}>
+            <Link to="/case-studies" className={`${getTextColor('/case-studies')} rounded-md px-2 py-2 text-sm font-semibold tracking-wide transition-colors xl:px-2.5`}>
               Case Studies
             </Link>
-            <Link to="/contact" className={`${getTextColor('/contact')} px-3 py-2 rounded-md text-sm font-semibold tracking-wide transition-colors`}>
+            <Link to="/contact" className={`${getTextColor('/contact')} rounded-md px-2 py-2 text-sm font-semibold tracking-wide transition-colors xl:px-2.5`}>
               Contact
             </Link>
             
-            <div className={`flex items-center space-x-4 pl-4 border-l ${scrolled || !isHomePage ? 'border-gray-200 dark:border-slate-700' : 'border-gray-300 dark:border-slate-700'} transition-colors`}>
+            <div className={`ml-2 flex items-center gap-2 border-l pl-3 ${scrolled || !isHomePage ? 'border-gray-200 dark:border-slate-700' : 'border-gray-300 dark:border-slate-700'} transition-colors`}>
               <span
-                className="flex cursor-not-allowed select-none items-center space-x-2 rounded-full border border-blue-500/30 bg-blue-600/85 px-5 py-2.5 text-sm font-semibold text-white opacity-90 shadow-md"
+                className="hidden cursor-not-allowed select-none items-center space-x-2 rounded-full border border-blue-500/30 bg-blue-600/85 px-3 py-2 text-xs font-semibold text-white opacity-90 shadow-md xl:inline-flex"
                 aria-disabled="true"
                 title="Client portal is not available yet"
               >
                 <UserCircle className="w-4 h-4" />
-                <span>Client Portal</span>
+                <span>Portal</span>
               </span>
               
               <button
@@ -169,8 +172,8 @@ const Navbar: React.FC = () => {
             </div>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="flex items-center md:hidden space-x-4">
+          {/* Mobile / tablet menu button */}
+          <div className="flex items-center space-x-3 lg:hidden">
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
               className={`p-2 rounded-full transition-colors focus:outline-none ${
@@ -199,7 +202,7 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white dark:bg-slate-950 border-t border-gray-100 dark:border-slate-800 shadow-xl absolute w-full">
+        <div className="absolute w-full border-t border-gray-100 bg-white shadow-xl dark:border-slate-800 dark:bg-slate-950 lg:hidden">
           <div className="px-4 pt-2 pb-6 space-y-1 sm:px-6">
             <Link to="/about" onClick={closeMobileMenu} className="block px-3 py-3 rounded-lg text-base font-semibold text-blue-950 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors">About</Link>
             <Link to="/services" onClick={closeMobileMenu} className="block px-3 py-3 rounded-lg text-base font-semibold text-blue-950 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors">Services</Link>

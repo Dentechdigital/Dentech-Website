@@ -67,7 +67,7 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative w-full min-h-screen overflow-hidden bg-[#FAFAF9] dark:bg-slate-950 pt-32 pb-16 md:pt-40 md:pb-24 lg:pt-32 lg:pb-32 flex flex-col justify-center transition-colors duration-300">
+    <section className="relative flex w-full flex-col justify-center overflow-hidden bg-[#FAFAF9] pb-12 pt-24 transition-colors duration-300 dark:bg-slate-950 md:pb-16 md:pt-28 lg:min-h-[calc(100vh-1rem)] lg:pb-20 lg:pt-28">
       
       <style>{`
         @keyframes textShine {
@@ -122,8 +122,8 @@ const Hero: React.FC = () => {
 
             {/* Headlines */}
             <div className="space-y-6">
-              <h1 className="text-[2.8rem] leading-[1.08] sm:text-5xl sm:leading-[1.1] md:text-6xl lg:text-7xl font-semibold tracking-tighter text-blue-950 dark:text-white transition-colors duration-300 max-sm:tracking-tight">
-                Dental marketing that turns Ottawa searches into{' '}
+              <h1 className="text-[2.35rem] font-semibold leading-[1.1] tracking-tight text-blue-950 transition-colors duration-300 max-sm:tracking-tight sm:text-5xl sm:leading-[1.08] md:text-6xl lg:text-[3.5rem] lg:leading-[1.08] dark:text-white">
+                Turn Ottawa searches into{' '}
                 <span className="relative inline">
                   <span className="pr-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-teal-400 to-indigo-600 animate-text-shine">
                     booked patients.
@@ -179,28 +179,27 @@ const Hero: React.FC = () => {
               </div>
             </div>
 
-            {/* Features List */}
-            <div className="mt-8 grid w-full grid-cols-1 gap-6 border-t border-gray-200/60 pt-8 transition-colors duration-300 sm:grid-cols-2 lg:grid-cols-3 dark:border-slate-800">
+            <div className="mt-6 grid w-full grid-cols-2 gap-x-3 gap-y-2.5">
               {FEATURES.map((feature, index) => (
-                <Link 
+                <Link
                   to={feature.link || '/services'}
-                  key={index}
+                  key={feature.title}
                   data-index={index}
                   ref={(el) => { featuresRef.current[index] = el; }}
-                  className={`flex flex-col items-start text-left gap-3 group cursor-pointer transition-all duration-700 ease-out ${
-                    visibleFeatures.includes(index) 
-                      ? 'opacity-100 translate-y-0' 
-                      : 'opacity-0 translate-y-8'
+                  title={feature.description}
+                  className={`group flex min-w-0 items-center gap-2.5 rounded-xl py-1 text-left transition-all duration-500 ease-out ${
+                    visibleFeatures.includes(index)
+                      ? 'translate-y-0 opacity-100'
+                      : 'translate-y-4 opacity-0'
                   }`}
-                  style={{ transitionDelay: `${index * 150}ms` }}
+                  style={{ transitionDelay: `${index * 80}ms` }}
                 >
-                  <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${feature.iconGradient} shadow-md flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500`}>
-                    <feature.icon className={`w-6 h-6 ${feature.iconColor}`} strokeWidth={1.5} />
+                  <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${feature.iconGradient} shadow-sm transition-transform duration-300 group-hover:scale-105`}>
+                    <feature.icon className={`h-4 w-4 ${feature.iconColor}`} strokeWidth={1.5} />
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-blue-950 dark:text-white mb-1 transition-colors duration-300 group-hover:text-blue-600 dark:group-hover:text-blue-400">{feature.title}</h3>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 leading-snug transition-colors duration-300">{feature.description}</p>
-                  </div>
+                  <span className="min-w-0 text-sm font-semibold leading-snug text-blue-950 transition-colors duration-300 group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-300">
+                    {feature.title}
+                  </span>
                 </Link>
               ))}
             </div>
@@ -208,9 +207,9 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Right: dashboard visual */}
-          <div className="relative mt-12 flex min-h-[40rem] w-full max-w-[100vw] flex-col items-center justify-center pb-8 pt-12 sm:min-h-[44rem] sm:overflow-visible lg:mt-0 lg:min-h-[42rem] lg:py-0">
-            <div className="mx-auto w-full max-w-md origin-center scale-[0.85] sm:scale-100">
-              <div className="relative z-10 mx-auto flex min-h-[540px] w-full max-w-[460px] flex-col justify-between perspective-[1000px]">
+          <div className="relative mt-8 flex min-h-[26rem] w-full max-w-[100vw] flex-col items-center justify-center overflow-hidden pb-2 pt-4 sm:min-h-[30rem] lg:mt-0 lg:min-h-[32rem] lg:overflow-visible lg:py-0">
+            <div className="mx-auto w-full max-w-md origin-center scale-[0.8] sm:scale-[0.92] lg:scale-100">
+              <div className="relative z-10 mx-auto flex min-h-[420px] w-full max-w-[460px] flex-col justify-between perspective-[1000px] sm:min-h-[480px]">
                 <HeroDentistCutout />
                 {showHeroEnhancements ? (
                   <Suspense fallback={null}>

@@ -268,7 +268,7 @@ function PackageCard({
   );
 }
 
-export default function GrowthPackages() {
+export default function GrowthPackages({ compactIntro = false }: { compactIntro?: boolean }) {
   const baseId = useId();
   const [viewMode, setViewMode] = useState<ViewMode>('essential');
   const [expandedTiers, setExpandedTiers] = useState<Set<number>>(new Set());
@@ -299,23 +299,41 @@ export default function GrowthPackages() {
   return (
     <section
       id="packages"
-      className="relative scroll-mt-24 overflow-hidden bg-[#F5F7FB] py-20 transition-colors duration-300 dark:bg-slate-950 md:py-24"
+      className={`relative scroll-mt-24 overflow-hidden bg-[#F5F7FB] transition-colors duration-300 dark:bg-slate-950 ${
+        compactIntro ? 'py-12 md:py-16' : 'py-20 md:py-24'
+      }`}
     >
       <div className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-blue-200/40 blur-3xl dark:bg-blue-500/20" />
       <div className="pointer-events-none absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-cyan-200/40 blur-3xl dark:bg-cyan-500/20" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto mb-10 max-w-3xl text-center md:mb-12">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.08em] text-blue-700 dark:border-blue-500/30 dark:bg-blue-500/10 dark:text-blue-300">
-            <Sparkles className="h-4 w-4" aria-hidden />
-            <span>Predictable Patient Acquisition</span>
-          </div>
-          <h2 className="mb-4 text-3xl font-bold tracking-tight text-blue-950 dark:text-white md:text-4xl md:leading-tight lg:text-5xl">
-            Turn Searches Into{' '}
-            <SectionGradientEmphasis>Booked Appointments</SectionGradientEmphasis>
+        <div className={`mx-auto max-w-3xl text-center ${compactIntro ? 'mb-8 md:mb-10' : 'mb-10 md:mb-12'}`}>
+          {!compactIntro && (
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.08em] text-blue-700 dark:border-blue-500/30 dark:bg-blue-500/10 dark:text-blue-300">
+              <Sparkles className="h-4 w-4" aria-hidden />
+              <span>Predictable Patient Acquisition</span>
+            </div>
+          )}
+          <h2 className={`mb-3 font-bold tracking-tight text-blue-950 dark:text-white ${
+            compactIntro
+              ? 'text-2xl md:text-3xl'
+              : 'text-3xl md:text-4xl md:leading-tight lg:text-5xl'
+          }`}>
+            {compactIntro ? (
+              <>
+                Compare the three <SectionGradientEmphasis>growth tiers</SectionGradientEmphasis>
+              </>
+            ) : (
+              <>
+                Turn Searches Into{' '}
+                <SectionGradientEmphasis>Booked Appointments</SectionGradientEmphasis>
+              </>
+            )}
           </h2>
           <p className="text-base leading-relaxed text-gray-600 dark:text-gray-300 md:text-lg">
-            Compliant growth systems for Ontario & Quebec clinics—lead follow-up and reporting in the Dentech portal.
+            {compactIntro
+              ? 'Pick your priority, then review essential or full specs. Scope is confirmed on a strategy call—not a one-size list price.'
+              : 'Compliant growth systems for Ontario & Quebec clinics—lead follow-up and reporting in the Dentech portal.'}
           </p>
         </div>
 

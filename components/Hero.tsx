@@ -122,13 +122,14 @@ const Hero: React.FC = () => {
 
             {/* Headlines */}
             <div className="space-y-6">
-              <h1 className="text-[2.35rem] font-semibold leading-[1.1] tracking-tight text-blue-950 transition-colors duration-300 max-sm:tracking-tight sm:text-5xl sm:leading-[1.08] md:text-6xl lg:text-[3.5rem] lg:leading-[1.08] dark:text-white">
-                Turn Ottawa searches into{' '}
+              <h1 className="text-[2.15rem] font-semibold leading-[1.1] tracking-tight text-blue-950 transition-colors duration-300 max-sm:tracking-tight sm:text-4xl sm:leading-[1.1] md:text-5xl lg:text-[3.15rem] lg:leading-[1.1] dark:text-white">
+                The Complete{' '}
                 <span className="relative inline">
                   <span className="pr-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-teal-400 to-indigo-600 animate-text-shine">
-                    booked patients.
+                    Patient Acquisition Engine
                   </span>
-                </span>
+                </span>{' '}
+                for Modern Dental Clinics.
               </h1>
               <p className="mx-auto max-w-lg text-lg font-normal leading-relaxed text-gray-600 transition-colors duration-300 sm:text-xl dark:text-gray-300 lg:mx-0">
                 Dentech helps Ottawa dental practices and Canadian groups generate qualified patient demand through SEO, GEO, paid media, conversion-focused websites, and reputation systems.

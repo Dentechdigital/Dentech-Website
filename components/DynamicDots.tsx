@@ -51,10 +51,10 @@ const DynamicDots: React.FC = () => {
     window.addEventListener('resize', resize);
     resize();
 
-    const spacing = isMobile ? 42 : 34;
-    const baseRadius = 1;
-    const maxRadius = finePointer ? 3 : 2.2;
-    const interactionRadius = interactivePointer ? 130 : 0;
+    const spacing = isMobile ? 38 : 28;
+    const baseRadius = 1.2;
+    const maxRadius = finePointer ? 4.2 : 3;
+    const interactionRadius = interactivePointer ? 170 : 0;
     const minFrameMs = isMobile ? 1000 / 30 : 1000 / 60;
     let lastDraw = 0;
 
@@ -79,7 +79,7 @@ const DynamicDots: React.FC = () => {
           const g = Math.floor(197 + (231 - 197) * ratioY);
           const b = Math.floor(253 + (183 - 253) * ((ratioX + ratioY) / 2));
 
-          ctx.fillStyle = `rgba(${r}, ${g}, ${b}, 0.28)`;
+          ctx.fillStyle = `rgba(${r}, ${g}, ${b}, 0.62)`;
 
           const dx = mouse.x - x;
           const dy = mouse.y - y;
@@ -94,12 +94,12 @@ const DynamicDots: React.FC = () => {
             const easeForce = Math.pow(force, 1.5);
             radius = baseRadius + easeForce * (maxRadius - baseRadius);
             const angle = Math.atan2(dy, dx);
-            const repelStrength = easeForce * 14;
+            const repelStrength = easeForce * 18;
             xOffset = -Math.cos(angle) * repelStrength;
             yOffset = -Math.sin(angle) * repelStrength;
           }
 
-          const wave = waveEnabled ? Math.sin(x * 0.012 + y * 0.004 + timeSeconds * 0.7) * 2 : 0;
+          const wave = waveEnabled ? Math.sin(x * 0.015 + y * 0.005 + timeSeconds) * 5 : 0;
 
           ctx.beginPath();
           ctx.arc(x + xOffset, y + yOffset + wave, radius, 0, Math.PI * 2);
@@ -152,7 +152,7 @@ const DynamicDots: React.FC = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="pointer-events-none absolute inset-0 z-0 h-full w-full opacity-40"
+      className="pointer-events-none absolute inset-0 z-0 h-full w-full opacity-80"
     />
   );
 };

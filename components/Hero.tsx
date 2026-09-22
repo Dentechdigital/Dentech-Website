@@ -8,10 +8,10 @@ const DentalMarketingChrome = lazy(() => import('./DentalMarketingChrome'));
 
 const assetBase = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}`;
 
-const ENGINE_STAGES = [
-  { step: '01', title: 'Attract', detail: 'Maps, search, and paid demand' },
-  { step: '02', title: 'Convert', detail: 'Site, proof, and booking UX' },
-  { step: '03', title: 'Capture', detail: 'Portal, missed-call, follow-up' },
+const TRUST_STATS = [
+  { value: '2017', label: 'Serving clinics since' },
+  { value: '2006', label: 'Founder in market' },
+  { value: '1,300+', label: 'Bookings, featured year one' },
 ] as const;
 
 const Hero: React.FC = () => {
@@ -82,7 +82,7 @@ const Hero: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-center lg:gap-8">
-          {/* Left: copy + engine stages */}
+          {/* Left: copy + trust stats */}
           <div className="mx-auto flex max-w-2xl flex-col items-start space-y-8 text-left lg:mx-0 lg:pr-12">
             
             {/* Badge */}
@@ -151,40 +151,19 @@ const Hero: React.FC = () => {
               </div>
             </div>
 
-            <div className="mt-2 w-full border-t border-gray-200/70 pt-6 dark:border-slate-800">
-              <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
-                How the engine works
-              </p>
-              <ol className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-0">
-                {ENGINE_STAGES.map((stage, index) => (
-                  <li
-                    key={stage.step}
-                    className="relative flex items-start gap-3 sm:flex-col sm:pr-6 sm:last:pr-0"
-                  >
-                    {index < ENGINE_STAGES.length - 1 ? (
-                      <span
-                        className="pointer-events-none absolute right-2 top-3 hidden h-px w-[calc(100%-1.75rem)] bg-gradient-to-r from-blue-300 to-transparent sm:block dark:from-blue-500/50"
-                        aria-hidden
-                      />
-                    ) : null}
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-blue-200 bg-white text-[11px] font-bold text-blue-700 dark:border-blue-500/40 dark:bg-slate-900 dark:text-blue-300">
-                      {stage.step}
-                    </span>
-                    <div className="min-w-0">
-                      <p className="text-sm font-semibold text-blue-950 dark:text-white">{stage.title}</p>
-                      <p className="mt-0.5 text-xs leading-snug text-slate-500 dark:text-slate-400">{stage.detail}</p>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-              <Link
-                to="/packages"
-                className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 transition hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
-              >
-                See how it is packaged
-                <ArrowRight className="h-3.5 w-3.5" aria-hidden />
-              </Link>
-            </div>
+            <dl className="mt-2 grid w-full grid-cols-3 gap-3 border-t border-gray-200/70 pt-6 dark:border-slate-800">
+              {TRUST_STATS.map((stat) => (
+                <div key={stat.value} className="min-w-0">
+                  <dt className="sr-only">{stat.label}</dt>
+                  <dd className="text-xl font-semibold tracking-tight text-blue-950 sm:text-2xl dark:text-white">
+                    {stat.value}
+                  </dd>
+                  <p className="mt-1 text-[11px] leading-snug text-slate-500 sm:text-xs dark:text-slate-400">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </dl>
 
           </div>
 

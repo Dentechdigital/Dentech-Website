@@ -67,7 +67,7 @@ const Hero: React.FC = () => {
 
       {/* Full-width Dynamic Dots Background */}
       <div
-        className="absolute inset-0 z-0 pointer-events-none opacity-100 dark:opacity-50 transition-opacity duration-300"
+        className="absolute inset-0 z-0 pointer-events-none opacity-70 transition-opacity duration-300 dark:opacity-35"
         style={{
           maskImage: 'radial-gradient(ellipse at center, black 32%, transparent 92%)',
           WebkitMaskImage: 'radial-gradient(ellipse at center, black 32%, transparent 92%)',

@@ -1,18 +1,21 @@
-import React, { lazy, Suspense, useEffect, useRef, useState } from 'react';
+import React, { lazy, Suspense, useEffect, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import HeroDentistCutout from './HeroDentistCutout';
-import { FEATURES } from '../constants';
 
 const DynamicDots = lazy(() => import('./DynamicDots'));
 const DentalMarketingChrome = lazy(() => import('./DentalMarketingChrome'));
 
 const assetBase = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}`;
 
+const ENGINE_STAGES = [
+  { step: '01', title: 'Attract', detail: 'Maps, search, and paid demand' },
+  { step: '02', title: 'Convert', detail: 'Site, proof, and booking UX' },
+  { step: '03', title: 'Capture', detail: 'Portal, missed-call, follow-up' },
+] as const;
+
 const Hero: React.FC = () => {
-  const [visibleFeatures, setVisibleFeatures] = useState<number[]>([]);
   const [showHeroEnhancements, setShowHeroEnhancements] = useState(false);
-  const featuresRef = useRef<(HTMLAnchorElement | null)[]>([]);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -31,38 +34,6 @@ const Hero: React.FC = () => {
     return () => {
       if (idleId !== undefined && w.cancelIdleCallback) w.cancelIdleCallback(idleId);
       if (timeoutId !== undefined) window.clearTimeout(timeoutId);
-    };
-  }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = Number(entry.target.getAttribute('data-index'));
-            if (!Number.isNaN(index)) {
-              setVisibleFeatures((prev) => {
-                if (prev.includes(index)) return prev;
-                return [...prev, index];
-              });
-              // Stop observing once visible so it doesn't fade out/in again
-              observer.unobserve(entry.target);
-            }
-          }
-        });
-      },
-      {
-        threshold: 0.2, // Trigger when 20% of the item is visible
-        rootMargin: '0px 0px -50px 0px'
-      }
-    );
-
-    featuresRef.current.forEach((el) => {
-      if (el) observer.observe(el);
-    });
-
-    return () => {
-      observer.disconnect();
     };
   }, []);
 
@@ -111,7 +82,7 @@ const Hero: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-center lg:gap-8">
-          {/* Left: copy + features */}
+          {/* Left: copy + engine stages */}
           <div className="mx-auto flex max-w-2xl flex-col items-start space-y-8 text-left lg:mx-0 lg:pr-12">
             
             {/* Badge */}
@@ -180,29 +151,39 @@ const Hero: React.FC = () => {
               </div>
             </div>
 
-            <div className="mt-6 grid w-full grid-cols-2 gap-x-3 gap-y-2.5">
-              {FEATURES.map((feature, index) => (
-                <Link
-                  to={feature.link || '/services'}
-                  key={feature.title}
-                  data-index={index}
-                  ref={(el) => { featuresRef.current[index] = el; }}
-                  title={feature.description}
-                  className={`group flex min-w-0 items-center gap-2.5 rounded-xl py-1 text-left transition-all duration-500 ease-out ${
-                    visibleFeatures.includes(index)
-                      ? 'translate-y-0 opacity-100'
-                      : 'translate-y-4 opacity-0'
-                  }`}
-                  style={{ transitionDelay: `${index * 80}ms` }}
-                >
-                  <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${feature.iconGradient} shadow-sm transition-transform duration-300 group-hover:scale-105`}>
-                    <feature.icon className={`h-4 w-4 ${feature.iconColor}`} strokeWidth={1.5} />
-                  </div>
-                  <span className="min-w-0 text-sm font-semibold leading-snug text-blue-950 transition-colors duration-300 group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-300">
-                    {feature.title}
-                  </span>
-                </Link>
-              ))}
+            <div className="mt-2 w-full border-t border-gray-200/70 pt-6 dark:border-slate-800">
+              <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
+                How the engine works
+              </p>
+              <ol className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-0">
+                {ENGINE_STAGES.map((stage, index) => (
+                  <li
+                    key={stage.step}
+                    className="relative flex items-start gap-3 sm:flex-col sm:pr-6 sm:last:pr-0"
+                  >
+                    {index < ENGINE_STAGES.length - 1 ? (
+                      <span
+                        className="pointer-events-none absolute right-2 top-3 hidden h-px w-[calc(100%-1.75rem)] bg-gradient-to-r from-blue-300 to-transparent sm:block dark:from-blue-500/50"
+                        aria-hidden
+                      />
+                    ) : null}
+                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-blue-200 bg-white text-[11px] font-bold text-blue-700 dark:border-blue-500/40 dark:bg-slate-900 dark:text-blue-300">
+                      {stage.step}
+                    </span>
+                    <div className="min-w-0">
+                      <p className="text-sm font-semibold text-blue-950 dark:text-white">{stage.title}</p>
+                      <p className="mt-0.5 text-xs leading-snug text-slate-500 dark:text-slate-400">{stage.detail}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+              <Link
+                to="/packages"
+                className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 transition hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+              >
+                See how it is packaged
+                <ArrowRight className="h-3.5 w-3.5" aria-hidden />
+              </Link>
             </div>
 
           </div>

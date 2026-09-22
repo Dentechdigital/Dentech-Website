@@ -62,13 +62,13 @@ const Navbar: React.FC = () => {
   return (
     <nav className={navClasses}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex min-h-[3.5rem] items-center justify-between lg:min-h-[3.75rem]">
+        <div className="flex min-h-[4.25rem] items-center justify-between lg:min-h-[4.675rem]">
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0 flex items-center" aria-label="Home">
               <img 
                 src={theme === 'dark' ? `${import.meta.env.BASE_URL}logo-dark.svg?v=2` : `${import.meta.env.BASE_URL}logo-light.svg?v=2`} 
                 alt="Dentech Digital" 
-                className="h-10 w-auto transition-all duration-300 lg:h-11"
+                className="h-[4.25rem] w-auto transition-all duration-300 lg:h-[4.675rem]"
               />
             </Link>
           </div>

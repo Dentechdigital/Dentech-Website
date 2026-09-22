@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronDown, Menu, X, UserCircle, Sun, Moon } from 'lucide-react';
 import { useTheme } from './ThemeProvider';
+import { CLIENT_PORTAL_URL } from '../data/siteContact';
 
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -149,14 +150,14 @@ const Navbar: React.FC = () => {
             </Link>
             
             <div className={`ml-2 flex items-center gap-2 border-l pl-3 ${scrolled || !isHomePage ? 'border-gray-200 dark:border-slate-700' : 'border-gray-300 dark:border-slate-700'} transition-colors`}>
-              <span
-                className="hidden cursor-not-allowed select-none items-center space-x-2 rounded-full border border-blue-500/30 bg-blue-600/85 px-3 py-2 text-xs font-semibold text-white opacity-90 shadow-md xl:inline-flex"
-                aria-disabled="true"
-                title="Client portal is not available yet"
+              <a
+                href={CLIENT_PORTAL_URL}
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 rounded-full bg-blue-600 px-3 py-2 text-xs font-semibold text-white shadow-md transition hover:bg-blue-700"
               >
                 <UserCircle className="w-4 h-4" />
                 <span>Portal</span>
-              </span>
+              </a>
               
               <button
                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
@@ -217,14 +218,15 @@ const Navbar: React.FC = () => {
             <Link to="/blog" onClick={closeMobileMenu} className="block px-3 py-3 rounded-lg text-base font-semibold text-blue-950 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors">Blog</Link>
             <Link to="/case-studies" onClick={closeMobileMenu} className="block px-3 py-3 rounded-lg text-base font-semibold text-blue-950 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors">Case Studies</Link>
             <Link to="/contact" onClick={closeMobileMenu} className="block px-3 py-3 rounded-lg text-base font-semibold text-blue-950 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors">Contact</Link>
-            <span
-              className="mt-6 flex w-full cursor-not-allowed select-none items-center justify-center space-x-2 rounded-xl border border-blue-500/30 bg-blue-600/85 px-4 py-3 text-base font-semibold text-white opacity-90 shadow-md"
-              aria-disabled="true"
-              title="Client portal is not available yet"
+            <a
+              href={CLIENT_PORTAL_URL}
+              rel="noopener noreferrer"
+              onClick={closeMobileMenu}
+              className="mt-6 flex w-full items-center justify-center space-x-2 rounded-xl bg-blue-600 px-4 py-3 text-base font-semibold text-white shadow-md transition hover:bg-blue-700"
             >
               <UserCircle className="w-5 h-5" />
               <span>Client Portal</span>
-            </span>
+            </a>
           </div>
         </div>
       )}

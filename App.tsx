@@ -1,5 +1,5 @@
 import React, { Suspense, lazy, useEffect, type ComponentType } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from './components/ThemeProvider';
 import AppErrorBoundary from './components/AppErrorBoundary';
@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import FreeWebsiteOfferPopup from './components/FreeWebsiteOfferPopup';
 /** Eager: avoids a second network round-trip on `/` (common cause of long “splash” on cold mobile loads). */
 import Home from './pages/Home';
+import { CLIENT_PORTAL_URL } from './data/siteContact';
 
 const CHUNK_RELOAD_KEY = 'dentech-chunk-reload-once';
 
@@ -54,6 +55,13 @@ const Packages = lazyRetry(() => import('./pages/Packages'));
 const NotFound = lazyRetry(() => import('./pages/NotFound'));
 const Footer = lazyRetry(() => import('./components/Footer'));
 const DentechChatWidget = lazyRetry(() => import('./components/chat/DentechChatWidget'));
+
+function RedirectToClientPortal() {
+  useEffect(() => {
+    window.location.replace(CLIENT_PORTAL_URL);
+  }, []);
+  return null;
+}
 
 function RouteScrollManager() {
   const { pathname, hash } = useLocation();
@@ -182,7 +190,7 @@ const App: React.FC = () => {
                     <Route path="/blog/:slug" element={<BlogPost />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/packages" element={<Packages />} />
-                    <Route path="/portal" element={<Navigate to="/contact" replace />} />
+                    <Route path="/portal" element={<RedirectToClientPortal />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </Suspense>

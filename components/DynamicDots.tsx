@@ -53,8 +53,8 @@ const DynamicDots: React.FC = () => {
 
     const spacing = isMobile ? 38 : 28;
     const baseRadius = 1.2;
-    const maxRadius = finePointer ? 4.2 : 3;
-    const interactionRadius = interactivePointer ? 170 : 0;
+    const maxRadius = finePointer ? 3.4 : 2.5;
+    const interactionRadius = interactivePointer ? 140 : 0;
     const minFrameMs = isMobile ? 1000 / 30 : 1000 / 60;
     let lastDraw = 0;
 
@@ -94,7 +94,7 @@ const DynamicDots: React.FC = () => {
             const easeForce = Math.pow(force, 1.5);
             radius = baseRadius + easeForce * (maxRadius - baseRadius);
             const angle = Math.atan2(dy, dx);
-            const repelStrength = easeForce * 18;
+            const repelStrength = easeForce * 12;
             xOffset = -Math.cos(angle) * repelStrength;
             yOffset = -Math.sin(angle) * repelStrength;
           }

@@ -11,7 +11,7 @@ const assetBase = `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}`;
 const TRUST_STATS = [
   { value: '2017', label: 'Serving clinics since' },
   { value: '$250k+', label: 'Ad spend managed per year' },
-  { value: 'Ottawa', label: 'Local service, right here' },
+  { value: 'Ottawa', label: 'In-market HQ' },
 ] as const;
 
 const Hero: React.FC = () => {
